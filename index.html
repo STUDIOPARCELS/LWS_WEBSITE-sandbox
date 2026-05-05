@@ -381,6 +381,22 @@ figure img { cursor: zoom-in; }
 }
 #winterblue {
   padding-top: clamp(30px, 4vw, 62px);
+  padding-bottom: clamp(36px, 5vw, 72px);
+}
+#practice {
+  padding-top: clamp(36px, 5vw, 72px);
+}
+.practice-top {
+  display: grid;
+  gap: clamp(20px, 2.5vw, 36px);
+  margin-bottom: clamp(54px, 8vw, 112px);
+}
+.practice-header {
+  display: grid;
+  gap: 22px;
+}
+.practice-intro {
+  display: grid;
 }
 #practice .section-head {
   margin-bottom: clamp(54px, 8vw, 112px);
@@ -748,8 +764,9 @@ figure img { cursor: zoom-in; }
 }
 .winterblue-feature {
   display: grid;
-  gap: clamp(48px, 7vw, 112px);
+  gap: clamp(36px, 5vw, 72px);
 }
+.winterblue-top + .winterblue-grid { margin-top: calc(clamp(36px, 5vw, 72px) * -0.5); }
 .winterblue-top {
   display: grid;
   gap: clamp(20px, 2.5vw, 36px);
@@ -1417,15 +1434,15 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
 
   <section class="page" id="practice">
     <div class="inner">
-      <div class="section-head">
-        <div class="stack">
+      <div class="practice-top">
+        <div class="practice-header">
           <p class="eyebrow">SECTION 3 — PRACTICE & GLOBAL LANDSCAPE</p>
           <h2 class="split-title">
             <span class="line">CONNECTION TO <em>REGIONAL</em> <span class="title-soft">IDENTITY</span></span>
             <span class="line">AND <em>GLOBAL</em> <span class="title-muted">LANDSCAPE</span></span>
           </h2>
         </div>
-        <div class="stack">
+        <div class="practice-intro">
           <div class="note-block">
             <p class="text-block-title">OVERVIEW</p>
             <p>The commission begins in Central Idaho and extends into a global study of remote terrain. Craters connects to geologically significant landscapes across the world —the Greenland Ice Sheet, into the restricted airspace over White Sands National Park, across the longest parallel sand dunes in the world in Australia, and into the Middle East where the Bedouin roam — while Winterblue reveals both studio tenet and the character of the Wood River Valley: exit comfort as a means toward adventure, exploration, and discovery.</p>
@@ -1440,13 +1457,13 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
           </div>
           <p>A field-based body of work documenting six remote and geologically significant landscapes across four continents — deserts, ice sheets, lava fields, gypsum dunes, and granite formations.</p>
           <figure>
-            <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/GREENLAND/L1001017.jpg" alt="Greenland Ice Sheet aerial survey." loading="lazy">
+            <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/GREENLAND/L1001406%20(1).jpg" alt="Greenland Ice Sheet aerial survey." loading="lazy">
           </figure>
           <span class="cta">EXPLORE SURFACE SURVEYS</span>
         </a>
         <a class="bento-card" href="#luxuriate" aria-label="Explore Luxuriate in Discomfort">
           <div>
-            <p class="bento-label">A LIFELONG STUDIO TENET</p>
+            <p class="bento-label">AN 8-YEAR PRACTICE</p>
             <h3 class="bento-title">Luxuriate in Discomfort</h3>
           </div>
           <p>A studio philosophy carried across three forms — a book, a one-night installation, and a public art project for teenage mental health.</p>
@@ -1463,7 +1480,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
     <div class="inner">
       <div class="section-head">
         <div class="stack">
-          <p class="eyebrow">A LIFELONG STUDIO TENET</p>
+          <p class="eyebrow">AN 8-YEAR PRACTICE</p>
           <h2>LUXURIATE IN DISCOMFORT</h2>
         </div>
         <div class="stack">
