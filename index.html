@@ -86,12 +86,25 @@ figure, p, h1, h2, h3 { margin: 0; }
   min-height: auto;
   display: grid;
   grid-template-columns: minmax(280px,.62fr) minmax(460px,1fr);
-  align-items: center;
+  align-items: start;
   gap: clamp(64px, 9vw, 144px);
   max-width: var(--max);
   margin: 0 auto;
   padding-bottom: clamp(42px, 5vw, 72px);
   box-sizing: content-box;
+}
+.hero .stack { padding-top: clamp(8px, 1.5vw, 24px); }
+.hero-note {
+  display: grid;
+  gap: 12px;
+  margin-top: 4px;
+}
+.hero-note p {
+  margin: 0;
+  font-size: var(--hero-note-size);
+  line-height: 1.62;
+  color: var(--muted);
+  font-weight: 300;
 }
 .stack { display: flex; flex-direction: column; gap: 22px; }
 h1, h2 {
@@ -1165,14 +1178,9 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
       <p class="eyebrow">THE OBSERVATORY SUN VALLEY, A VICEROY RESORT</p>
       <h1><span class="line">LUXURIATE</span><span class="line">IN <span class="soft">DISCOMFORT</span></span></h1>
       <p class="sentence">Five commissioned works by LISA WOOD STUDIO bring together two Central Idaho field sites: the volcanic surface of Craters of the Moon National Monument and the winter expanse of the Camas Prairie before dawn.</p>
-      <details open>
-        <summary>Project Note</summary>
+      <div class="hero-note">
         <p>Four works from Craters, Surface Surveys (2018), and one work from Winterblue (2023) connect neighboring terrain beneath a dark sky through a practice shaped by discomfort, exposure, sustained attention, and discovery.</p>
         <p>Volcanic surface, winter darkness, protected sky, and remote ground become a visual study of adventure and the reward of experiencing remote places.</p>
-      </details>
-      <div class="actions">
-        <a class="cta" href="#commission">VIEW COMMISSION</a>
-        <a class="cta secondary" href="#intro">EXPLORE FIELD SITES</a>
       </div>
     </div>
     <figure class="hero-media">
