@@ -389,12 +389,19 @@ figure img { cursor: zoom-in; }
 }
 .installation-popup-grid video { cursor: default; }
 .video-popup {
+  position: fixed;
+  inset: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: min(94vw, 920px);
   max-width: none;
   height: auto;
   max-height: 86vh;
+  margin: 0;
   padding: 0;
   background: #000;
+  border: 0;
   border-radius: 6px;
   box-shadow:
     0 60px 120px -28px rgba(0, 0, 0, 0.55),
@@ -403,15 +410,14 @@ figure img { cursor: zoom-in; }
 }
 .video-popup::backdrop { background: rgba(0, 0, 0, 0.72); }
 .video-popup-frame {
-  width: 100%;
-  height: 100%;
   display: block;
+  line-height: 0;
 }
 .video-popup-frame video {
+  display: block;
   width: 100%;
   height: auto;
   max-height: 86vh;
-  display: block;
   background: #000;
 }
 .book-popup {
