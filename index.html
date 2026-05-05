@@ -47,13 +47,18 @@ figure, p, h1, h2, h3 { margin: 0; }
   position: sticky;
   top: 0;
   z-index: 10;
-  display: flex;
-  justify-content: space-between;
-  gap: 28px;
-  padding: 22px clamp(28px, 5vw, 86px);
+  padding: 22px clamp(28px, 6vw, 96px);
   background: rgba(255,255,255,.82);
   background: var(--nav-bg);
   backdrop-filter: saturate(180%) blur(22px);
+}
+.nav-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 28px;
 }
 .brand, .nav a, .eyebrow, .cta, summary {
   font-size: var(--label-size);
@@ -80,6 +85,7 @@ figure, p, h1, h2, h3 { margin: 0; }
   max-width: var(--max);
   margin: 0 auto;
   padding-bottom: clamp(42px, 5vw, 72px);
+  box-sizing: content-box;
 }
 .stack { display: flex; flex-direction: column; gap: 22px; }
 h1, h2 {
@@ -1040,13 +1046,15 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
   </details>
 </aside>
 <header class="nav">
-  <a class="brand" href="#top">Lisa Wood Studio</a>
-  <nav class="nav-links" aria-label="Sections">
-    <a href="#commission">Commission</a>
-    <a href="#practice">Practice</a>
-    <a href="#luxuriate">Luxuriate</a>
-    <a href="#surface-surveys">Surface Surveys</a>
-  </nav>
+  <div class="nav-inner">
+    <a class="brand" href="#top">Lisa Wood Studio</a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#commission">Commission</a>
+      <a href="#practice">Practice</a>
+      <a href="#luxuriate">Luxuriate</a>
+      <a href="#surface-surveys">Surface Surveys</a>
+    </nav>
+  </div>
 </header>
 
 <main id="top">
@@ -1080,7 +1088,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
             LUXURY WITHIN <span class="soft">DISCOMFORT:</span> THE PARADOX OF A DARK SKY RESERVE
           </h2>
           <div class="text-block no-rule">
-            <p>"Luxuriate in discomfort" is the central philosophy for Wood and a theme running through her practice. It names her approach to exploration: stepping into challenging conditions and staying there long enough for perception to change. The work is rooted in discomfort, driven by adventure, and rewarded with discovery.</p>
+            <p>Luxuriate in discomfort is a central philosophy for Wood and a theme running through her practice. It names her approach to exploration: stepping into challenging conditions and staying there long enough for perception to change. The work is rooted in discomfort, driven by adventure, and rewarded with discovery.</p>
             <p>The philosophy takes form through five large-scale photographs of the volcanic surface of Craters of the Moon National Monument and the winter expanse of the Camas Prairie before dawn. Together, they bring the surrounding terrain into the Observatory as a visual language for Central Idaho.</p>
           </div>
         </div>
