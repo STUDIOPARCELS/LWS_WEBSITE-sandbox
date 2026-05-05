@@ -516,21 +516,29 @@ figure img { cursor: zoom-in; }
   grid-template-columns: 1fr 1fr;
   gap: clamp(28px, 4vw, 56px);
   margin-top: 8px;
+  position: relative;
+}
+.overview-split::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: var(--line);
+  pointer-events: none;
 }
 .overview-split .note-block { margin-top: 0; }
 .overview-split .note-block + .note-block {
-  border-left: 1px solid var(--line);
-  padding-left: clamp(28px, 4vw, 56px);
+  border-left: 0;
+  padding-left: 0;
 }
 @media (max-width: 720px) {
   .overview-split {
     grid-template-columns: 1fr;
     gap: 14px;
   }
-  .overview-split .note-block + .note-block {
-    border-left: 0;
-    padding-left: 0;
-  }
+  .overview-split::before { display: none; }
 }
 .surveys-overview {
   display: grid;
@@ -2632,7 +2640,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
         </div>
         <div class="note-block">
           <p class="text-block-title">THE PRACTICE</p>
-          <p>Three modalities — <em>sauna</em>, <em>cold plunge</em>, and <em>whole-body vibration</em> — sequenced together and scientifically proven to improve mental health and long-term well-being.</p>
+          <p>Three modalities, <em>sauna</em>, <em>cold plunge</em>, and <em>whole-body vibration</em>, sequenced together and scientifically proven to improve mental health and long-term well-being.</p>
         </div>
       </div>
     </div>
@@ -2653,7 +2661,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
           <p class="bento-label">ONE-NIGHT INSTALLATION</p>
           <h3 class="bento-title">December 2020, Sun Valley</h3>
         </div>
-        <p>A one-night-only exhibition staged inside the artist's bedroom at the height of the pandemic, opened to a small masked, distanced audience. The works on view — a book, poetry, a large-scale painting, and a video clip — presented as a combination of grief and transformation.</p>
+        <p>A one-night-only exhibition staged inside the artist's bedroom at the height of the pandemic, opened to a small masked, distanced audience. The works on view — a book, poetry, a large-scale painting, and a video clip presented as a combination of grief and transformation.</p>
         <figure>
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/L1009933%20RESIZE.jpg" alt="One-night installation." loading="lazy">
         </figure>
