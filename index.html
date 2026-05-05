@@ -217,6 +217,16 @@ h3 {
   max-height: 76svh;
   object-fit: contain;
 }
+.artist-media {
+  align-self: center;
+  justify-self: center;
+}
+.artist-media img {
+  width: clamp(220px, 26vw, 380px);
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
 .intro-head {
   grid-template-columns: minmax(360px, .85fr) minmax(0, 1fr);
   align-items: start;
@@ -1012,7 +1022,7 @@ figure img { cursor: zoom-in; }
 .materials-item dd {
   margin: 0;
   max-width: 460px;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.55;
   font-weight: 300;
   color: var(--ink);
@@ -1624,11 +1634,11 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
       <p class="sentence">Five commissioned works by LISA WOOD STUDIO bring together two Central Idaho field sites: the volcanic surface of Craters of the Moon National Monument and the winter expanse of the Camas Prairie before dawn.</p>
       <div class="hero-text-blocks">
         <div class="text-block">
-          <p class="text-block-title">THE WORKS</p>
+          <p class="text-block-title">LARGE-SCALE PHOTOGRAPHS</p>
           <p>Four works from <em>Craters, Surface Surveys (2018)</em>, and one work from <em>Winterblue (2023)</em> connect neighboring terrain beneath a dark sky through a practice shaped by discomfort, exposure, sustained attention, and discovery.</p>
         </div>
         <div class="text-block">
-          <p class="text-block-title">THE LANDSCAPE</p>
+          <p class="text-block-title">TERRAIN</p>
           <p>Volcanic surface, winter darkness, protected sky, and remote ground become <em>a visual study of adventure and the reward of experiencing remote places</em>.</p>
         </div>
       </div>
@@ -1703,10 +1713,6 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
               <div class="materials-item">
                 <dt>Mounting</dt>
                 <dd>Painted maple wood or float mounting, per installation location</dd>
-              </div>
-              <div class="materials-item">
-                <dt>Glazing</dt>
-                <dd>Non-glare</dd>
               </div>
               <div class="materials-item">
                 <dt>Fabrication</dt>
@@ -1899,15 +1905,28 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
 
 
 
-  <section class="closing">
-    <div class="inner stack">
-      <p class="sentence">Surface Surveys treats the Earth's surface as evidence, image, and elemental form — a sustained study of where the planet records itself in plain view, and what becomes visible when it is approached from above.</p>
+  <section class="page hero hero--artist" id="artist">
+    <div class="stack">
+      <p class="eyebrow">ABOUT THE ARTIST</p>
+      <h1><span class="line">LISA</span><span class="line"><span class="soft">WOOD</span></span></h1>
+      <p class="sentence">A Sun Valley resident since 1992, Lisa Wood builds bodies of work through sustained contact with wild land — endurance, attention, and direct experience in remote terrain.</p>
+      <div class="hero-text-blocks">
+        <div class="text-block">
+          <p class="text-block-title">PRACTICE</p>
+          <p>Over the past decade, <em>Lisa Wood Studio</em> has produced 17 projects and more than 200 works across photography, mixed media, public installation, text, and essay. The work is built through immersion — repetition, duration, and close observation in remote terrain, often alone and under physically demanding conditions.</p>
+        </div>
+        <div class="text-block">
+          <p class="text-block-title">PLACE</p>
+          <p>Born in Naples, Italy. Raised in Pittsburgh. BA in English Literature, College of William &amp; Mary. <em>Surface Surveys</em> took her to six landscapes across four continents, including two trips to the Greenland Ice Sheet and restricted military airspace over White Sands. In 2024, she installed a 17-foot animated neon work on the National Mall in Washington, D.C., with the World Land Trust.</p>
+        </div>
+      </div>
       <div class="actions">
-        <a class="cta" href="#commission">RETURN TO COMMISSION</a>
-        <a class="cta secondary" href="#surveys-popup" data-popup="surveys">VIEW ALL PROJECTS</a>
         <a class="cta secondary" href="mailto:studio@lisawoodstudio.com">CONTACT THE STUDIO</a>
       </div>
     </div>
+    <figure class="hero-media artist-media">
+      <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/lisa%20quoote.png" alt="Lisa Wood — portrait placeholder.">
+    </figure>
   </section>
 </main>
 <dialog id="installation-popup" class="installation-popup survey-popup" aria-label="One-night installation gallery">
