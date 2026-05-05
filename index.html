@@ -81,6 +81,36 @@ figure, p, h1, h2, h3 { margin: 0; }
   letter-spacing: .22em;
 }
 .nav-links { display: flex; gap: clamp(18px, 3vw, 42px); color: var(--muted); }
+.nav-toggle {
+  display: none;
+  width: 38px;
+  height: 38px;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  z-index: 30;
+}
+.nav-toggle-bar {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--ink);
+  transition: transform .25s ease, opacity .2s ease;
+}
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
 .eyebrow { color: var(--muted); }
 .page, .closing {
   padding: clamp(80px, 10vw, 130px) clamp(28px, 6vw, 96px);
@@ -1816,7 +1846,31 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
 }
 @media (max-width: 680px) {
   :root { --hero-title-size: 38px; }
-  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+  .nav-links {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(18px);
+    z-index: 20;
+    transform: translateX(100%);
+    transition: transform .28s ease;
+    pointer-events: none;
+  }
+  .nav-links.is-open {
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+  .nav-links a {
+    font-size: 16px;
+    letter-spacing: .2em;
+  }
+  .lightbox-close { display: none !important; }
   .modules { grid-template-columns: 1fr; }
   h1 { font-size: clamp(34px, 10vw, 48px); }
   h2 { font-size: var(--section-title-size); }
@@ -2065,7 +2119,12 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
 <header class="nav">
   <div class="nav-inner">
     <a class="brand" href="#top">Lisa Wood Studio</a>
-    <nav class="nav-links" aria-label="Sections">
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+    <nav class="nav-links" id="nav-links" aria-label="Sections">
       <a href="#commission">Commission</a>
       <a href="#craters-gallery">Craters</a>
       <a href="#winterblue">Winterblue</a>
@@ -3669,6 +3728,23 @@ saveSnapshotToServer();
   });
   closeBtn.addEventListener("click", (e) => { e.stopPropagation(); close(); });
   overlay.addEventListener("click", () => close());
+})();
+
+(function setupNavToggle(){
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('.nav-links');
+  if (!toggle || !links) return;
+  const close = () => {
+    links.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open menu');
+  };
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+  links.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
 })();
 
 (function setupPopups(){
