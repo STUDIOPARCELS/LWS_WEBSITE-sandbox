@@ -327,7 +327,7 @@ figure img { cursor: zoom-in; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: clamp(28px, 3vw, 56px);
-  padding: clamp(36px, 4vw, 64px);
+  padding: clamp(18px, 2vw, 32px);
   background: #fff;
   border-radius: 6px;
   box-shadow:
@@ -340,7 +340,7 @@ figure img { cursor: zoom-in; }
 .installation-popup-grid--three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .installation-popup-grid figure {
   margin: 0;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 1 / 1;
   background: #f5f5f5;
   display: flex;
   align-items: center;
@@ -473,11 +473,13 @@ figure img { cursor: zoom-in; }
   object-fit: contain;
   cursor: pointer;
 }
-.bento-grid--three .bento-card figure {
+.bento-grid--three .bento-card figure,
+.bento-grid:not(.bento-grid--three) .bento-card figure {
   width: 100%;
   margin: 0;
 }
-.bento-grid--three .bento-card img {
+.bento-grid--three .bento-card img,
+.bento-grid:not(.bento-grid--three) .bento-card img {
   width: 100%;
   aspect-ratio: 4 / 5;
   max-height: none;
@@ -542,8 +544,8 @@ figure img { cursor: zoom-in; }
   line-height: 1.62;
   color: var(--muted);
   font-weight: 300;
-  max-width: 520px;
 }
+.field-site-description + .field-site-description { margin-top: 10px; }
 .field-sites-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1575,7 +1577,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
             <h3 class="field-site-title">Camas Prairie — Winterblue Field Site</h3>
           </header>
           <div class="field-site-body">
-            <p class="field-site-description">A high prairie basin south of the Sawtooths — roughly 35 miles southwest of The Observatory in Ketchum.</p>
+            <p class="field-site-description">Camas Prairie lies 60 miles southwest of The Observatory and spans approximately 200 square miles. The prairie is a structural basin shaped by ancient lake, stream, alluvial, and basalt deposits, with a cultural history rooted in camas gathering by Shoshone, Bannock, and Paiute peoples and later emigrant travel along Goodale's Cutoff.</p>
           </div>
           <figure class="field-site-map">
             <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/CAMAS%20PRAIRIE.png" alt="Map of the Camas Prairie field site." loading="lazy">
