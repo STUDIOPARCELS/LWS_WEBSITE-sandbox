@@ -989,27 +989,25 @@ figure img { cursor: zoom-in; }
     0 10px 20px -10px rgba(0, 0, 0, 0.14);
 }
 .survey-card::after {
-  content: "View";
+  content: "→";
   position: absolute;
-  top: clamp(16px, 2vw, 24px);
-  right: clamp(20px, 2.4vw, 28px);
+  top: clamp(14px, 1.8vw, 22px);
+  right: clamp(16px, 2vw, 24px);
   z-index: 2;
-  font-size: 10px;
-  letter-spacing: .22em;
-  text-transform: uppercase;
-  font-weight: 600;
+  font-size: 22px;
+  line-height: 1;
   color: #fff;
   background: transparent;
   border: 0;
   padding: 0;
   pointer-events: none;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.28);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.40);
   transform-origin: top right;
   transition: transform .18s ease;
 }
 .survey-card:hover::after,
 .survey-card:focus-within::after {
-  transform: scale(1.18);
+  transform: translateX(2px) scale(1.08);
 }
 .survey-card summary {
   display: grid;
