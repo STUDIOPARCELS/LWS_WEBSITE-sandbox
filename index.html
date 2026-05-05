@@ -357,6 +357,27 @@ figure img { cursor: zoom-in; }
   background: #f5f5f5;
 }
 .installation-popup-grid video { cursor: default; }
+.book-popup {
+  width: min(96vw, 1100px);
+  height: 92vh;
+  max-width: none;
+  max-height: 92vh;
+  padding: clamp(12px, 1.5vw, 22px);
+  background: #fff;
+  border-radius: 6px;
+  box-shadow:
+    0 60px 120px -28px rgba(0, 0, 0, 0.50),
+    0 24px 48px -16px rgba(0, 0, 0, 0.28);
+  cursor: pointer;
+}
+.book-popup-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  background: #fff;
+  cursor: default;
+}
 @media (max-width: 900px) {
   .installation-popup-grid--three { grid-template-columns: 1fr 1fr; }
 }
@@ -1636,7 +1657,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
         </div>
       </div>
       <div class="bento-grid bento-grid--three" aria-label="Luxuriate in Discomfort project links">
-        <a class="bento-card" href="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/luxuriate%20in%20discomfort%20book%20lws.pdf" aria-label="View the Luxuriate In Discomfort book">
+        <a class="bento-card" href="#book-popup" data-popup="book" aria-label="View the Luxuriate In Discomfort book">
           <div>
             <p class="bento-label">THE BOOK (2020)</p>
             <h3 class="bento-title">Luxuriate In Discomfort</h3>
@@ -1824,6 +1845,9 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
       <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/L1009938%20book%20in%20mirrorRE%20copy.jpg" alt="One-night installation, photograph 2." loading="lazy">
     </figure>
   </div>
+</dialog>
+<dialog id="book-popup" class="installation-popup book-popup" aria-label="Luxuriate In Discomfort book">
+  <iframe class="book-popup-frame" src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/luxuriate%20in%20discomfort%20book%20lws%20(1).pdf#toolbar=0&navpanes=0" title="Luxuriate In Discomfort book" loading="lazy"></iframe>
 </dialog>
 <dialog id="craters-site-popup" class="installation-popup" aria-label="Craters of the Moon imagery">
   <div class="installation-popup-grid installation-popup-grid--three">
