@@ -740,6 +740,19 @@ figure img { cursor: zoom-in; }
 .field-site-clickable:hover { transform: translateY(-2px); }
 .field-site-clickable:focus-visible { outline: 1px solid var(--ink); outline-offset: 4px; }
 .field-site-clickable .field-site-map img { cursor: pointer; }
+.field-site-cue {
+  margin: clamp(16px, 2vw, 26px) 0 clamp(10px, 1.2vw, 16px);
+  font-size: var(--label-size);
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink);
+}
+.field-site-cue::after {
+  content: " →";
+  display: inline;
+  margin-left: 6px;
+}
 .survey-grid {
   display: grid;
   grid-template-columns: repeat(2,minmax(0,1fr));
@@ -1810,7 +1823,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
         <h2>FIELD SITES</h2>
       </div>
       <div class="field-sites-grid">
-        <article class="field-site field-site-clickable" data-popup="craters-site" role="button" tabindex="0" aria-label="View Craters of the Moon imagery">
+        <article class="field-site">
           <header class="field-site-header">
             <p class="eyebrow">LOCATION</p>
             <h3 class="field-site-title">Craters of the Moon</h3>
@@ -1829,6 +1842,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
           </header>
           <div class="field-site-body">
             <p class="field-site-description">Camas Prairie lies 60 miles southwest of The Observatory and spans approximately 200 square miles. The prairie is a structural basin shaped by ancient lake, stream, alluvial, and basalt deposits, with a cultural history rooted in camas gathering by Shoshone, Bannock, and Paiute peoples and later emigrant travel along Goodale's Cutoff.</p>
+            <p class="field-site-cue">View field photographs</p>
           </div>
           <figure class="field-site-map">
             <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/CAMAS%20PRAIRIE.png" alt="Map of the Camas Prairie field site." loading="lazy">
@@ -1917,28 +1931,6 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
 </dialog>
 <dialog id="book-popup" class="installation-popup book-popup" aria-label="Luxuriate In Discomfort book">
   <iframe class="book-popup-frame" src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/luxuriate%20in%20discomfort%20book%20lws%20(1).pdf#toolbar=0&navpanes=0" title="Luxuriate In Discomfort book" loading="lazy"></iframe>
-</dialog>
-<dialog id="craters-site-popup" class="installation-popup" aria-label="Craters of the Moon imagery">
-  <div class="installation-popup-grid installation-popup-grid--three">
-    <figure>
-      <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/OBSERVATORY%20COMMISSION%20Photographs/CRATERS_L1001569_EAST%20BAR.jpg" alt="Craters of the Moon imagery, placeholder." loading="lazy">
-    </figure>
-    <figure>
-      <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/OBSERVATORY%20COMMISSION%20Photographs/CRATERS_L1002418%20_GM%20WALL.jpg" alt="Craters of the Moon imagery, placeholder." loading="lazy">
-    </figure>
-    <figure>
-      <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/OBSERVATORY%20COMMISSION%20Photographs/CRATERS_L1001955_EAST%20HALL.jpg" alt="Craters of the Moon imagery, placeholder." loading="lazy">
-    </figure>
-    <figure>
-      <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/CRATERS/EAST-HALLL1002207.jpg" alt="Craters of the Moon imagery, placeholder." loading="lazy">
-    </figure>
-    <figure>
-      <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/CRATERS/GM%20WALL.jpg" alt="Craters of the Moon imagery, placeholder." loading="lazy">
-    </figure>
-    <figure>
-      <img src="assets/craters-lounge-wall-web.jpg" alt="Craters of the Moon imagery, placeholder." loading="lazy">
-    </figure>
-  </div>
 </dialog>
 <dialog id="winterblue-site-popup" class="installation-popup survey-popup" aria-label="Camas Prairie field site imagery">
   <div class="survey-popup-frame">
@@ -2045,7 +2037,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
         </div>
         <div class="note-block">
           <p class="text-block-title">FIRSTS</p>
-          <p>Three of the six surveys are the first artist-led aerial surveys of their kind.</p>
+          <p>Three of the six are the first aerial photographic studies of their kind.</p>
         </div>
       </div>
     </div>
