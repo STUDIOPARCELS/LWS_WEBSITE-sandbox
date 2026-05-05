@@ -217,14 +217,22 @@ h3 {
   max-height: 76svh;
   object-fit: contain;
 }
+.hero--artist {
+  align-items: center;
+  gap: clamp(40px, 5.5vw, 96px);
+}
+.hero--artist .stack { padding-bottom: 0; }
 .artist-media {
   align-self: center;
-  justify-self: center;
+  justify-self: stretch;
+  width: 100%;
 }
 .artist-media img {
-  width: clamp(220px, 26vw, 380px);
-  max-width: 100%;
+  width: 100%;
+  max-width: clamp(360px, 40vw, 560px);
   height: auto;
+  margin: 0 auto;
+  display: block;
   border-radius: 4px;
 }
 .intro-head {
