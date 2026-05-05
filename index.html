@@ -575,10 +575,13 @@ figure img { cursor: zoom-in; }
   display: block;
 }
 .essay-toggle {
-  display: inline-block;
-  padding: 14px 28px;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 6px 0 8px;
   background: transparent;
-  border: 1px solid var(--ink);
+  border: 0;
+  border-bottom: 1px solid var(--ink);
   color: var(--ink);
   font-family: inherit;
   font-size: var(--label-size);
@@ -586,10 +589,10 @@ figure img { cursor: zoom-in; }
   text-transform: uppercase;
   font-weight: 600;
   cursor: pointer;
-  transition: background .18s ease, color .18s ease;
+  transition: gap .2s ease, opacity .2s ease, border-color .2s ease;
 }
-.essay-toggle:hover { background: var(--ink); color: var(--paper); }
-.essay-toggle:focus-visible { outline: 1px solid var(--ink); outline-offset: 4px; }
+.essay-toggle:hover { gap: 22px; opacity: .7; }
+.essay-toggle:focus-visible { outline: 1px solid var(--ink); outline-offset: 6px; }
 @media (max-width: 700px) {
   .survey-popup-grid { flex-wrap: wrap; }
   .survey-popup-grid figure { flex: 1 1 calc(50% - 14px); }
@@ -1030,7 +1033,7 @@ figure img { cursor: zoom-in; }
   grid-template-columns: minmax(300px,.62fr) minmax(520px,1fr);
   align-items: center;
   gap: clamp(64px, 9vw, 144px);
-  margin-bottom: clamp(76px, 10vw, 150px);
+  margin-bottom: clamp(61px, 8vw, 120px);
 }
 .commission-copy {
   max-width: 620px;
@@ -1130,7 +1133,8 @@ figure img { cursor: zoom-in; }
   align-items: start;
 }
 .craters-gallery .gallery-item:nth-child(-n+2) img {
-  width: 100%;
+  width: 105%;
+  margin-left: -2.5%;
   aspect-ratio: 1274 / 1920;
   max-height: none;
   object-fit: cover;
@@ -1717,6 +1721,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
       <a href="#commission">Commission</a>
       <a href="#craters-gallery">Craters</a>
       <a href="#winterblue">Winterblue</a>
+      <a href="#field-sites">Field Sites</a>
       <a href="#practice">Practice</a>
     </nav>
   </div>
