@@ -1914,9 +1914,23 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
     aspect-ratio: auto !important;
     overflow: visible !important;
     margin: 0 !important;
+    position: relative;
+    grid-column: 1 / -1;
+  }
+  .survey-popup-frame .survey-popup-grid figure.is-portrait {
     grid-column: span 1;
   }
-  .survey-popup-frame .survey-popup-grid figure.is-landscape,
+  .survey-popup-frame .survey-popup-grid figure.is-portrait:nth-of-type(2n)::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    bottom: -2px;
+    left: -14px;
+    width: 24px;
+    background: #fff;
+    pointer-events: none;
+    z-index: 2;
+  }
   .survey-popup-grid--stacked figure {
     grid-column: 1 / -1 !important;
   }
