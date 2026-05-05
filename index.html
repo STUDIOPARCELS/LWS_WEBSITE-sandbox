@@ -525,29 +525,31 @@ figure img { cursor: zoom-in; }
 #survey-craters-popup .survey-popup-grid--stacked { gap: 0; }
 #survey-craters-popup .survey-popup-grid--stacked figure { margin: 0; }
 #installation-popup .survey-popup-grid {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: minmax(0, 1fr);
-  gap: clamp(12px, 1.4vw, 22px);
+  display: block;
+  column-count: 3;
+  column-gap: clamp(10px, 1.2vw, 18px);
 }
 #installation-popup .survey-popup-grid figure {
   flex: initial;
   width: 100%;
-  height: clamp(220px, 36vh, 380px);
+  height: auto;
   aspect-ratio: auto;
   overflow: hidden;
-  margin: 0;
+  margin: 0 0 clamp(10px, 1.2vw, 18px);
   background: transparent;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  border-radius: 3px;
 }
 #installation-popup .survey-popup-grid img {
   width: 100%;
-  height: 100%;
+  height: auto;
   display: block;
   object-fit: contain;
   background: transparent;
 }
 #installation-popup .survey-popup-grid + .survey-popup-grid {
-  margin-top: clamp(12px, 1.4vw, 22px);
+  margin-top: clamp(4px, 0.4vw, 8px);
 }
 .survey-popup-grid img {
   width: 100%;
@@ -1684,6 +1686,10 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
   .hero, .section-head, .image-row, .commission-feature, .winterblue-feature { grid-template-columns: 1fr; }
   .intro-head { grid-template-columns: 1fr; }
   .hero-media img { max-height: none; }
+  .winterblue-primary {
+    width: 100%;
+    margin: 0;
+  }
   .winterblue-primary img {
     max-height: none;
   }
@@ -1938,7 +1944,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
             </div>
             <div class="text-block">
               <p class="text-block-title">VISUAL LANGUAGE</p>
-              <p>For The Observatory, the idea takes form through five large-scale photographs of the volcanic surface of Craters of the Moon National Monument and the winter expanse of the Camas Prairie before dawn. Together, they bring the surrounding terrain into The Observatory as a visual language for Central Idaho.</p>
+              <p>For The Observatory, the idea takes form through five large-scale photographs of the volcanic surface of Craters of the Moon National Monument and the pre-dawn winter expanse of the Camas Prairie. Together, they bring the surrounding terrain into The Observatory as a visual language for Central Idaho.</p>
             </div>
           </div>
         </div>
@@ -2069,7 +2075,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
           <div class="winterblue-notes-stack">
             <div class="winterblue-note-block">
               <p class="text-block-title">FIELD NOTE</p>
-              <p>Winterblue was born from a winter search for Lisa's missing dog. For 11 days she and her community searched. Lisa slept in her car, searched in whiteouts, and met the full force of winter in the form of fear, isolation, and overwhelming discomfort.</p>
+              <p><em>Winterblue</em> was born from a winter search for Lisa's missing dog. For 11 days she and her community searched. Sleeping in her car, searching in whiteouts, she met the full force of winter in the form of fear, isolation, and overwhelming discomfort.</p>
             </div>
             <div class="winterblue-note-block winterblue-materials">
               <p class="text-block-title">MATERIALS + FABRICATION</p>
