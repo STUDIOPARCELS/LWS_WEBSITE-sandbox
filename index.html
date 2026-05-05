@@ -618,24 +618,27 @@ figure img { cursor: zoom-in; }
 .survey-popup-essay { width: 100%; }
 .essay-summary {
   max-width: 720px;
-  margin: 0 0 clamp(22px, 2.4vw, 34px);
-  padding: clamp(18px, 2vw, 28px) 0 0;
+  margin: 0 0 clamp(20px, 2.2vw, 30px);
+  padding: 14px 0 0;
   border-top: 1px solid var(--line);
-  font-size: 15px;
-  line-height: 1.7;
-  color: var(--ink);
+  font-size: var(--module-text-size);
+  line-height: 1.62;
+  color: var(--muted);
   font-style: normal;
   font-weight: 300;
+  letter-spacing: 0;
+  text-transform: none;
 }
 .essay-summary::before {
   content: "Summary";
   display: block;
   margin-bottom: 12px;
-  font-size: 10px;
-  letter-spacing: .22em;
+  font-size: var(--intro-label-size);
+  letter-spacing: .2em;
   text-transform: uppercase;
   font-weight: 600;
-  color: var(--muted);
+  color: var(--ink);
+  line-height: 1.3;
 }
 .essay-summary em { font-style: italic; }
 .essay-toggle {
@@ -967,6 +970,33 @@ figure img { cursor: zoom-in; }
   box-shadow:
     0 28px 52px -20px rgba(0, 0, 0, 0.30),
     0 10px 20px -10px rgba(0, 0, 0, 0.14);
+}
+.survey-card::after {
+  content: "View →";
+  position: absolute;
+  top: clamp(16px, 2vw, 24px);
+  right: clamp(16px, 2vw, 24px);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  font-size: 10px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(17, 17, 17, 0.18);
+  border-radius: 999px;
+  pointer-events: none;
+  transition: background .18s ease, color .18s ease, border-color .18s ease, transform .18s ease;
+}
+.survey-card:hover::after {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+  transform: translateX(2px);
 }
 .survey-card summary {
   display: grid;
@@ -2066,16 +2096,6 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
         </div>
       </div>
       <div class="bento-grid" aria-label="Practice gateways">
-        <a class="bento-card" href="#surveys-popup" data-popup="surveys" aria-label="Explore Surface Surveys">
-          <div>
-            <p class="bento-label">A SIX-PART AERIAL STUDY</p>
-            <h3 class="bento-title">Surface Surveys</h3>
-          </div>
-          <p>A field-based body of work documenting six remote and geologically significant landscapes across four continents — desert, ice sheet, lava field, gypsum dune, and granite formation.</p>
-          <figure>
-            <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WHITE%20SANDS/L1000187-LWS.jpg" alt="White Sands aerial survey." loading="lazy">
-          </figure>
-        </a>
         <a class="bento-card" href="#luxuriate-popup" data-popup="luxuriate" aria-label="Explore Luxuriate in Discomfort">
           <div>
             <p class="bento-label">AN 8-YEAR PRACTICE</p>
@@ -2084,6 +2104,16 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
           <p>A studio philosophy carried across three projects — a book, a one-night installation, and a public art project for teenage mental health.</p>
           <figure>
             <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/L1009938%20book%20in%20mirrorRE%20copy.jpg" alt="Luxuriate in Discomfort book." loading="lazy">
+          </figure>
+        </a>
+        <a class="bento-card" href="#surveys-popup" data-popup="surveys" aria-label="Explore Surface Surveys">
+          <div>
+            <p class="bento-label">A SIX-PART AERIAL STUDY</p>
+            <h3 class="bento-title">Surface Surveys</h3>
+          </div>
+          <p>A field-based body of work documenting six remote and geologically significant landscapes across four continents — desert, ice sheet, lava field, gypsum dune, and granite formation.</p>
+          <figure>
+            <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WHITE%20SANDS/L1000187-LWS.jpg" alt="White Sands aerial survey." loading="lazy">
           </figure>
         </a>
       </div>
