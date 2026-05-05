@@ -539,6 +539,7 @@ figure img { cursor: zoom-in; }
   border-top: 1px solid var(--line);
   padding-top: 12px;
   margin-bottom: clamp(16px, 1.8vw, 22px);
+  align-self: start;
 }
 .field-site-description {
   margin: 0;
@@ -551,12 +552,14 @@ figure img { cursor: zoom-in; }
 .field-sites-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: clamp(28px, 3.6vw, 56px);
-  align-items: start;
+  grid-auto-rows: auto;
+  column-gap: clamp(28px, 3.6vw, 56px);
+  row-gap: clamp(16px, 2vw, 28px);
 }
 .field-site {
   display: grid;
-  gap: clamp(16px, 2vw, 28px);
+  grid-row: span 3;
+  grid-template-rows: subgrid;
 }
 .field-site-map {
   margin: 0;
@@ -1568,7 +1571,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
             <h3 class="field-site-title">Craters of the Moon</h3>
           </header>
           <div class="field-site-body">
-            <p class="field-site-description">A volcanic field on Idaho's Snake River Plain — roughly 75 miles southeast of The Observatory in Ketchum.</p>
+            <p class="field-site-description">Craters of the Moon lies roughly 65 miles southeast of The Observatory and spans approximately 620 square miles. The landscape is a vast Holocene lava field shaped by lava flows, cinder cones, spatter cones, fissures, and sagebrush plains, with a scientific and cultural history that includes its 1924 National Monument designation, Apollo astronaut geology training, continued NASA research, and its 2017 designation as an International Dark Sky Park.</p>
           </div>
           <figure class="field-site-map">
             <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/CRATERS%20MAPS.jpg" alt="Map of The Observatory and Craters of the Moon National Monument." loading="lazy">
