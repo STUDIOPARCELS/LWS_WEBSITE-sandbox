@@ -496,6 +496,25 @@ figure img { cursor: zoom-in; }
   background: transparent;
   cursor: zoom-in;
 }
+.survey-popup-section--env .survey-popup-grid figure,
+.survey-popup-section--env .survey-popup-grid img { cursor: default; }
+.survey-popup-video {
+  width: min(100%, 720px);
+  margin: 0 auto;
+}
+.survey-popup-video figure {
+  margin: 0;
+  background: transparent;
+  aspect-ratio: 16 / 9;
+}
+.survey-popup-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  background: #000;
+  border-radius: 3px;
+}
 @media (max-width: 700px) {
   .survey-popup-grid { flex-wrap: wrap; }
   .survey-popup-grid figure { flex: 1 1 calc(50% - 14px); }
@@ -1923,35 +1942,52 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
     </figure>
   </div>
 </dialog>
-<dialog id="winterblue-site-popup" class="installation-popup" aria-label="Camas Prairie field site imagery">
-  <div class="installation-popup-grid installation-popup-grid--three">
-    <figure>
-      <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/%20%281%29.photos/2.JPEG" alt="Camas Prairie site imagery." loading="lazy">
-    </figure>
-    <figure>
-      <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/%20%281%29.photos/9.JPEG" alt="Camas Prairie site imagery." loading="lazy">
-    </figure>
-    <figure>
-      <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/%20%281%29.photos/9_1.JPEG" alt="Camas Prairie site imagery." loading="lazy">
-    </figure>
-    <figure>
-      <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/%20%281%29.photos/IMG_0822.JPEG" alt="Camas Prairie site imagery." loading="lazy">
-    </figure>
-    <figure>
-      <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/%20%281%29.photos/IMG_4962%20copy.jpg" alt="Camas Prairie site imagery." loading="lazy">
-    </figure>
-    <figure>
-      <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/%20%281%29.photos/IMG_7041.JPEG" alt="Camas Prairie site imagery." loading="lazy">
-    </figure>
-    <figure>
-      <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/%20%281%29.photos/IMG_7456.JPEG" alt="Camas Prairie site imagery." loading="lazy">
-    </figure>
-    <figure>
-      <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/%20%281%29.photos/IMG_9824.JPEG" alt="Camas Prairie site imagery." loading="lazy">
-    </figure>
-    <figure>
-      <video src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/WINTERBLUE%20I_1.mp4" controls controlslist="nofullscreen nodownload noremoteplayback" disablepictureinpicture muted loop playsinline preload="metadata"></video>
-    </figure>
+<dialog id="winterblue-site-popup" class="installation-popup survey-popup" aria-label="Camas Prairie field site imagery">
+  <div class="survey-popup-frame">
+    <div class="survey-popup-section">
+      <p class="survey-popup-label">FIELD PHOTOGRAPHS</p>
+      <div class="survey-popup-grid survey-popup-grid--landscape">
+        <figure>
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/File_006.png" alt="Camas Prairie site map." loading="lazy">
+        </figure>
+        <figure>
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/%20%281%29.photos/2.JPEG" alt="Camas Prairie site imagery." loading="lazy">
+        </figure>
+        <figure>
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/%20%281%29.photos/9.JPEG" alt="Camas Prairie site imagery." loading="lazy">
+        </figure>
+      </div>
+      <div class="survey-popup-grid survey-popup-grid--landscape">
+        <figure>
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/%20%281%29.photos/9_1.JPEG" alt="Camas Prairie site imagery." loading="lazy">
+        </figure>
+        <figure>
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/%20%281%29.photos/IMG_0822.JPEG" alt="Camas Prairie site imagery." loading="lazy">
+        </figure>
+        <figure>
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/%20%281%29.photos/IMG_4962%20copy.jpg" alt="Camas Prairie site imagery." loading="lazy">
+        </figure>
+      </div>
+      <div class="survey-popup-grid survey-popup-grid--landscape">
+        <figure>
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/%20%281%29.photos/IMG_7041.JPEG" alt="Camas Prairie site imagery." loading="lazy">
+        </figure>
+        <figure>
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/%20%281%29.photos/IMG_7456.JPEG" alt="Camas Prairie site imagery." loading="lazy">
+        </figure>
+        <figure>
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/%20%281%29.photos/IMG_9824.JPEG" alt="Camas Prairie site imagery." loading="lazy">
+        </figure>
+      </div>
+    </div>
+    <div class="survey-popup-section">
+      <p class="survey-popup-label">FIELD VIDEO</p>
+      <div class="survey-popup-video">
+        <figure>
+          <video src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/WINTERBLUE%20I_1.mp4" controls controlslist="nofullscreen nodownload noremoteplayback" disablepictureinpicture muted loop playsinline preload="metadata"></video>
+        </figure>
+      </div>
+    </div>
   </div>
 </dialog>
 <dialog id="luxuriate-popup" class="installation-popup section-popup" aria-label="Luxuriate in Discomfort">
@@ -2161,7 +2197,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
         </figure>
       </div>
     </div>
-    <div class="survey-popup-section">
+    <div class="survey-popup-section survey-popup-section--env">
       <p class="survey-popup-label">ENVIRONMENT</p>
       <div class="survey-popup-grid survey-popup-grid--landscape survey-popup-grid--stacked">
         <figure>
@@ -2204,7 +2240,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
         </figure>
       </div>
     </div>
-    <div class="survey-popup-section">
+    <div class="survey-popup-section survey-popup-section--env">
       <p class="survey-popup-label">ENVIRONMENT</p>
       <div class="survey-popup-grid survey-popup-grid--landscape">
         <figure>
@@ -2245,7 +2281,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
         </figure>
       </div>
     </div>
-    <div class="survey-popup-section">
+    <div class="survey-popup-section survey-popup-section--env">
       <p class="survey-popup-label">ENVIRONMENT</p>
       <div class="survey-popup-grid survey-popup-grid--landscape">
         <figure>
@@ -3002,6 +3038,7 @@ saveSnapshotToServer();
     const img = e.target.closest("img");
     if (!img) return;
     if (img.closest('.survey-popup-grid')) {
+      if (img.closest('.survey-popup-section--env')) return;
       e.preventDefault();
       e.stopPropagation();
       open(img.currentSrc || img.src, img.alt);
