@@ -1916,15 +1916,44 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
   .survey-popup-grid--stacked {
     grid-template-columns: minmax(0, 1fr) !important;
   }
-  #survey-simpson-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid figure {
+  #survey-simpson-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid figure,
+  #survey-wahiba-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid figure {
     grid-column: 1 / -1 !important;
   }
+  #survey-greenland-popup .survey-popup-section--env figure {
+    position: relative;
+  }
+  #survey-greenland-popup .survey-popup-section--env figure::before,
+  #survey-greenland-popup .survey-popup-section--env figure::after {
+    content: "";
+    position: absolute;
+    background: #fff;
+    pointer-events: none;
+    z-index: 2;
+  }
+  #survey-greenland-popup .survey-popup-section--env figure::before {
+    top: 0;
+    bottom: 0;
+    left: calc(50% - 5px);
+    width: 10px;
+  }
+  #survey-greenland-popup .survey-popup-section--env figure::after {
+    left: 0;
+    right: 0;
+    top: calc(50% - 5px);
+    height: 10px;
+  }
+  #survey-city-popup .survey-popup-section--env .survey-popup-grid figure:nth-child(2) { order: 3; }
+  #survey-city-popup .survey-popup-section--env .survey-popup-grid figure:nth-child(3) { order: 2; }
   .editor-panel {
     left: 14px;
     right: 14px;
     bottom: 14px;
     width: auto;
   }
+}
+#survey-simpson-popup img[src*="L10062022"] {
+  transform: rotate(180deg);
 }
 .reveal {
   opacity: 0;
