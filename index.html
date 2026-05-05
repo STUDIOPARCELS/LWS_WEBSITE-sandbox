@@ -456,14 +456,17 @@ figure img { cursor: zoom-in; }
   object-fit: contain;
   cursor: pointer;
 }
-.bento-grid--three .bento-card figure,
-.bento-grid:not(.bento-grid--three) .bento-card figure {
+.bento-grid--three .bento-card figure {
   width: 100%;
   margin: 0;
 }
-.bento-grid--three .bento-card img,
-.bento-grid:not(.bento-grid--three) .bento-card img {
+.bento-grid--three .bento-card img {
   width: 100%;
+  aspect-ratio: 4 / 5;
+  max-height: none;
+  object-fit: cover;
+}
+.bento-card[href="#surface-surveys"] img {
   aspect-ratio: 4 / 5;
   max-height: none;
   object-fit: cover;
