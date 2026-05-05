@@ -1529,9 +1529,15 @@ figure img { cursor: zoom-in; }
   object-fit: cover;
 }
 .winterblue-primary {
-  width: 120%;
-  margin: 0 -10%;
+  width: min(120%, calc(100vw - clamp(28px, 6vw, 96px) * 2));
+  margin: 0 auto;
   max-width: none;
+}
+@media (min-width: 1320px) {
+  .winterblue-primary {
+    width: 120%;
+    margin: 0 -10%;
+  }
 }
 .winterblue-primary img {
   width: 100%;
