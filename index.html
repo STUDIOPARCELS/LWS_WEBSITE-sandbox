@@ -70,9 +70,9 @@ figure, p, h1, h2, h3 { margin: 0; }
   font-weight: 600;
 }
 .brand {
-  font-size: clamp(16px, 1.5vw, 22px);
-  letter-spacing: .18em;
-  line-height: 1.15;
+  font-size: 11px;
+  letter-spacing: .22em;
+  line-height: 1.3;
   color: var(--ink);
 }
 .nav-links a {
@@ -524,26 +524,29 @@ figure img { cursor: zoom-in; }
 #survey-craters-popup .survey-popup-grid--stacked { gap: 0; }
 #survey-craters-popup .survey-popup-grid--stacked figure { margin: 0; }
 #installation-popup .survey-popup-grid {
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: clamp(10px, 1.2vw, 20px);
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: clamp(12px, 1.4vw, 22px);
 }
 #installation-popup .survey-popup-grid figure {
-  flex: 0 0 auto;
-  width: auto;
-  height: clamp(200px, 32vh, 360px);
+  flex: initial;
+  width: 100%;
+  height: clamp(220px, 36vh, 380px);
   aspect-ratio: auto;
-  overflow: visible;
+  overflow: hidden;
   margin: 0;
   background: transparent;
 }
 #installation-popup .survey-popup-grid img {
-  width: auto;
+  width: 100%;
   height: 100%;
   display: block;
   object-fit: contain;
   background: transparent;
+}
+#installation-popup .survey-popup-grid + .survey-popup-grid {
+  margin-top: clamp(12px, 1.4vw, 22px);
 }
 .survey-popup-grid img {
   width: 100%;
@@ -773,7 +776,7 @@ figure img { cursor: zoom-in; }
   position: absolute;
   top: clamp(20px, 2.4vw, 32px);
   right: clamp(20px, 2.4vw, 32px);
-  font-size: 22px;
+  font-size: 14px;
   line-height: 1;
   color: var(--muted);
   opacity: 0;
@@ -991,10 +994,6 @@ figure img { cursor: zoom-in; }
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.28);
   transform-origin: top right;
   transition: transform .18s ease;
-}
-.survey-card[data-popup="survey-white-sands"]::after {
-  color: var(--muted);
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.55);
 }
 .survey-card:hover::after,
 .survey-card:focus-within::after {
@@ -1682,7 +1681,6 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
 }
 @media (max-width: 680px) {
   .nav-links { display: none; }
-  .brand { font-size: 18px; letter-spacing: .16em; }
   .modules { grid-template-columns: 1fr; }
   h1 { font-size: clamp(34px, 10vw, 48px); }
   h2 { font-size: var(--section-title-size); }
@@ -2162,9 +2160,6 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
     <div class="stack">
       <p class="eyebrow">SECTION 5 — ABOUT THE ARTIST</p>
       <h1><span class="line">LISA</span><span class="line"><span class="soft">WOOD</span></span></h1>
-      <div class="text-block no-rule">
-        <p>A Sun Valley resident since 1992, Lisa Wood builds bodies of work through sustained contact with wild land.</p>
-      </div>
       <div class="hero-text-blocks">
         <div class="text-block">
           <p class="text-block-title">PRACTICE</p>
