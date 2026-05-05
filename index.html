@@ -972,31 +972,29 @@ figure img { cursor: zoom-in; }
     0 10px 20px -10px rgba(0, 0, 0, 0.14);
 }
 .survey-card::after {
-  content: "View →";
+  content: "View";
   position: absolute;
   top: clamp(16px, 2vw, 24px);
-  right: clamp(16px, 2vw, 24px);
+  right: clamp(20px, 2.4vw, 28px);
   z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 10px;
   font-size: 10px;
   letter-spacing: .22em;
   text-transform: uppercase;
   font-weight: 600;
-  color: var(--ink);
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(17, 17, 17, 0.18);
-  border-radius: 999px;
+  color: #fff;
+  background: transparent;
+  border: 0;
+  padding: 0;
   pointer-events: none;
-  transition: background .18s ease, color .18s ease, border-color .18s ease, transform .18s ease;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.28);
+  transition: opacity .18s ease;
+}
+.survey-card[data-popup="survey-white-sands"]::after {
+  color: var(--ink);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.45);
 }
 .survey-card:hover::after {
-  background: var(--ink);
-  color: #fff;
-  border-color: var(--ink);
-  transform: translateX(2px);
+  opacity: 0.85;
 }
 .survey-card summary {
   display: grid;
