@@ -585,6 +585,9 @@ figure img { cursor: zoom-in; }
   color: var(--ink);
 }
 .bento-card:focus-visible { outline: 1px solid var(--ink); outline-offset: 4px; }
+.bento-card--static { cursor: default; }
+.bento-card--static:hover { transform: none; box-shadow: none; border-color: var(--line); }
+.bento-card--static::after { display: none; }
 .bento-card.large {
   grid-row: span 2;
   grid-template-rows: auto auto 1fr auto;
@@ -1963,7 +1966,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/L1009933%20RESIZE.jpg" alt="One-night installation." loading="lazy">
         </figure>
       </a>
-      <a class="bento-card" href="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/LUX%20Public%20Art%202024%20-%202025.pdf" aria-label="Explore LUX public art project">
+      <div class="bento-card bento-card--static">
         <div>
           <p class="bento-label">LUX — PUBLIC ART PROJECT</p>
           <h3 class="bento-title">Addressing Teenage Mental Health</h3>
@@ -1972,7 +1975,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
         <figure>
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/004%20copy.jpg" alt="LUX public art project image." loading="lazy">
         </figure>
-      </a>
+      </div>
     </div>
   </div>
 </dialog>
