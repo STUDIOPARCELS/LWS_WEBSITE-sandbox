@@ -558,31 +558,35 @@ figure img { cursor: zoom-in; }
 #survey-craters-popup .survey-popup-grid--stacked { gap: 0; }
 #survey-craters-popup .survey-popup-grid--stacked figure { margin: 0; }
 #installation-popup .survey-popup-grid {
-  display: block;
-  column-count: 4;
-  column-gap: clamp(10px, 1.2vw, 18px);
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(8px, 1vw, 14px);
+  justify-content: flex-start;
+  align-items: stretch;
+}
+#installation-popup .survey-popup-grid::after {
+  content: "";
+  flex-grow: 9999;
 }
 #installation-popup .survey-popup-grid figure {
-  flex: initial;
-  width: 100%;
-  height: auto;
-  aspect-ratio: auto;
+  flex: 1 1 auto;
+  width: auto;
+  height: clamp(220px, 32vh, 320px);
+  min-width: clamp(180px, 20vw, 280px);
+  margin: 0;
   overflow: hidden;
-  margin: 0 0 clamp(10px, 1.2vw, 18px);
   background: transparent;
-  break-inside: avoid;
-  -webkit-column-break-inside: avoid;
   border-radius: 3px;
 }
 #installation-popup .survey-popup-grid img {
-  width: 100%;
-  height: auto;
   display: block;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   background: transparent;
 }
 #installation-popup .survey-popup-grid + .survey-popup-grid {
-  margin-top: clamp(4px, 0.4vw, 8px);
+  margin-top: clamp(8px, 1vw, 14px);
 }
 .survey-popup-grid img {
   width: 100%;
@@ -595,18 +599,21 @@ figure img { cursor: zoom-in; }
 .survey-popup-section--env .survey-popup-grid figure,
 .survey-popup-section--env .survey-popup-grid img { cursor: default; }
 .survey-popup-section--env .survey-popup-grid {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: minmax(0, 1fr);
-  gap: clamp(8px, 1vw, 14px);
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(6px, 0.8vw, 12px);
+  justify-content: flex-start;
+  align-items: stretch;
 }
 .survey-popup-section--env .survey-popup-grid::after {
-  display: none;
+  content: "";
+  flex-grow: 9999;
 }
 .survey-popup-section--env .survey-popup-grid figure {
-  flex: initial;
-  width: 100%;
-  height: clamp(200px, 28vh, 320px);
+  flex: 1 1 auto;
+  width: auto;
+  height: clamp(200px, 26vh, 280px);
+  min-width: clamp(160px, 18vw, 240px);
   aspect-ratio: auto;
   overflow: hidden;
   margin: 0;
@@ -614,11 +621,11 @@ figure img { cursor: zoom-in; }
 .survey-popup-section--env .survey-popup-grid img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   display: block;
 }
 .survey-popup-section--env .survey-popup-grid + .survey-popup-grid {
-  margin-top: clamp(8px, 1vw, 14px);
+  margin-top: clamp(6px, 0.8vw, 12px);
 }
 .survey-popup-section--env .survey-popup-grid.survey-popup-grid--stacked {
   display: flex;
@@ -721,19 +728,23 @@ figure img { cursor: zoom-in; }
   border-bottom: 1px solid var(--line);
 }
 .essay-body-title {
-  margin: 0 0 6px;
-  font-size: clamp(18px, 1.8vw, 22px);
+  margin: 0 0 8px;
+  font-size: clamp(17px, 1.6vw, 20px);
   letter-spacing: .02em;
   font-weight: 600;
-  line-height: 1.3;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow-wrap: normal;
 }
 .essay-byline {
   margin: 0;
-  font-size: 11px;
-  letter-spacing: .22em;
-  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: .01em;
+  text-transform: none;
   color: var(--muted);
-  font-weight: 600;
+  font-weight: 400;
+  font-style: italic;
+  font-family: Georgia, "Times New Roman", serif;
 }
 .essay-body p {
   margin: 0 0 1.05em;
