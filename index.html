@@ -70,8 +70,9 @@ figure, p, h1, h2, h3 { margin: 0; }
   font-weight: 600;
 }
 .brand {
-  font-size: 22px;
-  letter-spacing: .22em;
+  font-size: clamp(26px, 2.4vw, 38px);
+  letter-spacing: .14em;
+  line-height: 1.1;
 }
 .nav-links a {
   font-size: 11px;
@@ -471,6 +472,14 @@ figure img { cursor: zoom-in; }
   font-weight: 600;
   color: var(--muted);
   margin: 0 0 clamp(10px, 1.2vw, 18px);
+}
+.survey-popup-label-aside {
+  margin-left: .9em;
+  padding-left: .9em;
+  border-left: 1px solid var(--line);
+  font-weight: 500;
+  letter-spacing: .18em;
+  color: var(--muted);
 }
 .survey-popup-grid {
   display: flex;
@@ -2084,7 +2093,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
       </div>
     </div>
     <div class="survey-popup-section">
-      <p class="survey-popup-label">FIELD VIDEO</p>
+      <p class="survey-popup-label">FIELD VIDEO <span class="survey-popup-label-aside">Sound on</span></p>
       <div class="survey-popup-video">
         <figure>
           <video src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/WINTERBLUE%20I_1.mp4" controls controlslist="nofullscreen nodownload noremoteplayback" disablepictureinpicture muted loop playsinline preload="metadata"></video>
