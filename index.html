@@ -2956,11 +2956,8 @@ saveSnapshotToServer();
 </script>
 <script>
 (function setupLightbox(){
-  const overlay = document.createElement("div");
+  const overlay = document.createElement("dialog");
   overlay.className = "lightbox-overlay";
-  overlay.setAttribute("role", "dialog");
-  overlay.setAttribute("aria-modal", "true");
-  overlay.setAttribute("aria-hidden", "true");
   const closeBtn = document.createElement("button");
   closeBtn.className = "lightbox-close";
   closeBtn.type = "button";
@@ -2975,15 +2972,13 @@ saveSnapshotToServer();
   function open(src, alt){
     lbImg.src = src;
     lbImg.alt = alt || "";
-    overlay.classList.add("is-open");
-    overlay.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
+    if (typeof overlay.showModal === "function") overlay.showModal();
+    else overlay.setAttribute("open", "");
     closeBtn.focus();
   }
   function close(){
-    overlay.classList.remove("is-open");
-    overlay.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
+    if (typeof overlay.close === "function") overlay.close();
+    else overlay.removeAttribute("open");
     lbImg.removeAttribute("src");
   }
 
@@ -3006,9 +3001,6 @@ saveSnapshotToServer();
   });
   closeBtn.addEventListener("click", (e) => { e.stopPropagation(); close(); });
   overlay.addEventListener("click", () => close());
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && overlay.classList.contains("is-open")) close();
-  });
 })();
 
 (function setupPopups(){
