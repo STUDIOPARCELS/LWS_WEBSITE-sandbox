@@ -324,29 +324,36 @@ figure img { cursor: zoom-in; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: clamp(16px, 2vw, 32px);
-  padding: clamp(40px, 6vw, 80px) clamp(24px, 4vw, 64px);
+  padding: clamp(28px, 3vw, 48px);
   background: #fff;
+  border-radius: clamp(16px, 1.6vw, 24px);
+  box-shadow:
+    0 60px 120px -28px rgba(0, 0, 0, 0.50),
+    0 24px 48px -16px rgba(0, 0, 0, 0.28);
   max-height: 92vh;
   overflow: auto;
+  cursor: pointer;
 }
 .installation-popup-grid--three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .installation-popup-grid figure {
   margin: 0;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 16 / 10;
   background: #f5f5f5;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  border-radius: clamp(8px, 0.8vw, 12px);
 }
 .installation-popup-grid img,
 .installation-popup-grid video {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   display: block;
   background: #f5f5f5;
 }
+.installation-popup-grid video { cursor: default; }
 @media (max-width: 900px) {
   .installation-popup-grid--three { grid-template-columns: 1fr 1fr; }
 }
@@ -759,23 +766,30 @@ figure img { cursor: zoom-in; }
   font-weight: 600;
 }
 .craters-gallery {
-  grid-template-columns: repeat(2,minmax(0,1fr));
-  align-items: start;
+  display: grid;
+  gap: clamp(64px, 8vw, 128px);
 }
-.craters-gallery .gallery-item:nth-child(-n+2) img {
+.craters-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(40px, 5vw, 96px);
+  align-items: center;
+}
+.craters-card:nth-child(even) > .craters-card-figure { order: 2; }
+.craters-card-figure { margin: 0; }
+.craters-card-figure img {
   width: 100%;
-  aspect-ratio: 1274 / 1920;
+  height: auto;
+  display: block;
   max-height: none;
-  object-fit: cover;
 }
-.craters-gallery .panorama-item {
-  grid-column: 1 / -1;
+.craters-card-meta {
+  display: grid;
+  gap: clamp(18px, 2.2vw, 32px);
+  max-width: 520px;
 }
-.craters-gallery .panorama-item img {
-  width: 100%;
-  max-height: none;
-  object-fit: contain;
-}
+.craters-card-meta .bento-title { margin-top: 4px; }
+.craters-card-meta .commission-meta { padding-top: 0; border-top: 0; margin-top: 0; }
 .section-media {
   margin-top: clamp(54px, 8vw, 120px);
 }
@@ -1105,7 +1119,8 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
   .survey-card.wide,
   .survey-card.tall { grid-column: auto; grid-row: auto; }
   .gallery { grid-template-columns: 1fr; }
-  .craters-gallery { grid-template-columns: 1fr; }
+  .craters-card { grid-template-columns: 1fr; gap: clamp(20px, 3vw, 36px); }
+  .craters-card:nth-child(even) > .craters-card-figure { order: 0; }
 }
 @media (max-width: 680px) {
   .nav-links { display: none; }
@@ -1363,18 +1378,63 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
           <figcaption class="photo-caption">MAIN LEVEL - EAST BAR 41" X 62"</figcaption>
         </figure>
       </div>
-      <div class="gallery craters-gallery" id="craters-gallery">
-        <article class="gallery-item">
-          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/OBSERVATORY%20COMMISSION%20Photographs/CRATERS_L1002418%20_GM%20WALL.jpg" alt="Craters L1002418." loading="lazy">
-          <figcaption class="photo-caption">MAIN LEVEL - GM WALL 52.5" X 79"</figcaption>
+      <div class="craters-gallery" id="craters-gallery">
+        <article class="craters-card">
+          <figure class="craters-card-figure">
+            <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/OBSERVATORY%20COMMISSION%20Photographs/CRATERS_L1002418%20_GM%20WALL.jpg" alt="Craters L1002418." loading="lazy">
+          </figure>
+          <div class="craters-card-meta">
+            <p class="bento-label">CRATERS COMMISSION</p>
+            <h3 class="bento-title">GM Wall</h3>
+            <dl class="commission-meta">
+              <div class="meta-item">
+                <dt>Location</dt>
+                <dd>Main Level — GM Wall</dd>
+              </div>
+              <div class="meta-item">
+                <dt>Print Size</dt>
+                <dd>52.5" × 79"</dd>
+              </div>
+            </dl>
+          </div>
         </article>
-        <article class="gallery-item">
-          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/OBSERVATORY%20COMMISSION%20Photographs/CRATERS_L1001955_EAST%20HALL.jpg" alt="Craters L1001955." loading="lazy">
-          <figcaption class="photo-caption">MAIN LEVEL - EAST HALL WALL 52.5" X 79"</figcaption>
+        <article class="craters-card">
+          <figure class="craters-card-figure">
+            <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/OBSERVATORY%20COMMISSION%20Photographs/CRATERS_L1001955_EAST%20HALL.jpg" alt="Craters L1001955." loading="lazy">
+          </figure>
+          <div class="craters-card-meta">
+            <p class="bento-label">CRATERS COMMISSION</p>
+            <h3 class="bento-title">East Hall Wall</h3>
+            <dl class="commission-meta">
+              <div class="meta-item">
+                <dt>Location</dt>
+                <dd>Main Level — East Hall Wall</dd>
+              </div>
+              <div class="meta-item">
+                <dt>Print Size</dt>
+                <dd>52.5" × 79"</dd>
+              </div>
+            </dl>
+          </div>
         </article>
-        <article class="gallery-item panorama-item" id="craters-panorama">
-          <img src="assets/craters-lounge-wall-web.jpg" alt="Craters L1008377P panoramic work." loading="lazy">
-          <figcaption class="photo-caption">MAIN LEVEL LOUNGE WALL 183" X 47"</figcaption>
+        <article class="craters-card" id="craters-panorama">
+          <figure class="craters-card-figure">
+            <img src="assets/craters-lounge-wall-web.jpg" alt="Craters L1008377P panoramic work." loading="lazy">
+          </figure>
+          <div class="craters-card-meta">
+            <p class="bento-label">CRATERS COMMISSION</p>
+            <h3 class="bento-title">Lounge Wall</h3>
+            <dl class="commission-meta">
+              <div class="meta-item">
+                <dt>Location</dt>
+                <dd>Main Level — Lounge Wall</dd>
+              </div>
+              <div class="meta-item">
+                <dt>Print Size</dt>
+                <dd>183" × 47"</dd>
+              </div>
+            </dl>
+          </div>
         </article>
       </div>
     </div>
@@ -1698,7 +1758,6 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
   </section>
 </main>
 <dialog id="craters-site-popup" class="installation-popup" aria-label="Craters of the Moon imagery">
-  <button class="installation-popup-close" type="button" aria-label="Close gallery">×</button>
   <div class="installation-popup-grid installation-popup-grid--three">
     <figure>
       <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/OBSERVATORY%20COMMISSION%20Photographs/CRATERS_L1001569_EAST%20BAR.jpg" alt="Craters of the Moon imagery, placeholder." loading="lazy">
@@ -1709,10 +1768,18 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
     <figure>
       <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/OBSERVATORY%20COMMISSION%20Photographs/CRATERS_L1001955_EAST%20HALL.jpg" alt="Craters of the Moon imagery, placeholder." loading="lazy">
     </figure>
+    <figure>
+      <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/CRATERS/EAST-HALLL1002207.jpg" alt="Craters of the Moon imagery, placeholder." loading="lazy">
+    </figure>
+    <figure>
+      <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/CRATERS/GM%20WALL.jpg" alt="Craters of the Moon imagery, placeholder." loading="lazy">
+    </figure>
+    <figure>
+      <img src="assets/craters-lounge-wall-web.jpg" alt="Craters of the Moon imagery, placeholder." loading="lazy">
+    </figure>
   </div>
 </dialog>
 <dialog id="winterblue-site-popup" class="installation-popup" aria-label="Camas Prairie field site imagery">
-  <button class="installation-popup-close" type="button" aria-label="Close gallery">×</button>
   <div class="installation-popup-grid installation-popup-grid--three">
     <figure>
       <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/File_006.png" alt="Camas Prairie site imagery." loading="lazy">
@@ -1722,6 +1789,15 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
     </figure>
     <figure>
       <video src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/WINTERBLUE%20I_1.mp4" controls controlslist="nofullscreen nodownload noremoteplayback" disablepictureinpicture muted loop playsinline preload="metadata"></video>
+    </figure>
+    <figure>
+      <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/2_3.jpg" alt="Camas Prairie site imagery." loading="lazy">
+    </figure>
+    <figure>
+      <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/4.jpg" alt="Camas Prairie site imagery." loading="lazy">
+    </figure>
+    <figure>
+      <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/IMG_0584.jpeg" alt="Camas Prairie site imagery." loading="lazy">
     </figure>
   </div>
 </dialog>
@@ -2459,9 +2535,9 @@ saveSnapshotToServer();
     }
   });
   document.querySelectorAll('dialog.installation-popup').forEach((popup) => {
-    popup.querySelector('.installation-popup-close')?.addEventListener('click', () => popup.close());
     popup.addEventListener('click', (e) => {
-      if (e.target === popup) popup.close();
+      if (e.target.closest('video')) return;
+      popup.close();
     });
   });
 })();
