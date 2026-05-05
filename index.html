@@ -1881,58 +1881,39 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
     top: 8px;
     right: 8px;
   }
-  .survey-popup-frame .survey-popup-grid,
-  .survey-popup-section--env .survey-popup-grid {
+}
+@media (max-width: 980px) {
+  .survey-popup-frame .survey-popup-grid {
     display: grid !important;
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 6px !important;
+    grid-auto-flow: dense !important;
+    align-items: start !important;
+    gap: 12px !important;
     column-count: initial !important;
     column-gap: initial !important;
     flex-wrap: initial;
   }
-  .survey-popup-frame .survey-popup-grid figure,
-  .survey-popup-section--env .survey-popup-grid figure {
+  .survey-popup-frame .survey-popup-grid figure {
     flex: initial !important;
     width: 100% !important;
     height: auto !important;
     min-width: 0 !important;
-    aspect-ratio: 4 / 3 !important;
-    overflow: hidden !important;
-    margin: 0 !important;
-    border-radius: 2px;
-  }
-  .survey-popup-frame .survey-popup-grid img,
-  .survey-popup-section--env .survey-popup-grid img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-  }
-  .survey-popup-grid--stacked {
-    grid-template-columns: minmax(0, 1fr) !important;
-  }
-  .survey-popup-grid--stacked figure {
     aspect-ratio: auto !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    grid-column: span 1;
   }
-  .survey-popup-grid--stacked img {
+  .survey-popup-frame .survey-popup-grid figure.is-landscape,
+  .survey-popup-grid--stacked figure {
+    grid-column: 1 / -1 !important;
+  }
+  .survey-popup-frame .survey-popup-grid img {
+    width: 100% !important;
     height: auto !important;
     object-fit: contain !important;
   }
-  #survey-simpson-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid,
-  #survey-wahiba-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid,
-  #survey-white-sands-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid {
+  .survey-popup-grid--stacked {
     grid-template-columns: minmax(0, 1fr) !important;
-  }
-  #survey-simpson-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid figure,
-  #survey-wahiba-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid figure,
-  #survey-white-sands-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid figure {
-    aspect-ratio: 3 / 2 !important;
-  }
-  #survey-city-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 6px !important;
-  }
-  #survey-city-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid figure {
-    aspect-ratio: 1 / 1 !important;
   }
   .editor-panel {
     left: 14px;
@@ -3714,7 +3695,6 @@ saveSnapshotToServer();
     const img = e.target.closest("img");
     if (!img) return;
     if (img.closest('.survey-popup-grid')) {
-      if (img.closest('.survey-popup-section--env') && !img.closest('.survey-popup-grid--stacked')) return;
       e.preventDefault();
       e.stopPropagation();
       open(img.currentSrc || img.src, img.alt);
@@ -3728,6 +3708,20 @@ saveSnapshotToServer();
   });
   closeBtn.addEventListener("click", (e) => { e.stopPropagation(); close(); });
   overlay.addEventListener("click", () => close());
+})();
+
+(function classifyPopupOrientation(){
+  const tag = (img) => {
+    const fig = img.closest('figure');
+    if (!fig) return;
+    if (!img.naturalWidth || !img.naturalHeight) return;
+    fig.classList.toggle('is-portrait', img.naturalHeight > img.naturalWidth);
+    fig.classList.toggle('is-landscape', img.naturalHeight <= img.naturalWidth);
+  };
+  document.querySelectorAll('dialog .survey-popup-grid img').forEach((img) => {
+    if (img.complete) tag(img);
+    else img.addEventListener('load', () => tag(img), { once: true });
+  });
 })();
 
 (function setupNavToggle(){
