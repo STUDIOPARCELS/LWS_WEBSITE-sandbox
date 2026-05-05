@@ -617,10 +617,10 @@ figure img { cursor: zoom-in; }
   flex-grow: 9999;
 }
 .survey-popup-section--env .survey-popup-grid figure {
-  flex: 1 1 0;
+  flex: 1 1 auto;
   width: auto;
   height: clamp(200px, 26vh, 280px);
-  min-width: 0;
+  min-width: clamp(160px, 18vw, 240px);
   aspect-ratio: auto;
   overflow: hidden;
   margin: 0;
