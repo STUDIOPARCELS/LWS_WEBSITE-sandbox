@@ -404,8 +404,7 @@ figure img { cursor: zoom-in; }
 .section-popup-head {
   display: grid;
   gap: clamp(20px, 2.5vw, 36px);
-  margin-bottom: clamp(40px, 5vw, 80px);
-  max-width: 920px;
+  margin-bottom: clamp(28px, 3.6vw, 56px);
 }
 .section-popup-head h2 { margin: 0; }
 .section-popup-head .note-block { margin-top: 8px; }
@@ -577,20 +576,22 @@ figure img { cursor: zoom-in; }
   object-fit: contain;
   cursor: pointer;
 }
+.bento-grid--three .bento-card { min-height: auto; }
 .bento-grid--three .bento-card figure {
   width: 100%;
   margin: 0;
+  aspect-ratio: 3 / 2;
 }
 .bento-grid--three .bento-card img {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  height: 100%;
   max-height: none;
   object-fit: cover;
 }
 .bento-grid:not(.bento-grid--three) .bento-card figure {
   width: 100%;
   margin: 0;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 3 / 2;
 }
 .bento-grid:not(.bento-grid--three) .bento-card img {
   width: 100%;
@@ -698,8 +699,14 @@ figure img { cursor: zoom-in; }
 .field-site-clickable .field-site-map img { cursor: pointer; }
 .survey-grid {
   display: grid;
-  grid-template-columns: repeat(2,minmax(0,1fr));
-  gap: clamp(22px, 3vw, 42px);
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: clamp(16px, 2vw, 28px);
+}
+@media (max-width: 980px) {
+  .survey-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .survey-grid { grid-template-columns: 1fr; }
 }
 .survey-card {
   min-height: auto;
@@ -708,26 +715,46 @@ figure img { cursor: zoom-in; }
   overflow: hidden;
 }
 .survey-card summary {
-  min-height: clamp(500px, 48vw, 680px);
   display: grid;
-  grid-template-rows: auto auto 1fr auto;
-  gap: clamp(10px, 1.2vw, 18px);
-  padding: clamp(24px, 3.2vw, 44px);
+  gap: clamp(10px, 1.2vw, 16px);
+  padding: clamp(18px, 2.4vw, 32px);
   color: inherit;
   font: inherit;
   letter-spacing: 0;
   text-transform: none;
   cursor: pointer;
 }
-.survey-card .bento-title { margin: 4px 0 0; }
-.survey-card summary .cta { margin-top: clamp(6px, 1vw, 14px); }
+.survey-card .bento-title {
+  margin: 2px 0 0;
+  font-size: clamp(16px, 1.4vw, 22px);
+}
+.survey-card .bento-label { font-size: 9px; }
+.survey-attr {
+  margin: 0;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.55;
+  font-weight: 300;
+}
+.survey-attr strong {
+  display: block;
+  font-size: 9px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.survey-cta { margin-top: 8px; align-self: start; }
 .survey-card figure {
-  margin: clamp(-44px, -3.2vw, -24px) clamp(-44px, -3.2vw, -24px) 0;
+  margin: clamp(-32px, -2.4vw, -18px) clamp(-32px, -2.4vw, -18px) 0;
   border-bottom: 1px solid var(--line);
 }
 .survey-card img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 2;
   max-height: none;
   object-fit: cover;
 }
@@ -758,11 +785,24 @@ figure img { cursor: zoom-in; }
   font-weight: 300;
 }
 .survey-more {
-  padding: 0 clamp(24px, 3.2vw, 44px) clamp(24px, 3.2vw, 44px);
+  padding: 0 clamp(18px, 2.4vw, 32px) clamp(18px, 2.4vw, 32px);
   border-top: 1px solid var(--line);
 }
 .survey-more .stack {
-  padding-top: clamp(20px, 2.4vw, 34px);
+  padding-top: clamp(12px, 1.4vw, 20px);
+  gap: 12px;
+}
+.survey-card .stack > p:not(.survey-meta):not(.distinction) {
+  font-size: 12px;
+  line-height: 1.55;
+}
+.survey-card .distinction {
+  padding-top: 10px;
+  font-size: 11px;
+}
+.survey-card .distinction strong {
+  font-size: 9px;
+  margin-bottom: 4px;
 }
 .survey-more .cta {
   margin-top: 8px;
@@ -1776,7 +1816,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
             <p class="bento-label">AN 8-YEAR PRACTICE</p>
             <h3 class="bento-title">Luxuriate in Discomfort</h3>
           </div>
-          <p>A studio philosophy carried across three forms — a book, a one-night installation, and a public art project for teenage mental health.</p>
+          <p>A studio philosophy carried across three projects — a book, a one-night installation, and a public art project for teenage mental health.</p>
           <figure>
             <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/L1009938%20book%20in%20mirrorRE%20copy.jpg" alt="Luxuriate in Discomfort book." loading="lazy">
           </figure>
@@ -1862,7 +1902,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
       <h2>LUXURIATE IN DISCOMFORT</h2>
       <div class="note-block">
         <p class="text-block-title">OVERVIEW</p>
-        <p>A studio philosophy carried across three forms — a book, a one-night installation, and a public art project for teenage mental health.</p>
+        <p>A studio philosophy carried across three projects — a book, a one-night installation, and a public art project for teenage mental health.</p>
       </div>
     </div>
     <div class="bento-grid bento-grid--three" aria-label="Luxuriate in Discomfort project links">
@@ -1925,13 +1965,14 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
             <p class="bento-label">GREENLAND ICE SHEET — GREENLAND (2015, 2017)</p>
             <h3 class="bento-title">Greenland Ice Sheet</h3>
           </div>
-          <p class="survey-meta">Approximate Latitude: 68°N<br>Status: Ilulissat Icefjord (within the ice sheet's western edge) — UNESCO World Heritage Site: 2004</p>
-          <span class="cta">VIEW PHOTOGRAPHS</span>
+          <p class="survey-attr"><strong>Latitude</strong>68°N</p>
+          <p class="survey-attr"><strong>Status</strong>Ilulissat Icefjord — UNESCO World Heritage Site: 2004</p>
         </summary>
         <div class="survey-more">
           <div class="stack">
             <p>The largest ice sheet outside Antarctica, covering 1.7 million square kilometers and reaching more than three kilometers thick. The ice holds a layered archive of past atmospheres, snowfall, volcanic events, and climate shifts. At its western edge, the Ilulissat Icefjord — a UNESCO World Heritage Site since 2004 — is fed by Sermeq Kujalleq, one of the world's fastest-moving glaciers.</p>
             <p class="distinction"><strong>Project Distinction</strong>First artist-led photographic aerial survey of the Greenland Ice Sheet completed by a woman (2017).</p>
+            <span class="cta survey-cta">VIEW PHOTOGRAPHS</span>
           </div>
         </div>
       </details>
@@ -1944,13 +1985,14 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
             <p class="bento-label">WHITE SANDS NATIONAL PARK — NEW MEXICO, USA (2018)</p>
             <h3 class="bento-title">White Sands National Park</h3>
           </div>
-          <p class="survey-meta">Approximate Latitude: 32°N<br>Status: Protected as a U.S. National Monument: 1933 | Redesignated as a U.S. National Park: 2019</p>
-          <span class="cta">VIEW PHOTOGRAPHS</span>
+          <p class="survey-attr"><strong>Latitude</strong>32°N</p>
+          <p class="survey-attr"><strong>Status</strong>U.S. National Monument: 1933 — Redesignated U.S. National Park: 2019</p>
         </summary>
         <div class="survey-more">
           <div class="stack">
             <p>The world's largest gypsum dunefield, a 275-square-mile expanse of white mineral sand in the Tularosa Basin. Airspace above the park is restricted from ground to space — surrounded by White Sands Missile Range to the north and Holloman Air Force Base to the east. On July 16, 1945, the world's first atomic bomb was detonated at Trinity Site, sixty miles north of the park.</p>
             <p class="distinction"><strong>Project Distinction</strong>First artist-led photographic civilian survey of the world's largest gypsum dunefield (2018).</p>
+            <span class="cta survey-cta">VIEW PHOTOGRAPHS</span>
           </div>
         </div>
       </details>
@@ -1963,13 +2005,13 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
             <p class="bento-label">CRATERS OF THE MOON — IDAHO, USA (2018)</p>
             <h3 class="bento-title">Craters of the Moon</h3>
           </div>
-          <p class="survey-meta">Status: Protected as a U.S. National Monument: 1924 | Designated International Dark Sky Park: 2017</p>
-          <span class="cta">VIEW PHOTOGRAPHS</span>
+          <p class="survey-attr"><strong>Status</strong>U.S. National Monument: 1924 — International Dark Sky Park: 2017</p>
         </summary>
         <div class="survey-more">
           <div class="stack">
             <p>A vast volcanic landscape on Idaho's Snake River Plain. Lava flows, cinder cones, spatter cones, fissures, and sagebrush plains form one of the best-preserved recent volcanic terrains in the continental United States — 620 square miles, the largest predominantly Holocene lava field in the contiguous U.S. The present surface formed through eight major eruptive periods over the last 15,000 years. In 1969, Apollo 14 astronauts trained here before traveling to the Moon.</p>
             <p class="distinction"><strong>Project Distinction</strong>First known artist-led photographic aerial survey of Craters of the Moon National Monument (2018).</p>
+            <span class="cta survey-cta">VIEW PHOTOGRAPHS</span>
           </div>
         </div>
       </details>
@@ -1982,13 +2024,14 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
             <p class="bento-label">SIMPSON DESERT — AUSTRALIA (2019)</p>
             <h3 class="bento-title">Simpson Desert</h3>
           </div>
-          <p class="survey-meta">Approximate Latitude: 25°S<br>Status: Protected within the Munga-Thirri–Simpson Desert protected areas</p>
-          <span class="cta">VIEW PHOTOGRAPHS</span>
+          <p class="survey-attr"><strong>Latitude</strong>25°S</p>
+          <p class="survey-attr"><strong>Status</strong>Protected within the Munga-Thirri–Simpson Desert protected areas</p>
         </summary>
         <div class="survey-more">
           <div class="stack">
             <p>176,500 square kilometers of parallel-dune landscape across South Australia, Queensland, and the Northern Territory — the world's longest parallel sand dunes, with individual ridges extending more than 150 kilometers, some reaching 200. Munga-Thirri means Big Sandhill Country. The desert is the traditional Country of the Wangkangurru Yarluyandi people, whose songlines and navigation systems are inseparable from the landforms themselves.</p>
             <p class="distinction"><strong>Project Distinction</strong>First known artist-led photographic aerial survey of the Simpson Desert's parallel dune field (2019).</p>
+            <span class="cta survey-cta">VIEW PHOTOGRAPHS</span>
           </div>
         </div>
       </details>
@@ -2001,12 +2044,12 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
             <p class="bento-label">WAHIBA SANDS — OMAN (2017)</p>
             <h3 class="bento-title">Wahiba Sands</h3>
           </div>
-          <p class="survey-meta">Approximate Latitude: 22°N</p>
-          <span class="cta">VIEW PHOTOGRAPHS</span>
+          <p class="survey-attr"><strong>Latitude</strong>22°N</p>
         </summary>
         <div class="survey-more">
           <div class="stack">
             <p>A vast sand sea in eastern Oman, named for the Bani Wahiba tribe. The dunes run roughly 180 kilometers north to south and 80 kilometers east to west, covering about 12,500 square kilometers — a record of wind, monsoon cycles, and late Quaternary shifts in sea level held in motion across hundreds of thousands of years. Bedouin villages, camel routes, temporary camps, and open night skies give the Wahiba Sands their human scale.</p>
+            <span class="cta survey-cta">VIEW PHOTOGRAPHS</span>
           </div>
         </div>
       </details>
@@ -2019,12 +2062,13 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
             <p class="bento-label">CITY OF ROCKS NATIONAL RESERVE — IDAHO, USA (2017)</p>
             <h3 class="bento-title">City of Rocks National Reserve</h3>
           </div>
-          <p class="survey-meta">Approximate Latitude: 42°N<br>Status: Protected as a National Reserve: 1988</p>
-          <span class="cta">VIEW PHOTOGRAPHS</span>
+          <p class="survey-attr"><strong>Latitude</strong>42°N</p>
+          <p class="survey-attr"><strong>Status</strong>National Reserve: 1988</p>
         </summary>
         <div class="survey-more">
           <div class="stack">
             <p>14,407 acres at the southern end of Idaho's Albion Mountains. Granite spires, fins, domes, and monoliths rise from the sagebrush, with some formations reaching the height of a 60-story building. The Almo Pluton granite is roughly 28 million years old; nearby Green Creek Complex rocks are more than 2.5 billion years old — among the oldest exposed rocks in the United States. Emigrants of the California Trail described the formations as "a city of tall spires," "steeple rocks," and "the silent city."</p>
+            <span class="cta survey-cta">VIEW PHOTOGRAPHS</span>
           </div>
         </div>
       </details>
