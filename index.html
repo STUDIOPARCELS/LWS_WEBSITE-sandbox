@@ -17,7 +17,7 @@
   --max: 1240px;
   --label-size: 10px;
   --hero-title-size: 52px;
-  --hero-sentence-size: 16px;
+  --hero-sentence-size: 15px;
   --hero-note-size: 14px;
   --hero-label-size: 10px;
   --section-title-size: 20px;
@@ -98,7 +98,12 @@ figure, p, h1, h2, h3 { margin: 0; }
 }
 .hero .stack {
   gap: clamp(28px, 3vw, 44px);
-  padding-bottom: clamp(8px, 1.5vw, 24px);
+  padding-bottom: clamp(40px, 4.5vw, 64px);
+}
+.hero .sentence {
+  font-size: var(--hero-sentence-size);
+  line-height: 1.55;
+  max-width: 38ch;
 }
 .hero-text-blocks {
   display: grid;
@@ -1416,7 +1421,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
             <div class="text-block">
               <p class="text-block-title">IDENTITY</p>
               <p><em>Luxuriate</em> in <em>discomfort</em> is a central philosophy for Wood and a theme running through her practice. It names her approach to exploration: stepping into challenging conditions and staying there long enough for perception to change.</p>
-              <p>The work is driven by adventure, and rewarded with discovery.</p>
+              <p>The work is driven by adventure and rewarded with discovery.</p>
             </div>
             <div class="text-block">
               <p class="text-block-title">VISUAL LANGUAGE</p>
