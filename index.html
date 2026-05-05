@@ -568,15 +568,20 @@ figure img { cursor: zoom-in; }
 #installation-popup .survey-popup-grid figure {
   flex: initial;
   width: 100%;
-  height: auto;
+  height: clamp(240px, 34vh, 340px);
   margin: 0;
-  overflow: hidden;
+  overflow: visible;
   background: transparent;
   border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 #installation-popup .survey-popup-grid img {
   display: block;
-  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
   height: auto;
   object-fit: contain;
   background: transparent;
@@ -598,7 +603,7 @@ figure img { cursor: zoom-in; }
   display: flex;
   flex-wrap: wrap;
   gap: clamp(6px, 0.8vw, 12px);
-  justify-content: flex-start;
+  justify-content: center;
   align-items: stretch;
 }
 .survey-popup-section--env .survey-popup-grid::after {
