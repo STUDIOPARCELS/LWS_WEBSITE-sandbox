@@ -659,20 +659,8 @@ figure img { cursor: zoom-in; }
 #installation-popup .survey-popup-grid--landscape-row figure {
   height: clamp(180px, 22vh, 240px);
 }
-#installation-popup .survey-popup-grid--portrait-row {
-  flex-direction: column;
-  align-items: center;
-}
 #installation-popup .survey-popup-grid--portrait-row figure {
-  width: 100%;
-  max-width: 620px;
-  height: auto;
-  flex: initial;
-}
-#installation-popup .survey-popup-grid--portrait-row img {
-  width: 100%;
-  height: auto;
-  max-height: none;
+  height: clamp(420px, 56vh, 560px);
 }
 #installation-popup .survey-popup-grid + .survey-popup-grid {
   margin-top: clamp(20px, 2.4vw, 36px);
