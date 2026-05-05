@@ -70,9 +70,9 @@ figure, p, h1, h2, h3 { margin: 0; }
   font-weight: 600;
 }
 .brand {
-  font-size: clamp(16px, 1.4vw, 18px);
-  letter-spacing: .18em;
-  line-height: 1.2;
+  font-size: clamp(16px, 1.4vw, 18px) !important;
+  letter-spacing: .18em !important;
+  line-height: 1.2 !important;
   color: var(--ink);
 }
 .nav-links a {
@@ -1173,6 +1173,8 @@ figure img { cursor: zoom-in; }
   font-size: var(--module-text-size);
   line-height: 1.76;
   font-weight: 300;
+  text-wrap: pretty;
+  hyphens: auto;
 }
 .text-block p:not(.text-block-title):first-child {
   margin-top: 0;
@@ -1954,7 +1956,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
             <p>The photographs, captured with a medium-format Leica S007, present the first known aerial study of the monument.</p>
           </div>
           <div class="commission-block">
-            <p>Four commissioned works from <em>Craters</em> bring the volcanic ground of Central Idaho into the Observatory through aerial studies of basalt, cooled surface, fissure, pressure, and mineral memory.</p>
+            <p>Four commissioned large-scale photographs from <em>Craters</em> bring the volcanic ground of Central Idaho into the Observatory through aerial studies of basalt, cooled surface, fissure, pressure, and mineral memory.</p>
           </div>
           <div class="commission-block commission-fabrication">
             <p class="text-block-title">MATERIALS + FABRICATION</p>
@@ -3020,7 +3022,7 @@ if (!localStorage.getItem(CRATERS_SECTION_RESET_KEY)) {
   localStorage.setItem(CRATERS_SECTION_RESET_KEY, "true");
 }
 const editables = [...document.querySelectorAll(editableSelector)]
-  .filter((el) => !el.closest("nav") && !el.closest(".actions") && !el.closest(".editor-panel"));
+  .filter((el) => !el.closest("nav") && !el.closest(".actions") && !el.closest(".editor-panel") && !el.closest("header.nav") && !el.matches(".brand"));
 const contentLockButton = document.querySelector("[data-lock-copy]");
 const elementStyleSettings = readStorage(ELEMENT_STYLE_STORAGE_KEY);
 let activeEditable = null;
