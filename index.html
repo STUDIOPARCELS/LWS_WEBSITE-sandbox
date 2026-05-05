@@ -93,18 +93,26 @@ figure, p, h1, h2, h3 { margin: 0; }
   padding-bottom: clamp(42px, 5vw, 72px);
   box-sizing: content-box;
 }
-.hero .stack { padding-top: clamp(8px, 1.5vw, 24px); }
-.hero-note {
-  display: grid;
-  gap: 12px;
-  margin-top: 4px;
+.hero .stack {
+  padding-top: clamp(8px, 1.5vw, 24px);
+  gap: clamp(28px, 3vw, 44px);
 }
-.hero-note p {
+.hero-text-blocks {
+  display: grid;
+  gap: clamp(28px, 3.5vw, 56px);
+  margin-top: clamp(8px, 1.4vw, 20px);
+}
+.hero-text-blocks .text-block-title {
+  margin: 0 0 14px;
+}
+.hero-text-blocks .text-block p:not(.text-block-title) {
   margin: 0;
   font-size: var(--hero-note-size);
-  line-height: 1.62;
+  line-height: 1.7;
   color: var(--muted);
   font-weight: 300;
+  letter-spacing: 0;
+  text-transform: none;
 }
 .stack { display: flex; flex-direction: column; gap: 22px; }
 h1, h2 {
@@ -132,6 +140,22 @@ h1 .soft { color: var(--soft); font-style: italic; font-weight: 300; }
   font-weight: inherit !important;
 }
 .split-title .line { display: block; }
+.split-title em,
+.intro-title em {
+  font-style: italic;
+  font-weight: inherit;
+  color: inherit;
+}
+.split-title .title-soft {
+  color: var(--soft);
+  font-style: normal;
+  font-weight: 300;
+}
+.split-title .title-muted {
+  color: var(--muted);
+  font-style: normal;
+  font-weight: 300;
+}
 .split-title .soft,
 .intro-title .soft {
   color: var(--soft);
@@ -305,16 +329,23 @@ figure img { cursor: zoom-in; }
   max-height: 92vh;
   overflow: auto;
 }
+.installation-popup-grid--three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .installation-popup-grid figure { margin: 0; }
-.installation-popup-grid img {
+.installation-popup-grid img,
+.installation-popup-grid video {
   width: 100%;
   height: auto;
   max-height: 80vh;
   object-fit: contain;
   display: block;
+  background: #fff;
+}
+@media (max-width: 900px) {
+  .installation-popup-grid--three { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 700px) {
-  .installation-popup-grid { grid-template-columns: 1fr; }
+  .installation-popup-grid,
+  .installation-popup-grid--three { grid-template-columns: 1fr; }
 }
 .hero h1 {
   font-size: var(--hero-title-size);
@@ -443,6 +474,13 @@ figure img { cursor: zoom-in; }
   padding-top: 8px;
   border-top: 1px solid var(--line);
 }
+.field-site-clickable {
+  cursor: pointer;
+  transition: transform .18s ease;
+}
+.field-site-clickable:hover { transform: translateY(-2px); }
+.field-site-clickable:focus-visible { outline: 1px solid var(--ink); outline-offset: 4px; }
+.field-site-clickable .field-site-map img { cursor: pointer; }
 .survey-grid {
   display: grid;
   grid-template-columns: repeat(2,minmax(0,1fr));
@@ -686,13 +724,13 @@ figure img { cursor: zoom-in; }
   display: grid;
   gap: clamp(48px, 7vw, 112px);
 }
-.winterblue-feature .section-head { margin-bottom: 0; }
-.winterblue-body {
+.winterblue-top {
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 1fr);
-  gap: clamp(32px, 4vw, 64px);
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(44px, 7vw, 104px);
   align-items: start;
 }
+.winterblue-copy { display: grid; gap: 22px; }
 .winterblue-side-note {
   margin-top: 24px;
   border-top: 1px solid var(--line);
@@ -711,13 +749,16 @@ figure img { cursor: zoom-in; }
   display: grid;
   gap: clamp(20px, 2.5vw, 32px);
 }
+.note-block,
 .winterblue-note-block {
   border-top: 1px solid var(--line);
   padding-top: 14px;
 }
+.note-block .text-block-title,
 .winterblue-note-block .text-block-title {
   margin: 0 0 12px;
 }
+.note-block p:not(.text-block-title),
 .winterblue-note-block p:not(.text-block-title) {
   margin: 0;
   line-height: 1.62;
@@ -726,6 +767,10 @@ figure img { cursor: zoom-in; }
   font-weight: 300;
   letter-spacing: 0;
   text-transform: none;
+}
+.note-block p:not(.text-block-title) + p:not(.text-block-title),
+.winterblue-note-block p:not(.text-block-title) + p:not(.text-block-title) {
+  margin-top: 14px;
 }
 .winterblue-grid {
   display: grid;
@@ -996,7 +1041,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
   }
   .bento-grid { grid-template-columns: 1fr; }
   .winterblue-grid,
-  .winterblue-body,
+  .winterblue-top,
   .field-sites-grid { grid-template-columns: 1fr; }
   .bento-card.large { grid-row: auto; }
   .survey-grid { grid-template-columns: 1fr; }
@@ -1181,9 +1226,15 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
       <p class="eyebrow">THE OBSERVATORY SUN VALLEY, A VICEROY RESORT</p>
       <h1><span class="line">LUXURIATE</span><span class="line">IN <span class="soft">DISCOMFORT</span></span></h1>
       <p class="sentence">Five commissioned works by LISA WOOD STUDIO bring together two Central Idaho field sites: the volcanic surface of Craters of the Moon National Monument and the winter expanse of the Camas Prairie before dawn.</p>
-      <div class="hero-note">
-        <p>Four works from Craters, Surface Surveys (2018), and one work from Winterblue (2023) connect neighboring terrain beneath a dark sky through a practice shaped by discomfort, exposure, sustained attention, and discovery.</p>
-        <p>Volcanic surface, winter darkness, protected sky, and remote ground become a visual study of adventure and the reward of experiencing remote places.</p>
+      <div class="hero-text-blocks">
+        <div class="text-block">
+          <p class="text-block-title">THE WORKS</p>
+          <p>Four works from Craters, Surface Surveys (2018), and one work from Winterblue (2023) connect neighboring terrain beneath a dark sky through a practice shaped by discomfort, exposure, sustained attention, and discovery.</p>
+        </div>
+        <div class="text-block">
+          <p class="text-block-title">THE LANDSCAPE</p>
+          <p>Volcanic surface, winter darkness, protected sky, and remote ground become a visual study of adventure and the reward of experiencing remote places.</p>
+        </div>
       </div>
     </div>
     <figure class="hero-media">
@@ -1276,19 +1327,23 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
   <section class="page" id="winterblue">
     <div class="inner">
       <div class="winterblue-feature">
-        <div class="section-head">
-          <div class="stack">
+        <div class="winterblue-top">
+          <div class="stack winterblue-copy">
             <p class="eyebrow">COMMISSION - WINTERBLUE</p>
             <h2 class="split-title">
               <span class="line">WINTERBLUE</span>
               <span class="line">(2023)</span>
             </h2>
+            <div class="winterblue-note-block">
+              <p class="text-block-title">PROJECT NOTE</p>
+              <p>Winterblue I is presented as a large-scale contact sheet — a grid of 125 individual photographs, one set of frames for each day spent on the Camas Prairie. Read together, the images form a record of sustained return: the same horizon, the same cold, observed across 17 sessions. Read individually, each frame holds a single moment of attention drawn from inside the season.</p>
+              <p>The project carries regional character of embracing discomfort into winter atmosphere and emotional terrain. 17 trips between January and April to the Camas Prairie under sub-zero conditions turned darkness, cold, isolation, and grief into a field of attention. The work demonstrates the practice: entering difficulty deliberately, staying long enough for perception to shift, and returning with images shaped by that exposure.</p>
+            </div>
+            <div class="winterblue-note-block">
+              <p class="text-block-title">FIELD NOTE</p>
+              <p>Winterblue was born from a winter search for Lisa's missing dog. For 11 days she and her community searched. Lisa slept in her car, searched in whiteouts, and met the full force of winter as fear, isolation, and overwhelming discomfort.</p>
+            </div>
           </div>
-          <div class="stack">
-            <p class="sentence">Winterblue I is presented as a large-scale contact sheet — a grid of 125 individual photographs, one set of frames for each day spent on the Camas Prairie. Read together, the images form a record of sustained return: the same horizon, the same cold, observed across 17 sessions. Read individually, each frame holds a single moment of attention drawn from inside the season.</p>
-          </div>
-        </div>
-        <div class="winterblue-body">
           <div class="winterblue-grid">
             <figure>
               <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/2_3.jpg" alt="" loading="lazy">
@@ -1302,16 +1357,6 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
             <figure>
               <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/IMG_5818.JPEG" alt="" loading="lazy">
             </figure>
-          </div>
-          <div class="winterblue-notes">
-            <div class="winterblue-note-block">
-              <p class="text-block-title">PROJECT NOTE</p>
-              <p>The project carries regional character of embracing discomfort into winter atmosphere and emotional terrain. 17 trips between January and April to the Camas Prairie under sub-zero conditions turned darkness, cold, isolation, and grief into a field of attention. The work demonstrates the practice: entering difficulty deliberately, staying long enough for perception to shift, and returning with images shaped by that exposure.</p>
-            </div>
-            <div class="winterblue-note-block">
-              <p class="text-block-title">FIELD NOTE</p>
-              <p>Winterblue was born from a winter search for Lisa's missing dog. For 11 days she and her community searched. Lisa slept in her car, searched in whiteouts, and met the full force of winter as fear, isolation, and overwhelming discomfort.</p>
-            </div>
           </div>
         </div>
         <figure class="winterblue-primary" id="winterblue-work">
@@ -1333,7 +1378,10 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
           </h2>
         </div>
         <div class="stack">
-          <p class="sentence">The two field sites that anchor the commission — Craters of the Moon Lava Field and the Camas Prairie — viewed from above with The Observatory at center.</p>
+          <div class="note-block">
+            <p class="text-block-title">OVERVIEW</p>
+            <p>The two field sites that anchor the commission — Craters of the Moon Lava Field and the Camas Prairie — viewed from above with The Observatory at center.</p>
+          </div>
         </div>
       </div>
       <div class="field-sites-grid">
@@ -1343,7 +1391,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
           </figure>
           <p class="field-site-caption">CRATERS OF THE MOON — THE OBSERVATORY</p>
         </article>
-        <article class="field-site">
+        <article class="field-site field-site-clickable" data-popup="winterblue-site" role="button" tabindex="0" aria-label="View Camas Prairie field site imagery">
           <figure class="field-site-map">
             <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/CAMAS%20PRAIRIE.png" alt="Map of the Camas Prairie field site." loading="lazy">
           </figure>
@@ -1359,12 +1407,15 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
         <div class="stack">
           <p class="eyebrow">SECTION 3 — PRACTICE & GLOBAL LANDSCAPE</p>
           <h2 class="split-title">
-            <span class="line">CONNECTION TO REGIONAL CHARACTER</span>
-            <span class="line">AND <span class="soft">GLOBAL LANDSCAPE</span></span>
+            <span class="line">CONNECTION TO <em>REGIONAL</em> <span class="title-soft">IDENTITY</span></span>
+            <span class="line">AND <em>GLOBAL</em> <span class="title-muted">LANDSCAPE</span></span>
           </h2>
         </div>
         <div class="stack">
-          <p class="sentence">The commission begins in Central Idaho and extends into a global study of remote terrain. Craters connects to geologically significant landscapes across the world —the Greenland Ice Sheet, into the restricted airspace over White Sands National Park, across the longest parallel sand dunes in the world in Australia, and into the Middle East where the Bedouin roam — while Winterblue reveals both studio tenet and the character of the Wood River Valley: exit comfort as a means toward adventure, exploration, and discovery.</p>
+          <div class="note-block">
+            <p class="text-block-title">OVERVIEW</p>
+            <p>The commission begins in Central Idaho and extends into a global study of remote terrain. Craters connects to geologically significant landscapes across the world —the Greenland Ice Sheet, into the restricted airspace over White Sands National Park, across the longest parallel sand dunes in the world in Australia, and into the Middle East where the Bedouin roam — while Winterblue reveals both studio tenet and the character of the Wood River Valley: exit comfort as a means toward adventure, exploration, and discovery.</p>
+          </div>
         </div>
       </div>
       <div class="bento-grid" aria-label="Practice gateways">
@@ -1598,6 +1649,20 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
     </figure>
     <figure>
       <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/L1009938%20book%20in%20mirrorRE%20copy.jpg" alt="One-night installation, photograph 2." loading="lazy">
+    </figure>
+  </div>
+</dialog>
+<dialog id="winterblue-site-popup" class="installation-popup" aria-label="Camas Prairie field site imagery">
+  <button class="installation-popup-close" type="button" aria-label="Close gallery">×</button>
+  <div class="installation-popup-grid installation-popup-grid--three">
+    <figure>
+      <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/File_006.png" alt="Camas Prairie site imagery." loading="lazy">
+    </figure>
+    <figure>
+      <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/IMG_4962.HEIC" alt="Camas Prairie site photograph." loading="lazy">
+    </figure>
+    <figure>
+      <video src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/WINTERBLUE%20I_1.mp4" controls muted loop playsinline preload="metadata"></video>
     </figure>
   </div>
 </dialog>
@@ -2315,24 +2380,30 @@ saveSnapshotToServer();
   });
 })();
 
-(function setupInstallationPopup(){
-  const popup = document.getElementById("installation-popup");
-  if (!popup) return;
-  const closeBtn = popup.querySelector(".installation-popup-close");
-  const triggers = document.querySelectorAll('[data-popup="installation"]');
-  const open = () => {
-    if (typeof popup.showModal === "function") popup.showModal();
-    else popup.setAttribute("open", "");
-  };
-  triggers.forEach((trigger) => {
+(function setupPopups(){
+  document.querySelectorAll('[data-popup]').forEach((trigger) => {
+    const popupId = `${trigger.getAttribute('data-popup')}-popup`;
+    const popup = document.getElementById(popupId);
+    if (!popup) return;
+    const open = () => {
+      if (typeof popup.showModal === "function") popup.showModal();
+      else popup.setAttribute("open", "");
+    };
     trigger.addEventListener("click", (e) => {
       e.preventDefault();
       open();
     });
+    if (trigger.getAttribute('role') === 'button') {
+      trigger.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); }
+      });
+    }
   });
-  closeBtn?.addEventListener("click", () => popup.close());
-  popup.addEventListener("click", (e) => {
-    if (e.target === popup) popup.close();
+  document.querySelectorAll('dialog.installation-popup').forEach((popup) => {
+    popup.querySelector('.installation-popup-close')?.addEventListener('click', () => popup.close());
+    popup.addEventListener('click', (e) => {
+      if (e.target === popup) popup.close();
+    });
   });
 })();
 </script>
