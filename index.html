@@ -3006,7 +3006,11 @@ styleControls.forEach((input) => {
     saveSnapshotToServer();
   };
 
-  applyStyle();
+  if (savedValue) {
+    applyStyle();
+  } else if (output) {
+    output.textContent = `${input.value}${unit}`;
+  }
   input.addEventListener("input", applyStyle);
 });
 
