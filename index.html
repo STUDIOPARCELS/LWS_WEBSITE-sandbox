@@ -419,10 +419,10 @@ figure img { cursor: zoom-in; }
   .surveys-overview { grid-template-columns: 1fr; }
 }
 .survey-popup {
-  width: min(96vw, 1440px);
+  width: min(98vw, 1640px);
   max-width: none;
-  height: 92vh;
-  max-height: 92vh;
+  height: 88vh;
+  max-height: 88vh;
   padding: 0;
   cursor: pointer;
 }
@@ -475,7 +475,13 @@ figure img { cursor: zoom-in; }
 .survey-popup-grid--stacked figure {
   flex: none;
   width: 100%;
-  aspect-ratio: 3 / 2;
+  aspect-ratio: auto;
+  height: auto;
+}
+.survey-popup-grid--stacked img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 .survey-popup-grid img {
   width: 100%;
