@@ -744,11 +744,18 @@ figure img { cursor: zoom-in; }
   display: grid;
   gap: clamp(48px, 7vw, 112px);
 }
+.winterblue-top {
+  display: grid;
+  gap: clamp(20px, 2.5vw, 36px);
+}
 .winterblue-header { display: grid; gap: 22px; }
 .winterblue-intro { display: grid; }
 .winterblue-notes {
   display: grid;
-  gap: clamp(20px, 2.5vw, 32px);
+  grid-template-columns: 1fr 1fr;
+  column-gap: clamp(28px, 4vw, 64px);
+  row-gap: clamp(20px, 2.5vw, 32px);
+  align-items: start;
 }
 .winterblue-side-note {
   margin-top: 24px;
@@ -1045,6 +1052,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
   .bento-grid,
   .bento-grid--three { grid-template-columns: 1fr; }
   .winterblue-grid,
+  .winterblue-notes,
   .field-sites-grid { grid-template-columns: 1fr; }
   .bento-card.large { grid-row: auto; }
   .survey-grid { grid-template-columns: 1fr; }
@@ -1323,24 +1331,25 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
           <figcaption class="photo-caption">MAIN LEVEL LOUNGE WALL 183" X 47"</figcaption>
         </article>
       </div>
-      <h3 class="gallery-end-heading">Photographs</h3>
     </div>
   </section>
 
   <section class="page" id="winterblue">
     <div class="inner">
       <div class="winterblue-feature">
-        <div class="winterblue-header">
-          <p class="eyebrow">COMMISSION - WINTERBLUE</p>
-          <h2 class="split-title">
-            <span class="line">WINTERBLUE</span>
-            <span class="line">(2023)</span>
-          </h2>
-        </div>
-        <div class="winterblue-intro">
-          <div class="winterblue-note-block">
-            <p class="text-block-title">PROJECT NOTE</p>
-            <p>Winterblue I is presented as a large-scale contact sheet — a grid of 125 individual photographs, one set of frames for each day spent on the Camas Prairie. Read together, the images form a record of sustained return: the same horizon, the same cold, observed across 17 sessions. Read individually, each frame holds a single moment of attention drawn from inside the season.</p>
+        <div class="winterblue-top">
+          <div class="winterblue-header">
+            <p class="eyebrow">COMMISSION - WINTERBLUE</p>
+            <h2 class="split-title">
+              <span class="line">WINTERBLUE</span>
+              <span class="line">(2023)</span>
+            </h2>
+          </div>
+          <div class="winterblue-intro">
+            <div class="winterblue-note-block">
+              <p class="text-block-title">PROJECT NOTE</p>
+              <p>Winterblue I is presented as a large-scale contact sheet — a grid of 125 individual photographs, one set of frames for each day spent on the Camas Prairie. Read together, the images form a record of sustained return: the same horizon, the same cold, observed across 17 sessions. Read individually, each frame holds a single moment of attention drawn from inside the season.</p>
+            </div>
           </div>
         </div>
         <div class="winterblue-grid">
