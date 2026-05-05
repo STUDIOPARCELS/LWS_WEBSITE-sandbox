@@ -513,8 +513,24 @@ figure img { cursor: zoom-in; }
 }
 #survey-craters-popup .survey-popup-grid--stacked { gap: 0; }
 #survey-craters-popup .survey-popup-grid--stacked figure { margin: 0; }
-#installation-popup .survey-popup-grid figure { aspect-ratio: 4 / 5; }
-#installation-popup .survey-popup-grid img { object-fit: cover; }
+#installation-popup .survey-popup-grid {
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+#installation-popup .survey-popup-grid figure {
+  flex: 0 0 auto;
+  width: auto;
+  height: clamp(160px, 24vh, 280px);
+  aspect-ratio: auto;
+  overflow: visible;
+}
+#installation-popup .survey-popup-grid img {
+  width: auto;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
 .survey-popup-grid img {
   width: 100%;
   height: 100%;
