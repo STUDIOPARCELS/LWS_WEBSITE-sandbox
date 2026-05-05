@@ -511,6 +511,27 @@ figure img { cursor: zoom-in; }
 }
 .section-popup-head h2 { margin: 0; }
 .section-popup-head .note-block { margin-top: 8px; }
+.overview-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(28px, 4vw, 56px);
+  margin-top: 8px;
+}
+.overview-split .note-block { margin-top: 0; }
+.overview-split .note-block + .note-block {
+  border-left: 1px solid var(--line);
+  padding-left: clamp(28px, 4vw, 56px);
+}
+@media (max-width: 720px) {
+  .overview-split {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .overview-split .note-block + .note-block {
+    border-left: 0;
+    padding-left: 0;
+  }
+}
 .surveys-overview {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -2604,13 +2625,15 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
     <div class="section-popup-head">
       <p class="eyebrow">AN 8-YEAR PRACTICE</p>
       <h2>LUXURIATE IN DISCOMFORT</h2>
-      <div class="note-block">
-        <p class="text-block-title">OVERVIEW</p>
-        <p>A studio philosophy carried across three projects — a book, a one-night installation, and a public art project for teenage mental health.</p>
-      </div>
-      <div class="note-block">
-        <p class="text-block-title">THE PRACTICE</p>
-        <p>Three modalities — <em>sauna</em>, <em>cold plunge</em>, and <em>whole-body vibration</em> — sequenced together as a scientifically proven discomfort practice for improving mental health and long-term well-being.</p>
+      <div class="overview-split">
+        <div class="note-block">
+          <p class="text-block-title">OVERVIEW</p>
+          <p>A studio philosophy carried across three projects — a book, a one-night installation, and a public art project for teenage mental health.</p>
+        </div>
+        <div class="note-block">
+          <p class="text-block-title">THE PRACTICE</p>
+          <p>Three modalities — <em>sauna</em>, <em>cold plunge</em>, and <em>whole-body vibration</em> — sequenced together as a scientifically proven discomfort practice for improving mental health and long-term well-being.</p>
+        </div>
       </div>
     </div>
     <div class="bento-grid bento-grid--three" aria-label="Luxuriate in Discomfort project links">
