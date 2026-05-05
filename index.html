@@ -558,21 +558,16 @@ figure img { cursor: zoom-in; }
 #survey-craters-popup .survey-popup-grid--stacked { gap: 0; }
 #survey-craters-popup .survey-popup-grid--stacked figure { margin: 0; }
 #installation-popup .survey-popup-grid {
-  display: grid;
+  display: flex;
   gap: clamp(10px, 1.2vw, 18px);
-  align-items: start;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 #installation-popup .survey-popup-grid::after { display: none; }
-#installation-popup .survey-popup-grid--landscape-row {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-#installation-popup .survey-popup-grid--portrait-row {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
 #installation-popup .survey-popup-grid figure {
-  flex: initial;
-  width: 100%;
-  height: auto;
+  flex: 0 0 auto;
+  width: auto;
   margin: 0;
   overflow: hidden;
   background: transparent;
@@ -580,12 +575,19 @@ figure img { cursor: zoom-in; }
 }
 #installation-popup .survey-popup-grid img {
   display: block;
-  width: 100%;
-  height: auto;
+  height: 100%;
+  width: auto;
+  max-width: 100%;
   background: transparent;
 }
+#installation-popup .survey-popup-grid--landscape-row figure {
+  height: clamp(180px, 22vh, 240px);
+}
+#installation-popup .survey-popup-grid--portrait-row figure {
+  height: clamp(360px, 48vh, 480px);
+}
 #installation-popup .survey-popup-grid + .survey-popup-grid {
-  margin-top: clamp(12px, 1.4vw, 22px);
+  margin-top: clamp(14px, 1.6vw, 24px);
 }
 .survey-popup-grid img {
   width: 100%;
