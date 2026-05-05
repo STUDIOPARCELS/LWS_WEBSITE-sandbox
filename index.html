@@ -159,6 +159,44 @@ h3 {
 }
 .hero { max-width: 1240px; }
 .intro-head { max-width: 1240px; margin-left: auto; margin-right: auto; }
+figure img { cursor: zoom-in; }
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: #ffffff;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 5vh 5vw;
+  cursor: zoom-out;
+}
+.lightbox-overlay.is-open { display: flex; }
+.lightbox-overlay img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  cursor: zoom-out;
+}
+.lightbox-close {
+  position: fixed;
+  top: 18px;
+  right: 24px;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: 0;
+  font-size: 30px;
+  line-height: 1;
+  color: var(--ink);
+  cursor: pointer;
+  font-weight: 300;
+  padding: 0;
+}
+.lightbox-close:focus-visible { outline: 1px solid var(--ink); outline-offset: 4px; }
 .hero h1 {
   font-size: var(--hero-title-size);
 }
@@ -981,6 +1019,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
     </div>
     <figure class="hero-media">
       <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/CRATERS/GM%20WALL.jpg" alt="Craters GM Wall commission image from Lisa Wood Studio.">
+      <figcaption class="photo-caption">MAIN LEVEL - GM WALL 52.5" X 79"</figcaption>
     </figure>
   </section>
 
@@ -999,6 +1038,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
         </div>
         <figure class="intro-media">
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/IMG_0853.JPEG" alt="Winterblue field image from the Camas Prairie before dawn." loading="lazy">
+          <figcaption class="photo-caption">ONE TILE WITHIN WINTERBLUE I</figcaption>
         </figure>
       </div>
     </div>
@@ -1968,6 +2008,52 @@ if (exportButton) {
 document.body.classList.add("editable-ready");
 markSaved(editorEnabled ? "Local editor ready" : "Preview ready");
 saveSnapshotToServer();
+</script>
+<script>
+(function setupLightbox(){
+  const overlay = document.createElement("div");
+  overlay.className = "lightbox-overlay";
+  overlay.setAttribute("role", "dialog");
+  overlay.setAttribute("aria-modal", "true");
+  overlay.setAttribute("aria-hidden", "true");
+  const closeBtn = document.createElement("button");
+  closeBtn.className = "lightbox-close";
+  closeBtn.type = "button";
+  closeBtn.setAttribute("aria-label", "Close image viewer");
+  closeBtn.textContent = "×";
+  const lbImg = document.createElement("img");
+  lbImg.alt = "";
+  overlay.appendChild(lbImg);
+  overlay.appendChild(closeBtn);
+  document.body.appendChild(overlay);
+
+  function open(src, alt){
+    lbImg.src = src;
+    lbImg.alt = alt || "";
+    overlay.classList.add("is-open");
+    overlay.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    closeBtn.focus();
+  }
+  function close(){
+    overlay.classList.remove("is-open");
+    overlay.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    lbImg.removeAttribute("src");
+  }
+
+  document.addEventListener("click", (e) => {
+    const img = e.target.closest("figure img");
+    if (!img) return;
+    e.preventDefault();
+    open(img.currentSrc || img.src, img.alt);
+  });
+  closeBtn.addEventListener("click", (e) => { e.stopPropagation(); close(); });
+  overlay.addEventListener("click", () => close());
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && overlay.classList.contains("is-open")) close();
+  });
+})();
 </script>
 </body>
 </html>
