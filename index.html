@@ -733,6 +733,7 @@ figure img { cursor: zoom-in; }
   border-radius: clamp(4px, 0.5vw, 8px);
   display: block;
 }
+.field-site-map img { cursor: default; }
 .field-site-clickable {
   cursor: pointer;
   transition: transform .18s ease;
@@ -3077,6 +3078,7 @@ saveSnapshotToServer();
       return;
     }
     if (e.target.closest(".installation-popup")) return;
+    if (img.closest('.field-site:not(.field-site-clickable)')) return;
     if (!img.closest('main')) return;
     e.preventDefault();
     open(img.currentSrc || img.src, img.alt);
