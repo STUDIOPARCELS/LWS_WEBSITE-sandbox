@@ -447,7 +447,7 @@ figure img { cursor: zoom-in; }
   text-transform: uppercase;
   font-weight: 600;
   color: var(--muted);
-  margin: 0 0 clamp(20px, 2vw, 32px);
+  margin: 0 0 clamp(10px, 1.2vw, 18px);
 }
 .survey-popup-grid {
   display: flex;
@@ -466,6 +466,14 @@ figure img { cursor: zoom-in; }
 }
 .survey-popup-grid--portrait figure { aspect-ratio: 2 / 3; }
 .survey-popup-grid--landscape figure { aspect-ratio: 3 / 2; }
+.survey-popup-grid--stacked {
+  flex-direction: column;
+}
+.survey-popup-grid--stacked figure {
+  flex: none;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+}
 .survey-popup-grid img {
   width: 100%;
   height: 100%;
@@ -2093,7 +2101,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
     </div>
     <div class="survey-popup-section">
       <p class="survey-popup-label">ENVIRONMENT</p>
-      <div class="survey-popup-grid survey-popup-grid--landscape">
+      <div class="survey-popup-grid survey-popup-grid--landscape survey-popup-grid--stacked">
         <figure>
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/GREENLAND/Ilulissat%20Greenland%201.jpg" alt="Ilulissat, Greenland environment." loading="lazy">
         </figure>
@@ -2901,11 +2909,18 @@ saveSnapshotToServer();
 
   document.addEventListener("click", (e) => {
     if (e.target.closest(".lightbox-overlay")) return;
-    if (e.target.closest(".installation-popup")) return;
     if (e.target.closest('[data-popup]')) return;
     if (e.target.closest('.bento-card')) return;
-    const img = e.target.closest("main img");
+    const img = e.target.closest("img");
     if (!img) return;
+    if (img.closest('.survey-popup-grid')) {
+      e.preventDefault();
+      e.stopPropagation();
+      open(img.currentSrc || img.src, img.alt);
+      return;
+    }
+    if (e.target.closest(".installation-popup")) return;
+    if (!img.closest('main')) return;
     e.preventDefault();
     open(img.currentSrc || img.src, img.alt);
   });
@@ -2938,7 +2953,12 @@ saveSnapshotToServer();
   document.querySelectorAll('dialog.installation-popup').forEach((popup) => {
     popup.addEventListener('click', (e) => {
       if (e.target.closest('video')) return;
+      if (e.target.closest('.survey-popup-grid')) return;
       if (popup.classList.contains('section-popup')) {
+        if (e.target === popup) popup.close();
+        return;
+      }
+      if (popup.classList.contains('survey-popup')) {
         if (e.target === popup) popup.close();
         return;
       }
