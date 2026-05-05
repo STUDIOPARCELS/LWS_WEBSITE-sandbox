@@ -556,18 +556,17 @@ figure img { cursor: zoom-in; }
 .survey-popup-section--env .survey-popup-grid figure,
 .survey-popup-section--env .survey-popup-grid img { cursor: default; }
 .survey-popup-section--env .survey-popup-grid {
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: stretch;
-  gap: clamp(6px, 0.8vw, 12px);
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: clamp(8px, 1vw, 14px);
 }
 .survey-popup-section--env .survey-popup-grid::after {
-  content: "";
-  flex-grow: 9999;
+  display: none;
 }
 .survey-popup-section--env .survey-popup-grid figure {
-  flex: 1 1 auto;
-  width: auto;
+  flex: initial;
+  width: 100%;
   height: clamp(200px, 28vh, 320px);
   aspect-ratio: auto;
   overflow: hidden;
@@ -578,6 +577,9 @@ figure img { cursor: zoom-in; }
   height: 100%;
   object-fit: cover;
   display: block;
+}
+.survey-popup-section--env .survey-popup-grid + .survey-popup-grid {
+  margin-top: clamp(8px, 1vw, 14px);
 }
 .survey-popup-section--env .survey-popup-grid.survey-popup-grid--stacked {
   display: flex;
@@ -987,14 +989,16 @@ figure img { cursor: zoom-in; }
   padding: 0;
   pointer-events: none;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.28);
-  transition: opacity .18s ease;
+  transform-origin: top right;
+  transition: transform .18s ease;
 }
 .survey-card[data-popup="survey-white-sands"]::after {
-  color: var(--ink);
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.45);
+  color: var(--muted);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.55);
 }
-.survey-card:hover::after {
-  opacity: 0.85;
+.survey-card:hover::after,
+.survey-card:focus-within::after {
+  transform: scale(1.18);
 }
 .survey-card summary {
   display: grid;
@@ -2649,21 +2653,23 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WAHIBA%20OMAN/env/L1007312%20RAW%20PNG%20copy.jpg" alt="Wahiba Sands environment." loading="lazy">
         </figure>
         <figure>
-          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WAHIBA%20OMAN/env/IMG_0130.JPG" alt="Wahiba Sands environment." loading="lazy">
-        </figure>
-        <figure>
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WAHIBA%20OMAN/env/IMG_0286.JPG" alt="Wahiba Sands environment." loading="lazy">
         </figure>
       </div>
       <div class="survey-popup-grid survey-popup-grid--landscape">
         <figure>
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WAHIBA%20OMAN/env/IMG_0130.JPG" alt="Wahiba Sands environment." loading="lazy">
+        </figure>
+        <figure>
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WAHIBA%20OMAN/env/IMG_1710.JPG" alt="Wahiba Sands environment." loading="lazy">
         </figure>
         <figure>
-          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WAHIBA%20OMAN/env/L1006984%20P.jpg" alt="Wahiba Sands environment." loading="lazy">
-        </figure>
-        <figure>
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WAHIBA%20OMAN/env/IMG_0103.JPG" alt="Wahiba Sands environment." loading="lazy">
+        </figure>
+      </div>
+      <div class="survey-popup-grid survey-popup-grid--landscape survey-popup-grid--stacked">
+        <figure>
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WAHIBA%20OMAN/env/L1006984%20P.jpg" alt="Wahiba Sands panorama." loading="lazy">
         </figure>
       </div>
     </div>
