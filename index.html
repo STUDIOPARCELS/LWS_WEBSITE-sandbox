@@ -1920,29 +1920,6 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
   #survey-wahiba-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid figure {
     grid-column: 1 / -1 !important;
   }
-  #survey-greenland-popup .survey-popup-section--env figure {
-    position: relative;
-  }
-  #survey-greenland-popup .survey-popup-section--env figure::before,
-  #survey-greenland-popup .survey-popup-section--env figure::after {
-    content: "";
-    position: absolute;
-    background: #fff;
-    pointer-events: none;
-    z-index: 2;
-  }
-  #survey-greenland-popup .survey-popup-section--env figure::before {
-    top: 0;
-    bottom: 0;
-    left: calc(50% - 5px);
-    width: 10px;
-  }
-  #survey-greenland-popup .survey-popup-section--env figure::after {
-    left: 0;
-    right: 0;
-    top: calc(50% - 5px);
-    height: 10px;
-  }
   #survey-city-popup .survey-popup-section--env .survey-popup-grid figure:nth-child(2) { order: 3; }
   #survey-city-popup .survey-popup-section--env .survey-popup-grid figure:nth-child(3) { order: 2; }
   .editor-panel {
@@ -1954,6 +1931,29 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
 }
 #survey-simpson-popup img[src*="L10062022"] {
   transform: rotate(180deg);
+}
+#survey-white-sands-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--portrait,
+#survey-greenland-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--portrait,
+#survey-city-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--portrait {
+  gap: 14px 16px;
+}
+#survey-white-sands-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--portrait figure,
+#survey-greenland-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--portrait figure,
+#survey-city-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--portrait figure {
+  position: relative;
+}
+#survey-white-sands-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--portrait figure + figure::before,
+#survey-greenland-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--portrait figure + figure::before,
+#survey-city-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--portrait figure + figure::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -8px;
+  width: 10px;
+  background: #fff;
+  pointer-events: none;
+  z-index: 2;
 }
 .reveal {
   opacity: 0;
