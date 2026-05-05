@@ -1,0 +1,11 @@
+{
+  "name": "observatory-sun-valley",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static presentation site for The Observatory Sun Valley commission by Lisa Wood Studio.",
+  "scripts": {
+    "start": "python -m http.server 4173",
+    "editor": "node tools/editor-server.js",
+    "check": "node -e \"const fs=require('fs'); for (const f of ['index.html']) { if (!fs.existsSync(f)) throw new Error(f + ' missing'); } console.log('static check passed')\""
+  }
+}

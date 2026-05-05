@@ -1,0 +1,1973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Observatory Commission Content Preview</title>
+<meta name="description" content="Ultra-minimalist image-led presentation preview for the Lisa Wood Studio Observatory commission.">
+<style>
+:root {
+  --paper: #fff;
+  --ink: #111;
+  --muted: #6e6e73;
+  --soft: #a6a6a6;
+  --line: #d9d9d9;
+  --nav-bg: rgba(255,255,255,.82);
+  --panel-bg: rgba(255,255,255,.9);
+  --max: 1560px;
+  --label-size: 10px;
+  --hero-title-size: 52px;
+  --hero-sentence-size: 16px;
+  --hero-note-size: 14px;
+  --hero-label-size: 10px;
+  --section-title-size: 20px;
+  --intro-title-size: var(--section-title-size);
+  --intro-label-size: 10px;
+  --intro-top-space: 24px;
+  --intro-gap: 72px;
+  --intro-image-width: 100%;
+  --sentence-size: 16px;
+  --module-text-size: 14px;
+  --photo-caption-size: 10px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", Inter, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img { display: block; width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+figure, p, h1, h2, h3 { margin: 0; }
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 22px clamp(28px, 5vw, 86px);
+  background: rgba(255,255,255,.82);
+  background: var(--nav-bg);
+  backdrop-filter: saturate(180%) blur(22px);
+}
+.brand, .nav a, .eyebrow, .cta, summary {
+  font-size: var(--label-size);
+  line-height: 1.3;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.nav-links { display: flex; gap: clamp(18px, 3vw, 42px); color: var(--muted); }
+.eyebrow { color: var(--muted); }
+.page, .closing {
+  padding: clamp(92px, 12vw, 184px) clamp(28px, 6vw, 96px);
+}
+.page + .page,
+.closing {
+  border-top: 1px solid var(--line);
+}
+.hero {
+  min-height: auto;
+  display: grid;
+  grid-template-columns: minmax(280px,.62fr) minmax(460px,1fr);
+  align-items: center;
+  gap: clamp(64px, 9vw, 144px);
+  max-width: var(--max);
+  margin: 0 auto;
+  padding-bottom: clamp(42px, 5vw, 72px);
+}
+.stack { display: flex; flex-direction: column; gap: 22px; }
+h1, h2 {
+  font-weight: 300;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+h1 {
+  font-size: var(--hero-title-size);
+  line-height: 1.02;
+}
+h1 .line { display: block; }
+h1 .soft { color: var(--soft); font-style: italic; font-weight: 300; }
+.split-title,
+.intro-title {
+  font-size: var(--intro-title-size) !important;
+  line-height: 1.36 !important;
+  font-weight: 300;
+  max-width: 540px;
+}
+.split-title *,
+.intro-title * {
+  font-size: inherit !important;
+  line-height: inherit !important;
+  font-weight: inherit !important;
+}
+.split-title .line { display: block; }
+.split-title .soft,
+.intro-title .soft {
+  color: var(--soft);
+  font-style: italic;
+  font-weight: 300;
+}
+.intro-title {
+  max-width: 520px;
+}
+h2 {
+  font-size: var(--section-title-size);
+  line-height: 1.36;
+  max-width: 540px;
+}
+h3 {
+  font-size: clamp(13px, .95vw, 16px);
+  line-height: 1.35;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.sentence {
+  max-width: 720px;
+  font-size: var(--sentence-size);
+  line-height: 1.62;
+  font-weight: 300;
+}
+.rule {
+  width: 56px;
+  height: 1px;
+  background: var(--ink);
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 34px;
+  padding-top: 4px;
+}
+.cta {
+  display: inline-flex;
+  padding-bottom: 10px;
+  border-bottom: 1px solid currentColor;
+  color: var(--ink);
+}
+.cta.secondary { color: var(--muted); }
+.hero-media img {
+  width: 100%;
+  max-height: 78svh;
+  object-fit: contain;
+}
+.hero h1 {
+  font-size: var(--hero-title-size);
+}
+.hero .sentence {
+  font-size: var(--hero-sentence-size);
+}
+.hero details p {
+  font-size: var(--hero-note-size);
+}
+.hero .eyebrow,
+.hero .cta,
+.hero summary {
+  font-size: var(--hero-label-size);
+}
+.inner {
+  max-width: var(--max);
+  margin: 0 auto;
+}
+#intro {
+  padding-top: calc(var(--intro-top-space) + clamp(96px, 12vw, 160px));
+}
+#commission {
+  padding-top: clamp(48px, 7vw, 112px);
+  padding-bottom: clamp(28px, 4vw, 68px);
+}
+#winterblue {
+  padding-top: clamp(30px, 4vw, 62px);
+}
+#practice .section-head {
+  margin-bottom: 0;
+}
+.practice-copy {
+  max-width: 820px;
+}
+.practice-copy .sentence {
+  max-width: 820px;
+}
+.practice-copy .actions {
+  padding-top: 12px;
+}
+#luxuriate .section-head {
+  margin-bottom: clamp(54px, 8vw, 112px);
+}
+.bento-grid {
+  display: grid;
+  grid-template-columns: minmax(0,1.06fr) minmax(0,.94fr);
+  gap: clamp(22px, 3.2vw, 44px);
+}
+.bento-card {
+  min-height: clamp(320px, 36vw, 560px);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: clamp(18px, 2.4vw, 34px);
+  padding: clamp(24px, 3.2vw, 44px);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  background: var(--paper);
+  transition: border-color .18s ease, transform .18s ease;
+}
+.bento-card:hover {
+  border-color: rgba(17,17,17,.34);
+  transform: translateY(-2px);
+}
+.bento-card.large {
+  grid-row: span 2;
+  grid-template-rows: auto auto 1fr auto;
+}
+.bento-card figure {
+  align-self: end;
+}
+.bento-card img {
+  width: 100%;
+  max-height: clamp(220px, 34vw, 520px);
+  object-fit: contain;
+}
+.bento-label {
+  color: var(--muted);
+  font-size: var(--label-size);
+  line-height: 1.3;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.bento-title {
+  margin-top: 18px;
+  max-width: 520px;
+  font-size: clamp(18px, 2vw, 28px);
+  line-height: 1.24;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+.bento-card > p {
+  max-width: 620px;
+  color: var(--muted);
+  font-size: var(--module-text-size);
+  line-height: 1.7;
+  font-weight: 300;
+}
+.bento-card .cta {
+  width: fit-content;
+  align-self: end;
+}
+.surface-intro {
+  max-width: 900px;
+}
+.survey-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: clamp(22px, 3vw, 42px);
+}
+.survey-card {
+  min-height: auto;
+  display: block;
+  padding: 0;
+  overflow: hidden;
+}
+.survey-card summary {
+  min-height: clamp(500px, 48vw, 680px);
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: clamp(18px, 2.4vw, 34px);
+  padding: clamp(24px, 3.2vw, 44px);
+  color: inherit;
+  font: inherit;
+  letter-spacing: 0;
+  text-transform: none;
+  cursor: pointer;
+}
+.survey-card figure {
+  margin: clamp(-44px, -3.2vw, -24px) clamp(-44px, -3.2vw, -24px) 0;
+  border-bottom: 1px solid var(--line);
+}
+.survey-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  max-height: none;
+  object-fit: cover;
+}
+.survey-card.wide {
+  grid-column: auto;
+}
+.survey-card.tall {
+  grid-row: auto;
+}
+.survey-card .bento-title {
+  max-width: 620px;
+  font-size: clamp(18px, 1.65vw, 24px);
+}
+.survey-card .stack {
+  gap: 16px;
+}
+.survey-meta {
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 1.6;
+  font-weight: 300;
+}
+.survey-card .stack > p:not(.survey-meta):not(.distinction) {
+  max-width: 680px;
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.6;
+  font-weight: 300;
+}
+.survey-more {
+  padding: 0 clamp(24px, 3.2vw, 44px) clamp(24px, 3.2vw, 44px);
+  border-top: 1px solid var(--line);
+}
+.survey-more .stack {
+  padding-top: clamp(20px, 2.4vw, 34px);
+}
+.survey-more .cta {
+  margin-top: 8px;
+}
+.survey-card .distinction {
+  max-width: 620px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+  font-weight: 300;
+}
+.survey-card .distinction strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--ink);
+  font-size: var(--label-size);
+  line-height: 1.3;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.section-head {
+  display: grid;
+  grid-template-columns: minmax(260px,.62fr) minmax(0,1fr);
+  gap: clamp(64px, 9vw, 144px);
+  align-items: start;
+  margin-bottom: clamp(72px, 10vw, 150px);
+}
+.intro-head {
+  grid-template-columns: minmax(280px,.48fr) minmax(520px,1.28fr);
+  align-items: center;
+  gap: var(--intro-gap);
+  margin-bottom: 0;
+}
+.intro-copy {
+  max-width: 500px;
+}
+.intro-media img {
+  width: var(--intro-image-width);
+  max-height: 82svh;
+  object-fit: contain;
+  margin: 0 auto;
+}
+.text-block {
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+}
+.text-block.no-rule {
+  border-top: 0;
+  padding-top: 0;
+}
+.text-block-title {
+  margin-top: 0;
+  color: var(--ink);
+  font-size: var(--intro-label-size);
+  line-height: 1.3;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.text-block p:not(.text-block-title) {
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: var(--module-text-size);
+  line-height: 1.76;
+  font-weight: 300;
+}
+.text-block p:not(.text-block-title):first-child {
+  margin-top: 0;
+}
+.commission-feature {
+  display: grid;
+  grid-template-columns: minmax(300px,.62fr) minmax(520px,1fr);
+  align-items: center;
+  gap: clamp(64px, 9vw, 144px);
+  margin-bottom: clamp(76px, 10vw, 150px);
+}
+.commission-copy {
+  max-width: 620px;
+}
+.commission-meta {
+  display: grid;
+  gap: 18px;
+  margin-top: 2px;
+  margin-bottom: 8px;
+}
+.commission-meta .sentence {
+  max-width: 520px;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 300;
+}
+.commission-copy details {
+  margin-top: 2px;
+}
+.commission-copy details p {
+  max-width: 520px;
+}
+.commission-feature-media img {
+  width: auto;
+  max-width: 100%;
+  max-height: 76svh;
+  object-fit: contain;
+  margin: 0 auto;
+}
+.commission-feature-media {
+  width: fit-content;
+  max-width: 100%;
+  justify-self: center;
+}
+.commission-feature-media,
+.gallery-item {
+  text-align: center;
+}
+.photo-caption {
+  width: 100%;
+  margin-top: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+  font-size: var(--photo-caption-size);
+  line-height: 1.45;
+  letter-spacing: .18em;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.craters-gallery {
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  align-items: start;
+}
+.craters-gallery .gallery-item:nth-child(-n+2) img {
+  width: 100%;
+  aspect-ratio: 1274 / 1920;
+  max-height: none;
+  object-fit: cover;
+}
+.craters-gallery .panorama-item {
+  grid-column: 1 / -1;
+}
+.craters-gallery .panorama-item img {
+  width: 100%;
+  max-height: none;
+  object-fit: contain;
+}
+.section-media {
+  margin-top: clamp(54px, 8vw, 120px);
+}
+.section-media img {
+  max-height: 82svh;
+  object-fit: contain;
+  margin: 0 auto;
+}
+.winterblue-feature {
+  display: grid;
+  grid-template-columns: minmax(260px,.42fr) minmax(0,1.1fr);
+  align-items: start;
+  column-gap: clamp(44px, 7vw, 104px);
+  row-gap: clamp(20px, 3vw, 42px);
+}
+.winterblue-copy {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: start;
+  max-width: 560px;
+}
+.winterblue-side-note {
+  margin-top: clamp(64px, 10vw, 148px);
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+.winterblue-side-note p {
+  margin-top: 14px;
+  line-height: 1.62;
+  color: var(--muted);
+  font-size: var(--module-text-size);
+  font-weight: 300;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.winterblue-notes {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  align-self: start;
+  display: block;
+}
+.winterblue-notes details {
+  padding: 18px 0;
+}
+.winterblue-notes details p {
+  max-width: none;
+  margin-top: 14px;
+  line-height: 1.62;
+  color: var(--muted);
+  font-size: var(--module-text-size);
+  font-weight: 300;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.winterblue-notes details + details {
+  margin-top: 6px;
+}
+.winterblue-media {
+  grid-column: 2;
+  grid-row: 1;
+  width: 100%;
+  margin-top: 0;
+}
+.winterblue-media img {
+  width: 100%;
+  max-height: 66svh;
+  object-fit: contain;
+}
+.image-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(48px, 7vw, 112px);
+}
+.image-row img {
+  max-height: 78svh;
+  object-fit: contain;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: clamp(82px, 10vw, 160px) clamp(48px, 6vw, 96px);
+}
+.gallery-item img {
+  max-height: 78svh;
+  object-fit: contain;
+  margin: 0 auto;
+}
+.gallery-item h3 { margin-top: 22px; }
+.modules {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: clamp(22px, 4vw, 64px);
+  margin-top: clamp(36px, 6vw, 80px);
+}
+details {
+  border-top: 1px solid var(--line);
+  padding: 18px 0;
+}
+summary {
+  cursor: pointer;
+  list-style: none;
+  color: var(--ink);
+}
+summary::-webkit-details-marker { display: none; }
+details p, details li {
+  color: var(--muted);
+  font-size: var(--module-text-size);
+  line-height: 1.76;
+  font-weight: 300;
+}
+details p { margin-top: 16px; }
+details ul { margin: 16px 0 0; padding-left: 18px; }
+.module-actions { margin-top: 16px; }
+.editable-ready [contenteditable="true"] {
+  outline: none;
+  border-radius: 2px;
+  transition: box-shadow .18s ease, background .18s ease;
+}
+.editable-ready [contenteditable="true"]:hover {
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,.22);
+}
+.editable-ready [contenteditable="true"]:focus {
+  background: rgba(0,0,0,.025);
+  box-shadow: inset 0 -1px 0 var(--ink);
+}
+.editor-panel[hidden] {
+  display: none;
+}
+.editor-panel {
+  position: fixed;
+  right: clamp(18px, 3vw, 34px);
+  bottom: clamp(18px, 3vw, 34px);
+  z-index: 30;
+  width: min(320px, calc(100vw - 36px));
+  max-height: calc(100svh - 36px);
+  overflow-y: auto;
+  padding: 14px 16px 16px;
+  border: 1px solid var(--line);
+  background: var(--panel-bg);
+  backdrop-filter: saturate(180%) blur(22px);
+  box-shadow: 0 18px 60px rgba(0,0,0,.08);
+  transition: transform .2s ease, opacity .2s ease;
+}
+.editor-panel:not(:hover):not(:focus-within) {
+  transform: none;
+  opacity: 1;
+}
+.editor-panel details {
+  border: 0;
+  padding: 0;
+}
+.editor-panel summary {
+  margin-bottom: 14px;
+}
+.editor-panel:not(:hover):not(:focus-within) summary {
+  min-height: 0;
+  margin-bottom: 14px;
+  writing-mode: horizontal-tb;
+  transform: none;
+}
+.control-group {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+  font-size: var(--label-size);
+  line-height: 1.3;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.control-group:first-of-type {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+.section-jump {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin-top: 10px;
+}
+.section-jump .editor-action {
+  margin-top: 0;
+  text-align: left;
+}
+.active-tools {
+  position: sticky;
+  top: -14px;
+  z-index: 1;
+  margin: 0 -16px 0;
+  padding: 0 16px 14px;
+  border-bottom: 1px solid var(--line);
+  background: var(--panel-bg);
+  backdrop-filter: saturate(180%) blur(22px);
+}
+.active-target {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+  font-weight: 300;
+}
+.quick-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+}
+.quick-actions .editor-action {
+  margin-top: 10px;
+}
+.editable-active {
+  background: rgba(0,0,0,.035) !important;
+  box-shadow: inset 0 -1px 0 var(--ink) !important;
+}
+.editor-action {
+  display: inline-flex;
+  margin-right: 12px;
+  margin-top: 14px;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  padding: 0 0 8px;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  font: 600 var(--label-size)/1.3 inherit;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.editor-panel input:disabled {
+  opacity: .3;
+}
+.control-row {
+  display: grid;
+  grid-template-columns: 96px 1fr 42px;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.3;
+}
+.control-row input {
+  width: 100%;
+  accent-color: var(--ink);
+}
+.control-row output {
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+.color-row {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.3;
+}
+.color-row input[type="color"] {
+  width: 42px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid var(--line);
+  background: transparent;
+  cursor: pointer;
+}
+.save-status,
+.editor-note {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.45;
+  font-weight: 300;
+}
+.kicker {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+  font-weight: 300;
+}
+.closing {
+  min-height: 72svh;
+  display: grid;
+  align-items: center;
+}
+.closing .sentence { max-width: 920px; }
+@media (max-width: 980px) {
+  .hero, .section-head, .image-row, .commission-feature, .winterblue-feature { grid-template-columns: 1fr; }
+  .intro-head { grid-template-columns: 1fr; }
+  .hero-media img { max-height: none; }
+  .winterblue-copy,
+  .winterblue-media,
+  .winterblue-notes {
+    grid-column: auto;
+    grid-row: auto;
+  }
+  .winterblue-notes {
+    grid-template-columns: 1fr;
+  }
+  .winterblue-notes details:last-child {
+    grid-column: auto;
+  }
+  .winterblue-media img {
+    max-height: none;
+  }
+  .bento-grid { grid-template-columns: 1fr; }
+  .bento-card.large { grid-row: auto; }
+  .survey-grid { grid-template-columns: 1fr; }
+  .survey-card.wide,
+  .survey-card.tall { grid-column: auto; grid-row: auto; }
+  .gallery { grid-template-columns: 1fr; }
+  .craters-gallery { grid-template-columns: 1fr; }
+}
+@media (max-width: 680px) {
+  .nav-links { display: none; }
+  .modules { grid-template-columns: 1fr; }
+  h1 { font-size: clamp(34px, 10vw, 48px); }
+  h2 { font-size: var(--section-title-size); }
+  .editor-panel {
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    width: auto;
+  }
+}
+</style>
+</head>
+<body>
+<aside class="editor-panel" aria-label="Preview controls">
+  <details open>
+    <summary>Preview Controls</summary>
+    <p class="control-group">Section Edit</p>
+    <div class="section-jump" aria-label="Jump to section">
+      <button class="editor-action" type="button" data-jump-section="#top">Hero</button>
+      <button class="editor-action" type="button" data-jump-section="#intro">Intro</button>
+      <button class="editor-action" type="button" data-jump-section="#commission">Craters</button>
+      <button class="editor-action" type="button" data-jump-section="#winterblue">Winterblue</button>
+      <button class="editor-action" type="button" data-jump-section="#practice">Practice</button>
+      <button class="editor-action" type="button" data-jump-section="#luxuriate">Luxuriate</button>
+      <button class="editor-action" type="button" data-jump-section="#surface-surveys">Surface Surveys</button>
+    </div>
+    <div class="active-tools">
+      <p class="control-group">Active Text</p>
+      <p class="active-target" data-active-target>Click a paragraph, heading, label, or note.</p>
+      <label class="control-row">
+        <span>Size</span>
+        <input type="range" min="8" max="72" step="1" value="16" data-active-size disabled>
+        <output>16px</output>
+      </label>
+      <div class="quick-actions" aria-label="Active text tools">
+        <button class="editor-action" type="button" data-active-size-step="-2" disabled>Smaller</button>
+        <button class="editor-action" type="button" data-active-size-step="2" disabled>Larger</button>
+        <button class="editor-action" type="button" data-active-bold disabled>Bold</button>
+        <button class="editor-action" type="button" data-active-italic disabled>Italic</button>
+        <button class="editor-action" type="button" data-active-clear disabled>Clear</button>
+      </div>
+      <label class="color-row">
+        <span>Color</span>
+        <input type="color" value="#111111" data-active-color disabled>
+      </label>
+    </div>
+    <p class="control-group">Hero Type</p>
+    <label class="control-row">
+      <span>Title</span>
+      <input type="range" min="30" max="72" step="1" value="52" data-style-var="--hero-title-size" data-hero-control>
+      <output>52px</output>
+    </label>
+    <label class="control-row">
+      <span>Sentence</span>
+      <input type="range" min="12" max="24" step="1" value="16" data-style-var="--hero-sentence-size" data-hero-control>
+      <output>16px</output>
+    </label>
+    <label class="control-row">
+      <span>Field note</span>
+      <input type="range" min="11" max="20" step="1" value="14" data-style-var="--hero-note-size" data-hero-control>
+      <output>14px</output>
+    </label>
+    <label class="control-row">
+      <span>Labels</span>
+      <input type="range" min="8" max="13" step="1" value="10" data-style-var="--hero-label-size" data-hero-control>
+      <output>10px</output>
+    </label>
+    <button class="editor-action" type="button" data-lock-hero>Lock Hero Type</button>
+    <p class="control-group">Global Type</p>
+    <label class="control-row">
+      <span>Sentence</span>
+      <input type="range" min="12" max="24" step="1" value="16" data-style-var="--sentence-size">
+      <output>16px</output>
+    </label>
+    <label class="control-row">
+      <span>Modules</span>
+      <input type="range" min="11" max="20" step="1" value="14" data-style-var="--module-text-size">
+      <output>14px</output>
+    </label>
+    <label class="control-row">
+      <span>Captions</span>
+      <input type="range" min="8" max="14" step="1" value="10" data-style-var="--photo-caption-size">
+      <output>10px</output>
+    </label>
+    <label class="control-row">
+      <span>Labels</span>
+      <input type="range" min="8" max="13" step="1" value="10" data-style-var="--label-size">
+      <output>10px</output>
+    </label>
+    <p class="control-group">Introduction</p>
+    <label class="control-row">
+      <span>Title</span>
+      <input type="range" min="12" max="32" step="1" value="20" data-style-var="--section-title-size">
+      <output>20px</output>
+    </label>
+    <label class="control-row">
+      <span>Label</span>
+      <input type="range" min="8" max="13" step="1" value="10" data-style-var="--intro-label-size">
+      <output>10px</output>
+    </label>
+    <label class="control-row">
+      <span>Top space</span>
+      <input type="range" min="0" max="120" step="2" value="24" data-style-var="--intro-top-space">
+      <output>24px</output>
+    </label>
+    <label class="control-row">
+      <span>Gap</span>
+      <input type="range" min="28" max="140" step="2" value="72" data-style-var="--intro-gap">
+      <output>72px</output>
+    </label>
+    <label class="control-row">
+      <span>Image</span>
+      <input type="range" min="70" max="110" step="1" value="100" data-style-var="--intro-image-width" data-unit="%">
+      <output>100%</output>
+    </label>
+    <p class="control-group">Global Colors</p>
+    <label class="color-row">
+      <span>Text</span>
+      <input type="color" value="#111111" data-color-var="--ink">
+    </label>
+    <label class="color-row">
+      <span>Body</span>
+      <input type="color" value="#6e6e73" data-color-var="--muted">
+    </label>
+    <label class="color-row">
+      <span>Soft italic</span>
+      <input type="color" value="#a6a6a6" data-color-var="--soft">
+    </label>
+    <label class="color-row">
+      <span>Paper</span>
+      <input type="color" value="#ffffff" data-color-var="--paper">
+    </label>
+    <label class="color-row">
+      <span>Lines</span>
+      <input type="color" value="#d9d9d9" data-color-var="--line">
+    </label>
+    <p class="control-group">Selected Text</p>
+    <label class="color-row">
+      <span>Color</span>
+      <input type="color" value="#111111" data-selected-color>
+    </label>
+    <label class="control-row">
+      <span>Size</span>
+      <input type="range" min="10" max="72" step="1" value="16" data-selected-size>
+      <output>16px</output>
+    </label>
+    <button class="editor-action" type="button" data-toggle-selected-bold>Bold</button>
+    <button class="editor-action" type="button" data-toggle-selected-italic>Italic</button>
+    <button class="editor-action" type="button" data-apply-selected-size>Apply Size</button>
+    <button class="editor-action" type="button" data-apply-selected-color>Apply Selected Color</button>
+    <p class="control-group">Save</p>
+    <p class="save-status" data-save-status>Autosaved locally. Use the local editor URL to save snapshots to disk.</p>
+    <button class="editor-action" type="button" data-lock-copy>Lock Copy Edits</button>
+    <button class="editor-action" type="button" data-export-edits>Export Edits</button>
+  </details>
+</aside>
+<header class="nav">
+  <a class="brand" href="#top">Lisa Wood Studio</a>
+  <nav class="nav-links" aria-label="Sections">
+    <a href="#commission">Commission</a>
+    <a href="#practice">Practice</a>
+    <a href="#luxuriate">Luxuriate</a>
+    <a href="#surface-surveys">Surface Surveys</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="page hero">
+    <div class="stack">
+      <p class="eyebrow">THE OBSERVATORY SUN VALLEY, A VICEROY RESORT</p>
+      <h1><span class="line">LUXURIATE</span><span class="line">IN <span class="soft">DISCOMFORT</span></span></h1>
+      <p class="sentence">Five commissioned works by LISA WOOD STUDIO bring together two Central Idaho field sites: the volcanic surface of Craters of the Moon National Monument and the winter expanse of the Camas Prairie before dawn.</p>
+      <div class="rule" aria-hidden="true"></div>
+      <div class="actions">
+        <a class="cta" href="#commission">VIEW COMMISSION</a>
+        <a class="cta secondary" href="#intro">EXPLORE FIELD SITES</a>
+      </div>
+      <details open>
+        <summary>Project Note</summary>
+        <p>Four works from Craters, Surface Surveys (2018), and one work from Winterblue (2023) connect neighboring terrain beneath a dark sky through a practice shaped by discomfort, exposure, sustained attention, and discovery.</p>
+        <p>Volcanic surface, winter darkness, protected sky, and remote ground become a visual study of adventure and the reward of experiencing remote places.</p>
+      </details>
+    </div>
+    <figure class="hero-media">
+      <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/CRATERS/EAST%20BAR.jpg" alt="Craters East Bar commission image from Lisa Wood Studio.">
+    </figure>
+  </section>
+
+  <section class="page" id="intro">
+    <div class="inner">
+      <div class="section-head intro-head">
+        <div class="stack intro-copy">
+          <p class="eyebrow">SECTION 1 — INTRODUCTION</p>
+          <h2 class="intro-title">
+            LUXURY WITHIN <span class="soft">DISCOMFORT:</span> THE PARADOX OF A DARK SKY RESERVE
+          </h2>
+          <div class="text-block no-rule">
+            <p>"Luxuriate in discomfort" is the central philosophy for Wood and a theme running through her practice. It names her approach to exploration: stepping into challenging conditions and staying there long enough for perception to change. The work is rooted in discomfort, driven by adventure, and rewarded with discovery.</p>
+            <p>The philosophy takes form through five large-scale photographs of the volcanic surface of Craters of the Moon National Monument and the winter expanse of the Camas Prairie before dawn. Together, they bring the surrounding terrain into the Observatory as a visual language for Central Idaho.</p>
+          </div>
+        </div>
+        <figure class="intro-media">
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/IMG_9824.JPEG" alt="Winterblue field image from the Camas Prairie before dawn." loading="lazy">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="commission">
+    <div class="inner">
+      <div class="commission-feature">
+        <div class="stack commission-copy">
+          <p class="eyebrow">COMMISSION - CRATERS</p>
+          <h2 class="split-title">
+            <span class="line">CRATERS, <span class="soft">SURFACE SURVEYS</span></span>
+            <span class="line">(2018)</span>
+          </h2>
+          <div class="commission-meta">
+            <p class="sentence">Craters of the Moon Lava Field, Idaho, USA</p>
+            <p class="sentence">Protected as a U.S. National Monument: 1924</p>
+          </div>
+          <details open>
+            <summary>Field Site Context</summary>
+            <p>Craters of the Moon National Monument occupies a vast volcanic landscape on Idaho’s Snake River Plain. Its lava flows, cinder cones, spatter cones, fissures, and sagebrush plains form one of the best-preserved recent volcanic terrains in the continental United States.</p>
+            <p>The photographs, captured with a medium-format Leica S007, present the first known aerial study of the monument.</p>
+          </details>
+          <details open>
+            <summary>Work Details</summary>
+            <p>Four commissioned works from Craters, Surface Surveys (2018) bring the volcanic ground of Central Idaho into the Observatory through aerial studies of basalt, cooled surface, fissure, pressure, and mineral memory.</p>
+            <div class="module-actions">
+              <a class="cta" href="#craters-gallery">VIEW PHOTOGRAPHS</a>
+            </div>
+          </details>
+          <details>
+            <summary>Materials + Fabrication</summary>
+            <p>Archival pigment prints on Canson Baryta Photographique II. Painted maple wood or float mounting according to the installation location, with non-glare glazing where specified. Fabrication by Laumont Photographic, New York.</p>
+          </details>
+        </div>
+        <figure class="commission-feature-media">
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/OBSERVATORY%20COMMISSION%20Photographs/CRATERS_L1001569_EAST%20BAR.jpg" alt="Craters L1001569." loading="lazy">
+          <figcaption class="photo-caption">MAIN LEVEL - EAST BAR 41" X 62"</figcaption>
+        </figure>
+      </div>
+      <div class="gallery craters-gallery" id="craters-gallery">
+        <article class="gallery-item">
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/OBSERVATORY%20COMMISSION%20Photographs/CRATERS_L1002418%20_GM%20WALL.jpg" alt="Craters L1002418." loading="lazy">
+          <figcaption class="photo-caption">MAIN LEVEL - GM WALL 52.5" X 79"</figcaption>
+        </article>
+        <article class="gallery-item">
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/OBSERVATORY%20COMMISSION%20Photographs/CRATERS_L1001955_EAST%20HALL.jpg" alt="Craters L1001955." loading="lazy">
+          <figcaption class="photo-caption">MAIN LEVEL - EAST HALL WALL 52.5" X 79"</figcaption>
+        </article>
+        <article class="gallery-item panorama-item" id="craters-panorama">
+          <img src="assets/craters-lounge-wall-web.jpg" alt="Craters L1008377P panoramic work." loading="lazy">
+          <figcaption class="photo-caption">MAIN LEVEL LOUNGE WALL - CREDENZA ELEVATION 183" X 47"</figcaption>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="winterblue">
+    <div class="inner">
+      <div class="winterblue-feature">
+        <div class="stack winterblue-copy">
+          <p class="eyebrow">COMMISSION - WINTERBLUE</p>
+          <h2 class="split-title">
+            <span class="line">WINTERBLUE</span>
+            <span class="line">(2023)</span>
+          </h2>
+          <p class="sentence">A large-scale contact sheet comprised of 125 individual photographs, recorded over 17 pre-dawn trips to the Camas Prairie.</p>
+          <div class="rule" aria-hidden="true"></div>
+          <details class="winterblue-side-note winterblue-origin" open>
+            <summary>Field Note</summary>
+            <p>Winterblue was born from a winter search for Lisa's missing dog. For 11 days she and her community searched. Lisa slept in her car, searched in whiteouts, and met the full force of winter as fear, isolation, and overwhelming discomfort.</p>
+          </details>
+        </div>
+        <figure class="winterblue-media" id="winterblue-work">
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/OBSERVATORY%20COMMISSION%20Photographs/Winterblue%20I_PREFUNCTION%20WALL.jpg" alt="Winterblue I contact sheet." loading="lazy">
+          <figcaption class="photo-caption">LOWER LEVEL - PRE-FUNCTION WEST WALL 138" X 85"</figcaption>
+        </figure>
+        <div class="stack winterblue-notes">
+          <details open>
+            <summary>Project Note</summary>
+            <p>Winterblue I is presented as a large-scale contact sheet — a grid of 125 individual photographs, one set of frames for each day spent on the Camas Prairie. Read together, the images form a record of sustained return: the same horizon, the same cold, observed across 17 sessions. Read individually, each frame holds a single moment of attention drawn from inside the season.</p>
+            <p>The project carries regional character of embracing discomfort into winter atmosphere and emotional terrain. 17 trips between January and April to the Camas Prairie under sub-zero conditions turned darkness, cold, isolation, and grief into a field of attention. The work demonstrates the practice: entering difficulty deliberately, staying long enough for perception to shift, and returning with images shaped by that exposure.</p>
+          </details>
+          <details>
+            <summary>Work Details</summary>
+            <p>Location: Lower Level Pre-Function West Wall. Print Size: 138" W x 85" H (composed of 3 seamed panels). Framing & Fabrication: White painted maple wood (3-inch face, 2-inch depth) with museum non-glare glazing; Laumont Photographic, New York.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="practice">
+    <div class="inner">
+      <div class="section-head">
+        <p class="eyebrow">SECTION 3 — PRACTICE & GLOBAL LANDSCAPE</p>
+        <div class="stack practice-copy">
+          <h2 class="split-title">
+            <span class="line">CONNECTION TO REGIONAL CHARACTER</span>
+            <span class="line">AND <span class="soft">GLOBAL LANDSCAPE</span></span>
+          </h2>
+          <p class="sentence">The commission begins in Central Idaho and extends into a global study of remote terrain. Craters connects to geologically significant landscapes across the world —the Greenland Ice Sheet, into the restricted airspace over White Sands National Park, across the longest parallel sand dunes in the world in Australia, and into the Middle East where the Bedouin roam — while Winterblue reveals both studio tenet and the character of the Wood River Valley: exit comfort as a means toward adventure, exploration, and discovery.</p>
+          <div class="actions">
+            <a class="cta" href="#surface-surveys">EXPLORE SURFACE SURVEYS</a>
+            <a class="cta secondary" href="#luxuriate">EXPLORE LUXURIATE IN DISCOMFORT</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="luxuriate">
+    <div class="inner">
+      <div class="section-head">
+        <div class="stack">
+          <p class="eyebrow">A LIFELONG STUDIO TENET</p>
+          <h2>LUXURIATE IN DISCOMFORT</h2>
+        </div>
+        <div class="stack">
+          <p class="sentence">A studio philosophy carried across three forms — a book, a one-night installation, and a public art project for teenage mental health.</p>
+        </div>
+      </div>
+      <div class="bento-grid" aria-label="Luxuriate in Discomfort project links">
+        <a class="bento-card large" href="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/luxuriate%20in%20discomfort%20book%20lws.pdf" aria-label="View the Luxuriate In Discomfort book">
+          <div>
+            <p class="bento-label">THE BOOK (2020)</p>
+            <h3 class="bento-title">Luxuriate In Discomfort</h3>
+          </div>
+          <p>A 30-page digest that explores how regular engagement with discomfort can lead to long-term contentment, written by the artist in 2020 for her son graduating into a pandemic-induced lockdown.</p>
+          <figure>
+            <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/L1009938%20book%20in%20mirrorRE%20copy.jpg" alt="Luxuriate in Discomfort book." loading="lazy">
+          </figure>
+          <span class="cta">VIEW THE BOOK</span>
+        </a>
+        <a class="bento-card" href="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/Installation%20Statement%20-%20Luxuriating%20In%20Discomfort%20(2).pdf" aria-label="View the one-night installation">
+          <div>
+            <p class="bento-label">THE ONE-NIGHT INSTALLATION</p>
+            <h3 class="bento-title">December 2020, Sun Valley</h3>
+          </div>
+          <p>A single-night exhibition staged inside the artist's bedroom, December 2020. The installation paired a large mixed-media painting — a year-long canvas layered with the residue of weekly water sessions and signed with a barcode for the Anthropocene — with two poems (Heat, Cold) and a video clip from Andy Goldsworthy's Leaning into the Wind. The bedroom itself became the gallery, and a lullaby palette underscored the double entendre at the center of the work.</p>
+          <span class="cta">VIEW THE INSTALLATION</span>
+        </a>
+        <a class="bento-card" href="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/LUX%20Public%20Art%202024%20-%202025.pdf" aria-label="Explore LUX public art project">
+          <div>
+            <p class="bento-label">LUX — PUBLIC ART PROJECT</p>
+            <h3 class="bento-title">Intentional Discomfort Practice</h3>
+          </div>
+          <p>LUX is a public art project addressing the teenage mental health crisis through an intentional discomfort practice: cold plunge, sauna, and whole-body vibration. Built on the artist's own eight-year practice, LUX offers young adults a constructive, approachable framework for building a working relationship with adversity — pairing physical rejuvenation with the psychological reward that follows.</p>
+          <span class="cta">EXPLORE LUX</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="surface-surveys">
+    <div class="inner">
+      <div class="section-head">
+        <div class="stack">
+          <p class="eyebrow">A SIX-PART AERIAL STUDY OF REMOTE TERRAIN</p>
+          <h2>SURFACE SURVEYS</h2>
+        </div>
+        <div class="stack surface-intro">
+          <p class="sentence">A field-based body of work documenting six remote and geologically significant landscapes across four continents. Created between 2015 and 2019 with a medium-format Leica S007, Surface Surveys moves across deserts, ice sheets, lava fields, gypsum dunes, and granite formations — terrains shaped by wind, ice, volcanic activity, erosion, and mineral deposit.</p>
+          <div class="text-block">
+            <p>Three of the six surveys are the first artist-led aerial surveys of their kind. The Greenland survey is the first completed by a woman.</p>
+          </div>
+          <div class="actions">
+            <a class="cta" href="#surveys">VIEW SURVEYS</a>
+          </div>
+        </div>
+      </div>
+      <div class="survey-grid" id="surveys" aria-label="Surface Surveys project links">
+        <details class="bento-card survey-card">
+          <summary>
+            <figure>
+              <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/GREENLAND/L1001017.jpg" alt="Greenland Ice Sheet aerial survey." loading="lazy">
+            </figure>
+            <div>
+              <p class="bento-label">GREENLAND ICE SHEET — GREENLAND (2015, 2017)</p>
+              <h3 class="bento-title">Greenland Ice Sheet</h3>
+            </div>
+            <p class="survey-meta">Approximate Latitude: 68°N</p>
+            <span class="cta">VIEW DETAILS</span>
+          </summary>
+          <div class="survey-more">
+            <div class="stack">
+              <p>The largest ice sheet outside Antarctica, covering 1.7 million square kilometers and reaching more than three kilometers thick. The ice holds a layered archive of past atmospheres, snowfall, volcanic events, and climate shifts. At its western edge, the Ilulissat Icefjord — a UNESCO World Heritage Site since 2004 — is fed by Sermeq Kujalleq, one of the world's fastest-moving glaciers.</p>
+              <p class="distinction"><strong>Project Distinction</strong>First artist-led photographic aerial survey of the Greenland Ice Sheet completed by a woman (2017).</p>
+              <a class="cta" href="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/GREENLAND/L1001017.jpg">VIEW PHOTOGRAPHS</a>
+            </div>
+          </div>
+        </details>
+        <details class="bento-card survey-card">
+          <summary>
+            <figure>
+              <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WHITE%20SANDS/L1001382-LWS.jpg" alt="White Sands National Park aerial survey." loading="lazy">
+            </figure>
+            <div>
+              <p class="bento-label">WHITE SANDS NATIONAL PARK — NEW MEXICO, USA (2018)</p>
+              <h3 class="bento-title">White Sands National Park</h3>
+            </div>
+            <p class="survey-meta">Approximate Latitude: 32°N<br>Status: Protected as a U.S. National Monument: 1933 | Redesignated as a U.S. National Park: 2019</p>
+            <span class="cta">VIEW DETAILS</span>
+          </summary>
+          <div class="survey-more">
+            <div class="stack">
+              <p>The world's largest gypsum dunefield, a 275-square-mile expanse of white mineral sand in the Tularosa Basin. Airspace above the park is restricted from ground to space — surrounded by White Sands Missile Range to the north and Holloman Air Force Base to the east. On July 16, 1945, the world's first atomic bomb was detonated at Trinity Site, sixty miles north of the park.</p>
+              <p class="distinction"><strong>Project Distinction</strong>First artist-led photographic civilian survey of the world's largest gypsum dunefield (2018).</p>
+              <a class="cta" href="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WHITE%20SANDS/L1001382-LWS.jpg">VIEW PHOTOGRAPHS</a>
+            </div>
+          </div>
+        </details>
+        <details class="bento-card survey-card">
+          <summary>
+            <figure>
+              <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/OBSERVATORY%20COMMISSION%20Photographs/CRATERS_L1002418%20_GM%20WALL.jpg" alt="Craters of the Moon aerial survey." loading="lazy">
+            </figure>
+            <div>
+              <p class="bento-label">CRATERS OF THE MOON — IDAHO, USA (2018)</p>
+              <h3 class="bento-title">Craters of the Moon</h3>
+            </div>
+            <p class="survey-meta">Status: Protected as a U.S. National Monument: 1924 | Designated International Dark Sky Park: 2017</p>
+            <span class="cta">VIEW DETAILS</span>
+          </summary>
+          <div class="survey-more">
+            <div class="stack">
+              <p>A vast volcanic landscape on Idaho's Snake River Plain. Lava flows, cinder cones, spatter cones, fissures, and sagebrush plains form one of the best-preserved recent volcanic terrains in the continental United States — 620 square miles, the largest predominantly Holocene lava field in the contiguous U.S. The present surface formed through eight major eruptive periods over the last 15,000 years. In 1969, Apollo 14 astronauts trained here before traveling to the Moon.</p>
+              <p class="distinction"><strong>Project Distinction</strong>First known artist-led photographic aerial survey of Craters of the Moon National Monument (2018).</p>
+              <a class="cta" href="#craters-gallery">VIEW PHOTOGRAPHS</a>
+            </div>
+          </div>
+        </details>
+        <details class="bento-card survey-card">
+          <summary>
+            <figure>
+              <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/SIMPSON%20DESERT/simpson_desert_L1006196%20PANO.jpg" alt="Simpson Desert aerial survey." loading="lazy">
+            </figure>
+            <div>
+              <p class="bento-label">SIMPSON DESERT — AUSTRALIA (2019)</p>
+              <h3 class="bento-title">Simpson Desert</h3>
+            </div>
+            <p class="survey-meta">Approximate Latitude: 25°S<br>Status: Protected within the Munga-Thirri–Simpson Desert protected areas</p>
+            <span class="cta">VIEW DETAILS</span>
+          </summary>
+          <div class="survey-more">
+            <div class="stack">
+              <p>176,500 square kilometers of parallel-dune landscape across South Australia, Queensland, and the Northern Territory — the world's longest parallel sand dunes, with individual ridges extending more than 150 kilometers, some reaching 200. Munga-Thirri means Big Sandhill Country. The desert is the traditional Country of the Wangkangurru Yarluyandi people, whose songlines and navigation systems are inseparable from the landforms themselves.</p>
+              <p class="distinction"><strong>Project Distinction</strong>First known artist-led photographic aerial survey of the Simpson Desert's parallel dune field (2019).</p>
+              <a class="cta" href="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/SIMPSON%20DESERT/simpson_desert_L1006196%20PANO.jpg">VIEW PHOTOGRAPHS</a>
+            </div>
+          </div>
+        </details>
+        <details class="bento-card survey-card">
+          <summary>
+            <figure>
+              <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WAHIBA%20OMAN/L1007312%20RAW%20PNG%20copy.jpg" alt="Wahiba Sands aerial survey." loading="lazy">
+            </figure>
+            <div>
+              <p class="bento-label">WAHIBA SANDS — OMAN (2017)</p>
+              <h3 class="bento-title">Wahiba Sands</h3>
+            </div>
+            <p class="survey-meta">Approximate Latitude: 22°N</p>
+            <span class="cta">VIEW DETAILS</span>
+          </summary>
+          <div class="survey-more">
+            <div class="stack">
+              <p>A vast sand sea in eastern Oman, named for the Bani Wahiba tribe. The dunes run roughly 180 kilometers north to south and 80 kilometers east to west, covering about 12,500 square kilometers — a record of wind, monsoon cycles, and late Quaternary shifts in sea level held in motion across hundreds of thousands of years. Bedouin villages, camel routes, temporary camps, and open night skies give the Wahiba Sands their human scale.</p>
+              <a class="cta" href="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WAHIBA%20OMAN/L1007312%20RAW%20PNG%20copy.jpg">VIEW PHOTOGRAPHS</a>
+            </div>
+          </div>
+        </details>
+        <details class="bento-card survey-card">
+          <summary>
+            <figure>
+              <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/CITY/L1008102%20copy.jpg" alt="City of Rocks National Reserve aerial survey." loading="lazy">
+            </figure>
+            <div>
+              <p class="bento-label">CITY OF ROCKS NATIONAL RESERVE — IDAHO, USA (2017)</p>
+              <h3 class="bento-title">City of Rocks National Reserve</h3>
+            </div>
+            <p class="survey-meta">Approximate Latitude: 42°N<br>Status: Protected as a National Reserve: 1988</p>
+            <span class="cta">VIEW DETAILS</span>
+          </summary>
+          <div class="survey-more">
+            <div class="stack">
+              <p>14,407 acres at the southern end of Idaho's Albion Mountains. Granite spires, fins, domes, and monoliths rise from the sagebrush, with some formations reaching the height of a 60-story building. The Almo Pluton granite is roughly 28 million years old; nearby Green Creek Complex rocks are more than 2.5 billion years old — among the oldest exposed rocks in the United States. Emigrants of the California Trail described the formations as "a city of tall spires," "steeple rocks," and "the silent city."</p>
+              <a class="cta" href="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/CITY/L1008102%20copy.jpg">VIEW PHOTOGRAPHS</a>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing">
+    <div class="inner stack">
+      <p class="sentence">Surface Surveys treats the Earth's surface as evidence, image, and elemental form — a sustained study of where the planet records itself in plain view, and what becomes visible when it is approached from above.</p>
+      <div class="actions">
+        <a class="cta" href="#commission">RETURN TO COMMISSION</a>
+        <a class="cta secondary" href="#surface-surveys">VIEW ALL PROJECTS</a>
+        <a class="cta secondary" href="mailto:studio@lisawoodstudio.com">CONTACT THE STUDIO</a>
+      </div>
+    </div>
+  </section>
+</main>
+<script type="module">
+const EDIT_STORAGE_KEY = "observatory-content-preview-inline-edits-v4";
+const STYLE_STORAGE_KEY = "observatory-content-preview-style-v1";
+const ELEMENT_STYLE_STORAGE_KEY = "observatory-content-preview-element-style-v1";
+const IMAGE_STORAGE_KEY = "observatory-content-preview-images-v1";
+const HERO_LOCK_STORAGE_KEY = "observatory-content-preview-hero-lock-v1";
+const CONTENT_LOCK_STORAGE_KEY = "observatory-content-preview-content-lock-v1";
+const CRATERS_TITLE_MIGRATION_KEY = "observatory-content-preview-craters-title-migrated-v1";
+const CRATERS_COPY_MIGRATION_KEY = "observatory-content-preview-craters-copy-v2";
+const CRATERS_SECTION_RESET_KEY = "observatory-content-preview-craters-section-reset-v3";
+const HERO_NOTE_LABEL_MIGRATION_KEY = "observatory-content-preview-hero-note-label-v1";
+const INTRO_IMAGE_MIGRATION_KEY = "observatory-content-preview-intro-image-v1";
+const INTRO_IMAGE_SUPABASE_MIGRATION_KEY = "observatory-content-preview-intro-image-supabase-v1";
+const WINTERBLUE_COPY_MIGRATION_KEY = "observatory-content-preview-winterblue-copy-v3";
+const INTRO_IMAGE_URL = "https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/IMG_9824.JPEG";
+const LOCAL_SAVE_URL = "http://127.0.0.1:4174/api/save-edits";
+const urlParams = new URLSearchParams(window.location.search);
+const editorEnabled = urlParams.has("edit") || ["localhost", "127.0.0.1"].includes(window.location.hostname);
+const storageKeys = [
+  EDIT_STORAGE_KEY,
+  STYLE_STORAGE_KEY,
+  ELEMENT_STYLE_STORAGE_KEY,
+  IMAGE_STORAGE_KEY,
+  HERO_LOCK_STORAGE_KEY,
+  CONTENT_LOCK_STORAGE_KEY
+];
+const editableSelector = [
+  ".eyebrow",
+  "h1",
+  "h2",
+  "h3",
+  ".sentence",
+  ".kicker",
+  ".text-block-title",
+  ".text-block p",
+  "figcaption",
+  ".photo-caption",
+  "summary",
+  "details p",
+  "details li"
+].join(",");
+
+function readStorage(key) {
+  try {
+    return JSON.parse(localStorage.getItem(key) || "{}");
+  } catch {
+    return {};
+  }
+}
+
+function saveStorage(key, value) {
+  localStorage.setItem(key, JSON.stringify(value));
+}
+
+if (urlParams.has("reset-edits")) {
+  storageKeys.forEach((key) => localStorage.removeItem(key));
+  urlParams.delete("reset-edits");
+  urlParams.delete("edits-imported");
+  window.location.replace(`${window.location.pathname}?${urlParams.toString()}${window.location.hash}`);
+}
+
+async function importLatestSnapshotIfRequested() {
+  if (!/^https?:$/.test(window.location.protocol)) return;
+  if (!urlParams.has("import-edits") || urlParams.has("edits-imported")) return;
+
+  try {
+    const response = await fetch("/api/latest-edits", { cache: "no-store" });
+    if (!response.ok) return;
+    const snapshot = await response.json();
+    if (snapshot.inlineEdits) saveStorage(EDIT_STORAGE_KEY, snapshot.inlineEdits);
+    if (snapshot.styleSettings) saveStorage(STYLE_STORAGE_KEY, snapshot.styleSettings);
+    if (snapshot.elementStyleSettings) saveStorage(ELEMENT_STYLE_STORAGE_KEY, snapshot.elementStyleSettings);
+    if (snapshot.imageSettings) saveStorage(IMAGE_STORAGE_KEY, snapshot.imageSettings);
+    if (typeof snapshot.heroLocked === "boolean") {
+      localStorage.setItem(HERO_LOCK_STORAGE_KEY, snapshot.heroLocked ? "true" : "false");
+    }
+    if (typeof snapshot.contentLocked === "boolean") {
+      localStorage.setItem(CONTENT_LOCK_STORAGE_KEY, snapshot.contentLocked ? "true" : "false");
+    }
+    urlParams.delete("import-edits");
+    urlParams.set("edits-imported", "1");
+    window.location.replace(`${window.location.pathname}?${urlParams.toString()}${window.location.hash}`);
+  } catch {
+    // Keep rendering with current local browser edits if the snapshot server is unavailable.
+  }
+}
+
+await importLatestSnapshotIfRequested();
+
+if (!editorEnabled) {
+  document.querySelector(".editor-panel")?.setAttribute("hidden", "");
+}
+
+const styleSettings = readStorage(STYLE_STORAGE_KEY);
+if (styleSettings["--intro-top-space"] === "46") {
+  styleSettings["--intro-top-space"] = "24";
+  saveStorage(STYLE_STORAGE_KEY, styleSettings);
+}
+if (Number(styleSettings["--section-title-size"]) > 24) {
+  styleSettings["--section-title-size"] = "20";
+  saveStorage(STYLE_STORAGE_KEY, styleSettings);
+}
+const styleControls = [...document.querySelectorAll("[data-style-var]")];
+const colorControls = [...document.querySelectorAll("[data-color-var]")];
+const sectionJumpButtons = [...document.querySelectorAll("[data-jump-section]")];
+const activeTarget = document.querySelector("[data-active-target]");
+const activeSizeInput = document.querySelector("[data-active-size]");
+const activeColorInput = document.querySelector("[data-active-color]");
+const activeStyleButtons = [
+  ...document.querySelectorAll("[data-active-size-step], [data-active-bold], [data-active-italic], [data-active-clear]")
+];
+const saveStatus = document.querySelector("[data-save-status]");
+let snapshotTimer;
+
+function markSaved(message = "Autosaved locally") {
+  if (!saveStatus) return;
+  const stamp = new Date().toLocaleTimeString([], { hour: "numeric", minute: "2-digit", second: "2-digit" });
+  saveStatus.textContent = `${message} at ${stamp}`;
+}
+
+function collectSnapshot() {
+  return {
+    updatedAt: new Date().toISOString(),
+    location: window.location.href,
+    inlineEdits: readStorage(EDIT_STORAGE_KEY),
+    styleSettings: readStorage(STYLE_STORAGE_KEY),
+    elementStyleSettings: readStorage(ELEMENT_STYLE_STORAGE_KEY),
+    imageSettings: readStorage(IMAGE_STORAGE_KEY),
+    heroLocked: heroIsLocked(),
+    contentLocked: contentIsLocked()
+  };
+}
+
+function saveSnapshotToServer() {
+  if (!editorEnabled) return;
+  const saveUrl = /^https?:$/.test(window.location.protocol) ? "/api/save-edits" : LOCAL_SAVE_URL;
+  clearTimeout(snapshotTimer);
+  snapshotTimer = window.setTimeout(async () => {
+    try {
+      const response = await fetch(saveUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(collectSnapshot())
+      });
+      if (response.ok) markSaved("Autosaved to disk");
+    } catch {
+      markSaved("Autosaved locally");
+    }
+  }, 500);
+}
+
+styleControls.forEach((input) => {
+  const cssVar = input.dataset.styleVar;
+  const output = input.closest(".control-row")?.querySelector("output");
+  const unit = input.dataset.unit || "px";
+  const min = Number(input.min);
+  const max = Number(input.max);
+  const savedValue = styleSettings[cssVar];
+  if (savedValue) {
+    const numericValue = Number(savedValue);
+    if (Number.isFinite(numericValue)) {
+      input.value = Math.min(max, Math.max(min, numericValue));
+    }
+  }
+
+  const applyStyle = () => {
+    document.documentElement.style.setProperty(cssVar, `${input.value}${unit}`);
+    if (output) output.textContent = `${input.value}${unit}`;
+    styleSettings[cssVar] = input.value;
+    saveStorage(STYLE_STORAGE_KEY, styleSettings);
+    markSaved();
+    saveSnapshotToServer();
+  };
+
+  applyStyle();
+  input.addEventListener("input", applyStyle);
+});
+
+colorControls.forEach((input) => {
+  const cssVar = input.dataset.colorVar;
+  const savedValue = styleSettings[cssVar];
+  if (savedValue) input.value = savedValue;
+
+  const applyColor = () => {
+    document.documentElement.style.setProperty(cssVar, input.value);
+    styleSettings[cssVar] = input.value;
+    saveStorage(STYLE_STORAGE_KEY, styleSettings);
+    markSaved();
+    saveSnapshotToServer();
+  };
+
+  applyColor();
+  input.addEventListener("input", applyColor);
+});
+
+sectionJumpButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    document.querySelector(button.dataset.jumpSection)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+});
+
+const heroLockButton = document.querySelector("[data-lock-hero]");
+const heroControls = [...document.querySelectorAll("[data-hero-control]")];
+
+function heroIsLocked() {
+  return localStorage.getItem(HERO_LOCK_STORAGE_KEY) === "true";
+}
+
+function setHeroLocked(locked) {
+  localStorage.setItem(HERO_LOCK_STORAGE_KEY, locked ? "true" : "false");
+  heroControls.forEach((input) => {
+    input.disabled = locked;
+  });
+  if (heroLockButton) {
+    heroLockButton.textContent = locked ? "Unlock Hero Type" : "Lock Hero Type";
+  }
+  markSaved(locked ? "Hero type locked" : "Hero type unlocked");
+  saveSnapshotToServer();
+}
+
+if (heroLockButton) {
+  heroLockButton.addEventListener("click", () => {
+    setHeroLocked(!heroIsLocked());
+  });
+}
+
+setHeroLocked(heroIsLocked());
+
+function normalizeImagePath(value) {
+  const path = value.trim();
+  if (/^[A-Za-z]:[\\/]/.test(path)) {
+    return `file:///${path.replace(/\\/g, "/").replace(/ /g, "%20")}`;
+  }
+  return path;
+}
+
+const imageSettings = readStorage(IMAGE_STORAGE_KEY);
+if (!localStorage.getItem(INTRO_IMAGE_MIGRATION_KEY)) {
+  imageSettings["intro-image-0"] = INTRO_IMAGE_URL;
+  saveStorage(IMAGE_STORAGE_KEY, imageSettings);
+  localStorage.setItem(INTRO_IMAGE_MIGRATION_KEY, "true");
+}
+if (!localStorage.getItem(INTRO_IMAGE_SUPABASE_MIGRATION_KEY)) {
+  imageSettings["intro-image-0"] = INTRO_IMAGE_URL;
+  saveStorage(IMAGE_STORAGE_KEY, imageSettings);
+  localStorage.setItem(INTRO_IMAGE_SUPABASE_MIGRATION_KEY, "true");
+}
+const imageTargets = [...document.querySelectorAll("main img")]
+  .filter((img) => !img.closest(".hero"));
+
+imageTargets.forEach((img, index) => {
+  const section = img.closest("section")?.id || "top";
+  const key = `${section}-image-${index}`;
+  if (imageSettings[key]) img.setAttribute("src", imageSettings[key]);
+});
+
+const inlineEdits = readStorage(EDIT_STORAGE_KEY);
+if (!localStorage.getItem(WINTERBLUE_COPY_MIGRATION_KEY)) {
+  Object.keys(inlineEdits)
+    .filter((key) => key.startsWith("winterblue-"))
+    .forEach((key) => {
+      delete inlineEdits[key];
+    });
+  saveStorage(EDIT_STORAGE_KEY, inlineEdits);
+  localStorage.setItem(WINTERBLUE_COPY_MIGRATION_KEY, "true");
+}
+if (!localStorage.getItem(HERO_NOTE_LABEL_MIGRATION_KEY)) {
+  const heroNoteLabelKey = Object.keys(inlineEdits).find((key) => (
+    key.startsWith("top-") &&
+    /^(read the field note|commission)$/i.test(inlineEdits[key].replace(/<[^>]*>/g, "").trim())
+  ));
+
+  if (heroNoteLabelKey) {
+    inlineEdits[heroNoteLabelKey] = "Project Note";
+    saveStorage(EDIT_STORAGE_KEY, inlineEdits);
+  }
+  localStorage.setItem(HERO_NOTE_LABEL_MIGRATION_KEY, "true");
+}
+if (!localStorage.getItem(CRATERS_TITLE_MIGRATION_KEY)) {
+  const cratersTitleKey = Object.keys(inlineEdits).find((key) => (
+    key.startsWith("commission-") &&
+    /CRATERS/i.test(inlineEdits[key]) &&
+    /SURFACE SURVEYS/i.test(inlineEdits[key]) &&
+    /<font|&nbsp;|style=/i.test(inlineEdits[key])
+  ));
+
+  if (cratersTitleKey) {
+    inlineEdits[cratersTitleKey] = '<span class="line">CRATERS,</span><span class="line"><span class="soft">SURFACE SURVEYS</span> (2018)</span>';
+    saveStorage(EDIT_STORAGE_KEY, inlineEdits);
+  }
+  localStorage.setItem(CRATERS_TITLE_MIGRATION_KEY, "true");
+}
+if (!localStorage.getItem(CRATERS_COPY_MIGRATION_KEY)) {
+  const cratersTitleKey = Object.keys(inlineEdits).find((key) => (
+    key.startsWith("commission-") &&
+    /CRATERS/i.test(inlineEdits[key]) &&
+    /SURFACE SURVEYS/i.test(inlineEdits[key])
+  ));
+
+  if (cratersTitleKey) {
+    inlineEdits[cratersTitleKey] = '<span class="line">CRATERS, <span class="soft">SURFACE SURVEYS</span></span><span class="line">(2018)</span>';
+    saveStorage(EDIT_STORAGE_KEY, inlineEdits);
+  }
+  localStorage.setItem(CRATERS_COPY_MIGRATION_KEY, "true");
+}
+if (!localStorage.getItem(CRATERS_SECTION_RESET_KEY)) {
+  Object.keys(inlineEdits)
+    .filter((key) => key.startsWith("commission-"))
+    .forEach((key) => {
+      delete inlineEdits[key];
+    });
+  saveStorage(EDIT_STORAGE_KEY, inlineEdits);
+  localStorage.setItem(CRATERS_SECTION_RESET_KEY, "true");
+}
+const editables = [...document.querySelectorAll(editableSelector)]
+  .filter((el) => !el.closest("nav") && !el.closest(".actions") && !el.closest(".editor-panel"));
+const contentLockButton = document.querySelector("[data-lock-copy]");
+const elementStyleSettings = readStorage(ELEMENT_STYLE_STORAGE_KEY);
+let activeEditable = null;
+
+function slugText(value) {
+  return value
+    .replace(/\s+/g, " ")
+    .replace(/[^a-z0-9 ]/gi, "")
+    .trim()
+    .toLowerCase()
+    .split(" ")
+    .slice(0, 8)
+    .join("-");
+}
+
+function stableEditableKey(el, index) {
+  const section = el.closest("section")?.id || "top";
+  const tag = el.tagName.toLowerCase();
+  const className = [...el.classList].filter((name) => !name.startsWith("editable")).join("-");
+  const textKey = slugText(el.textContent || "");
+  return [section, tag, className, textKey || index].filter(Boolean).join("-");
+}
+
+function rgbToHex(value) {
+  const parts = value.match(/\d+/g)?.slice(0, 3).map(Number);
+  if (!parts || parts.length < 3) return "#111111";
+  return `#${parts.map((part) => part.toString(16).padStart(2, "0")).join("")}`;
+}
+
+function editableLabel(el) {
+  const section = el.closest("section")?.id || "hero";
+  const kind = el.matches("h1,h2,h3") ? "heading" : el.matches(".eyebrow,summary") ? "label" : "paragraph";
+  return `${section.replace(/-/g, " ")} ${kind}`;
+}
+
+function getEditableKey(el) {
+  return el?.dataset?.editId;
+}
+
+function saveElementStyles() {
+  saveStorage(ELEMENT_STYLE_STORAGE_KEY, elementStyleSettings);
+  saveSnapshotToServer();
+}
+
+function applyElementStyle(el) {
+  const styles = elementStyleSettings[getEditableKey(el)];
+  if (!styles) return;
+  if (styles.fontSize) el.style.fontSize = styles.fontSize;
+  if (styles.color) el.style.color = styles.color;
+  if (styles.fontWeight) el.style.fontWeight = styles.fontWeight;
+  if (styles.fontStyle) el.style.fontStyle = styles.fontStyle;
+}
+
+function setActiveControlsEnabled(enabled) {
+  if (activeSizeInput) activeSizeInput.disabled = !enabled;
+  if (activeColorInput) activeColorInput.disabled = !enabled;
+  activeStyleButtons.forEach((button) => {
+    button.disabled = !enabled;
+  });
+}
+
+function syncActiveControls() {
+  if (!activeEditable || !activeSizeInput) return;
+  const computed = window.getComputedStyle(activeEditable);
+  const fontSize = Math.round(parseFloat(computed.fontSize) || 16);
+  activeSizeInput.value = String(Math.min(Number(activeSizeInput.max), Math.max(Number(activeSizeInput.min), fontSize)));
+  const output = activeSizeInput.closest(".control-row")?.querySelector("output");
+  if (output) output.textContent = `${activeSizeInput.value}px`;
+  if (activeColorInput) activeColorInput.value = rgbToHex(computed.color);
+}
+
+function setActiveEditable(el) {
+  if (!editorEnabled || !el) return;
+  activeEditable?.classList.remove("editable-active");
+  activeEditable = el;
+  activeEditable.classList.add("editable-active");
+  if (activeTarget) activeTarget.textContent = `Editing: ${editableLabel(el)}`;
+  setActiveControlsEnabled(true);
+  syncActiveControls();
+}
+
+function updateActiveStyle(styles, message = "Active text style saved") {
+  if (!activeEditable) {
+    markSaved("Click text first");
+    return;
+  }
+
+  const key = getEditableKey(activeEditable);
+  elementStyleSettings[key] = { ...(elementStyleSettings[key] || {}), ...styles };
+  Object.entries(styles).forEach(([property, value]) => {
+    activeEditable.style[property] = value;
+  });
+  saveElementStyles();
+  markSaved(message);
+}
+
+function contentIsLocked() {
+  return localStorage.getItem(CONTENT_LOCK_STORAGE_KEY) === "true";
+}
+
+function setContentLocked(locked) {
+  localStorage.setItem(CONTENT_LOCK_STORAGE_KEY, locked ? "true" : "false");
+  editables.forEach((el) => {
+    el.setAttribute("contenteditable", editorEnabled && !locked ? "true" : "false");
+  });
+  if (contentLockButton) {
+    contentLockButton.textContent = locked ? "Unlock Copy Edits" : "Lock Copy Edits";
+  }
+  markSaved(locked ? "Copy edits locked" : "Copy edits unlocked");
+  saveSnapshotToServer();
+}
+
+function saveEditableElement(el, message = "Text autosaved") {
+  if (!el?.dataset?.editId) return;
+  inlineEdits[el.dataset.editId] = el.innerHTML;
+  saveStorage(EDIT_STORAGE_KEY, inlineEdits);
+  markSaved(message);
+  saveSnapshotToServer();
+}
+
+editables.forEach((el, index) => {
+  const legacySection = el.closest("section")?.id || "top";
+  const legacyKey = `${legacySection}-${index}`;
+  const key = stableEditableKey(el, index);
+  el.dataset.editId = key;
+  if (inlineEdits[key]) {
+    el.innerHTML = inlineEdits[key];
+  } else if (inlineEdits[legacyKey]) {
+    inlineEdits[key] = inlineEdits[legacyKey];
+    delete inlineEdits[legacyKey];
+    el.innerHTML = inlineEdits[key];
+    saveStorage(EDIT_STORAGE_KEY, inlineEdits);
+  }
+  el.setAttribute("contenteditable", editorEnabled ? "true" : "false");
+  el.setAttribute("spellcheck", "true");
+  applyElementStyle(el);
+  el.addEventListener("focus", () => {
+    setActiveEditable(el);
+  });
+  el.addEventListener("click", () => {
+    setActiveEditable(el);
+  });
+  el.addEventListener("input", () => {
+    saveEditableElement(el);
+  });
+});
+
+setActiveControlsEnabled(false);
+
+if (activeSizeInput) {
+  activeSizeInput.addEventListener("input", () => {
+    const output = activeSizeInput.closest(".control-row")?.querySelector("output");
+    if (output) output.textContent = `${activeSizeInput.value}px`;
+    updateActiveStyle({ fontSize: `${activeSizeInput.value}px` }, "Active text size saved");
+  });
+}
+
+document.querySelectorAll("[data-active-size-step]").forEach((button) => {
+  button.addEventListener("click", () => {
+    if (!activeEditable || !activeSizeInput) {
+      markSaved("Click text first");
+      return;
+    }
+    const step = Number(button.dataset.activeSizeStep);
+    const current = Number(activeSizeInput.value);
+    const next = Math.min(Number(activeSizeInput.max), Math.max(Number(activeSizeInput.min), current + step));
+    activeSizeInput.value = String(next);
+    activeSizeInput.dispatchEvent(new Event("input", { bubbles: true }));
+  });
+});
+
+if (activeColorInput) {
+  activeColorInput.addEventListener("input", () => {
+    updateActiveStyle({ color: activeColorInput.value }, "Active text color saved");
+  });
+}
+
+document.querySelector("[data-active-bold]")?.addEventListener("click", () => {
+  if (!activeEditable) {
+    markSaved("Click text first");
+    return;
+  }
+  const current = window.getComputedStyle(activeEditable).fontWeight;
+  updateActiveStyle({ fontWeight: Number(current) >= 600 ? "" : "600" }, "Active text weight saved");
+});
+
+document.querySelector("[data-active-italic]")?.addEventListener("click", () => {
+  if (!activeEditable) {
+    markSaved("Click text first");
+    return;
+  }
+  const current = window.getComputedStyle(activeEditable).fontStyle;
+  updateActiveStyle({ fontStyle: current === "italic" ? "" : "italic" }, "Active text italic saved");
+});
+
+document.querySelector("[data-active-clear]")?.addEventListener("click", () => {
+  if (!activeEditable) {
+    markSaved("Click text first");
+    return;
+  }
+  delete elementStyleSettings[getEditableKey(activeEditable)];
+  ["fontSize", "color", "fontWeight", "fontStyle"].forEach((property) => {
+    activeEditable.style[property] = "";
+  });
+  saveElementStyles();
+  syncActiveControls();
+  markSaved("Active text style cleared");
+});
+
+if (contentLockButton) {
+  contentLockButton.addEventListener("click", () => {
+    setContentLocked(!contentIsLocked());
+  });
+}
+
+setContentLocked(contentIsLocked());
+
+let savedSelectionRange = null;
+document.addEventListener("selectionchange", () => {
+  const selection = window.getSelection();
+  if (!selection || selection.rangeCount === 0) return;
+  const range = selection.getRangeAt(0);
+  const container = range.commonAncestorContainer.nodeType === Node.ELEMENT_NODE
+    ? range.commonAncestorContainer
+    : range.commonAncestorContainer.parentElement;
+  if (container?.closest?.('[contenteditable="true"]')) {
+    savedSelectionRange = range.cloneRange();
+  }
+});
+
+const selectedColorInput = document.querySelector("[data-selected-color]");
+const selectedColorButton = document.querySelector("[data-apply-selected-color]");
+const selectedBoldButton = document.querySelector("[data-toggle-selected-bold]");
+const selectedItalicButton = document.querySelector("[data-toggle-selected-italic]");
+const selectedSizeInput = document.querySelector("[data-selected-size]");
+const selectedSizeButton = document.querySelector("[data-apply-selected-size]");
+
+function restoreSelection() {
+  if (!savedSelectionRange || savedSelectionRange.collapsed) {
+    markSaved("Select text first");
+    return null;
+  }
+
+  const selection = window.getSelection();
+  selection.removeAllRanges();
+  selection.addRange(savedSelectionRange);
+  const container = selection.anchorNode?.nodeType === Node.ELEMENT_NODE
+    ? selection.anchorNode
+    : selection.anchorNode?.parentElement;
+  return container?.closest?.('[contenteditable="true"]') || null;
+}
+
+function saveCurrentSelection(message) {
+  const selection = window.getSelection();
+  const container = selection.anchorNode?.nodeType === Node.ELEMENT_NODE
+    ? selection.anchorNode
+    : selection.anchorNode?.parentElement;
+  const editable = container?.closest?.('[contenteditable="true"]');
+  if (editable) saveEditableElement(editable, message);
+}
+
+function normalizeFontSizeMarkup(editable, size) {
+  editable.querySelectorAll('font[size="7"]').forEach((font) => {
+    const span = document.createElement("span");
+    span.style.fontSize = `${size}px`;
+    span.innerHTML = font.innerHTML;
+    font.replaceWith(span);
+  });
+}
+
+if (selectedSizeInput) {
+  const selectedSizeOutput = selectedSizeInput.closest(".control-row")?.querySelector("output");
+  const updateSelectedSizeOutput = () => {
+    if (selectedSizeOutput) selectedSizeOutput.textContent = `${selectedSizeInput.value}px`;
+  };
+  updateSelectedSizeOutput();
+  selectedSizeInput.addEventListener("input", updateSelectedSizeOutput);
+}
+
+if (selectedColorButton && selectedColorInput) {
+  selectedColorButton.addEventListener("click", () => {
+    if (!restoreSelection()) return;
+    document.execCommand("foreColor", false, selectedColorInput.value);
+    saveCurrentSelection("Selected color saved");
+  });
+}
+if (selectedBoldButton) {
+  selectedBoldButton.addEventListener("click", () => {
+    if (!restoreSelection()) return;
+    document.execCommand("bold");
+    saveCurrentSelection("Bold text saved");
+  });
+}
+if (selectedItalicButton) {
+  selectedItalicButton.addEventListener("click", () => {
+    if (!restoreSelection()) return;
+    document.execCommand("italic");
+    saveCurrentSelection("Italic text saved");
+  });
+}
+if (selectedSizeButton && selectedSizeInput) {
+  selectedSizeButton.addEventListener("click", () => {
+    const editable = restoreSelection();
+    if (!editable) return;
+    document.execCommand("fontSize", false, "7");
+    normalizeFontSizeMarkup(editable, selectedSizeInput.value);
+    saveEditableElement(editable, "Selected size saved");
+  });
+}
+
+document.addEventListener("keydown", (event) => {
+  if (!editorEnabled || !(event.ctrlKey || event.metaKey)) return;
+  const key = event.key.toLowerCase();
+  if (!["b", "i"].includes(key)) return;
+  window.setTimeout(() => {
+    const selection = window.getSelection();
+    const container = selection?.anchorNode?.nodeType === Node.ELEMENT_NODE
+      ? selection.anchorNode
+      : selection?.anchorNode?.parentElement;
+    const editable = container?.closest?.('[contenteditable="true"]');
+    if (editable) saveEditableElement(editable, key === "b" ? "Bold text saved" : "Italic text saved");
+  }, 0);
+});
+
+if (!editorEnabled) {
+  setContentLocked(true);
+}
+
+const exportButton = document.querySelector("[data-export-edits]");
+if (exportButton) {
+  exportButton.addEventListener("click", () => {
+    const snapshot = collectSnapshot();
+    const blob = new Blob([JSON.stringify(snapshot, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `observatory-preview-edits-${snapshot.updatedAt.slice(0, 10)}.json`;
+    document.body.append(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(url);
+    markSaved("Edit snapshot exported");
+  });
+}
+
+document.body.classList.add("editable-ready");
+markSaved(editorEnabled ? "Local editor ready" : "Preview ready");
+saveSnapshotToServer();
+</script>
+</body>
+</html>
+

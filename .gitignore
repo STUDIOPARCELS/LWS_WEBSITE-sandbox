@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.DS_Store
+Thumbs.db
+*.log
+~$*
+assets/craters-lounge-wall.jpg
+*.docx
+CRATERS/
+LUXURIATE IN DISCOMFORT/
+OBSERVATORY COMMISSION Photographs/
+SURFACE SURVEYS/
+WINTERBLUE/
+
+.vercel
+.env*.local
+edits/
