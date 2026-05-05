@@ -259,7 +259,7 @@ h3 {
 .commission-meta .meta-item {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 4px;
+  gap: 10px;
 }
 .commission-meta .meta-item dt {
   font-size: var(--label-size);
@@ -1422,14 +1422,13 @@ figure img { cursor: zoom-in; }
 .winterblue-meta-cta {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
   color: var(--ink);
   text-decoration: none;
-  border-bottom: 1px solid var(--ink);
-  padding-bottom: 1px;
-  transition: gap .18s ease, opacity .18s ease;
+  font-size: 18px;
+  line-height: 1;
+  transition: transform .18s ease, opacity .18s ease;
 }
-.winterblue-meta-cta:hover { gap: 12px; opacity: .75; }
+.winterblue-meta-cta:hover { transform: translateX(3px); opacity: .75; }
 .winterblue-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -2054,7 +2053,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
               </div>
               <div class="meta-item">
                 <dt>Field Video</dt>
-                <dd><a class="winterblue-meta-cta" href="#winterblue-site-popup" data-popup="winterblue-site">Watch <span aria-hidden="true">→</span></a></dd>
+                <dd><a class="winterblue-meta-cta" href="#winterblue-site-popup" data-popup="winterblue-site" aria-label="Watch field video"><span aria-hidden="true">→</span></a></dd>
               </div>
             </dl>
           </div>
