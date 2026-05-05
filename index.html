@@ -603,7 +603,9 @@ figure img { cursor: zoom-in; }
   color: var(--ink);
 }
 .bento-card:focus-visible { outline: 1px solid var(--ink); outline-offset: 4px; }
-.bento-card--static { cursor: default; }
+.bento-card--static,
+.bento-card--static figure,
+.bento-card--static img { cursor: default; }
 .bento-card--static:hover { transform: none; box-shadow: none; border-color: var(--line); }
 .bento-card--static::after { display: none; }
 .bento-card.large {
@@ -1908,26 +1910,33 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
     </div>
   </section>
 </main>
-<dialog id="installation-popup" class="installation-popup" aria-label="One-night installation gallery">
-  <div class="installation-popup-grid installation-popup-grid--three">
-    <figure>
-      <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/photos/L1009866%20owning.jpg" alt="One-night installation photograph." loading="lazy">
-    </figure>
-    <figure>
-      <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/photos/L1009905.jpg" alt="One-night installation photograph." loading="lazy">
-    </figure>
-    <figure>
-      <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/photos/L1009933%20RESIZE.jpg" alt="One-night installation photograph." loading="lazy">
-    </figure>
-    <figure>
-      <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/photos/L1009938%20book%20in%20mirrorRE%20copy.jpg" alt="One-night installation photograph." loading="lazy">
-    </figure>
-    <figure>
-      <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/photos/L1009942%20LID%20blur%20mirror.jpg" alt="One-night installation photograph." loading="lazy">
-    </figure>
-    <figure>
-      <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/photos/L1009945%20heat%20poem%20RE%20copy.jpg" alt="One-night installation photograph." loading="lazy">
-    </figure>
+<dialog id="installation-popup" class="installation-popup survey-popup" aria-label="One-night installation gallery">
+  <div class="survey-popup-frame">
+    <div class="survey-popup-section">
+      <p class="survey-popup-label">INSTALLATION PHOTOGRAPHS</p>
+      <div class="survey-popup-grid survey-popup-grid--landscape">
+        <figure>
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/photos/L1009866%20owning.jpg" alt="One-night installation photograph." loading="lazy">
+        </figure>
+        <figure>
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/photos/L1009905.jpg" alt="One-night installation photograph." loading="lazy">
+        </figure>
+        <figure>
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/photos/L1009933%20RESIZE.jpg" alt="One-night installation photograph." loading="lazy">
+        </figure>
+      </div>
+      <div class="survey-popup-grid survey-popup-grid--landscape">
+        <figure>
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/photos/L1009938%20book%20in%20mirrorRE%20copy.jpg" alt="One-night installation photograph." loading="lazy">
+        </figure>
+        <figure>
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/photos/L1009942%20LID%20blur%20mirror.jpg" alt="One-night installation photograph." loading="lazy">
+        </figure>
+        <figure>
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/photos/L1009945%20heat%20poem%20RE%20copy.jpg" alt="One-night installation photograph." loading="lazy">
+        </figure>
+      </div>
+    </div>
   </div>
 </dialog>
 <dialog id="book-popup" class="installation-popup book-popup" aria-label="Luxuriate In Discomfort book">
