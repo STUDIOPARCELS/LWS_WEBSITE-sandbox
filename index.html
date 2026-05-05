@@ -158,7 +158,16 @@ h3 {
   object-fit: contain;
 }
 .hero { max-width: 1240px; }
-.intro-head { max-width: 1240px; margin-left: auto; margin-right: auto; }
+.intro-head {
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: minmax(360px, .85fr) minmax(0, 1fr);
+  align-items: start;
+}
+.intro-copy { max-width: 560px; }
+.intro-copy .intro-title { max-width: 100%; }
+.intro-copy .text-block p + p { margin-top: 1em; }
 figure img { cursor: zoom-in; }
 .lightbox-overlay {
   position: fixed;
