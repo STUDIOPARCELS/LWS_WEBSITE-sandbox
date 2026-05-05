@@ -531,6 +531,23 @@ figure img { cursor: zoom-in; }
   background: #000;
   border-radius: 3px;
 }
+.survey-popup-essay { width: 100%; }
+.survey-popup-essay iframe {
+  width: 100%;
+  height: clamp(440px, 65vh, 820px);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: #fff;
+  display: block;
+}
+.survey-popup-essay-link {
+  margin: clamp(12px, 1.5vw, 18px) 0 0;
+  font-size: var(--label-size);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.survey-popup-essay-link a { color: var(--ink); }
 @media (max-width: 700px) {
   .survey-popup-grid { flex-wrap: wrap; }
   .survey-popup-grid figure { flex: 1 1 calc(50% - 14px); }
@@ -1850,12 +1867,12 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
     <div class="inner">
       <div class="field-sites-head">
         <p class="eyebrow">SECTION 3 — MAPS</p>
-        <h2>FIELD SITES</h2>
+        <h2>LOCATIONS</h2>
       </div>
       <div class="field-sites-grid">
         <article class="field-site">
           <header class="field-site-header">
-            <p class="eyebrow">LOCATION</p>
+            <p class="eyebrow">FIELD SITE</p>
             <h3 class="field-site-title">Craters of the Moon</h3>
           </header>
           <div class="field-site-body">
@@ -1867,7 +1884,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
         </article>
         <article class="field-site field-site-clickable" data-popup="winterblue-site" role="button" tabindex="0" aria-label="View Camas Prairie field site imagery">
           <header class="field-site-header">
-            <p class="eyebrow">LOCATION</p>
+            <p class="eyebrow">FIELD SITE</p>
             <h3 class="field-site-title">Camas Prairie</h3>
           </header>
           <div class="field-site-body">
@@ -2281,11 +2298,38 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
       <p class="survey-popup-label">ENVIRONMENT</p>
       <div class="survey-popup-grid survey-popup-grid--landscape">
         <figure>
-          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WHITE%20SANDS/env/IMG_8821.JPEG" alt="White Sands environment." loading="lazy">
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WHITE%20SANDS/%20%281%29.env/IMG_8811.JPEG" alt="White Sands environment." loading="lazy">
         </figure>
         <figure>
-          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WHITE%20SANDS/env/IMG_8892.JPEG" alt="White Sands environment." loading="lazy">
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WHITE%20SANDS/%20%281%29.env/IMG_8821.JPEG" alt="White Sands environment." loading="lazy">
         </figure>
+        <figure>
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WHITE%20SANDS/%20%281%29.env/IMG_8841.JPEG" alt="White Sands environment." loading="lazy">
+        </figure>
+        <figure>
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WHITE%20SANDS/%20%281%29.env/IMG_8848.JPEG" alt="White Sands environment." loading="lazy">
+        </figure>
+      </div>
+      <div class="survey-popup-grid survey-popup-grid--landscape">
+        <figure>
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WHITE%20SANDS/%20%281%29.env/IMG_8892.JPEG" alt="White Sands environment." loading="lazy">
+        </figure>
+        <figure>
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WHITE%20SANDS/%20%281%29.env/IMG_8899.JPEG" alt="White Sands environment." loading="lazy">
+        </figure>
+        <figure>
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WHITE%20SANDS/%20%281%29.env/IMG_8915.JPEG" alt="White Sands environment." loading="lazy">
+        </figure>
+        <figure>
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WHITE%20SANDS/%20%281%29.env/IMG_9079.JPEG" alt="White Sands environment." loading="lazy">
+        </figure>
+      </div>
+    </div>
+    <div class="survey-popup-section">
+      <p class="survey-popup-label">ESSAY — A VEILED SANCTUARY</p>
+      <div class="survey-popup-essay">
+        <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https%3A%2F%2Faawnkxnnrymqbysgimqj.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2FLISA%2520WOOD%2520STUDIO%2520WEBSITE%2FSURFACE%2520SURVEYS%2FWHITE%2520SANDS%2FA%2520VEILED%2520SANTUARY%2520ESSAY.docx" title="A Veiled Sanctuary — White Sands essay" loading="lazy"></iframe>
+        <p class="survey-popup-essay-link"><a href="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WHITE%20SANDS/A%20VEILED%20SANTUARY%20ESSAY.docx" target="_blank" rel="noopener">Download essay (.docx)</a></p>
       </div>
     </div>
   </div>
