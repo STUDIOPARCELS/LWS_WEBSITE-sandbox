@@ -24,7 +24,7 @@
   --intro-title-size: var(--section-title-size);
   --intro-label-size: 10px;
   --intro-top-space: 24px;
-  --intro-gap: 72px;
+  --intro-gap: 120px;
   --intro-image-width: 100%;
   --sentence-size: 16px;
   --module-text-size: 14px;
@@ -66,6 +66,11 @@ figure, p, h1, h2, h3 { margin: 0; }
   letter-spacing: .2em;
   text-transform: uppercase;
   font-weight: 600;
+}
+.brand,
+.nav-links a {
+  font-size: 13px;
+  letter-spacing: .22em;
 }
 .nav-links { display: flex; gap: clamp(18px, 3vw, 42px); color: var(--muted); }
 .eyebrow { color: var(--muted); }
@@ -171,7 +176,6 @@ h3 {
 .intro-copy .intro-title { max-width: 100%; }
 .intro-copy .text-block p + p { margin-top: 1em; }
 .commission-feature-media img,
-.winterblue-media img,
 .intro-media img,
 .section-media img { max-height: 76svh; }
 .commission-meta {
@@ -466,6 +470,11 @@ figure img { cursor: zoom-in; }
   object-fit: contain;
   margin: 0 auto;
 }
+.intro-text-blocks {
+  display: grid;
+  gap: clamp(28px, 3.5vw, 56px);
+  margin-top: clamp(18px, 2.4vw, 32px);
+}
 .text-block {
   border-top: 1px solid var(--line);
   padding-top: 18px;
@@ -505,7 +514,7 @@ figure img { cursor: zoom-in; }
 }
 .commission-meta {
   display: grid;
-  gap: 18px;
+  gap: 6px;
   margin-top: 2px;
   margin-bottom: 8px;
 }
@@ -627,16 +636,36 @@ figure img { cursor: zoom-in; }
 .winterblue-notes details + details {
   margin-top: 6px;
 }
-.winterblue-media {
+.winterblue-grid {
   grid-column: 2;
   grid-row: 1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(8px, 1.2vw, 18px);
   width: 100%;
+  align-self: start;
   margin-top: 0;
 }
-.winterblue-media img {
+.winterblue-grid figure { margin: 0; }
+.winterblue-grid img {
   width: 100%;
-  max-height: 66svh;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+.winterblue-primary {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  margin-top: clamp(48px, 7vw, 112px);
+  width: 100%;
+}
+.winterblue-primary img {
+  width: 100%;
+  height: auto;
+  max-height: 92svh;
   object-fit: contain;
+}
+.winterblue-primary .photo-caption {
+  margin-top: 14px;
 }
 .image-row {
   display: grid;
@@ -865,7 +894,8 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
   .intro-head { grid-template-columns: 1fr; }
   .hero-media img { max-height: none; }
   .winterblue-copy,
-  .winterblue-media,
+  .winterblue-grid,
+  .winterblue-primary,
   .winterblue-notes {
     grid-column: auto;
     grid-row: auto;
@@ -876,7 +906,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
   .winterblue-notes details:last-child {
     grid-column: auto;
   }
-  .winterblue-media img {
+  .winterblue-primary img {
     max-height: none;
   }
   .bento-grid { grid-template-columns: 1fr; }
@@ -996,8 +1026,8 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
     </label>
     <label class="control-row">
       <span>Gap</span>
-      <input type="range" min="28" max="140" step="2" value="72" data-style-var="--intro-gap">
-      <output>72px</output>
+      <input type="range" min="28" max="200" step="2" value="120" data-style-var="--intro-gap">
+      <output>120px</output>
     </label>
     <label class="control-row">
       <span>Image</span>
@@ -1050,9 +1080,9 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
     <a class="brand" href="#top">Lisa Wood Studio</a>
     <nav class="nav-links" aria-label="Sections">
       <a href="#commission">Commission</a>
+      <a href="#craters-gallery">Craters</a>
+      <a href="#winterblue">Winterblue</a>
       <a href="#practice">Practice</a>
-      <a href="#luxuriate">Luxuriate</a>
-      <a href="#surface-surveys">Surface Surveys</a>
     </nav>
   </div>
 </header>
@@ -1087,13 +1117,19 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
           <h2 class="intro-title">
             LUXURY WITHIN <span class="soft">DISCOMFORT:</span> THE PARADOX OF A DARK SKY RESERVE
           </h2>
-          <div class="text-block no-rule">
-            <p>Luxuriate in discomfort is a central philosophy for Wood and a theme running through her practice. It names her approach to exploration: stepping into challenging conditions and staying there long enough for perception to change. The work is rooted in discomfort, driven by adventure, and rewarded with discovery.</p>
-            <p>The philosophy takes form through five large-scale photographs of the volcanic surface of Craters of the Moon National Monument and the winter expanse of the Camas Prairie before dawn. Together, they bring the surrounding terrain into the Observatory as a visual language for Central Idaho.</p>
+          <div class="intro-text-blocks">
+            <div class="text-block">
+              <p class="text-block-title">PHILOSOPHY</p>
+              <p>Luxuriate in discomfort is a central philosophy for Wood and a theme running through her practice. It names her approach to exploration: stepping into challenging conditions and staying there long enough for perception to change. The work is rooted in discomfort, driven by adventure, and rewarded with discovery.</p>
+            </div>
+            <div class="text-block">
+              <p class="text-block-title">FORM</p>
+              <p>The philosophy takes form through five large-scale photographs of the volcanic surface of Craters of the Moon National Monument and the winter expanse of the Camas Prairie before dawn. Together, they bring the surrounding terrain into the Observatory as a visual language for Central Idaho.</p>
+            </div>
           </div>
         </div>
         <figure class="intro-media">
-          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/IMG_0853.JPEG?v=2" alt="Winterblue Camas Prairie tile (IMG_0853)." loading="lazy">
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/IMG_0853.JPEG" alt="Winterblue Camas Prairie tile (IMG_0853)." loading="lazy">
           <figcaption class="photo-caption">ONE TILE WITHIN WINTERBLUE I</figcaption>
         </figure>
       </div>
@@ -1112,7 +1148,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
           <dl class="commission-meta">
             <div class="meta-item">
               <dt>Field Site</dt>
-              <dd>Craters of the Moon Lava Field, Idaho, USA</dd>
+              <dd>Craters of the Moon Lava Field, Idaho,&nbsp;USA</dd>
             </div>
             <div class="meta-item">
               <dt>Designation</dt>
@@ -1172,10 +1208,20 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
             <p>Winterblue was born from a winter search for Lisa's missing dog. For 11 days she and her community searched. Lisa slept in her car, searched in whiteouts, and met the full force of winter as fear, isolation, and overwhelming discomfort.</p>
           </details>
         </div>
-        <figure class="winterblue-media" id="winterblue-work">
-          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/OBSERVATORY%20COMMISSION%20Photographs/Winterblue%20I_PREFUNCTION%20WALL.jpg" alt="Winterblue I contact sheet." loading="lazy">
-          <figcaption class="photo-caption">LOWER LEVEL - PRE-FUNCTION WEST WALL 138" X 85"</figcaption>
-        </figure>
+        <div class="winterblue-grid">
+          <figure>
+            <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/2_3.jpg" alt="" loading="lazy">
+          </figure>
+          <figure>
+            <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/4.jpg" alt="" loading="lazy">
+          </figure>
+          <figure>
+            <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/IMG_0584.jpeg" alt="" loading="lazy">
+          </figure>
+          <figure>
+            <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/IMG_5818.JPEG" alt="" loading="lazy">
+          </figure>
+        </div>
         <div class="stack winterblue-notes">
           <details open>
             <summary>Project Note</summary>
@@ -1187,6 +1233,10 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
             <p>Location: Lower Level Pre-Function West Wall. Print Size: 138" W x 85" H (composed of 3 seamed panels). Framing & Fabrication: White painted maple wood (3-inch face, 2-inch depth) with museum non-glare glazing; Laumont Photographic, New York.</p>
           </details>
         </div>
+        <figure class="winterblue-primary" id="winterblue-work">
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/OBSERVATORY%20COMMISSION%20Photographs/Winterblue%20I_PREFUNCTION%20WALL.jpg" alt="Winterblue I contact sheet." loading="lazy">
+          <figcaption class="photo-caption">LOWER LEVEL - PRE-FUNCTION WEST WALL 138" X 85"</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -1416,9 +1466,9 @@ const CRATERS_COPY_MIGRATION_KEY = "observatory-content-preview-craters-copy-v2"
 const CRATERS_SECTION_RESET_KEY = "observatory-content-preview-craters-section-reset-v3";
 const HERO_NOTE_LABEL_MIGRATION_KEY = "observatory-content-preview-hero-note-label-v1";
 const INTRO_IMAGE_MIGRATION_KEY = "observatory-content-preview-intro-image-v1";
-const INTRO_IMAGE_SUPABASE_MIGRATION_KEY = "observatory-content-preview-intro-image-supabase-v1";
+const INTRO_IMAGE_SUPABASE_MIGRATION_KEY = "observatory-content-preview-intro-image-supabase-v2";
 const WINTERBLUE_COPY_MIGRATION_KEY = "observatory-content-preview-winterblue-copy-v3";
-const INTRO_IMAGE_URL = "https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/IMG_9824.JPEG";
+const INTRO_IMAGE_URL = "https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/IMG_0853.JPEG";
 const LOCAL_SAVE_URL = "http://127.0.0.1:4174/api/save-edits";
 const urlParams = new URLSearchParams(window.location.search);
 const editorEnabled = urlParams.has("edit") || ["localhost", "127.0.0.1"].includes(window.location.hostname);
@@ -2103,7 +2153,8 @@ saveSnapshotToServer();
   }
 
   document.addEventListener("click", (e) => {
-    const img = e.target.closest("figure img");
+    if (e.target.closest(".lightbox-overlay")) return;
+    const img = e.target.closest("main img");
     if (!img) return;
     e.preventDefault();
     open(img.currentSrc || img.src, img.alt);
