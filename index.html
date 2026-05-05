@@ -552,23 +552,22 @@ figure img { cursor: zoom-in; }
 .survey-popup-section--env .survey-popup-grid figure,
 .survey-popup-section--env .survey-popup-grid img { cursor: default; }
 .survey-popup-section--env .survey-popup-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   gap: clamp(10px, 1.2vw, 20px);
 }
 .survey-popup-section--env .survey-popup-grid figure {
-  flex: initial;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  margin: 0;
-  border-radius: 3px;
+  flex: 0 0 auto;
+  width: auto;
+  height: clamp(200px, 32vh, 360px);
+  aspect-ratio: auto;
+  overflow: visible;
 }
 .survey-popup-section--env .survey-popup-grid img {
-  width: 100%;
+  width: auto;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 .survey-popup-video {
