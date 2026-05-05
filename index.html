@@ -737,6 +737,35 @@ figure img { cursor: zoom-in; }
   font-weight: 300;
 }
 .commission-copy .commission-block p + p { margin-top: 16px; }
+.commission-fabrication .text-block-title { margin: 0 0 14px; }
+.materials-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+.materials-item {
+  display: grid;
+  grid-template-columns: minmax(96px, 110px) 1fr;
+  gap: 16px;
+  align-items: baseline;
+}
+.materials-item dt {
+  margin: 0;
+  font-size: var(--label-size);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--muted);
+}
+.materials-item dd {
+  margin: 0;
+  max-width: 460px;
+  font-size: 14px;
+  line-height: 1.55;
+  font-weight: 300;
+  color: var(--ink);
+}
 .commission-feature-media img {
   width: auto;
   max-width: 100%;
@@ -1371,10 +1400,27 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
           <div class="commission-block">
             <p>Four commissioned works from <em>Craters</em> bring the volcanic ground of Central Idaho into the Observatory through aerial studies of basalt, cooled surface, fissure, pressure, and mineral memory.</p>
           </div>
-          <details open>
-            <summary>Materials + Fabrication</summary>
-            <p>Archival pigment prints on Canson Baryta Photographique II. Painted maple wood or float mounting according to the installation location, with non-glare glazing where specified. Fabrication by Laumont Photographic, New York.</p>
-          </details>
+          <div class="commission-block commission-fabrication">
+            <p class="text-block-title">MATERIALS + FABRICATION</p>
+            <dl class="materials-list">
+              <div class="materials-item">
+                <dt>Prints</dt>
+                <dd>Archival pigment prints on Canson Baryta Photographique II</dd>
+              </div>
+              <div class="materials-item">
+                <dt>Mounting</dt>
+                <dd>Painted maple wood or float mounting, per installation location</dd>
+              </div>
+              <div class="materials-item">
+                <dt>Glazing</dt>
+                <dd>Non-glare</dd>
+              </div>
+              <div class="materials-item">
+                <dt>Fabrication</dt>
+                <dd>Laumont Photographic, New York</dd>
+              </div>
+            </dl>
+          </div>
         </div>
         <figure class="commission-feature-media">
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/OBSERVATORY%20COMMISSION%20Photographs/CRATERS_L1001569_EAST%20BAR.jpg" alt="Craters L1001569." loading="lazy">
