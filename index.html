@@ -1821,10 +1821,11 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
   }
   .survey-popup-frame .survey-popup-grid,
   .survey-popup-section--env .survey-popup-grid {
-    display: block !important;
-    column-count: 2 !important;
-    column-gap: 6px !important;
-    grid-template-columns: initial !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+    column-count: initial !important;
+    column-gap: initial !important;
     flex-wrap: initial;
   }
   .survey-popup-frame .survey-popup-grid figure,
@@ -1833,19 +1834,26 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
     width: 100% !important;
     height: auto !important;
     min-width: 0 !important;
-    aspect-ratio: auto !important;
-    margin: 0 0 6px !important;
-    break-inside: avoid;
-    -webkit-column-break-inside: avoid;
+    aspect-ratio: 4 / 3 !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    border-radius: 2px;
   }
   .survey-popup-frame .survey-popup-grid img,
   .survey-popup-section--env .survey-popup-grid img {
     width: 100% !important;
-    height: auto !important;
-    object-fit: contain !important;
+    height: 100% !important;
+    object-fit: cover !important;
   }
   .survey-popup-grid--stacked {
-    column-count: 1 !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  .survey-popup-grid--stacked figure {
+    aspect-ratio: auto !important;
+  }
+  .survey-popup-grid--stacked img {
+    height: auto !important;
+    object-fit: contain !important;
   }
   .editor-panel {
     left: 14px;
@@ -3622,7 +3630,7 @@ saveSnapshotToServer();
     const img = e.target.closest("img");
     if (!img) return;
     if (img.closest('.survey-popup-grid')) {
-      if (img.closest('.survey-popup-section--env')) return;
+      if (img.closest('.survey-popup-section--env') && !img.closest('.survey-popup-grid--stacked')) return;
       e.preventDefault();
       e.stopPropagation();
       open(img.currentSrc || img.src, img.alt);
