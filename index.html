@@ -384,10 +384,10 @@ figure img { cursor: zoom-in; }
   cursor: default;
 }
 .section-popup {
-  width: min(96vw, 1440px);
+  width: min(98vw, 1640px);
   max-width: none;
-  height: 92vh;
-  max-height: 92vh;
+  height: 88vh;
+  max-height: 88vh;
   padding: 0;
   cursor: default;
 }
@@ -699,13 +699,10 @@ figure img { cursor: zoom-in; }
 .field-site-clickable .field-site-map img { cursor: pointer; }
 .survey-grid {
   display: grid;
-  grid-template-columns: repeat(3,minmax(0,1fr));
-  gap: clamp(16px, 2vw, 28px);
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: clamp(28px, 3.6vw, 56px);
 }
-@media (max-width: 980px) {
-  .survey-grid { grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 640px) {
+@media (max-width: 720px) {
   .survey-grid { grid-template-columns: 1fr; }
 }
 .survey-card {
@@ -1950,7 +1947,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
           <p>A field-based body of work documenting six remote and geologically significant landscapes across four continents. Created between 2015 and 2019 with a medium-format Leica S007, Surface Surveys moves across deserts, ice sheets, lava fields, gypsum dunes, and granite formations — terrains shaped by wind, ice, volcanic activity, erosion, and mineral deposit.</p>
         </div>
         <div class="note-block">
-          <p class="text-block-title">DISTINCTIONS</p>
+          <p class="text-block-title">FIRST</p>
           <p>Three of the six surveys are the first artist-led aerial surveys of their kind. The Greenland survey is the first completed by a woman.</p>
         </div>
       </div>
