@@ -48,7 +48,7 @@ figure, p, h1, h2, h3 { margin: 0; }
   position: sticky;
   top: 0;
   z-index: 10;
-  padding: 22px clamp(28px, 6vw, 96px);
+  padding: 44px clamp(28px, 6vw, 96px);
   background: rgba(255,255,255,.82);
   background: var(--nav-bg);
   backdrop-filter: saturate(180%) blur(22px);
@@ -86,7 +86,7 @@ figure, p, h1, h2, h3 { margin: 0; }
   min-height: auto;
   display: grid;
   grid-template-columns: minmax(280px,.62fr) minmax(460px,1fr);
-  align-items: start;
+  align-items: end;
   gap: clamp(64px, 9vw, 144px);
   max-width: var(--max);
   margin: 0 auto;
@@ -94,8 +94,8 @@ figure, p, h1, h2, h3 { margin: 0; }
   box-sizing: content-box;
 }
 .hero .stack {
-  padding-top: clamp(8px, 1.5vw, 24px);
   gap: clamp(28px, 3vw, 44px);
+  padding-bottom: clamp(8px, 1.5vw, 24px);
 }
 .hero-text-blocks {
   display: grid;
@@ -146,12 +146,14 @@ h1 .soft { color: var(--soft); font-style: italic; font-weight: 300; }
   font-weight: inherit;
   color: inherit;
 }
-.split-title .title-soft {
+.split-title .title-soft,
+.intro-title .title-soft {
   color: var(--soft);
   font-style: normal;
   font-weight: 300;
 }
-.split-title .title-muted {
+.split-title .title-muted,
+.intro-title .title-muted {
   color: var(--muted);
   font-style: normal;
   font-weight: 300;
@@ -330,15 +332,22 @@ figure img { cursor: zoom-in; }
   overflow: auto;
 }
 .installation-popup-grid--three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.installation-popup-grid figure { margin: 0; }
+.installation-popup-grid figure {
+  margin: 0;
+  aspect-ratio: 3 / 4;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
 .installation-popup-grid img,
 .installation-popup-grid video {
   width: 100%;
-  height: auto;
-  max-height: 80vh;
+  height: 100%;
   object-fit: contain;
   display: block;
-  background: #fff;
+  background: #f5f5f5;
 }
 @media (max-width: 900px) {
   .installation-popup-grid--three { grid-template-columns: 1fr 1fr; }
@@ -724,13 +733,12 @@ figure img { cursor: zoom-in; }
   display: grid;
   gap: clamp(48px, 7vw, 112px);
 }
-.winterblue-top {
+.winterblue-header { display: grid; gap: 22px; }
+.winterblue-notes {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: clamp(44px, 7vw, 104px);
-  align-items: start;
+  gap: clamp(20px, 2.5vw, 32px);
+  max-width: 920px;
 }
-.winterblue-copy { display: grid; gap: 22px; }
 .winterblue-side-note {
   margin-top: 24px;
   border-top: 1px solid var(--line);
@@ -1023,25 +1031,11 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
   .hero, .section-head, .image-row, .commission-feature, .winterblue-feature { grid-template-columns: 1fr; }
   .intro-head { grid-template-columns: 1fr; }
   .hero-media img { max-height: none; }
-  .winterblue-copy,
-  .winterblue-grid,
-  .winterblue-primary,
-  .winterblue-notes {
-    grid-column: auto;
-    grid-row: auto;
-  }
-  .winterblue-notes {
-    grid-template-columns: 1fr;
-  }
-  .winterblue-notes details:last-child {
-    grid-column: auto;
-  }
   .winterblue-primary img {
     max-height: none;
   }
   .bento-grid { grid-template-columns: 1fr; }
   .winterblue-grid,
-  .winterblue-top,
   .field-sites-grid { grid-template-columns: 1fr; }
   .bento-card.large { grid-row: auto; }
   .survey-grid { grid-template-columns: 1fr; }
@@ -1249,7 +1243,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
         <div class="stack intro-copy">
           <p class="eyebrow">SECTION 1 — INTRODUCTION</p>
           <h2 class="intro-title">
-            FINDING LUXURY WITHIN <span class="soft">A DARK SKY RESERVE</span>
+            FINDING <span class="title-soft">LUXURY</span> WITHIN A DARK SKY RESERVE
           </h2>
           <div class="intro-text-blocks">
             <div class="text-block">
@@ -1327,36 +1321,36 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
   <section class="page" id="winterblue">
     <div class="inner">
       <div class="winterblue-feature">
-        <div class="winterblue-top">
-          <div class="stack winterblue-copy">
-            <p class="eyebrow">COMMISSION - WINTERBLUE</p>
-            <h2 class="split-title">
-              <span class="line">WINTERBLUE</span>
-              <span class="line">(2023)</span>
-            </h2>
-            <div class="winterblue-note-block">
-              <p class="text-block-title">PROJECT NOTE</p>
-              <p>Winterblue I is presented as a large-scale contact sheet — a grid of 125 individual photographs, one set of frames for each day spent on the Camas Prairie. Read together, the images form a record of sustained return: the same horizon, the same cold, observed across 17 sessions. Read individually, each frame holds a single moment of attention drawn from inside the season.</p>
-              <p>The project carries regional character of embracing discomfort into winter atmosphere and emotional terrain. 17 trips between January and April to the Camas Prairie under sub-zero conditions turned darkness, cold, isolation, and grief into a field of attention. The work demonstrates the practice: entering difficulty deliberately, staying long enough for perception to shift, and returning with images shaped by that exposure.</p>
-            </div>
-            <div class="winterblue-note-block">
-              <p class="text-block-title">FIELD NOTE</p>
-              <p>Winterblue was born from a winter search for Lisa's missing dog. For 11 days she and her community searched. Lisa slept in her car, searched in whiteouts, and met the full force of winter as fear, isolation, and overwhelming discomfort.</p>
-            </div>
+        <div class="winterblue-header">
+          <p class="eyebrow">COMMISSION - WINTERBLUE</p>
+          <h2 class="split-title">
+            <span class="line">WINTERBLUE</span>
+            <span class="line">(2023)</span>
+          </h2>
+        </div>
+        <div class="winterblue-grid">
+          <figure>
+            <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/2_3.jpg" alt="" loading="lazy">
+          </figure>
+          <figure>
+            <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/4.jpg" alt="" loading="lazy">
+          </figure>
+          <figure>
+            <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/IMG_0584.jpeg" alt="" loading="lazy">
+          </figure>
+          <figure>
+            <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/IMG_5818.JPEG" alt="" loading="lazy">
+          </figure>
+        </div>
+        <div class="winterblue-notes">
+          <div class="winterblue-note-block">
+            <p class="text-block-title">PROJECT NOTE</p>
+            <p>Winterblue I is presented as a large-scale contact sheet — a grid of 125 individual photographs, one set of frames for each day spent on the Camas Prairie. Read together, the images form a record of sustained return: the same horizon, the same cold, observed across 17 sessions. Read individually, each frame holds a single moment of attention drawn from inside the season.</p>
+            <p>The project carries regional character of embracing discomfort into winter atmosphere and emotional terrain. 17 trips between January and April to the Camas Prairie under sub-zero conditions turned darkness, cold, isolation, and grief into a field of attention. The work demonstrates the practice: entering difficulty deliberately, staying long enough for perception to shift, and returning with images shaped by that exposure.</p>
           </div>
-          <div class="winterblue-grid">
-            <figure>
-              <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/2_3.jpg" alt="" loading="lazy">
-            </figure>
-            <figure>
-              <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/4.jpg" alt="" loading="lazy">
-            </figure>
-            <figure>
-              <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/IMG_0584.jpeg" alt="" loading="lazy">
-            </figure>
-            <figure>
-              <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/IMG_5818.JPEG" alt="" loading="lazy">
-            </figure>
+          <div class="winterblue-note-block">
+            <p class="text-block-title">FIELD NOTE</p>
+            <p>Winterblue was born from a winter search for Lisa's missing dog. For 11 days she and her community searched. Lisa slept in her car, searched in whiteouts, and met the full force of winter as fear, isolation, and overwhelming discomfort.</p>
           </div>
         </div>
         <figure class="winterblue-primary" id="winterblue-work">
@@ -1371,11 +1365,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
     <div class="inner">
       <div class="section-head">
         <div class="stack">
-          <p class="eyebrow">FIELD SITES</p>
-          <h2 class="split-title">
-            <span class="line">EXPLORE THE</span>
-            <span class="line">FIELD SITES</span>
-          </h2>
+          <h2>FIELD SITES</h2>
         </div>
         <div class="stack">
           <div class="note-block">
@@ -1508,7 +1498,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
         </div>
       </div>
       <div class="survey-grid" id="surveys" aria-label="Surface Surveys project links">
-        <details class="bento-card survey-card">
+        <details open class="bento-card survey-card">
           <summary>
             <figure>
               <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/GREENLAND/L1001017.jpg" alt="Greenland Ice Sheet aerial survey." loading="lazy">
@@ -1524,11 +1514,10 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
             <div class="stack">
               <p>The largest ice sheet outside Antarctica, covering 1.7 million square kilometers and reaching more than three kilometers thick. The ice holds a layered archive of past atmospheres, snowfall, volcanic events, and climate shifts. At its western edge, the Ilulissat Icefjord — a UNESCO World Heritage Site since 2004 — is fed by Sermeq Kujalleq, one of the world's fastest-moving glaciers.</p>
               <p class="distinction"><strong>Project Distinction</strong>First artist-led photographic aerial survey of the Greenland Ice Sheet completed by a woman (2017).</p>
-              <a class="cta" href="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/GREENLAND/L1001017.jpg">VIEW PHOTOGRAPHS</a>
             </div>
           </div>
         </details>
-        <details class="bento-card survey-card">
+        <details open class="bento-card survey-card">
           <summary>
             <figure>
               <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WHITE%20SANDS/L1001382-LWS.jpg" alt="White Sands National Park aerial survey." loading="lazy">
@@ -1544,14 +1533,13 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
             <div class="stack">
               <p>The world's largest gypsum dunefield, a 275-square-mile expanse of white mineral sand in the Tularosa Basin. Airspace above the park is restricted from ground to space — surrounded by White Sands Missile Range to the north and Holloman Air Force Base to the east. On July 16, 1945, the world's first atomic bomb was detonated at Trinity Site, sixty miles north of the park.</p>
               <p class="distinction"><strong>Project Distinction</strong>First artist-led photographic civilian survey of the world's largest gypsum dunefield (2018).</p>
-              <a class="cta" href="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WHITE%20SANDS/L1001382-LWS.jpg">VIEW PHOTOGRAPHS</a>
             </div>
           </div>
         </details>
-        <details class="bento-card survey-card">
+        <details open class="bento-card survey-card">
           <summary>
             <figure>
-              <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/OBSERVATORY%20COMMISSION%20Photographs/CRATERS_L1002418%20_GM%20WALL.jpg" alt="Craters of the Moon aerial survey." loading="lazy">
+              <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/CRATERS/EAST-HALLL1002207.jpg" alt="Craters of the Moon aerial survey." loading="lazy">
             </figure>
             <div>
               <p class="bento-label">CRATERS OF THE MOON — IDAHO, USA (2018)</p>
@@ -1564,11 +1552,10 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
             <div class="stack">
               <p>A vast volcanic landscape on Idaho's Snake River Plain. Lava flows, cinder cones, spatter cones, fissures, and sagebrush plains form one of the best-preserved recent volcanic terrains in the continental United States — 620 square miles, the largest predominantly Holocene lava field in the contiguous U.S. The present surface formed through eight major eruptive periods over the last 15,000 years. In 1969, Apollo 14 astronauts trained here before traveling to the Moon.</p>
               <p class="distinction"><strong>Project Distinction</strong>First known artist-led photographic aerial survey of Craters of the Moon National Monument (2018).</p>
-              <a class="cta" href="#craters-gallery">VIEW PHOTOGRAPHS</a>
             </div>
           </div>
         </details>
-        <details class="bento-card survey-card">
+        <details open class="bento-card survey-card">
           <summary>
             <figure>
               <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/SIMPSON%20DESERT/simpson_desert_L1006196%20PANO.jpg" alt="Simpson Desert aerial survey." loading="lazy">
@@ -1584,14 +1571,13 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
             <div class="stack">
               <p>176,500 square kilometers of parallel-dune landscape across South Australia, Queensland, and the Northern Territory — the world's longest parallel sand dunes, with individual ridges extending more than 150 kilometers, some reaching 200. Munga-Thirri means Big Sandhill Country. The desert is the traditional Country of the Wangkangurru Yarluyandi people, whose songlines and navigation systems are inseparable from the landforms themselves.</p>
               <p class="distinction"><strong>Project Distinction</strong>First known artist-led photographic aerial survey of the Simpson Desert's parallel dune field (2019).</p>
-              <a class="cta" href="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/SIMPSON%20DESERT/simpson_desert_L1006196%20PANO.jpg">VIEW PHOTOGRAPHS</a>
             </div>
           </div>
         </details>
-        <details class="bento-card survey-card">
+        <details open class="bento-card survey-card">
           <summary>
             <figure>
-              <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WAHIBA%20OMAN/L1007312%20RAW%20PNG%20copy.jpg" alt="Wahiba Sands aerial survey." loading="lazy">
+              <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WAHIBA%20OMAN/wahiba_L1007191%20copy.jpg" alt="Wahiba Sands aerial survey." loading="lazy">
             </figure>
             <div>
               <p class="bento-label">WAHIBA SANDS — OMAN (2017)</p>
@@ -1603,11 +1589,10 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
           <div class="survey-more">
             <div class="stack">
               <p>A vast sand sea in eastern Oman, named for the Bani Wahiba tribe. The dunes run roughly 180 kilometers north to south and 80 kilometers east to west, covering about 12,500 square kilometers — a record of wind, monsoon cycles, and late Quaternary shifts in sea level held in motion across hundreds of thousands of years. Bedouin villages, camel routes, temporary camps, and open night skies give the Wahiba Sands their human scale.</p>
-              <a class="cta" href="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WAHIBA%20OMAN/L1007312%20RAW%20PNG%20copy.jpg">VIEW PHOTOGRAPHS</a>
             </div>
           </div>
         </details>
-        <details class="bento-card survey-card">
+        <details open class="bento-card survey-card">
           <summary>
             <figure>
               <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/CITY/L1008102%20copy.jpg" alt="City of Rocks National Reserve aerial survey." loading="lazy">
@@ -1622,7 +1607,6 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
           <div class="survey-more">
             <div class="stack">
               <p>14,407 acres at the southern end of Idaho's Albion Mountains. Granite spires, fins, domes, and monoliths rise from the sagebrush, with some formations reaching the height of a 60-story building. The Almo Pluton granite is roughly 28 million years old; nearby Green Creek Complex rocks are more than 2.5 billion years old — among the oldest exposed rocks in the United States. Emigrants of the California Trail described the formations as "a city of tall spires," "steeple rocks," and "the silent city."</p>
-              <a class="cta" href="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/CITY/L1008102%20copy.jpg">VIEW PHOTOGRAPHS</a>
             </div>
           </div>
         </details>
@@ -1662,7 +1646,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
       <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/IMG_4962%20copy.jpg" alt="Camas Prairie site photograph." loading="lazy">
     </figure>
     <figure>
-      <video src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/WINTERBLUE%20I_1.mp4" controls muted loop playsinline preload="metadata"></video>
+      <video src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/WINTERBLUE%20I_1.mp4" controls controlslist="nofullscreen nodownload noremoteplayback" disablepictureinpicture muted loop playsinline preload="metadata"></video>
     </figure>
   </div>
 </dialog>
