@@ -489,6 +489,11 @@ figure img { cursor: zoom-in; }
 }
 .survey-popup-grid--portrait figure { aspect-ratio: 2 / 3; }
 .survey-popup-grid--landscape figure { aspect-ratio: 3 / 2; }
+.survey-popup-grid--compact {
+  max-width: clamp(520px, 58%, 820px);
+  margin-left: auto;
+  margin-right: auto;
+}
 .survey-popup-grid + .survey-popup-grid {
   margin-top: clamp(20px, 2.4vw, 40px);
 }
@@ -548,6 +553,22 @@ figure img { cursor: zoom-in; }
   font-weight: 600;
 }
 .survey-popup-essay-link a { color: var(--ink); }
+.essay-toggle {
+  display: inline-block;
+  padding: 14px 28px;
+  background: transparent;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: var(--label-size);
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .18s ease, color .18s ease;
+}
+.essay-toggle:hover { background: var(--ink); color: var(--paper); }
+.essay-toggle:focus-visible { outline: 1px solid var(--ink); outline-offset: 4px; }
 @media (max-width: 700px) {
   .survey-popup-grid { flex-wrap: wrap; }
   .survey-popup-grid figure { flex: 1 1 calc(50% - 14px); }
@@ -1979,7 +2000,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/photos/L1009938%20book%20in%20mirrorRE%20copy.jpg" alt="One-night installation photograph." loading="lazy">
         </figure>
       </div>
-      <div class="survey-popup-grid survey-popup-grid--portrait">
+      <div class="survey-popup-grid survey-popup-grid--portrait survey-popup-grid--compact">
         <figure>
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/photos/L1009905.jpg" alt="One-night installation photograph." loading="lazy">
         </figure>
@@ -2328,7 +2349,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
     <div class="survey-popup-section">
       <p class="survey-popup-label">ESSAY — A VEILED SANCTUARY</p>
       <div class="survey-popup-essay">
-        <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https%3A%2F%2Faawnkxnnrymqbysgimqj.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2FLISA%2520WOOD%2520STUDIO%2520WEBSITE%2FSURFACE%2520SURVEYS%2FWHITE%2520SANDS%2FA%2520VEILED%2520SANTUARY%2520ESSAY.docx" title="A Veiled Sanctuary — White Sands essay" loading="lazy"></iframe>
+        <button type="button" class="essay-toggle" data-essay-src="https://docs.google.com/viewer?url=https%3A%2F%2Faawnkxnnrymqbysgimqj.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2FLISA%2520WOOD%2520STUDIO%2520WEBSITE%2FSURFACE%2520SURVEYS%2FWHITE%2520SANDS%2FA%2520VEILED%2520SANTUARY%2520ESSAY.docx&amp;embedded=true" data-essay-title="A Veiled Sanctuary — White Sands essay">READ ESSAY →</button>
         <p class="survey-popup-essay-link"><a href="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WHITE%20SANDS/A%20VEILED%20SANTUARY%20ESSAY.docx" target="_blank" rel="noopener">Download essay (.docx)</a></p>
       </div>
     </div>
@@ -2444,16 +2465,16 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
       <p class="survey-popup-label">SURVEY PHOTOGRAPHS</p>
       <div class="survey-popup-grid survey-popup-grid--portrait">
         <figure>
-          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/render/image/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/CITY/photos/L1007969%20copy.jpg?width=1600&quality=80" alt="City of Rocks National Reserve aerial survey." loading="lazy">
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/CITY/photos/L1007969%20copy.jpg" alt="City of Rocks National Reserve aerial survey." loading="lazy">
         </figure>
         <figure>
-          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/render/image/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/CITY/photos/L1008069%20copy.jpg?width=1600&quality=80" alt="City of Rocks National Reserve aerial survey." loading="lazy">
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/CITY/photos/L1008069%20copy.jpg" alt="City of Rocks National Reserve aerial survey." loading="lazy">
         </figure>
         <figure>
-          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/render/image/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/CITY/photos/L1008090%20copy.jpg?width=1600&quality=80" alt="City of Rocks National Reserve aerial survey." loading="lazy">
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/CITY/photos/L1008090%20copy.jpg" alt="City of Rocks National Reserve aerial survey." loading="lazy">
         </figure>
         <figure>
-          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/render/image/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/CITY/photos/L1008102%20copy.jpg?width=1600&quality=80" alt="City of Rocks National Reserve aerial survey." loading="lazy">
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/CITY/photos/L1008102%20copy.jpg" alt="City of Rocks National Reserve aerial survey." loading="lazy">
         </figure>
       </div>
     </div>
@@ -3222,6 +3243,25 @@ saveSnapshotToServer();
       }
       popup.close();
     });
+  });
+})();
+
+(function setupEssayToggles(){
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest(".essay-toggle");
+    if (!btn) return;
+    if (btn.dataset.loaded === "true") return;
+    e.preventDefault();
+    const src = btn.dataset.essaySrc;
+    const title = btn.dataset.essayTitle || "Essay";
+    if (!src) return;
+    const iframe = document.createElement("iframe");
+    iframe.src = src;
+    iframe.title = title;
+    iframe.loading = "lazy";
+    btn.parentNode.insertBefore(iframe, btn);
+    btn.dataset.loaded = "true";
+    btn.hidden = true;
   });
 })();
 </script>
