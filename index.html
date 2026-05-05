@@ -974,10 +974,19 @@ figure img { cursor: zoom-in; }
 }
 .winterblue-notes-stack {
   display: grid;
-  gap: clamp(20px, 2.5vw, 32px);
+  gap: clamp(12px, 1.5vw, 20px);
+}
+.winterblue-materials .text-block-title { margin: 0 0 10px; }
+.winterblue-materials .materials-list {
+  gap: 4px;
 }
 .winterblue-materials .materials-item {
   grid-template-columns: minmax(96px, 110px) 1fr;
+  align-items: baseline;
+  gap: 14px;
+}
+.winterblue-materials .materials-item dd {
+  line-height: 1.4;
 }
 .winterblue-side-note {
   margin-top: 24px;
