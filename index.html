@@ -994,20 +994,24 @@ figure img { cursor: zoom-in; }
   top: clamp(14px, 1.8vw, 22px);
   right: clamp(16px, 2vw, 24px);
   z-index: 2;
-  font-size: 22px;
+  font-size: 16px;
   line-height: 1;
   color: #fff;
   background: transparent;
   border: 0;
   padding: 0;
   pointer-events: none;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.40);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
   transform-origin: top right;
   transition: transform .18s ease;
 }
+.survey-card[data-popup="survey-white-sands"]::after {
+  color: var(--muted);
+  text-shadow: none;
+}
 .survey-card:hover::after,
 .survey-card:focus-within::after {
-  transform: translateX(2px) scale(1.08);
+  transform: translateX(2px);
 }
 .survey-card summary {
   display: grid;
