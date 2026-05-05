@@ -798,30 +798,23 @@ figure img { cursor: zoom-in; }
   font-weight: 600;
 }
 .craters-gallery {
-  display: grid;
-  gap: clamp(64px, 8vw, 128px);
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  align-items: start;
 }
-.craters-card {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: clamp(40px, 5vw, 96px);
-  align-items: center;
-}
-.craters-card:nth-child(even) > .craters-card-figure { order: 2; }
-.craters-card-figure { margin: 0; }
-.craters-card-figure img {
+.craters-gallery .gallery-item:nth-child(-n+2) img {
   width: 100%;
-  height: auto;
-  display: block;
+  aspect-ratio: 1274 / 1920;
   max-height: none;
+  object-fit: cover;
 }
-.craters-card-meta {
-  display: grid;
-  gap: clamp(18px, 2.2vw, 32px);
-  max-width: 520px;
+.craters-gallery .panorama-item {
+  grid-column: 1 / -1;
 }
-.craters-card-meta .bento-title { margin-top: 4px; }
-.craters-card-meta .commission-meta { padding-top: 0; border-top: 0; margin-top: 0; }
+.craters-gallery .panorama-item img {
+  width: 100%;
+  max-height: none;
+  object-fit: contain;
+}
 .section-media {
   margin-top: clamp(54px, 8vw, 120px);
 }
@@ -1151,8 +1144,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
   .survey-card.wide,
   .survey-card.tall { grid-column: auto; grid-row: auto; }
   .gallery { grid-template-columns: 1fr; }
-  .craters-card { grid-template-columns: 1fr; gap: clamp(20px, 3vw, 36px); }
-  .craters-card:nth-child(even) > .craters-card-figure { order: 0; }
+  .craters-gallery { grid-template-columns: 1fr; }
 }
 @media (max-width: 680px) {
   .nav-links { display: none; }
@@ -1427,63 +1419,18 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
           <figcaption class="photo-caption">MAIN LEVEL - EAST BAR 41" X 62"</figcaption>
         </figure>
       </div>
-      <div class="craters-gallery" id="craters-gallery">
-        <article class="craters-card">
-          <figure class="craters-card-figure">
-            <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/OBSERVATORY%20COMMISSION%20Photographs/CRATERS_L1002418%20_GM%20WALL.jpg" alt="Craters L1002418." loading="lazy">
-          </figure>
-          <div class="craters-card-meta">
-            <p class="bento-label">CRATERS COMMISSION</p>
-            <h3 class="bento-title">GM Wall</h3>
-            <dl class="commission-meta">
-              <div class="meta-item">
-                <dt>Location</dt>
-                <dd>Main Level — GM Wall</dd>
-              </div>
-              <div class="meta-item">
-                <dt>Print Size</dt>
-                <dd>52.5" × 79"</dd>
-              </div>
-            </dl>
-          </div>
+      <div class="gallery craters-gallery" id="craters-gallery">
+        <article class="gallery-item">
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/OBSERVATORY%20COMMISSION%20Photographs/CRATERS_L1002418%20_GM%20WALL.jpg" alt="Craters L1002418." loading="lazy">
+          <figcaption class="photo-caption">MAIN LEVEL - GM WALL 52.5" X 79"</figcaption>
         </article>
-        <article class="craters-card">
-          <figure class="craters-card-figure">
-            <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/OBSERVATORY%20COMMISSION%20Photographs/CRATERS_L1001955_EAST%20HALL.jpg" alt="Craters L1001955." loading="lazy">
-          </figure>
-          <div class="craters-card-meta">
-            <p class="bento-label">CRATERS COMMISSION</p>
-            <h3 class="bento-title">East Hall Wall</h3>
-            <dl class="commission-meta">
-              <div class="meta-item">
-                <dt>Location</dt>
-                <dd>Main Level — East Hall Wall</dd>
-              </div>
-              <div class="meta-item">
-                <dt>Print Size</dt>
-                <dd>52.5" × 79"</dd>
-              </div>
-            </dl>
-          </div>
+        <article class="gallery-item">
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/OBSERVATORY%20COMMISSION%20Photographs/CRATERS_L1001955_EAST%20HALL.jpg" alt="Craters L1001955." loading="lazy">
+          <figcaption class="photo-caption">MAIN LEVEL - EAST HALL WALL 52.5" X 79"</figcaption>
         </article>
-        <article class="craters-card" id="craters-panorama">
-          <figure class="craters-card-figure">
-            <img src="assets/craters-lounge-wall-web.jpg" alt="Craters L1008377P panoramic work." loading="lazy">
-          </figure>
-          <div class="craters-card-meta">
-            <p class="bento-label">CRATERS COMMISSION</p>
-            <h3 class="bento-title">Lounge Wall</h3>
-            <dl class="commission-meta">
-              <div class="meta-item">
-                <dt>Location</dt>
-                <dd>Main Level — Lounge Wall</dd>
-              </div>
-              <div class="meta-item">
-                <dt>Print Size</dt>
-                <dd>183" × 47"</dd>
-              </div>
-            </dl>
-          </div>
+        <article class="gallery-item panorama-item" id="craters-panorama">
+          <img src="assets/craters-lounge-wall-web.jpg" alt="Craters L1008377P panoramic work." loading="lazy">
+          <figcaption class="photo-caption">MAIN LEVEL LOUNGE WALL 183" X 47"</figcaption>
         </article>
       </div>
     </div>
