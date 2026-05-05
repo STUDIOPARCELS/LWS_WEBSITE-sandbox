@@ -550,6 +550,25 @@ figure img { cursor: zoom-in; }
 }
 .survey-popup-section--env .survey-popup-grid figure,
 .survey-popup-section--env .survey-popup-grid img { cursor: default; }
+.survey-popup-section--env .survey-popup-grid {
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(10px, 1.2vw, 20px);
+}
+.survey-popup-section--env .survey-popup-grid figure {
+  flex: 0 0 auto;
+  width: auto;
+  height: clamp(200px, 32vh, 360px);
+  aspect-ratio: auto;
+  overflow: visible;
+}
+.survey-popup-section--env .survey-popup-grid img {
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
 .survey-popup-video {
   width: min(100%, 720px);
   margin: 0 auto;
@@ -2052,9 +2071,9 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
 
   <section class="page hero hero--artist" id="artist">
     <div class="stack">
-      <p class="eyebrow">ABOUT THE ARTIST</p>
+      <p class="eyebrow">SECTION 5 — ABOUT THE ARTIST</p>
       <h1><span class="line">LISA</span><span class="line"><span class="soft">WOOD</span></span></h1>
-      <p class="sentence">A Sun Valley resident since 1992, Lisa Wood builds bodies of work through sustained contact with wild land — endurance, attention, and direct experience in remote terrain.</p>
+      <p class="sentence">A Sun Valley resident since 1992, Lisa Wood builds bodies of work through sustained contact with wild land.</p>
       <div class="hero-text-blocks">
         <div class="text-block">
           <p class="text-block-title">PRACTICE</p>
@@ -2216,7 +2235,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
       <details open class="bento-card survey-card" data-popup="survey-greenland">
         <summary>
           <figure>
-            <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/GREENLAND/L1001017.jpg" alt="Greenland Ice Sheet aerial survey." loading="lazy" style="object-position: bottom;">
+            <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/GREENLAND/L1000364.jpg" alt="Greenland Ice Sheet aerial survey." loading="lazy" style="object-position: top;">
           </figure>
           <div>
             <p class="bento-label">GREENLAND ICE SHEET — GREENLAND (2015, 2017)</p>
@@ -2300,7 +2319,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
       <details open class="bento-card survey-card" data-popup="survey-wahiba">
         <summary>
           <figure>
-            <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WAHIBA%20OMAN/L1006654.jpg" alt="Wahiba Sands aerial survey." loading="lazy" style="object-position: center 25%;">
+            <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WAHIBA%20OMAN/L1006654.jpg" alt="Wahiba Sands aerial survey." loading="lazy" style="object-position: center 38%;">
           </figure>
           <div>
             <p class="bento-label">WAHIBA SANDS — OMAN (2017)</p>
@@ -2434,7 +2453,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
     </div>
     <div class="survey-popup-section">
       <p class="survey-popup-label">ESSAY — A VEILED SANCTUARY</p>
-      <p class="essay-summary">A first-person account of an aerial photographic survey over the gypsum dunes of White Sands National Park — a sublime, water-soluble landscape encircled by the White Sands Missile Range, Holloman Air Force Base, and the historic Trinity Site. The piece traces the eight-signature military clearance, the doorless flight at 12,000 feet, and the quiet contradiction of capturing pristine beauty inside an active testing range.</p>
+      <p class="essay-summary">A first-person account of an aerial photographic survey over the gypsum dunes of White Sands National Park — a sublime, water-soluble landscape encircled by the White Sands Missile Range, Holloman Air Force Base, and the historic Trinity Site.</p>
       <div class="survey-popup-essay">
         <button type="button" class="essay-toggle" aria-expanded="false" aria-controls="white-sands-essay-body" data-label-open="Read essay" data-label-close="Close essay"><span class="essay-toggle-label">Read essay</span> <span class="essay-toggle-arrow" aria-hidden="true">→</span></button>
         <article id="white-sands-essay-body" class="essay-body" hidden>
@@ -2569,9 +2588,6 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
       <p class="survey-popup-label">SURVEY PHOTOGRAPHS</p>
       <div class="survey-popup-grid survey-popup-grid--portrait">
         <figure>
-          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/CITY/photos/L1007969%20copy.jpg" alt="City of Rocks National Reserve aerial survey." loading="lazy">
-        </figure>
-        <figure>
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/CITY/photos/L1008069%20copy.jpg" alt="City of Rocks National Reserve aerial survey." loading="lazy">
         </figure>
         <figure>
@@ -2579,6 +2595,9 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
         </figure>
         <figure>
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/CITY/photos/L1008102%20copy.jpg" alt="City of Rocks National Reserve aerial survey." loading="lazy">
+        </figure>
+        <figure>
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/CITY/photos/L1007969%20copy.jpg" alt="City of Rocks National Reserve aerial survey." loading="lazy">
         </figure>
       </div>
     </div>
