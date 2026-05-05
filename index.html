@@ -527,19 +527,23 @@ figure img { cursor: zoom-in; }
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  gap: clamp(10px, 1.2vw, 20px);
 }
 #installation-popup .survey-popup-grid figure {
   flex: 0 0 auto;
   width: auto;
-  height: clamp(220px, 36vh, 420px);
+  height: clamp(200px, 32vh, 360px);
   aspect-ratio: auto;
   overflow: visible;
+  margin: 0;
+  background: transparent;
 }
 #installation-popup .survey-popup-grid img {
   width: auto;
   height: 100%;
   display: block;
   object-fit: contain;
+  background: transparent;
 }
 .survey-popup-grid img {
   width: 100%;
