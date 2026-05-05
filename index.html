@@ -779,9 +779,9 @@ figure img { cursor: zoom-in; }
   font-size: 14px;
   line-height: 1;
   color: var(--muted);
-  opacity: 0;
-  transform: translateX(-6px);
-  transition: opacity .22s ease, transform .22s ease, color .22s ease;
+  opacity: 1;
+  transform: translateX(0);
+  transition: transform .22s ease, color .22s ease;
   pointer-events: none;
 }
 .bento-card:hover {
@@ -791,8 +791,7 @@ figure img { cursor: zoom-in; }
 }
 .bento-card:hover::after,
 .bento-card:focus-visible::after {
-  opacity: 1;
-  transform: translateX(0);
+  transform: translateX(2px);
   color: var(--ink);
 }
 .bento-card:focus-visible { outline: 1px solid var(--ink); outline-offset: 4px; }
