@@ -137,7 +137,7 @@ h1 {
   line-height: 1.02;
 }
 h1 .line { display: block; }
-h1 .line-of { margin-left: 0.5em; }
+h1 .line-tight { white-space: nowrap; }
 h1 .soft { color: var(--soft); font-style: italic; font-weight: 300; }
 .split-title,
 .intro-title {
@@ -559,7 +559,7 @@ figure img { cursor: zoom-in; }
 #survey-craters-popup .survey-popup-grid--stacked figure { margin: 0; }
 #installation-popup .survey-popup-grid {
   display: block;
-  column-count: 3;
+  column-count: 4;
   column-gap: clamp(10px, 1.2vw, 18px);
 }
 #installation-popup .survey-popup-grid figure {
@@ -1952,7 +1952,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
   <section class="page hero">
     <div class="stack">
       <p class="eyebrow">THE OBSERVATORY SUN VALLEY, A VICEROY RESORT</p>
-      <h1><span class="line"><span class="soft">LANDSCAPE</span><span class="line-of"> OF</span></span><span class="line">CENTRAL IDAHO</span></h1>
+      <h1><span class="line line-tight"><span class="soft">LANDSCAPE</span> OF</span><span class="line">CENTRAL IDAHO</span></h1>
       <p class="sentence">Five commissioned works by LISA WOOD STUDIO bring together two Central Idaho field sites: the volcanic surface of Craters of the Moon National Monument and the pre-dawn winter expanse of the Camas Prairie.</p>
       <div class="hero-text-blocks">
         <div class="text-block">
@@ -3550,6 +3550,9 @@ saveSnapshotToServer();
     } else {
       target.hidden = false;
       btn.setAttribute("aria-expanded", "true");
+      requestAnimationFrame(() => {
+        try { target.scrollIntoView({ behavior: "smooth", block: "start" }); } catch (_) {}
+      });
     }
     const labelEl = btn.querySelector(".essay-toggle-label");
     if (labelEl) {
