@@ -383,6 +383,61 @@ figure img { cursor: zoom-in; }
   background: #fff;
   cursor: default;
 }
+.survey-popup {
+  width: min(96vw, 1440px);
+  max-width: none;
+  height: 92vh;
+  max-height: 92vh;
+  padding: 0;
+  cursor: pointer;
+}
+.survey-popup-frame {
+  background: #fff;
+  border-radius: 6px;
+  box-shadow:
+    0 60px 120px -28px rgba(0, 0, 0, 0.50),
+    0 24px 48px -16px rgba(0, 0, 0, 0.28);
+  height: 100%;
+  overflow: auto;
+  padding: clamp(28px, 3vw, 56px);
+}
+.survey-popup-section + .survey-popup-section {
+  margin-top: clamp(36px, 4.5vw, 72px);
+  padding-top: clamp(28px, 3vw, 48px);
+  border-top: 1px solid var(--line);
+}
+.survey-popup-label {
+  font-size: var(--label-size);
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 0 0 clamp(20px, 2vw, 32px);
+}
+.survey-popup-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(20px, 2vw, 36px);
+}
+.survey-popup-grid figure {
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  background: #f5f5f5;
+  overflow: hidden;
+  border-radius: 3px;
+}
+.survey-popup-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+@media (max-width: 800px) {
+  .survey-popup-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .survey-popup-grid { grid-template-columns: 1fr; }
+}
 @media (max-width: 900px) {
   .installation-popup-grid--three { grid-template-columns: 1fr 1fr; }
 }
@@ -1746,7 +1801,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
         </div>
       </div>
       <div class="survey-grid" id="surveys" aria-label="Surface Surveys project links">
-        <details open class="bento-card survey-card">
+        <details open class="bento-card survey-card" data-popup="survey-greenland">
           <summary>
             <figure>
               <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/GREENLAND/L1001017.jpg" alt="Greenland Ice Sheet aerial survey." loading="lazy" style="object-position: bottom;">
@@ -1756,7 +1811,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
               <h3 class="bento-title">Greenland Ice Sheet</h3>
             </div>
             <p class="survey-meta">Approximate Latitude: 68°N</p>
-            <span class="cta">VIEW DETAILS</span>
+            <span class="cta">VIEW PHOTOGRAPHS</span>
           </summary>
           <div class="survey-more">
             <div class="stack">
@@ -1765,7 +1820,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
             </div>
           </div>
         </details>
-        <details open class="bento-card survey-card">
+        <details open class="bento-card survey-card" data-popup="survey-white-sands">
           <summary>
             <figure>
               <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WHITE%20SANDS/L1000059-LWS.jpg" alt="White Sands National Park aerial survey." loading="lazy">
@@ -1775,7 +1830,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
               <h3 class="bento-title">White Sands National Park</h3>
             </div>
             <p class="survey-meta">Approximate Latitude: 32°N<br>Status: Protected as a U.S. National Monument: 1933 | Redesignated as a U.S. National Park: 2019</p>
-            <span class="cta">VIEW DETAILS</span>
+            <span class="cta">VIEW PHOTOGRAPHS</span>
           </summary>
           <div class="survey-more">
             <div class="stack">
@@ -1784,7 +1839,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
             </div>
           </div>
         </details>
-        <details open class="bento-card survey-card">
+        <details open class="bento-card survey-card" data-popup="survey-craters">
           <summary>
             <figure>
               <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/CRATERS/EAST-HALLL1002207.jpg" alt="Craters of the Moon aerial survey." loading="lazy">
@@ -1794,7 +1849,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
               <h3 class="bento-title">Craters of the Moon</h3>
             </div>
             <p class="survey-meta">Status: Protected as a U.S. National Monument: 1924 | Designated International Dark Sky Park: 2017</p>
-            <span class="cta">VIEW DETAILS</span>
+            <span class="cta">VIEW PHOTOGRAPHS</span>
           </summary>
           <div class="survey-more">
             <div class="stack">
@@ -1803,7 +1858,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
             </div>
           </div>
         </details>
-        <details open class="bento-card survey-card">
+        <details open class="bento-card survey-card" data-popup="survey-simpson">
           <summary>
             <figure>
               <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/SIMPSON%20DESERT/simpson_desert_L1006196%20PANO.jpg" alt="Simpson Desert aerial survey." loading="lazy">
@@ -1813,7 +1868,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
               <h3 class="bento-title">Simpson Desert</h3>
             </div>
             <p class="survey-meta">Approximate Latitude: 25°S<br>Status: Protected within the Munga-Thirri–Simpson Desert protected areas</p>
-            <span class="cta">VIEW DETAILS</span>
+            <span class="cta">VIEW PHOTOGRAPHS</span>
           </summary>
           <div class="survey-more">
             <div class="stack">
@@ -1822,7 +1877,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
             </div>
           </div>
         </details>
-        <details open class="bento-card survey-card">
+        <details open class="bento-card survey-card" data-popup="survey-wahiba">
           <summary>
             <figure>
               <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WAHIBA%20OMAN/wahiba_L1007191%20copy.jpg" alt="Wahiba Sands aerial survey." loading="lazy">
@@ -1832,7 +1887,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
               <h3 class="bento-title">Wahiba Sands</h3>
             </div>
             <p class="survey-meta">Approximate Latitude: 22°N</p>
-            <span class="cta">VIEW DETAILS</span>
+            <span class="cta">VIEW PHOTOGRAPHS</span>
           </summary>
           <div class="survey-more">
             <div class="stack">
@@ -1840,7 +1895,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
             </div>
           </div>
         </details>
-        <details open class="bento-card survey-card">
+        <details open class="bento-card survey-card" data-popup="survey-city">
           <summary>
             <figure>
               <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/CITY/L1008102%20copy.jpg" alt="City of Rocks National Reserve aerial survey." loading="lazy">
@@ -1850,7 +1905,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
               <h3 class="bento-title">City of Rocks National Reserve</h3>
             </div>
             <p class="survey-meta">Approximate Latitude: 42°N<br>Status: Protected as a National Reserve: 1988</p>
-            <span class="cta">VIEW DETAILS</span>
+            <span class="cta">VIEW PHOTOGRAPHS</span>
           </summary>
           <div class="survey-more">
             <div class="stack">
@@ -1928,6 +1983,89 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
     <figure>
       <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/IMG_0584.jpeg" alt="Camas Prairie site imagery." loading="lazy">
     </figure>
+  </div>
+</dialog>
+<dialog id="survey-greenland-popup" class="installation-popup survey-popup" aria-label="Greenland Ice Sheet photographs">
+  <div class="survey-popup-frame">
+    <div class="survey-popup-section">
+      <p class="survey-popup-label">SURVEY PHOTOGRAPHS</p>
+      <div class="survey-popup-grid">
+        <figure>
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/GREENLAND/L1001017.jpg" alt="Greenland Ice Sheet aerial survey." loading="lazy">
+        </figure>
+      </div>
+    </div>
+    <div class="survey-popup-section">
+      <p class="survey-popup-label">ENVIRONMENT</p>
+      <div class="survey-popup-grid">
+        <figure>
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/GREENLAND/Ilulissat%20Greenland%201.jpg" alt="Ilulissat, Greenland environment." loading="lazy">
+        </figure>
+        <figure>
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/GREENLAND/Ilulissat%20Greenland%202%20copy.jpg" alt="Ilulissat, Greenland environment." loading="lazy">
+        </figure>
+      </div>
+    </div>
+  </div>
+</dialog>
+<dialog id="survey-white-sands-popup" class="installation-popup survey-popup" aria-label="White Sands National Park photographs">
+  <div class="survey-popup-frame">
+    <div class="survey-popup-section">
+      <p class="survey-popup-label">SURVEY PHOTOGRAPHS</p>
+      <div class="survey-popup-grid">
+        <figure>
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WHITE%20SANDS/L1000059-LWS.jpg" alt="White Sands National Park aerial survey." loading="lazy">
+        </figure>
+      </div>
+    </div>
+  </div>
+</dialog>
+<dialog id="survey-craters-popup" class="installation-popup survey-popup" aria-label="Craters of the Moon photographs">
+  <div class="survey-popup-frame">
+    <div class="survey-popup-section">
+      <p class="survey-popup-label">SURVEY PHOTOGRAPHS</p>
+      <div class="survey-popup-grid">
+        <figure>
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/CRATERS/EAST-HALLL1002207.jpg" alt="Craters of the Moon aerial survey." loading="lazy">
+        </figure>
+      </div>
+    </div>
+  </div>
+</dialog>
+<dialog id="survey-simpson-popup" class="installation-popup survey-popup" aria-label="Simpson Desert photographs">
+  <div class="survey-popup-frame">
+    <div class="survey-popup-section">
+      <p class="survey-popup-label">SURVEY PHOTOGRAPHS</p>
+      <div class="survey-popup-grid">
+        <figure>
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/SIMPSON%20DESERT/simpson_desert_L1006196%20PANO.jpg" alt="Simpson Desert aerial survey." loading="lazy">
+        </figure>
+      </div>
+    </div>
+  </div>
+</dialog>
+<dialog id="survey-wahiba-popup" class="installation-popup survey-popup" aria-label="Wahiba Sands photographs">
+  <div class="survey-popup-frame">
+    <div class="survey-popup-section">
+      <p class="survey-popup-label">SURVEY PHOTOGRAPHS</p>
+      <div class="survey-popup-grid">
+        <figure>
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WAHIBA%20OMAN/wahiba_L1007191%20copy.jpg" alt="Wahiba Sands aerial survey." loading="lazy">
+        </figure>
+      </div>
+    </div>
+  </div>
+</dialog>
+<dialog id="survey-city-popup" class="installation-popup survey-popup" aria-label="City of Rocks National Reserve photographs">
+  <div class="survey-popup-frame">
+    <div class="survey-popup-section">
+      <p class="survey-popup-label">SURVEY PHOTOGRAPHS</p>
+      <div class="survey-popup-grid">
+        <figure>
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/CITY/L1008102%20copy.jpg" alt="City of Rocks National Reserve aerial survey." loading="lazy">
+        </figure>
+      </div>
+    </div>
   </div>
 </dialog>
 <script type="module">
