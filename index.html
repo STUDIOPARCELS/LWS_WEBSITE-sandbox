@@ -1834,7 +1834,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
 }
 .closing .sentence { max-width: 920px; }
 @media (max-width: 980px) {
-  .hero, .section-head, .image-row, .commission-feature, .winterblue-feature { grid-template-columns: minmax(0, 1fr); }
+  .hero:not(.hero--artist), .section-head, .image-row, .commission-feature, .winterblue-feature { grid-template-columns: minmax(0, 1fr); }
   .intro-head { grid-template-columns: minmax(0, 1fr); }
   .hero-media img { max-height: none; }
   .winterblue-primary {
@@ -1859,6 +1859,8 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
 }
 @media (max-width: 680px) {
   :root { --hero-title-size: 38px; }
+  .hero--artist { grid-template-columns: minmax(0, 1fr); }
+  .hero--artist .artist-media img { width: 100%; max-height: none; }
   .nav-toggle { display: flex; }
   .nav-links {
     display: flex;
