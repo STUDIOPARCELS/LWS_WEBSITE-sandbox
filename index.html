@@ -153,8 +153,8 @@ h3 {
 }
 .cta.secondary { color: var(--muted); }
 .hero-media img {
-  width: 90%;
-  max-height: 70.2svh;
+  width: 100%;
+  max-height: 76svh;
   object-fit: contain;
 }
 .intro-head {
@@ -167,7 +167,46 @@ h3 {
 .commission-feature-media img,
 .winterblue-media img,
 .intro-media img,
-.section-media img { max-height: 70svh; }
+.section-media img { max-height: 76svh; }
+.commission-meta {
+  display: grid;
+  gap: 14px;
+  margin-top: 4px;
+  margin-bottom: 12px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+.commission-meta .meta-item {
+  display: grid;
+  grid-template-columns: minmax(120px, 140px) 1fr;
+  gap: 18px;
+  align-items: baseline;
+}
+.commission-meta .meta-item dt {
+  font-size: var(--label-size);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 0;
+}
+.commission-meta .meta-item dd {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 300;
+  color: var(--ink);
+}
+.gallery-end-heading {
+  margin-top: clamp(40px, 5vw, 72px);
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+  font-size: var(--label-size);
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-align: center;
+}
 figure img { cursor: zoom-in; }
 .lightbox-overlay {
   position: fixed;
@@ -1062,10 +1101,16 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
             <span class="line">CRATERS, <span class="soft">SURFACE SURVEYS</span></span>
             <span class="line">(2018)</span>
           </h2>
-          <div class="commission-meta">
-            <p class="sentence">Craters of the Moon Lava Field, Idaho, USA</p>
-            <p class="sentence">Protected as a U.S. National Monument: 1924</p>
-          </div>
+          <dl class="commission-meta">
+            <div class="meta-item">
+              <dt>Field Site</dt>
+              <dd>Craters of the Moon Lava Field, Idaho, USA</dd>
+            </div>
+            <div class="meta-item">
+              <dt>Designation</dt>
+              <dd>U.S. National Monument, 1924</dd>
+            </div>
+          </dl>
           <details open>
             <summary>Field Site Context</summary>
             <p>Craters of the Moon National Monument occupies a vast volcanic landscape on Idaho’s Snake River Plain. Its lava flows, cinder cones, spatter cones, fissures, and sagebrush plains form one of the best-preserved recent volcanic terrains in the continental United States.</p>
@@ -1074,11 +1119,8 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
           <details open>
             <summary>Work Details</summary>
             <p>Four commissioned works from Craters, Surface Surveys (2018) bring the volcanic ground of Central Idaho into the Observatory through aerial studies of basalt, cooled surface, fissure, pressure, and mineral memory.</p>
-            <div class="module-actions">
-              <a class="cta" href="#craters-gallery">VIEW PHOTOGRAPHS</a>
-            </div>
           </details>
-          <details>
+          <details open>
             <summary>Materials + Fabrication</summary>
             <p>Archival pigment prints on Canson Baryta Photographique II. Painted maple wood or float mounting according to the installation location, with non-glare glazing where specified. Fabrication by Laumont Photographic, New York.</p>
           </details>
@@ -1102,6 +1144,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
           <figcaption class="photo-caption">MAIN LEVEL LOUNGE WALL - CREDENZA ELEVATION 183" X 47"</figcaption>
         </article>
       </div>
+      <h3 class="gallery-end-heading">Photographs</h3>
     </div>
   </section>
 
