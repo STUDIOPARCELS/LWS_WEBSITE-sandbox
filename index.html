@@ -414,42 +414,34 @@ figure img { cursor: zoom-in; }
 }
 .field-sites-grid {
   display: grid;
-  gap: clamp(64px, 9vw, 144px);
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(28px, 4vw, 64px);
+  align-items: start;
 }
 .field-site {
   display: grid;
-  gap: clamp(20px, 3vw, 36px);
+  gap: clamp(16px, 2vw, 28px);
 }
-.field-site-meta { max-width: 720px; }
-.field-site-meta .bento-title { margin-top: 12px; }
 .field-site-map { margin: 0; }
 .field-site-map img {
   width: 100%;
   height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
   border-radius: clamp(18px, 2vw, 32px);
   box-shadow: 0 24px 48px -16px rgba(0,0,0,0.18);
   background: #fff;
 }
-.field-site-media {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(12px, 1.5vw, 24px);
-  margin-top: clamp(16px, 2vw, 28px);
-}
-.field-site-media figure { margin: 0; }
-.field-site-media img,
-.field-site-media video {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: clamp(12px, 1.5vw, 22px);
-  box-shadow: 0 16px 32px -12px rgba(0,0,0,0.15);
-  background: #fff;
-}
-.field-site-media video {
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  cursor: default;
+.field-site-caption {
+  margin: 0;
+  font-size: var(--label-size);
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--muted);
+  text-align: center;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
 }
 .survey-grid {
   display: grid;
@@ -1005,7 +997,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
   .bento-grid { grid-template-columns: 1fr; }
   .winterblue-grid,
   .winterblue-body,
-  .field-site-media { grid-template-columns: 1fr; }
+  .field-sites-grid { grid-template-columns: 1fr; }
   .bento-card.large { grid-row: auto; }
   .survey-grid { grid-template-columns: 1fr; }
   .survey-card.wide,
@@ -1346,33 +1338,16 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
       </div>
       <div class="field-sites-grid">
         <article class="field-site">
-          <div class="field-site-meta">
-            <p class="bento-label">CRATERS</p>
-            <h3 class="bento-title">Craters of the Moon Lava Field</h3>
-          </div>
           <figure class="field-site-map">
             <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/CRATERS%20MAPS.jpg" alt="Map of The Observatory and Craters of the Moon National Monument." loading="lazy">
           </figure>
+          <p class="field-site-caption">CRATERS OF THE MOON — THE OBSERVATORY</p>
         </article>
         <article class="field-site">
-          <div class="field-site-meta">
-            <p class="bento-label">WINTERBLUE</p>
-            <h3 class="bento-title">Camas Prairie</h3>
-          </div>
           <figure class="field-site-map">
             <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/CAMAS%20PRAIRIE.png" alt="Map of the Camas Prairie field site." loading="lazy">
           </figure>
-          <div class="field-site-media">
-            <figure>
-              <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/File_006.png" alt="Winterblue field site imagery." loading="lazy">
-            </figure>
-            <figure>
-              <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/IMG_4962.HEIC" alt="Winterblue field site photograph." loading="lazy">
-            </figure>
-            <figure>
-              <video src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/WINTERBLUE%20I_1.mp4" controls muted loop playsinline preload="metadata"></video>
-            </figure>
-          </div>
+          <p class="field-site-caption">CAMAS PRAIRIE — WINTERBLUE FIELD SITE</p>
         </article>
       </div>
     </div>
