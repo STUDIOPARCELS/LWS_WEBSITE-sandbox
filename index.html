@@ -455,8 +455,14 @@ figure img { cursor: zoom-in; }
   display: grid;
   gap: 14px;
   margin-bottom: clamp(48px, 6vw, 96px);
-  text-align: center;
-  justify-items: center;
+}
+.field-site-description {
+  margin: 0;
+  font-size: var(--module-text-size);
+  line-height: 1.62;
+  color: var(--muted);
+  font-weight: 300;
+  max-width: 520px;
 }
 .field-sites-grid {
   display: grid;
@@ -1391,13 +1397,15 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
         <h2>FIELD SITES</h2>
       </div>
       <div class="field-sites-grid">
-        <article class="field-site">
+        <article class="field-site field-site-clickable" data-popup="craters-site" role="button" tabindex="0" aria-label="View Craters of the Moon imagery">
+          <p class="field-site-description">A volcanic field on Idaho's Snake River Plain — roughly 75 miles southeast of The Observatory in Ketchum.</p>
           <figure class="field-site-map">
             <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/CRATERS%20MAPS.jpg" alt="Map of The Observatory and Craters of the Moon National Monument." loading="lazy">
           </figure>
           <p class="field-site-caption">CRATERS OF THE MOON — THE OBSERVATORY</p>
         </article>
         <article class="field-site field-site-clickable" data-popup="winterblue-site" role="button" tabindex="0" aria-label="View Camas Prairie field site imagery">
+          <p class="field-site-description">A high prairie basin south of the Sawtooths — roughly 35 miles southwest of The Observatory in Ketchum.</p>
           <figure class="field-site-map">
             <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/CAMAS%20PRAIRIE.png" alt="Map of the Camas Prairie field site." loading="lazy">
           </figure>
@@ -1641,6 +1649,20 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
     </div>
   </section>
 </main>
+<dialog id="craters-site-popup" class="installation-popup" aria-label="Craters of the Moon imagery">
+  <button class="installation-popup-close" type="button" aria-label="Close gallery">×</button>
+  <div class="installation-popup-grid installation-popup-grid--three">
+    <figure>
+      <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/OBSERVATORY%20COMMISSION%20Photographs/CRATERS_L1001569_EAST%20BAR.jpg" alt="Craters of the Moon imagery, placeholder." loading="lazy">
+    </figure>
+    <figure>
+      <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/OBSERVATORY%20COMMISSION%20Photographs/CRATERS_L1002418%20_GM%20WALL.jpg" alt="Craters of the Moon imagery, placeholder." loading="lazy">
+    </figure>
+    <figure>
+      <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/OBSERVATORY%20COMMISSION%20Photographs/CRATERS_L1001955_EAST%20HALL.jpg" alt="Craters of the Moon imagery, placeholder." loading="lazy">
+    </figure>
+  </div>
+</dialog>
 <dialog id="winterblue-site-popup" class="installation-popup" aria-label="Camas Prairie field site imagery">
   <button class="installation-popup-close" type="button" aria-label="Close gallery">×</button>
   <div class="installation-popup-grid installation-popup-grid--three">
