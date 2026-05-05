@@ -419,12 +419,34 @@ figure img { cursor: zoom-in; }
   border: 1px solid var(--line);
   color: var(--ink);
   background: var(--paper);
-  transition: border-color .18s ease, transform .18s ease;
+  transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+  position: relative;
+}
+.bento-card[href]::after {
+  content: "→";
+  position: absolute;
+  top: clamp(20px, 2.4vw, 32px);
+  right: clamp(20px, 2.4vw, 32px);
+  font-size: 22px;
+  line-height: 1;
+  color: var(--muted);
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity .22s ease, transform .22s ease, color .22s ease;
+  pointer-events: none;
 }
 .bento-card:hover {
   border-color: rgba(17,17,17,.34);
   transform: translateY(-2px);
+  box-shadow: 0 16px 32px -16px rgba(0,0,0,0.18);
 }
+.bento-card:hover::after,
+.bento-card:focus-visible::after {
+  opacity: 1;
+  transform: translateX(0);
+  color: var(--ink);
+}
+.bento-card:focus-visible { outline: 1px solid var(--ink); outline-offset: 4px; }
 .bento-card.large {
   grid-row: span 2;
   grid-template-rows: auto auto 1fr auto;
@@ -1470,7 +1492,6 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
           <figure>
             <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/GREENLAND/L1001406%20(1).jpg" alt="Greenland Ice Sheet aerial survey." loading="lazy">
           </figure>
-          <span class="cta">EXPLORE SURFACE SURVEYS</span>
         </a>
         <a class="bento-card" href="#luxuriate" aria-label="Explore Luxuriate in Discomfort">
           <div>
@@ -1481,7 +1502,6 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
           <figure>
             <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/L1009938%20book%20in%20mirrorRE%20copy.jpg" alt="Luxuriate in Discomfort book." loading="lazy">
           </figure>
-          <span class="cta">EXPLORE LUXURIATE IN DISCOMFORT</span>
         </a>
       </div>
     </div>
