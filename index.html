@@ -559,42 +559,33 @@ figure img { cursor: zoom-in; }
 #survey-craters-popup .survey-popup-grid--stacked figure { margin: 0; }
 #installation-popup .survey-popup-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(10px, 1.2vw, 18px);
   align-items: start;
-  justify-items: center;
 }
 #installation-popup .survey-popup-grid::after { display: none; }
+#installation-popup .survey-popup-grid--landscape-row {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+#installation-popup .survey-popup-grid--portrait-row {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
 #installation-popup .survey-popup-grid figure {
   flex: initial;
   width: 100%;
-  height: clamp(290px, 41vh, 410px);
+  height: auto;
   margin: 0;
-  overflow: visible;
+  overflow: hidden;
   background: transparent;
   border-radius: 3px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 #installation-popup .survey-popup-grid img {
   display: block;
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
+  width: 100%;
   height: auto;
-  object-fit: contain;
   background: transparent;
 }
 #installation-popup .survey-popup-grid + .survey-popup-grid {
-  margin-top: clamp(10px, 1.2vw, 18px);
-}
-#installation-popup .survey-popup-grid--single {
-  grid-template-columns: minmax(0, 1fr);
-  justify-items: center;
-}
-#installation-popup .survey-popup-grid--single figure {
-  width: min(100%, 520px);
+  margin-top: clamp(12px, 1.4vw, 22px);
 }
 .survey-popup-grid img {
   width: 100%;
@@ -2277,7 +2268,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
   <div class="survey-popup-frame">
     <div class="survey-popup-section">
       <p class="survey-popup-label">INSTALLATION PHOTOGRAPHS</p>
-      <div class="survey-popup-grid">
+      <div class="survey-popup-grid survey-popup-grid--landscape-row">
         <figure>
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/photos/L1009866%20owning.jpg" alt="One-night installation photograph." loading="lazy">
         </figure>
@@ -2287,8 +2278,11 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
         <figure>
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/photos/L1009938%20book%20in%20mirrorRE%20copy.jpg" alt="One-night installation photograph." loading="lazy">
         </figure>
+        <figure>
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/photos/L1009945%20heat%20poem%20RE%20copy.jpg" alt="One-night installation photograph." loading="lazy">
+        </figure>
       </div>
-      <div class="survey-popup-grid">
+      <div class="survey-popup-grid survey-popup-grid--portrait-row">
         <figure>
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/photos/L1009905.jpg" alt="One-night installation photograph." loading="lazy">
         </figure>
@@ -2297,11 +2291,6 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
         </figure>
         <figure>
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/photos/L1009942%20LID%20blur%20mirror.jpg" alt="One-night installation photograph." loading="lazy">
-        </figure>
-      </div>
-      <div class="survey-popup-grid survey-popup-grid--single">
-        <figure>
-          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/photos/L1009945%20heat%20poem%20RE%20copy.jpg" alt="One-night installation photograph." loading="lazy">
         </figure>
       </div>
     </div>
