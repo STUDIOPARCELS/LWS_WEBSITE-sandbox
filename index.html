@@ -41,6 +41,7 @@ body {
   text-rendering: optimizeLegibility;
 }
 img { display: block; width: 100%; height: auto; }
+main img { cursor: zoom-in; }
 a { color: inherit; text-decoration: none; }
 figure, p, h1, h2, h3 { margin: 0; }
 .nav {
@@ -188,9 +189,8 @@ h3 {
 }
 .commission-meta .meta-item {
   display: grid;
-  grid-template-columns: minmax(120px, 140px) 1fr;
-  gap: 18px;
-  align-items: baseline;
+  grid-template-columns: 1fr;
+  gap: 4px;
 }
 .commission-meta .meta-item dt {
   font-size: var(--label-size);
@@ -206,6 +206,7 @@ h3 {
   line-height: 1.5;
   font-weight: 300;
   color: var(--ink);
+  white-space: nowrap;
 }
 .gallery-end-heading {
   margin-top: clamp(40px, 5vw, 72px);
@@ -284,16 +285,7 @@ figure img { cursor: zoom-in; }
   padding-top: clamp(30px, 4vw, 62px);
 }
 #practice .section-head {
-  margin-bottom: 0;
-}
-.practice-copy {
-  max-width: 820px;
-}
-.practice-copy .sentence {
-  max-width: 820px;
-}
-.practice-copy .actions {
-  padding-top: 12px;
+  margin-bottom: clamp(54px, 8vw, 112px);
 }
 #luxuriate .section-head {
   margin-bottom: clamp(54px, 8vw, 112px);
@@ -514,7 +506,7 @@ figure img { cursor: zoom-in; }
 }
 .commission-meta {
   display: grid;
-  gap: 6px;
+  gap: 14px;
   margin-top: 2px;
   margin-bottom: 8px;
 }
@@ -589,19 +581,13 @@ figure img { cursor: zoom-in; }
 }
 .winterblue-feature {
   display: grid;
-  grid-template-columns: minmax(260px,.42fr) minmax(0,1.1fr);
-  align-items: start;
-  column-gap: clamp(44px, 7vw, 104px);
-  row-gap: clamp(20px, 3vw, 42px);
+  gap: clamp(48px, 7vw, 112px);
 }
 .winterblue-copy {
-  grid-column: 1;
-  grid-row: 1;
-  align-self: start;
-  max-width: 560px;
+  max-width: 820px;
 }
 .winterblue-side-note {
-  margin-top: clamp(64px, 10vw, 148px);
+  margin-top: 24px;
   border-top: 1px solid var(--line);
   padding-top: 14px;
 }
@@ -615,10 +601,8 @@ figure img { cursor: zoom-in; }
   text-transform: none;
 }
 .winterblue-notes {
-  grid-column: 1 / -1;
-  grid-row: 2;
-  align-self: start;
   display: block;
+  max-width: 920px;
 }
 .winterblue-notes details {
   padding: 18px 0;
@@ -637,25 +621,19 @@ figure img { cursor: zoom-in; }
   margin-top: 6px;
 }
 .winterblue-grid {
-  grid-column: 2;
-  grid-row: 1;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(8px, 1.2vw, 18px);
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(12px, 1.5vw, 28px);
   width: 100%;
-  align-self: start;
-  margin-top: 0;
+  align-items: start;
 }
 .winterblue-grid figure { margin: 0; }
 .winterblue-grid img {
   width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
+  height: auto;
+  display: block;
 }
 .winterblue-primary {
-  grid-column: 1 / -1;
-  grid-row: 3;
-  margin-top: clamp(48px, 7vw, 112px);
   width: 100%;
 }
 .winterblue-primary img {
@@ -1148,7 +1126,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
           <dl class="commission-meta">
             <div class="meta-item">
               <dt>Field Site</dt>
-              <dd>Craters of the Moon Lava Field, Idaho,&nbsp;USA</dd>
+              <dd>Craters of the Moon Lava Field, Idaho, USA</dd>
             </div>
             <div class="meta-item">
               <dt>Designation</dt>
@@ -1185,7 +1163,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
         </article>
         <article class="gallery-item panorama-item" id="craters-panorama">
           <img src="assets/craters-lounge-wall-web.jpg" alt="Craters L1008377P panoramic work." loading="lazy">
-          <figcaption class="photo-caption">MAIN LEVEL LOUNGE WALL - CREDENZA ELEVATION 183" X 47"</figcaption>
+          <figcaption class="photo-caption">MAIN LEVEL LOUNGE WALL 183" X 47"</figcaption>
         </article>
       </div>
       <h3 class="gallery-end-heading">Photographs</h3>
@@ -1234,7 +1212,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
           </details>
         </div>
         <figure class="winterblue-primary" id="winterblue-work">
-          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/OBSERVATORY%20COMMISSION%20Photographs/Winterblue%20I_PREFUNCTION%20WALL.jpg" alt="Winterblue I contact sheet." loading="lazy">
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/WINTERBLUE%20I%20PRINT%20THUMB.jpg" alt="Winterblue I print thumbnail." loading="lazy">
           <figcaption class="photo-caption">LOWER LEVEL - PRE-FUNCTION WEST WALL 138" X 85"</figcaption>
         </figure>
       </div>
@@ -1244,18 +1222,40 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
   <section class="page" id="practice">
     <div class="inner">
       <div class="section-head">
-        <p class="eyebrow">SECTION 3 — PRACTICE & GLOBAL LANDSCAPE</p>
-        <div class="stack practice-copy">
+        <div class="stack">
+          <p class="eyebrow">SECTION 3 — PRACTICE & GLOBAL LANDSCAPE</p>
           <h2 class="split-title">
             <span class="line">CONNECTION TO REGIONAL CHARACTER</span>
             <span class="line">AND <span class="soft">GLOBAL LANDSCAPE</span></span>
           </h2>
-          <p class="sentence">The commission begins in Central Idaho and extends into a global study of remote terrain. Craters connects to geologically significant landscapes across the world —the Greenland Ice Sheet, into the restricted airspace over White Sands National Park, across the longest parallel sand dunes in the world in Australia, and into the Middle East where the Bedouin roam — while Winterblue reveals both studio tenet and the character of the Wood River Valley: exit comfort as a means toward adventure, exploration, and discovery.</p>
-          <div class="actions">
-            <a class="cta" href="#surface-surveys">EXPLORE SURFACE SURVEYS</a>
-            <a class="cta secondary" href="#luxuriate">EXPLORE LUXURIATE IN DISCOMFORT</a>
-          </div>
         </div>
+        <div class="stack">
+          <p class="sentence">The commission begins in Central Idaho and extends into a global study of remote terrain. Craters connects to geologically significant landscapes across the world —the Greenland Ice Sheet, into the restricted airspace over White Sands National Park, across the longest parallel sand dunes in the world in Australia, and into the Middle East where the Bedouin roam — while Winterblue reveals both studio tenet and the character of the Wood River Valley: exit comfort as a means toward adventure, exploration, and discovery.</p>
+        </div>
+      </div>
+      <div class="bento-grid" aria-label="Practice gateways">
+        <a class="bento-card" href="#surface-surveys" aria-label="Explore Surface Surveys">
+          <div>
+            <p class="bento-label">A SIX-PART AERIAL STUDY</p>
+            <h3 class="bento-title">Surface Surveys</h3>
+          </div>
+          <p>A field-based body of work documenting six remote and geologically significant landscapes across four continents — deserts, ice sheets, lava fields, gypsum dunes, and granite formations.</p>
+          <figure>
+            <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/GREENLAND/L1001017.jpg" alt="Greenland Ice Sheet aerial survey." loading="lazy">
+          </figure>
+          <span class="cta">EXPLORE SURFACE SURVEYS</span>
+        </a>
+        <a class="bento-card" href="#luxuriate" aria-label="Explore Luxuriate in Discomfort">
+          <div>
+            <p class="bento-label">A LIFELONG STUDIO TENET</p>
+            <h3 class="bento-title">Luxuriate in Discomfort</h3>
+          </div>
+          <p>A studio philosophy carried across three forms — a book, a one-night installation, and a public art project for teenage mental health.</p>
+          <figure>
+            <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/L1009938%20book%20in%20mirrorRE%20copy.jpg" alt="Luxuriate in Discomfort book." loading="lazy">
+          </figure>
+          <span class="cta">EXPLORE LUXURIATE IN DISCOMFORT</span>
+        </a>
       </div>
     </div>
   </section>
