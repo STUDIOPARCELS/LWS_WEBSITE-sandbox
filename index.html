@@ -881,6 +881,13 @@ figure img { cursor: zoom-in; }
   row-gap: clamp(20px, 2.5vw, 32px);
   align-items: start;
 }
+.winterblue-notes-stack {
+  display: grid;
+  gap: clamp(20px, 2.5vw, 32px);
+}
+.winterblue-materials .materials-item {
+  grid-template-columns: minmax(96px, 110px) 1fr;
+}
 .winterblue-side-note {
   margin-top: 24px;
   border-top: 1px solid var(--line);
@@ -1557,9 +1564,28 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
             <p>17 trips between January and April to the Camas Prairie under sub-zero conditions turned darkness, cold, isolation, and grief into a field of attention.</p>
             <p class="practice-note-coda">The work demonstrates the practice — entering difficulty deliberately, staying long enough for perception to shift, and returning with images shaped by that exposure.</p>
           </div>
-          <div class="winterblue-note-block">
-            <p class="text-block-title">FIELD NOTE</p>
-            <p>Winterblue was born from a winter search for Lisa's missing dog. For 11 days she and her community searched. Lisa slept in her car, searched in whiteouts, and met the full force of winter as fear, isolation, and overwhelming discomfort.</p>
+          <div class="winterblue-notes-stack">
+            <div class="winterblue-note-block">
+              <p class="text-block-title">FIELD NOTE</p>
+              <p>Winterblue was born from a winter search for Lisa's missing dog. For 11 days she and her community searched. Lisa slept in her car, searched in whiteouts, and met the full force of winter as fear, isolation, and overwhelming discomfort.</p>
+            </div>
+            <div class="winterblue-note-block winterblue-materials">
+              <p class="text-block-title">MATERIALS + FABRICATION</p>
+              <dl class="materials-list">
+                <div class="materials-item">
+                  <dt>Print</dt>
+                  <dd>Archival pigment print on Kodak Glossy</dd>
+                </div>
+                <div class="materials-item">
+                  <dt>Mounting</dt>
+                  <dd>Painted maple wood</dd>
+                </div>
+                <div class="materials-item">
+                  <dt>Fabrication</dt>
+                  <dd>Laumont Photographic, New York</dd>
+                </div>
+              </dl>
+            </div>
           </div>
         </div>
         <figure class="winterblue-primary" id="winterblue-work">
