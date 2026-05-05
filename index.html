@@ -887,8 +887,29 @@ figure img { cursor: zoom-in; }
 }
 .note-block p:not(.text-block-title) + p:not(.text-block-title),
 .winterblue-note-block p:not(.text-block-title) + p:not(.text-block-title) {
-  margin-top: 14px;
+  margin-top: 8px;
 }
+.winterblue-note-block .practice-note-coda {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+}
+.winterblue-meta {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  justify-content: start;
+  column-gap: clamp(28px, 4vw, 56px);
+  align-items: start;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.winterblue-meta .meta-item + .meta-item {
+  border-left: 1px solid var(--line);
+  padding-left: clamp(28px, 4vw, 56px);
+}
+.winterblue-meta .meta-item dd { white-space: normal; }
 .winterblue-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -904,8 +925,8 @@ figure img { cursor: zoom-in; }
   object-fit: cover;
 }
 .winterblue-primary {
-  width: 110%;
-  margin: 0 -5%;
+  width: 120%;
+  margin: 0 -10%;
   max-width: none;
 }
 .winterblue-primary img {
@@ -1457,14 +1478,14 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
               <span class="line">WINTERBLUE</span>
               <span class="line">(2023)</span>
             </h2>
-            <dl class="commission-meta">
+            <dl class="commission-meta winterblue-meta">
+              <div class="meta-item">
+                <dt>Format</dt>
+                <dd>Large-scale Contact Sheet, 125 Photographs</dd>
+              </div>
               <div class="meta-item">
                 <dt>Field Site</dt>
                 <dd>Camas Prairie, Idaho, USA</dd>
-              </div>
-              <div class="meta-item">
-                <dt>Format</dt>
-                <dd>Large-scale contact sheet, 125 photographs</dd>
               </div>
             </dl>
           </div>
@@ -1492,7 +1513,9 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
         <div class="winterblue-notes">
           <div class="winterblue-note-block">
             <p class="text-block-title">PRACTICE NOTE</p>
-            <p>The project carries regional character of embracing discomfort into winter atmosphere and emotional terrain. 17 trips between January and April to the Camas Prairie under sub-zero conditions turned darkness, cold, isolation, and grief into a field of attention. The work demonstrates the practice: entering difficulty deliberately, staying long enough for perception to shift, and returning with images shaped by that exposure.</p>
+            <p>The project carries regional character of embracing discomfort into winter atmosphere and emotional terrain.</p>
+            <p>17 trips between January and April to the Camas Prairie under sub-zero conditions turned darkness, cold, isolation, and grief into a field of attention.</p>
+            <p class="practice-note-coda">The work demonstrates the practice — entering difficulty deliberately, staying long enough for perception to shift, and returning with images shaped by that exposure.</p>
           </div>
           <div class="winterblue-note-block">
             <p class="text-block-title">FIELD NOTE</p>
