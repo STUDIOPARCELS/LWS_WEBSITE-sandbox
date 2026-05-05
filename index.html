@@ -409,6 +409,16 @@ figure img { cursor: zoom-in; }
 }
 .section-popup-head h2 { margin: 0; }
 .section-popup-head .note-block { margin-top: 8px; }
+.surveys-overview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(28px, 4vw, 64px);
+  align-items: start;
+  margin-top: 8px;
+}
+@media (max-width: 720px) {
+  .surveys-overview { grid-template-columns: 1fr; }
+}
 .survey-popup {
   width: min(96vw, 1440px);
   max-width: none;
@@ -441,32 +451,32 @@ figure img { cursor: zoom-in; }
   margin: 0 0 clamp(20px, 2vw, 32px);
 }
 .survey-popup-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(20px, 2vw, 36px);
+  display: flex;
+  flex-wrap: nowrap;
+  gap: clamp(14px, 1.6vw, 28px);
+  align-items: stretch;
 }
 .survey-popup-grid figure {
+  flex: 1 1 0;
+  min-width: 0;
   margin: 0;
-  aspect-ratio: 2 / 3;
-  background: #f5f5f5;
+  background: transparent;
   overflow: hidden;
   border-radius: 3px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  cursor: zoom-in;
 }
+.survey-popup-grid--portrait figure { aspect-ratio: 2 / 3; }
+.survey-popup-grid--landscape figure { aspect-ratio: 3 / 2; }
 .survey-popup-grid img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   display: block;
-  background: #f5f5f5;
+  cursor: zoom-in;
 }
-@media (max-width: 800px) {
-  .survey-popup-grid { grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 560px) {
-  .survey-popup-grid { grid-template-columns: 1fr; }
+@media (max-width: 700px) {
+  .survey-popup-grid { flex-wrap: wrap; }
+  .survey-popup-grid figure { flex: 1 1 calc(50% - 14px); }
 }
 @media (max-width: 900px) {
   .installation-popup-grid--three { grid-template-columns: 1fr 1fr; }
@@ -701,7 +711,7 @@ figure img { cursor: zoom-in; }
   min-height: clamp(500px, 48vw, 680px);
   display: grid;
   grid-template-rows: auto auto 1fr auto;
-  gap: clamp(18px, 2.4vw, 34px);
+  gap: clamp(10px, 1.2vw, 18px);
   padding: clamp(24px, 3.2vw, 44px);
   color: inherit;
   font: inherit;
@@ -709,6 +719,8 @@ figure img { cursor: zoom-in; }
   text-transform: none;
   cursor: pointer;
 }
+.survey-card .bento-title { margin: 4px 0 0; }
+.survey-card summary .cta { margin-top: clamp(6px, 1vw, 14px); }
 .survey-card figure {
   margin: clamp(-44px, -3.2vw, -24px) clamp(-44px, -3.2vw, -24px) 0;
   border-bottom: 1px solid var(--line);
@@ -1705,7 +1717,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
       <div class="field-sites-grid">
         <article class="field-site field-site-clickable" data-popup="craters-site" role="button" tabindex="0" aria-label="View Craters of the Moon imagery">
           <header class="field-site-header">
-            <p class="eyebrow">FIELD SITE</p>
+            <p class="eyebrow">LOCATION</p>
             <h3 class="field-site-title">Craters of the Moon</h3>
           </header>
           <div class="field-site-body">
@@ -1717,7 +1729,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
         </article>
         <article class="field-site field-site-clickable" data-popup="winterblue-site" role="button" tabindex="0" aria-label="View Camas Prairie field site imagery">
           <header class="field-site-header">
-            <p class="eyebrow">FIELD SITE</p>
+            <p class="eyebrow">LOCATION</p>
             <h3 class="field-site-title">Camas Prairie</h3>
           </header>
           <div class="field-site-body">
@@ -1892,10 +1904,15 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
     <div class="section-popup-head">
       <p class="eyebrow">A SIX-PART AERIAL STUDY OF REMOTE TERRAIN</p>
       <h2>SURFACE SURVEYS</h2>
-      <div class="note-block">
-        <p class="text-block-title">OVERVIEW</p>
-        <p>A field-based body of work documenting six remote and geologically significant landscapes across four continents. Created between 2015 and 2019 with a medium-format Leica S007, Surface Surveys moves across deserts, ice sheets, lava fields, gypsum dunes, and granite formations — terrains shaped by wind, ice, volcanic activity, erosion, and mineral deposit.</p>
-        <p>Three of the six surveys are the first artist-led aerial surveys of their kind. The Greenland survey is the first completed by a woman.</p>
+      <div class="surveys-overview">
+        <div class="note-block">
+          <p class="text-block-title">OVERVIEW</p>
+          <p>A field-based body of work documenting six remote and geologically significant landscapes across four continents. Created between 2015 and 2019 with a medium-format Leica S007, Surface Surveys moves across deserts, ice sheets, lava fields, gypsum dunes, and granite formations — terrains shaped by wind, ice, volcanic activity, erosion, and mineral deposit.</p>
+        </div>
+        <div class="note-block">
+          <p class="text-block-title">DISTINCTIONS</p>
+          <p>Three of the six surveys are the first artist-led aerial surveys of their kind. The Greenland survey is the first completed by a woman.</p>
+        </div>
       </div>
     </div>
     <div class="survey-grid" aria-label="Surface Surveys project links">
@@ -1908,7 +1925,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
             <p class="bento-label">GREENLAND ICE SHEET — GREENLAND (2015, 2017)</p>
             <h3 class="bento-title">Greenland Ice Sheet</h3>
           </div>
-          <p class="survey-meta">Approximate Latitude: 68°N</p>
+          <p class="survey-meta">Approximate Latitude: 68°N<br>Status: Ilulissat Icefjord (within the ice sheet's western edge) — UNESCO World Heritage Site: 2004</p>
           <span class="cta">VIEW PHOTOGRAPHS</span>
         </summary>
         <div class="survey-more">
@@ -2018,7 +2035,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
   <div class="survey-popup-frame">
     <div class="survey-popup-section">
       <p class="survey-popup-label">SURVEY PHOTOGRAPHS</p>
-      <div class="survey-popup-grid">
+      <div class="survey-popup-grid survey-popup-grid--portrait">
         <figure>
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/GREENLAND/PHOTOGRAPHS/L1000364.jpg" alt="Greenland Ice Sheet aerial survey." loading="lazy">
         </figure>
@@ -2035,7 +2052,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
     </div>
     <div class="survey-popup-section">
       <p class="survey-popup-label">ENVIRONMENT</p>
-      <div class="survey-popup-grid">
+      <div class="survey-popup-grid survey-popup-grid--landscape">
         <figure>
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/GREENLAND/Ilulissat%20Greenland%201.jpg" alt="Ilulissat, Greenland environment." loading="lazy">
         </figure>
@@ -2050,7 +2067,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
   <div class="survey-popup-frame">
     <div class="survey-popup-section">
       <p class="survey-popup-label">SURVEY PHOTOGRAPHS</p>
-      <div class="survey-popup-grid">
+      <div class="survey-popup-grid survey-popup-grid--portrait">
         <figure>
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WHITE%20SANDS/phots/L1000059-LWS.jpg" alt="White Sands aerial survey." loading="lazy">
         </figure>
@@ -2063,6 +2080,8 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
         <figure>
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WHITE%20SANDS/phots/L1000950.jpg" alt="White Sands aerial survey." loading="lazy">
         </figure>
+      </div>
+      <div class="survey-popup-grid survey-popup-grid--landscape">
         <figure>
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WHITE%20SANDS/phots/L1001382-LWS.jpg" alt="White Sands aerial survey." loading="lazy">
         </figure>
@@ -2076,7 +2095,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
     </div>
     <div class="survey-popup-section">
       <p class="survey-popup-label">ENVIRONMENT</p>
-      <div class="survey-popup-grid">
+      <div class="survey-popup-grid survey-popup-grid--landscape">
         <figure>
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/WHITE%20SANDS/env/IMG_8821.JPEG" alt="White Sands environment." loading="lazy">
         </figure>
