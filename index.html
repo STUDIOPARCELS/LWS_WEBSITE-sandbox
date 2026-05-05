@@ -630,8 +630,20 @@ figure img { cursor: zoom-in; }
 #installation-popup .survey-popup-grid--landscape-row figure {
   height: clamp(180px, 22vh, 240px);
 }
+#installation-popup .survey-popup-grid--portrait-row {
+  flex-direction: column;
+  align-items: center;
+}
 #installation-popup .survey-popup-grid--portrait-row figure {
-  height: clamp(420px, 56vh, 560px);
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+  flex: initial;
+}
+#installation-popup .survey-popup-grid--portrait-row img {
+  width: 100%;
+  height: auto;
+  max-height: none;
 }
 #installation-popup .survey-popup-grid + .survey-popup-grid {
   margin-top: clamp(20px, 2.4vw, 36px);
@@ -1942,15 +1954,28 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
 #survey-city-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--portrait figure {
   position: relative;
 }
-#survey-white-sands-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--portrait figure + figure::before,
-#survey-greenland-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--portrait figure + figure::before,
-#survey-city-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--portrait figure + figure::before {
+#survey-white-sands-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--portrait figure:nth-child(2n)::before,
+#survey-greenland-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--portrait figure:nth-child(2n)::before,
+#survey-city-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--portrait figure:nth-child(2n)::before {
   content: "";
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: -8px;
-  width: 10px;
+  top: -2px;
+  bottom: -2px;
+  left: -12px;
+  width: 22px;
+  background: #fff;
+  pointer-events: none;
+  z-index: 2;
+}
+#survey-white-sands-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--portrait figure:nth-child(n+3)::after,
+#survey-greenland-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--portrait figure:nth-child(n+3)::after,
+#survey-city-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--portrait figure:nth-child(n+3)::after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  top: -10px;
+  height: 18px;
   background: #fff;
   pointer-events: none;
   z-index: 2;
