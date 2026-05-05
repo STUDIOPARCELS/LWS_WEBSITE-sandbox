@@ -395,6 +395,7 @@ figure img { cursor: zoom-in; }
   grid-template-columns: minmax(0,1.06fr) minmax(0,.94fr);
   gap: clamp(22px, 3.2vw, 44px);
 }
+.bento-grid--three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .bento-card {
   min-height: clamp(320px, 36vw, 560px);
   display: grid;
@@ -1034,7 +1035,8 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
   .winterblue-primary img {
     max-height: none;
   }
-  .bento-grid { grid-template-columns: 1fr; }
+  .bento-grid,
+  .bento-grid--three { grid-template-columns: 1fr; }
   .winterblue-grid,
   .field-sites-grid { grid-template-columns: 1fr; }
   .bento-card.large { grid-row: auto; }
@@ -1446,8 +1448,8 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
           <p class="sentence">A studio philosophy carried across three forms — a book, a one-night installation, and a public art project for teenage mental health.</p>
         </div>
       </div>
-      <div class="bento-grid" aria-label="Luxuriate in Discomfort project links">
-        <a class="bento-card large" href="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/luxuriate%20in%20discomfort%20book%20lws.pdf" aria-label="View the Luxuriate In Discomfort book">
+      <div class="bento-grid bento-grid--three" aria-label="Luxuriate in Discomfort project links">
+        <a class="bento-card" href="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/luxuriate%20in%20discomfort%20book%20lws.pdf" aria-label="View the Luxuriate In Discomfort book">
           <div>
             <p class="bento-label">THE BOOK (2020)</p>
             <h3 class="bento-title">Luxuriate In Discomfort</h3>
@@ -1456,15 +1458,15 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
           <figure>
             <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/L1009938%20book%20in%20mirrorRE%20copy.jpg" alt="Luxuriate in Discomfort book." loading="lazy">
           </figure>
-          <span class="cta">VIEW THE BOOK</span>
         </a>
-        <a class="bento-card" href="#installation-popup" data-popup="installation" aria-label="View the one-night installation">
+        <a class="bento-card" href="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/L1009933%20RESIZE.jpg" aria-label="One-night installation, December 2020, Sun Valley">
           <div>
             <p class="bento-label">THE ONE-NIGHT INSTALLATION</p>
             <h3 class="bento-title">December 2020, Sun Valley</h3>
           </div>
-          <p>A single-night exhibition staged inside the artist's bedroom, December 2020. The installation paired a large mixed-media painting — a year-long canvas layered with the residue of weekly water sessions and signed with a barcode for the Anthropocene — with two poems (Heat, Cold) and a video clip from Andy Goldsworthy's Leaning into the Wind. The bedroom itself became the gallery, and a lullaby palette underscored the double entendre at the center of the work.</p>
-          <span class="cta">VIEW THE INSTALLATION</span>
+          <figure>
+            <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/L1009933%20RESIZE.jpg" alt="One-night installation." loading="lazy">
+          </figure>
         </a>
         <a class="bento-card" href="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/LUX%20Public%20Art%202024%20-%202025.pdf" aria-label="Explore LUX public art project">
           <div>
@@ -1625,17 +1627,6 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
     </div>
   </section>
 </main>
-<dialog id="installation-popup" class="installation-popup" aria-label="One-night installation gallery">
-  <button class="installation-popup-close" type="button" aria-label="Close gallery">×</button>
-  <div class="installation-popup-grid">
-    <figure>
-      <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/L1009933%20RESIZE.jpg" alt="One-night installation, photograph 1." loading="lazy">
-    </figure>
-    <figure>
-      <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/LUXURIATE%20IN%20DISCOMFORT/L1009938%20book%20in%20mirrorRE%20copy.jpg" alt="One-night installation, photograph 2." loading="lazy">
-    </figure>
-  </div>
-</dialog>
 <dialog id="winterblue-site-popup" class="installation-popup" aria-label="Camas Prairie field site imagery">
   <button class="installation-popup-close" type="button" aria-label="Close gallery">×</button>
   <div class="installation-popup-grid installation-popup-grid--three">
