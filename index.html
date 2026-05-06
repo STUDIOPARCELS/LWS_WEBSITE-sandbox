@@ -2015,6 +2015,45 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
   .survey-popup-section--env .survey-popup-grid figure {
     grid-column: 1 / -1 !important;
   }
+  #survey-craters-popup .survey-popup-section:not(.survey-popup-section--env) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(14px, 4vw, 20px);
+  }
+  #survey-craters-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-label,
+  #survey-craters-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--landscape {
+    grid-column: 1 / -1;
+  }
+  #survey-craters-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--portrait {
+    display: contents !important;
+  }
+  #survey-craters-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--portrait figure {
+    grid-column: auto !important;
+    justify-self: stretch;
+    width: 100% !important;
+    max-width: none !important;
+  }
+  #survey-craters-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--landscape {
+    display: block !important;
+    order: 5;
+    margin-top: 0 !important;
+  }
+  #survey-craters-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--landscape figure {
+    width: 100% !important;
+    max-width: none !important;
+  }
+  #survey-craters-popup .survey-popup-section:not(.survey-popup-section--env) > .survey-popup-grid--portrait:nth-of-type(1) figure:nth-child(1) { order: 1; }
+  #survey-craters-popup .survey-popup-section:not(.survey-popup-section--env) > .survey-popup-grid--portrait:nth-of-type(1) figure:nth-child(2) { order: 2; }
+  #survey-craters-popup .survey-popup-section:not(.survey-popup-section--env) > .survey-popup-grid--portrait:nth-of-type(1) figure:nth-child(3) { order: 3; }
+  #survey-craters-popup .survey-popup-section:not(.survey-popup-section--env) > .survey-popup-grid--portrait:nth-of-type(3) figure:nth-child(1) { order: 4; }
+  #survey-craters-popup .survey-popup-section:not(.survey-popup-section--env) > .survey-popup-grid--portrait:nth-of-type(3) figure:nth-child(2) { order: 6; }
+  #survey-craters-popup .survey-popup-section:not(.survey-popup-section--env) > .survey-popup-grid--portrait:nth-of-type(3) figure:nth-child(3) { order: 7; }
+  #survey-craters-popup .survey-popup-section:not(.survey-popup-section--env) > .survey-popup-grid--portrait:nth-of-type(4) figure:nth-child(1) { order: 8; }
+  #survey-craters-popup .survey-popup-section:not(.survey-popup-section--env) > .survey-popup-grid--portrait:nth-of-type(4) figure:nth-child(2) { order: 9; }
+  #survey-craters-popup .survey-popup-section:not(.survey-popup-section--env) > .survey-popup-grid--portrait:nth-of-type(4) figure:nth-child(3) { order: 10; }
+  #survey-craters-popup .survey-popup-section:not(.survey-popup-section--env) > .survey-popup-grid--portrait:nth-of-type(5) figure:nth-child(1) { order: 11; }
+  #survey-craters-popup .survey-popup-section:not(.survey-popup-section--env) > .survey-popup-grid--portrait:nth-of-type(5) figure:nth-child(2) { order: 12; }
+  #survey-craters-popup .survey-popup-section:not(.survey-popup-section--env) > .survey-popup-grid--portrait:nth-of-type(5) figure:nth-child(3) { order: 13; }
   #survey-city-popup .survey-popup-section--env .survey-popup-grid figure:nth-child(2) { order: 3; }
   #survey-city-popup .survey-popup-section--env .survey-popup-grid figure:nth-child(3) { order: 2; }
   .editor-panel {
