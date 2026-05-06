@@ -32,7 +32,7 @@
   --photo-caption-size: 10px;
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: clamp(130px, 14vh, 160px); }
 body {
   margin: 0;
   background: var(--paper);
@@ -114,7 +114,7 @@ figure, p, h1, h2, h3 { margin: 0; }
 .eyebrow { color: var(--muted); }
 .page, .closing {
   padding: clamp(80px, 10vw, 130px) clamp(28px, 6vw, 96px);
-  scroll-margin-top: clamp(72px, 11vh, 120px);
+  scroll-margin-top: clamp(130px, 14vh, 160px);
 }
 .page.hero {
   padding-top: clamp(48px, 6vw, 88px);
