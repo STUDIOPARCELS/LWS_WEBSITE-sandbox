@@ -657,6 +657,9 @@ figure img { cursor: zoom-in; }
   flex: 0 1 calc((100% - 2 * clamp(14px, 1.6vw, 28px)) / 3);
   max-width: calc((100% - 2 * clamp(14px, 1.6vw, 28px)) / 3);
 }
+#survey-craters-popup .survey-popup-grid--portrait img {
+  object-fit: cover;
+}
 #installation-popup .survey-popup-label {
   margin-bottom: clamp(15px, 1.8vw, 27px);
 }
@@ -2056,6 +2059,11 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
     justify-self: stretch;
     width: 100% !important;
     max-width: none !important;
+    aspect-ratio: 2 / 3 !important;
+  }
+  #survey-craters-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--portrait img {
+    height: 100% !important;
+    object-fit: cover !important;
   }
   #survey-craters-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--landscape {
     display: block !important;
