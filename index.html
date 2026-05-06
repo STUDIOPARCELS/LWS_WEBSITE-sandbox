@@ -1603,18 +1603,22 @@ figure img { cursor: zoom-in; }
     border-top: 1px solid var(--line);
     padding-top: 14px;
   }
+  .winterblue-meta .meta-item:nth-child(3),
   .winterblue-meta .meta-item:nth-child(4) {
-    border-top: 0;
-    padding-top: 0;
+    min-width: 0;
+    align-self: stretch;
   }
   .commission-meta .meta-item dd { white-space: normal; }
 }
 .winterblue-meta-cta {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
   color: var(--ink);
   text-decoration: none;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 1;
   transition: transform .18s ease, opacity .18s ease;
 }
@@ -2096,6 +2100,13 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
   #survey-wahiba-popup .survey-popup-section--env .survey-popup-grid figure.is-portrait,
   #survey-city-popup .survey-popup-section--env .survey-popup-grid figure.is-portrait {
     grid-column: span 1 !important;
+  }
+  #winterblue-site-popup .survey-popup-section .survey-popup-grid figure.is-portrait {
+    aspect-ratio: 2 / 3 !important;
+  }
+  #winterblue-site-popup .survey-popup-section .survey-popup-grid figure.is-portrait img {
+    height: 100% !important;
+    object-fit: cover !important;
   }
   #winterblue-site-popup .survey-popup-section .survey-popup-grid figure.is-landscape,
   #survey-greenland-popup .survey-popup-section--env .survey-popup-grid figure.is-landscape,
