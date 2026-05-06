@@ -762,6 +762,25 @@ figure img { cursor: zoom-in; }
   height: auto;
   object-fit: contain;
 }
+#winterblue-site-popup .survey-popup-section--winterblue-gallery .survey-popup-grid--winterblue {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 1.6vw, 28px);
+}
+#winterblue-site-popup .survey-popup-grid--winterblue figure {
+  flex: none;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+}
+#winterblue-site-popup .survey-popup-grid--winterblue figure[data-orientation="portrait"] {
+  aspect-ratio: 2 / 3;
+}
+#winterblue-site-popup .survey-popup-grid--winterblue img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .survey-popup-video {
   width: min(100%, 720px);
   margin: 0 auto;
@@ -2129,6 +2148,44 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
   #survey-simpson-popup .survey-popup-section--env > .survey-popup-grid:first-of-type figure:nth-child(4) {
     order: 20;
   }
+  #winterblue-site-popup .survey-popup-section--winterblue-gallery {
+    display: block !important;
+  }
+  #winterblue-site-popup .survey-popup-section--winterblue-gallery + .survey-popup-section--winterblue-gallery {
+    margin-top: clamp(32px, 8vw, 48px);
+  }
+  #winterblue-site-popup .survey-popup-section--winterblue-gallery .survey-popup-grid--winterblue {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-auto-flow: dense;
+    gap: clamp(14px, 4vw, 20px) !important;
+  }
+  #winterblue-site-popup .survey-popup-section--winterblue-gallery .survey-popup-grid--winterblue figure {
+    grid-column: auto !important;
+    justify-self: stretch;
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    margin: 0 !important;
+    aspect-ratio: 3 / 2 !important;
+  }
+  #winterblue-site-popup .survey-popup-section--winterblue-gallery .survey-popup-grid--winterblue figure[data-orientation="portrait"] {
+    grid-column: span 1 !important;
+    aspect-ratio: 2 / 3 !important;
+  }
+  #winterblue-site-popup .survey-popup-section--winterblue-gallery .survey-popup-grid--winterblue figure[data-orientation="landscape"] {
+    grid-column: 1 / -1 !important;
+  }
+  #winterblue-site-popup .survey-popup-section--winterblue-gallery .survey-popup-grid--winterblue figure[data-mobile="centered"] {
+    grid-column: 1 / -1 !important;
+    justify-self: center;
+    width: calc((100% - clamp(14px, 4vw, 20px)) / 2) !important;
+  }
+  #winterblue-site-popup .survey-popup-section--winterblue-gallery .survey-popup-grid--winterblue img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
   #installation-popup .survey-popup-grid--portrait-row {
     grid-template-columns: minmax(0, 1fr) !important;
   }
@@ -2763,9 +2820,9 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
 </dialog>
 <dialog id="winterblue-site-popup" class="installation-popup survey-popup" aria-label="Camas Prairie field site imagery">
   <div class="survey-popup-frame">
-    <div class="survey-popup-section">
+    <div class="survey-popup-section survey-popup-section--env survey-popup-section--winterblue-gallery">
       <p class="survey-popup-label">ENVIRONMENT IMAGES</p>
-      <div class="survey-popup-grid survey-popup-grid--landscape">
+      <div class="survey-popup-grid survey-popup-grid--winterblue">
         <figure data-orientation="portrait">
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/File_006.png" alt="Camas Prairie site map." loading="lazy">
         </figure>
@@ -2775,19 +2832,15 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
         <figure data-orientation="portrait">
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/%20%281%29.photos/9.JPEG" alt="Camas Prairie site imagery." loading="lazy">
         </figure>
-      </div>
-      <div class="survey-popup-grid survey-popup-grid--landscape">
         <figure data-orientation="portrait">
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/%20%281%29.photos/9_1.JPEG" alt="Camas Prairie site imagery." loading="lazy">
         </figure>
         <figure data-orientation="landscape">
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/%20%281%29.photos/IMG_0822.JPEG" alt="Camas Prairie site imagery." loading="lazy">
         </figure>
-        <figure data-orientation="portrait">
+        <figure data-orientation="portrait" data-mobile="centered">
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/%20%281%29.photos/IMG_4962%20copy.jpg" alt="Camas Prairie site imagery." loading="lazy">
         </figure>
-      </div>
-      <div class="survey-popup-grid survey-popup-grid--landscape">
         <figure data-orientation="landscape">
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/%20%281%29.photos/IMG_7041.JPEG" alt="Camas Prairie site imagery." loading="lazy">
         </figure>
@@ -2799,9 +2852,9 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
         </figure>
       </div>
     </div>
-    <div class="survey-popup-section survey-popup-section--env survey-popup-section--search">
+    <div class="survey-popup-section survey-popup-section--env survey-popup-section--search survey-popup-section--winterblue-gallery">
       <p class="survey-popup-label">SEARCH IMAGES</p>
-      <div class="survey-popup-grid survey-popup-grid--landscape">
+      <div class="survey-popup-grid survey-popup-grid--winterblue">
         <figure data-orientation="landscape">
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/SEARCH/IMG_4051.JPEG" alt="Winterblue search image." loading="lazy">
         </figure>
@@ -2811,8 +2864,6 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
         <figure data-orientation="portrait">
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/SEARCH/IMG_4117.JPEG" alt="Winterblue search image." loading="lazy">
         </figure>
-      </div>
-      <div class="survey-popup-grid survey-popup-grid--landscape">
         <figure data-orientation="portrait">
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/SEARCH/IMG_4120.JPEG" alt="Winterblue search image." loading="lazy">
         </figure>
