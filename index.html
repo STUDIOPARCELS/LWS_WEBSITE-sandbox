@@ -1186,7 +1186,10 @@ figure img { cursor: zoom-in; }
   letter-spacing: 0;
   text-transform: none;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
+.survey-card summary:focus { outline: none; }
+.survey-card summary:focus-visible { box-shadow: inset 0 0 0 1px var(--line); }
 .survey-card .bento-title {
   margin: 2px 0 0;
   font-size: clamp(16px, 1.4vw, 22px);
@@ -1904,6 +1907,20 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
   .field-sites-grid { grid-template-columns: 1fr; }
   .bento-card.large { grid-row: auto; }
   .survey-grid { grid-template-columns: 1fr; }
+  .survey-card summary,
+  .survey-attrs,
+  .survey-attr {
+    min-width: 0;
+  }
+  .survey-attrs {
+    grid-auto-flow: row;
+    grid-template-columns: minmax(72px, .55fr) minmax(0, 1fr);
+    grid-auto-columns: minmax(0, 1fr);
+    column-gap: 0;
+  }
+  .survey-attr {
+    overflow-wrap: anywhere;
+  }
   .survey-card.wide,
   .survey-card.tall { grid-column: auto; grid-row: auto; }
   .gallery { grid-template-columns: 1fr; }
@@ -1954,6 +1971,16 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
     font-size: 16px;
     top: 8px;
     right: 8px;
+  }
+  .survey-attrs {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 12px;
+  }
+  .survey-attrs .survey-attr + .survey-attr {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    padding-left: 0;
+    padding-top: 12px;
   }
 }
 @media (max-width: 980px) {
