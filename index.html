@@ -2014,6 +2014,31 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
   .survey-popup-section--env .survey-popup-grid figure {
     grid-column: 1 / -1 !important;
   }
+  #survey-simpson-popup .survey-popup-section--env {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-flow: dense;
+    gap: clamp(14px, 4vw, 20px);
+  }
+  #survey-simpson-popup .survey-popup-section--env .survey-popup-label {
+    grid-column: 1 / -1;
+  }
+  #survey-simpson-popup .survey-popup-section--env .survey-popup-grid {
+    display: contents !important;
+  }
+  #survey-simpson-popup .survey-popup-section--env .survey-popup-grid + .survey-popup-grid {
+    margin-top: 0 !important;
+  }
+  #survey-simpson-popup .survey-popup-section--env .survey-popup-grid figure {
+    width: 100% !important;
+    max-width: none !important;
+  }
+  #survey-simpson-popup .survey-popup-section--env .survey-popup-grid figure.is-portrait {
+    grid-column: span 1 !important;
+  }
+  #survey-simpson-popup .survey-popup-section--env .survey-popup-grid figure.is-landscape {
+    grid-column: 1 / -1 !important;
+  }
   #survey-craters-popup .survey-popup-section:not(.survey-popup-section--env) {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
