@@ -372,17 +372,17 @@ figure img { cursor: zoom-in; }
 }
 .installation-popup::backdrop { background: rgba(255,255,255,0.94); }
 .installation-popup-close {
-  position: fixed;
-  top: clamp(12px, 1.4vw, 22px);
-  right: clamp(12px, 1.4vw, 22px);
-  width: 36px;
-  height: 36px;
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(17, 17, 17, 0.18);
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: 0;
   border-radius: 50%;
-  font-size: 22px;
+  font-size: 18px;
   line-height: 1;
-  color: var(--ink);
+  color: var(--muted);
   cursor: pointer;
   font-weight: 300;
   padding: 0;
@@ -390,13 +390,14 @@ figure img { cursor: zoom-in; }
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background .18s ease, color .18s ease, border-color .18s ease;
+  transition: color .18s ease, transform .18s ease;
 }
 .installation-popup-close:hover,
 .installation-popup-close:focus-visible {
-  background: var(--ink);
-  color: #fff;
-  border-color: var(--ink);
+  color: var(--ink);
+  transform: scale(1.12);
+  background: transparent;
+  border: 0;
 }
 .installation-popup-close:focus-visible { outline: 1px solid var(--ink); outline-offset: 4px; }
 .installation-popup-grid {
