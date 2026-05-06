@@ -639,6 +639,13 @@ figure img { cursor: zoom-in; }
 }
 #survey-craters-popup .survey-popup-grid--stacked { gap: 0; }
 #survey-craters-popup .survey-popup-grid--stacked figure { margin: 0; }
+#survey-craters-popup .survey-popup-grid--portrait {
+  justify-content: center;
+}
+#survey-craters-popup .survey-popup-grid--portrait figure {
+  flex: 0 1 calc((100% - 2 * clamp(14px, 1.6vw, 28px)) / 3);
+  max-width: calc((100% - 2 * clamp(14px, 1.6vw, 28px)) / 3);
+}
 #installation-popup .survey-popup-label {
   margin-bottom: clamp(15px, 1.8vw, 27px);
 }
@@ -2953,12 +2960,14 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
   <div class="survey-popup-frame">
     <div class="survey-popup-section">
       <p class="survey-popup-label">SELECTED PHOTOGRAPHS</p>
+      <div class="survey-popup-grid survey-popup-grid--landscape">
+        <figure>
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/CRATERS/web-2000px/EAST%20BAR%20L1002502P%20copy.webp" data-storage-path="CRATERS/web-2000px/EAST BAR L1002502P copy.webp" alt="Craters of the Moon aerial survey panorama." loading="lazy">
+        </figure>
+      </div>
       <div class="survey-popup-grid survey-popup-grid--portrait">
         <figure>
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/CRATERS/web-2000px/DINING%20LOUNGE%20%20L1002585.webp" data-storage-path="CRATERS/web-2000px/DINING LOUNGE  L1002585.webp" alt="Craters of the Moon aerial survey." loading="lazy">
-        </figure>
-        <figure>
-          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/CRATERS/web-2000px/EAST%20BAR%20L1002502P%20copy.webp" data-storage-path="CRATERS/web-2000px/EAST BAR L1002502P copy.webp" alt="Craters of the Moon aerial survey." loading="lazy">
         </figure>
         <figure>
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/CRATERS/web-2000px/EAST%20BAR.webp" data-storage-path="CRATERS/web-2000px/EAST BAR.webp" alt="Craters of the Moon aerial survey." loading="lazy">
@@ -2966,17 +2975,13 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
         <figure>
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/CRATERS/web-2000px/EAST%20HALL.webp" data-storage-path="CRATERS/web-2000px/EAST HALL.webp" alt="Craters of the Moon aerial survey." loading="lazy">
         </figure>
+      </div>
+      <div class="survey-popup-grid survey-popup-grid--portrait">
         <figure>
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/CRATERS/web-2000px/GM%20WALL.webp" data-storage-path="CRATERS/web-2000px/GM WALL.webp" alt="Craters of the Moon aerial survey." loading="lazy">
         </figure>
         <figure>
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/CRATERS/web-2000px/L1001603_MATCH_OPTION_2_EW_1.webp" data-storage-path="CRATERS/web-2000px/L1001603_MATCH_OPTION_2_EW_1.webp" alt="Craters of the Moon aerial survey." loading="lazy">
-        </figure>
-        <figure>
-          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/CRATERS/web-2000px/L1001880%20copy.webp" data-storage-path="CRATERS/web-2000px/L1001880 copy.webp" alt="Craters of the Moon aerial survey." loading="lazy">
-        </figure>
-        <figure>
-          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/CRATERS/web-2000px/L1008450_MATCH_OPTION%201_EW_1.webp" data-storage-path="CRATERS/web-2000px/L1008450_MATCH_OPTION 1_EW_1.webp" alt="Craters of the Moon aerial survey." loading="lazy">
         </figure>
       </div>
     </div>
