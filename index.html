@@ -1978,6 +1978,13 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
   #survey-wahiba-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid figure {
     grid-column: 1 / -1 !important;
   }
+  #survey-simpson-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--portrait {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 18px !important;
+  }
+  #survey-simpson-popup .survey-popup-grid--pano {
+    margin-top: 18px;
+  }
   .survey-popup-section--env .survey-popup-grid {
     grid-template-columns: minmax(0, 1fr) !important;
     gap: 14px !important;
@@ -1996,6 +2003,28 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
 }
 #survey-simpson-popup img[src*="L10062022"] {
   transform: rotate(180deg);
+}
+#survey-simpson-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--portrait {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(28px, 4.5vw, 78px);
+  align-items: start;
+}
+#survey-simpson-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--portrait figure {
+  aspect-ratio: 2 / 3;
+}
+#survey-simpson-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--portrait img {
+  object-fit: cover;
+}
+#survey-simpson-popup .survey-popup-grid--pano {
+  margin-top: clamp(28px, 4vw, 70px);
+}
+#survey-simpson-popup .survey-popup-grid--pano figure {
+  width: 100%;
+  aspect-ratio: 6000 / 2130;
+}
+#survey-simpson-popup .survey-popup-grid--pano img {
+  object-fit: cover;
 }
 .reveal {
   opacity: 0;
@@ -2964,6 +2993,11 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
         </figure>
         <figure>
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/SIMPSON%20DESERT/photographs/web-2000px/L1006211.webp" data-storage-fallback="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/SIMPSON%20DESERT/photographs/L1006211.jpg" data-storage-path="SURFACE SURVEYS/SIMPSON DESERT/photographs/web-2000px/L1006211.webp" alt="Simpson Desert aerial survey." loading="lazy">
+        </figure>
+      </div>
+      <div class="survey-popup-grid survey-popup-grid--pano">
+        <figure>
+          <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/SURFACE%20SURVEYS/SIMPSON%20DESERT/simpson_desert_L1006196%20PANO.jpg" alt="Simpson Desert aerial panorama." loading="lazy">
         </figure>
       </div>
     </div>
