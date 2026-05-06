@@ -2017,30 +2017,89 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
   .survey-popup-section--env .survey-popup-grid figure {
     grid-column: 1 / -1 !important;
   }
-  #survey-simpson-popup .survey-popup-section--env {
+  #winterblue-site-popup .survey-popup-section,
+  #survey-greenland-popup .survey-popup-section--env,
+  #survey-white-sands-popup .survey-popup-section--env,
+  #survey-simpson-popup .survey-popup-section--env,
+  #survey-wahiba-popup .survey-popup-section--env,
+  #survey-city-popup .survey-popup-section--env {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-auto-flow: dense;
     gap: clamp(14px, 4vw, 20px);
   }
-  #survey-simpson-popup .survey-popup-section--env .survey-popup-label {
+  #winterblue-site-popup .survey-popup-section .survey-popup-label,
+  #survey-greenland-popup .survey-popup-section--env .survey-popup-label,
+  #survey-white-sands-popup .survey-popup-section--env .survey-popup-label,
+  #survey-simpson-popup .survey-popup-section--env .survey-popup-label,
+  #survey-wahiba-popup .survey-popup-section--env .survey-popup-label,
+  #survey-city-popup .survey-popup-section--env .survey-popup-label {
     grid-column: 1 / -1;
   }
-  #survey-simpson-popup .survey-popup-section--env .survey-popup-grid {
+  #winterblue-site-popup .survey-popup-section .survey-popup-grid,
+  #survey-greenland-popup .survey-popup-section--env .survey-popup-grid,
+  #survey-white-sands-popup .survey-popup-section--env .survey-popup-grid,
+  #survey-simpson-popup .survey-popup-section--env .survey-popup-grid,
+  #survey-wahiba-popup .survey-popup-section--env .survey-popup-grid,
+  #survey-city-popup .survey-popup-section--env .survey-popup-grid {
     display: contents !important;
   }
-  #survey-simpson-popup .survey-popup-section--env .survey-popup-grid + .survey-popup-grid {
+  #winterblue-site-popup .survey-popup-section .survey-popup-grid + .survey-popup-grid,
+  #survey-greenland-popup .survey-popup-section--env .survey-popup-grid + .survey-popup-grid,
+  #survey-white-sands-popup .survey-popup-section--env .survey-popup-grid + .survey-popup-grid,
+  #survey-simpson-popup .survey-popup-section--env .survey-popup-grid + .survey-popup-grid,
+  #survey-wahiba-popup .survey-popup-section--env .survey-popup-grid + .survey-popup-grid,
+  #survey-city-popup .survey-popup-section--env .survey-popup-grid + .survey-popup-grid {
     margin-top: 0 !important;
   }
-  #survey-simpson-popup .survey-popup-section--env .survey-popup-grid figure {
+  #winterblue-site-popup .survey-popup-section .survey-popup-grid figure,
+  #survey-greenland-popup .survey-popup-section--env .survey-popup-grid figure,
+  #survey-white-sands-popup .survey-popup-section--env .survey-popup-grid figure,
+  #survey-simpson-popup .survey-popup-section--env .survey-popup-grid figure,
+  #survey-wahiba-popup .survey-popup-section--env .survey-popup-grid figure,
+  #survey-city-popup .survey-popup-section--env .survey-popup-grid figure {
     width: 100% !important;
     max-width: none !important;
+    justify-self: stretch;
   }
-  #survey-simpson-popup .survey-popup-section--env .survey-popup-grid figure.is-portrait {
+  #winterblue-site-popup .survey-popup-section .survey-popup-grid figure.is-portrait,
+  #survey-greenland-popup .survey-popup-section--env .survey-popup-grid figure.is-portrait,
+  #survey-white-sands-popup .survey-popup-section--env .survey-popup-grid figure.is-portrait,
+  #survey-simpson-popup .survey-popup-section--env .survey-popup-grid figure.is-portrait,
+  #survey-wahiba-popup .survey-popup-section--env .survey-popup-grid figure.is-portrait,
+  #survey-city-popup .survey-popup-section--env .survey-popup-grid figure.is-portrait {
     grid-column: span 1 !important;
   }
-  #survey-simpson-popup .survey-popup-section--env .survey-popup-grid figure.is-landscape {
+  #winterblue-site-popup .survey-popup-section .survey-popup-grid figure.is-landscape,
+  #survey-greenland-popup .survey-popup-section--env .survey-popup-grid figure.is-landscape,
+  #survey-white-sands-popup .survey-popup-section--env .survey-popup-grid figure.is-landscape,
+  #survey-simpson-popup .survey-popup-section--env .survey-popup-grid figure.is-landscape,
+  #survey-wahiba-popup .survey-popup-section--env .survey-popup-grid figure.is-landscape,
+  #survey-city-popup .survey-popup-section--env .survey-popup-grid figure.is-landscape,
+  #winterblue-site-popup .survey-popup-section .survey-popup-grid--stacked figure,
+  #survey-greenland-popup .survey-popup-section--env .survey-popup-grid--stacked figure,
+  #survey-white-sands-popup .survey-popup-section--env .survey-popup-grid--stacked figure,
+  #survey-simpson-popup .survey-popup-section--env .survey-popup-grid--stacked figure,
+  #survey-wahiba-popup .survey-popup-section--env .survey-popup-grid--stacked figure,
+  #survey-city-popup .survey-popup-section--env .survey-popup-grid--stacked figure {
     grid-column: 1 / -1 !important;
+  }
+  #survey-simpson-popup .survey-popup-section--env > .survey-popup-grid:first-of-type figure:nth-child(4) {
+    order: 20;
+  }
+  #installation-popup .survey-popup-grid--portrait-row {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  #installation-popup .survey-popup-grid--portrait-row figure {
+    grid-column: 1 / -1 !important;
+    justify-self: center;
+    width: min(100%, 520px) !important;
+    max-width: 520px !important;
+  }
+  #installation-popup .survey-popup-grid--portrait-row img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
   }
   #survey-craters-popup .survey-popup-section:not(.survey-popup-section--env) {
     display: grid;
