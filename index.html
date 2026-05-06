@@ -1891,17 +1891,17 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
   :root { --hero-title-size: 38px; }
   .hero--artist { grid-template-columns: minmax(0, 1fr); }
   .hero--artist .artist-media img { width: 100%; max-height: none; }
+  .nav { backdrop-filter: none; }
   .nav-toggle { display: flex; }
   .nav-links {
     display: flex;
     position: fixed;
     inset: 0;
-    min-height: 100vh;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 22px;
-    padding: clamp(110px, 16vh, 160px) 24px clamp(48px, 8vh, 80px);
+    padding: 80px 24px;
     background: var(--paper);
     z-index: 20;
     transform: translateX(100%);
