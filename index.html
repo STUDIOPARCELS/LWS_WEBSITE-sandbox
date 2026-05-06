@@ -3863,6 +3863,7 @@ saveSnapshotToServer();
     const img = e.target.closest("img");
     if (!img) return;
     if (img.closest('.survey-popup-grid')) {
+      if (img.closest('.survey-popup-section--env')) return;
       e.preventDefault();
       e.stopPropagation();
       open(img.currentSrc || img.src, img.alt);
