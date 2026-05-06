@@ -1896,10 +1896,12 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
     display: flex;
     position: fixed;
     inset: 0;
+    min-height: 100vh;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 22px;
+    padding: clamp(110px, 16vh, 160px) 24px clamp(48px, 8vh, 80px);
     background: var(--paper);
     z-index: 20;
     transform: translateX(100%);
