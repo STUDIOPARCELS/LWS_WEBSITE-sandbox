@@ -1997,16 +1997,15 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
   .survey-popup-grid--stacked {
     grid-template-columns: minmax(0, 1fr) !important;
   }
-  #survey-simpson-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid figure,
-  #survey-wahiba-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid figure {
-    grid-column: 1 / -1 !important;
+  #survey-simpson-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--portrait,
+  #survey-wahiba-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--portrait {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: clamp(14px, 4vw, 20px) !important;
   }
-  #survey-simpson-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--portrait {
-    grid-template-columns: minmax(0, 1fr) !important;
-    gap: 18px !important;
-  }
-  #survey-simpson-popup .survey-popup-grid--pano {
-    margin-top: 18px;
+  #survey-simpson-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--portrait figure,
+  #survey-wahiba-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--portrait figure {
+    grid-column: span 1 !important;
+    width: 100% !important;
   }
   .survey-popup-section--env .survey-popup-grid {
     grid-template-columns: minmax(0, 1fr) !important;
