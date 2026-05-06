@@ -259,6 +259,23 @@ h3 {
   gap: clamp(40px, 5.5vw, 96px);
 }
 .hero--artist .stack { padding-bottom: 0; }
+.hero--artist .hero-text-blocks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: clamp(28px, 3vw, 48px);
+  row-gap: clamp(18px, 2vw, 28px);
+}
+.hero--artist .hero-text-blocks .text-block:first-child {
+  grid-column: 1 / -1;
+}
+@media (max-width: 980px) {
+  .hero--artist .hero-text-blocks {
+    grid-template-columns: 1fr;
+  }
+  .hero--artist .hero-text-blocks .text-block:first-child {
+    grid-column: 1;
+  }
+}
 .artist-media {
   align-self: center;
   justify-self: stretch;
