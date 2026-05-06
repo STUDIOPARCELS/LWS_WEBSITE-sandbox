@@ -1941,9 +1941,9 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     grid-auto-flow: dense !important;
     align-items: start !important;
-    gap: 14px !important;
+    gap: clamp(14px, 4vw, 20px) !important;
+    column-gap: clamp(14px, 4vw, 20px) !important;
     column-count: initial !important;
-    column-gap: initial !important;
     flex-wrap: initial;
   }
   .survey-popup-frame .survey-popup-grid figure {
@@ -1959,6 +1959,11 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
   }
   .survey-popup-frame .survey-popup-grid figure.is-portrait {
     grid-column: span 1;
+  }
+  dialog.survey-popup:not(#survey-simpson-popup):not(#survey-wahiba-popup) .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid figure.is-portrait:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc((100% - clamp(14px, 4vw, 20px)) / 2) !important;
   }
   .survey-popup-frame .survey-popup-grid figure.is-landscape {
     grid-column: 1 / -1;
