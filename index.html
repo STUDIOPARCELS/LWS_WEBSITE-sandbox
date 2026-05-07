@@ -1687,6 +1687,7 @@ dialog[id^="survey-"] .survey-popup-section--env .survey-popup-grid--stacked img
   width: 100%;
 }
 .winterblue-grid figure { margin: 0; }
+.winterblue-grid[data-no-lightbox] img { cursor: default; }
 .winterblue-grid-caption {
   width: 100%;
   margin: calc(16px - clamp(36px, 5vw, 72px)) auto 0;
@@ -2630,7 +2631,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
             </div>
           </div>
         </div>
-        <div class="winterblue-grid">
+        <div class="winterblue-grid" data-no-lightbox>
           <figure>
             <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/4.jpg" alt="" loading="lazy">
           </figure>
@@ -4216,6 +4217,7 @@ saveSnapshotToServer();
 
   document.addEventListener("click", (e) => {
     if (e.target.closest(".lightbox-overlay")) return;
+    if (e.target.closest("[data-no-lightbox]")) return;
     if (e.target.closest('[data-popup]')) return;
     if (e.target.closest('.bento-card')) return;
     const img = e.target.closest("img");
