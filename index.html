@@ -764,6 +764,39 @@ figure img { cursor: zoom-in; }
   height: auto;
   object-fit: contain;
 }
+dialog[id^="survey-"] .survey-popup-section--env .survey-popup-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: clamp(8px, 0.9vw, 12px);
+}
+dialog[id^="survey-"] .survey-popup-section--env .survey-popup-grid figure {
+  flex: 0 1 auto;
+  width: auto;
+  max-width: 100%;
+  height: clamp(220px, 29vh, 308px);
+  aspect-ratio: auto;
+}
+dialog[id^="survey-"] .survey-popup-section--env .survey-popup-grid img {
+  width: auto;
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+dialog[id^="survey-"] .survey-popup-section--env .survey-popup-grid--stacked {
+  display: flex;
+  flex-direction: column;
+}
+dialog[id^="survey-"] .survey-popup-section--env .survey-popup-grid--stacked figure {
+  flex: none;
+  width: 100%;
+  height: auto;
+}
+dialog[id^="survey-"] .survey-popup-section--env .survey-popup-grid--stacked img {
+  width: 100%;
+  height: auto;
+}
 #winterblue-site-popup .survey-popup-section--winterblue-gallery .survey-popup-grid--winterblue {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -2140,6 +2173,37 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
   #survey-wahiba-popup .survey-popup-section--env .survey-popup-grid--stacked figure,
   #survey-city-popup .survey-popup-section--env .survey-popup-grid--stacked figure {
     grid-column: 1 / -1 !important;
+  }
+  dialog[id^="survey-"] .survey-popup-section--env {
+    display: block;
+  }
+  dialog[id^="survey-"] .survey-popup-section--env .survey-popup-grid {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: clamp(10px, 3vw, 16px) !important;
+  }
+  dialog[id^="survey-"] .survey-popup-section--env .survey-popup-grid figure {
+    flex: 0 1 auto !important;
+    grid-column: auto !important;
+    width: auto !important;
+    max-width: 100% !important;
+    height: clamp(150px, 42vw, 240px) !important;
+  }
+  dialog[id^="survey-"] .survey-popup-section--env .survey-popup-grid img {
+    width: auto !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+  }
+  dialog[id^="survey-"] .survey-popup-section--env .survey-popup-grid--stacked figure {
+    width: 100% !important;
+    height: auto !important;
+  }
+  dialog[id^="survey-"] .survey-popup-section--env .survey-popup-grid--stacked img {
+    width: 100% !important;
+    height: auto !important;
   }
   #installation-popup .survey-popup-grid--portrait-row {
     grid-template-columns: minmax(0, 1fr) !important;
