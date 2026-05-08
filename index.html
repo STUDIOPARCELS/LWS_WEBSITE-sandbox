@@ -835,21 +835,23 @@ dialog[id^="survey-"] .survey-popup-section--env .survey-popup-grid--stacked img
   height: 100%;
   object-fit: cover;
 }
-#winterblue-site-popup .survey-popup-section--search .survey-popup-grid--winterblue {
+#winterblue-site-popup .survey-popup-grid--winterblue-search {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
+  gap: clamp(10px, 1vw, 16px);
+  max-width: min(100%, 1180px);
+  margin: 0 auto;
 }
-#winterblue-site-popup .survey-popup-section--search .survey-popup-grid--winterblue figure {
+#winterblue-site-popup .survey-popup-grid--winterblue-search figure {
+  display: flex;
   flex: 0 0 auto;
   width: auto;
-  height: clamp(264px, 34vh, 370px);
+  height: clamp(320px, 34vh, 370px);
+  overflow: hidden;
 }
-#winterblue-site-popup .survey-popup-section--search .survey-popup-grid--winterblue figure[data-orientation="landscape"] {
-  grid-column: auto;
-}
-#winterblue-site-popup .survey-popup-section--search .survey-popup-grid--winterblue img {
+#winterblue-site-popup .survey-popup-grid--winterblue-search img {
   width: auto;
   max-width: 100%;
   height: 100%;
@@ -2880,7 +2882,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
     </div>
     <div class="survey-popup-section survey-popup-section--env survey-popup-section--search survey-popup-section--winterblue-gallery">
       <p class="survey-popup-label">SEARCH IMAGES</p>
-      <div class="survey-popup-grid survey-popup-grid--winterblue">
+      <div class="survey-popup-grid survey-popup-grid--winterblue-search">
         <figure data-orientation="landscape">
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/SEARCH/IMG_4051.JPEG" alt="Winterblue search image." loading="lazy">
         </figure>
