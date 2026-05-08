@@ -814,10 +814,18 @@ dialog[id^="survey-"] .survey-popup-section--env .survey-popup-grid--stacked img
 #winterblue-site-popup .survey-popup-grid--winterblue figure[data-orientation="landscape"] {
   grid-column: span 2;
 }
+#winterblue-site-popup .survey-popup-section--winterblue-gallery:not(.survey-popup-section--search) .survey-popup-grid--winterblue figure[data-orientation="portrait"] {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
 #winterblue-site-popup .survey-popup-grid--winterblue img {
   width: 100%;
   height: auto;
   object-fit: contain;
+}
+#winterblue-site-popup .survey-popup-section--winterblue-gallery:not(.survey-popup-section--search) .survey-popup-grid--winterblue figure[data-orientation="portrait"] img {
+  height: 100%;
+  object-fit: cover;
 }
 #winterblue-site-popup .survey-popup-grid--winterblue figure.winterblue-crop-fill {
   align-self: stretch;
@@ -2830,7 +2838,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
         <figure data-orientation="portrait">
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/File_006.png" alt="Camas Prairie site map." loading="lazy">
         </figure>
-        <figure data-orientation="portrait" class="winterblue-crop-fill">
+        <figure data-orientation="portrait">
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/web-2000px/v.webp" alt="Camas Prairie site imagery." loading="lazy">
         </figure>
         <figure data-orientation="portrait">
@@ -2842,7 +2850,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
         <figure data-orientation="portrait">
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/%20%281%29.photos/IMG_4962%20copy.jpg" alt="Camas Prairie site imagery." loading="lazy">
         </figure>
-        <figure data-orientation="portrait" class="winterblue-crop-fill">
+        <figure data-orientation="portrait">
           <img src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/%20%281%29.photos/2_Proxy_3.jpg" alt="Camas Prairie site imagery." loading="lazy">
         </figure>
         <figure data-orientation="landscape" class="winterblue-crop-fill">
