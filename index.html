@@ -2839,9 +2839,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
 </dialog>
 <dialog id="winterblue-video-popup" class="installation-popup video-popup" aria-label="Winterblue field video">
   <div class="video-popup-frame">
-    <video controls playsinline preload="metadata">
-      <source src="https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/WINTERBLUE%20I_1.mp4" type="video/mp4">
-    </video>
+    <video src="assets/winterblue-field-video.mp4" controls playsinline preload="metadata"></video>
   </div>
 </dialog>
 <dialog id="winterblue-site-popup" class="installation-popup survey-popup" aria-label="Camas Prairie field site imagery">
@@ -4279,18 +4277,9 @@ saveSnapshotToServer();
     const popupId = `${trigger.getAttribute('data-popup')}-popup`;
     const popup = document.getElementById(popupId);
     if (!popup) return;
-    const preparePopupVideo = () => {
-      if (popup.id !== 'winterblue-video-popup') return;
-      const video = popup.querySelector('video');
-      if (!video) return;
-      video.pause();
-      video.currentTime = 0;
-      video.load();
-    };
     const open = () => {
       if (typeof popup.showModal === "function") popup.showModal();
       else popup.setAttribute("open", "");
-      preparePopupVideo();
     };
     trigger.addEventListener("click", (e) => {
       e.preventDefault();
