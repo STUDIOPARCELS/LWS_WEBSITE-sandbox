@@ -813,6 +813,23 @@ dialog[id^="survey-"] .survey-popup-section--env .survey-popup-grid--stacked img
   width: 100%;
   height: auto;
 }
+#survey-craters-popup .survey-popup-section--env .survey-popup-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: start;
+  gap: clamp(8px, 0.9vw, 12px);
+}
+#survey-craters-popup .survey-popup-section--env .survey-popup-grid figure {
+  width: 100%;
+  max-width: none;
+  height: auto;
+  aspect-ratio: 3 / 2;
+}
+#survey-craters-popup .survey-popup-section--env .survey-popup-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 #winterblue-site-popup .survey-popup-section--winterblue-gallery .survey-popup-grid--winterblue {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
