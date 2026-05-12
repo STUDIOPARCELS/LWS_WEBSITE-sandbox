@@ -677,6 +677,20 @@ figure img { cursor: zoom-in; }
 #survey-craters-popup .survey-popup-grid--portrait img {
   object-fit: cover;
 }
+#survey-white-sands-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--portrait {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(14px, 1.6vw, 28px);
+  align-items: start;
+}
+#survey-white-sands-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--portrait figure {
+  width: 100%;
+  max-width: none;
+  aspect-ratio: 2 / 3;
+}
+#survey-white-sands-popup .survey-popup-section:not(.survey-popup-section--env) .survey-popup-grid--portrait img {
+  object-fit: contain;
+}
 #installation-popup .survey-popup-label {
   margin-bottom: clamp(15px, 1.8vw, 27px);
 }
