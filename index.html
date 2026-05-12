@@ -883,26 +883,28 @@ dialog[id^="survey-"] .survey-popup-section--env .survey-popup-grid--stacked img
   object-fit: cover;
 }
 #winterblue-site-popup .survey-popup-grid--winterblue-search {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-flow: dense;
+  align-items: stretch;
   gap: clamp(10px, 1vw, 16px);
   max-width: min(100%, 1180px);
   margin: 0 auto;
 }
 #winterblue-site-popup .survey-popup-grid--winterblue-search figure {
-  display: flex;
-  flex: 0 0 auto;
-  width: auto;
-  height: clamp(320px, 34vh, 370px);
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
   overflow: hidden;
 }
+#winterblue-site-popup .survey-popup-grid--winterblue-search figure[data-orientation="landscape"] {
+  grid-column: span 2;
+  aspect-ratio: 4 / 3;
+}
 #winterblue-site-popup .survey-popup-grid--winterblue-search img {
-  width: auto;
-  max-width: 100%;
+  width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 .survey-popup-video {
   width: min(100%, 720px);
@@ -2927,9 +2929,6 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
         </figure>
         <figure data-orientation="landscape">
           <img src="assets/gallery/1200/winterblue-site/field-11-8-c830836a.webp" data-full-src="assets/gallery/2000/winterblue-site/field-11-8-c830836a.webp" alt="Camas Prairie site imagery." loading="lazy" srcset="assets/gallery/1200/winterblue-site/field-11-8-c830836a.webp 1200w, assets/gallery/2000/winterblue-site/field-11-8-c830836a.webp 2000w" sizes="(max-width: 980px) 100vw, 70vw" decoding="async">
-        </figure>
-        <figure data-orientation="landscape">
-          <img src="assets/gallery/1200/winterblue-site/field-12-img-4512-19181814.webp" data-full-src="assets/gallery/2000/winterblue-site/field-12-img-4512-19181814.webp" alt="Camas Prairie site imagery." loading="lazy" srcset="assets/gallery/1200/winterblue-site/field-12-img-4512-19181814.webp 1200w, assets/gallery/2000/winterblue-site/field-12-img-4512-19181814.webp 2000w" sizes="(max-width: 980px) 100vw, 70vw" decoding="async">
         </figure>
         <figure data-orientation="portrait">
           <img src="assets/gallery/1200/winterblue-site/field-14-img-5767-proxy-892ef661.webp" data-full-src="assets/gallery/2000/winterblue-site/field-14-img-5767-proxy-892ef661.webp" alt="Camas Prairie site imagery." loading="lazy" srcset="assets/gallery/1200/winterblue-site/field-14-img-5767-proxy-892ef661.webp 1200w, assets/gallery/2000/winterblue-site/field-14-img-5767-proxy-892ef661.webp 2000w" sizes="(max-width: 980px) 50vw, 28vw" decoding="async">
