@@ -1056,6 +1056,7 @@ dialog[id^="survey-"] .survey-popup-section--env .survey-popup-grid--stacked img
   display: grid;
   gap: clamp(20px, 2.5vw, 36px);
   margin-bottom: clamp(28px, 4vw, 60px);
+  scroll-margin-top: clamp(130px, 14vh, 160px);
 }
 .practice-header {
   display: grid;
@@ -2725,7 +2726,7 @@ details ul { margin: 16px 0 0; padding-left: 18px; }
         <p class="winterblue-grid-caption">Individual tiles within Winterblue I</p>
         <div class="winterblue-notes">
           <div class="winterblue-note-block">
-            <p class="text-block-title">PRACTICE NOTE</p>
+            <p class="text-block-title">PROJECT NOTE</p>
             <p>The project carries regional character of embracing discomfort into winter atmosphere and emotional terrain.</p>
             <p>17 trips between January and April to the Camas Prairie under sub-zero conditions turned darkness, cold, isolation, and grief into a field of attention.</p>
             <p class="practice-note-coda">The work demonstrates the practice — entering difficulty deliberately, staying long enough for perception to shift, and returning with images shaped by that exposure.</p>
@@ -3635,6 +3636,7 @@ const HERO_NOTE_LABEL_MIGRATION_KEY = "observatory-content-preview-hero-note-lab
 const INTRO_IMAGE_MIGRATION_KEY = "observatory-content-preview-intro-image-v1";
 const INTRO_IMAGE_SUPABASE_MIGRATION_KEY = "observatory-content-preview-intro-image-supabase-v2";
 const WINTERBLUE_COPY_MIGRATION_KEY = "observatory-content-preview-winterblue-copy-v3";
+const WINTERBLUE_PROJECT_NOTE_LABEL_MIGRATION_KEY = "observatory-content-preview-winterblue-project-note-label-v1";
 const SUPABASE_STORAGE_BASE = "https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/";
 const INTRO_IMAGE_URL = "https://aawnkxnnrymqbysgimqj.supabase.co/storage/v1/object/public/LISA%20WOOD%20STUDIO%20WEBSITE/WINTERBLUE/IMG_0853.JPEG";
 const LOCAL_SAVE_URL = "http://127.0.0.1:4174/api/save-edits";
@@ -3915,6 +3917,18 @@ if (!localStorage.getItem(WINTERBLUE_COPY_MIGRATION_KEY)) {
     });
   saveStorage(EDIT_STORAGE_KEY, inlineEdits);
   localStorage.setItem(WINTERBLUE_COPY_MIGRATION_KEY, "true");
+}
+if (!localStorage.getItem(WINTERBLUE_PROJECT_NOTE_LABEL_MIGRATION_KEY)) {
+  Object.keys(inlineEdits)
+    .filter((key) => (
+      key.startsWith("winterblue-") &&
+      /practice note/i.test(inlineEdits[key].replace(/<[^>]*>/g, "").trim())
+    ))
+    .forEach((key) => {
+      inlineEdits[key] = "Project Note";
+    });
+  saveStorage(EDIT_STORAGE_KEY, inlineEdits);
+  localStorage.setItem(WINTERBLUE_PROJECT_NOTE_LABEL_MIGRATION_KEY, "true");
 }
 if (!localStorage.getItem(HERO_NOTE_LABEL_MIGRATION_KEY)) {
   const heroNoteLabelKey = Object.keys(inlineEdits).find((key) => (
@@ -4412,7 +4426,15 @@ saveSnapshotToServer();
     toggle.setAttribute('aria-expanded', String(open));
     toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
   });
-  links.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
+  links.querySelectorAll('a').forEach((a) => a.addEventListener('click', (e) => {
+    close();
+    if (a.getAttribute('href') !== '#practice') return;
+    const practice = document.getElementById('practice');
+    if (!practice) return;
+    e.preventDefault();
+    practice.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    history.pushState(null, '', '#practice');
+  }));
 })();
 
 (function setupPopups(){
