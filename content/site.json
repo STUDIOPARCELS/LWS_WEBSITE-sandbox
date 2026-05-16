@@ -58,7 +58,7 @@
             { "id": "white-sands", "title": "White Sands", "eyebrow": "Survey", "meta": "", "size": "md", "status": "wip" }
           ]
         },
-        { "id": "winter-blue", "title": "Winter Blue", "eyebrow": "Photography", "meta": "", "size": "tall", "status": "wip" },
+        { "id": "winterblue", "title": "Winterblue", "eyebrow": "Photography", "meta": "", "size": "tall", "status": "wip" },
         { "id": "totems-sentinels", "title": "Totems & Sentinels", "eyebrow": "Photography", "meta": "", "size": "md", "status": "wip" },
         { "id": "flipped", "title": "Flipped", "eyebrow": "Photography", "meta": "", "size": "wide", "status": "wip" },
         { "id": "omani-landscapes", "title": "Omani Landscapes", "eyebrow": "Photography", "meta": "", "size": "md", "status": "wip" }
