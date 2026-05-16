@@ -110,11 +110,11 @@ function renderJsonLd() {
   return `<script type="application/ld+json">\n${jsonForScript(data)}\n</script>`;
 }
 
-/* ---------- right-side category nav (works without JavaScript) ---------- */
+/* ---------- right-side category boxes (work without JavaScript) ---------- */
 function renderCatNav() {
   return site.categories.map(cat => {
     return [
-      `  <button type="button" class="cat-row" data-cat="${escAttr(cat.key)}">`,
+      `  <button type="button" class="cat-box" data-cat="${escAttr(cat.key)}">`,
       `    <span class="cat-name">${escHtml(cat.label)}</span>`,
       `    <span class="cat-count">${escHtml(projectCount(cat))}</span>`,
       `  </button>`
