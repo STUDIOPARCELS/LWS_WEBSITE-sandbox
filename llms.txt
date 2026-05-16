@@ -2,7 +2,7 @@
 
 > Lisa Wood Studio — large-scale landscape photography, writing, and installation made through a practice of sustained attention and discomfort.
 
-Lisa Wood Studio is the website of artist Lisa Wood — work across Visual, Writing, Conceptual, Installation, and Applications.
+Lisa Wood Studio is the website of artist Lisa Wood — work across Visual, Writing, Conceptual, Installation, Applications, and Commissions.
 
 ## Practice
 
@@ -24,20 +24,21 @@ Lisa Wood works at remote field sites across volcanic, desert, winter, and ice t
 
 - Luxuriate in Discomfort (Book) — In preparation.
 - Lost Vibrations (White paper) — In preparation.
-- Cold & Heat Poems (Poems) — In preparation.
+- Cold and Heat (Poetry) — In preparation.
 - A Veiled Landscape (Essay) — In preparation.
 - The Time of Becoming (Book series, In progress) — In preparation.
-- The Art of Falling (Course) — In preparation.
+- The Art of Falling (Course, In progress) — In preparation.
 
 ### Conceptual
 
 - Micron House (Conceptual) — In preparation.
-- Lux Practice (Conceptual) — In preparation.
+- LUX Practice (Conceptual) — In preparation.
 
 ### Installation
 
 - Side Effects (Installation) — In preparation.
-- ECS Attention (Installation) — In preparation.
+- ECS (Installation) — In preparation.
+- Attention (Installation) — In preparation.
 - 21st Century in Black & White (Installation) — In preparation.
 - Luxuriate in Discomfort — One Night Only (Installation, One night only show) — In preparation.
 
@@ -45,7 +46,11 @@ Lisa Wood works at remote field sites across volcanic, desert, winter, and ice t
 
 - SoloKit (Application) — In preparation.
 
+### Commissions
+
+- Viceroy - The Observatory (Commission)
+
 ## Pages
 
-- [Home](https://lisawoodstudio.com/): Studio home — the full index of work across Visual, Writing, Conceptual, Installation, and Applications.
-- [The Observatory](https://lisawoodstudio.com/observatory.html): The Observatory Sun Valley commission presentation — a page within the site.
+- [Home](https://lisawoodstudio.com/): Studio home — the full index of work across Visual, Writing, Conceptual, Installation, Applications, and Commissions.
+- [Viceroy — The Observatory](https://lisawoodstudio.com/observatory.html): Viceroy — The Observatory: a commissioned presentation, a page within the site.

@@ -5,7 +5,7 @@
     "locale": "en",
     "author": "Lisa Wood",
     "description": "Lisa Wood Studio — large-scale landscape photography, writing, and installation made through a practice of sustained attention and discomfort.",
-    "summary": "Lisa Wood Studio is the website of artist Lisa Wood — work across Visual, Writing, Conceptual, Installation, and Applications.",
+    "summary": "Lisa Wood Studio is the website of artist Lisa Wood — work across Visual, Writing, Conceptual, Installation, Applications, and Commissions.",
     "shareImage": "assets/social/winterblue-share.jpg"
   },
   "seo": {
@@ -21,9 +21,7 @@
   },
   "nav": {
     "brand": "Lisa Wood Studio",
-    "links": [
-      { "label": "Observatory", "type": "page", "href": "observatory.html" }
-    ]
+    "links": []
   },
   "intro": {
     "eyebrow": "Lisa Wood Studio",
@@ -49,7 +47,17 @@
       "key": "visual",
       "label": "Visual",
       "projects": [
-        { "id": "surface-surveys", "title": "Surface Surveys", "eyebrow": "Photography", "meta": "", "size": "lg", "status": "wip" },
+        {
+          "id": "surface-surveys", "title": "Surface Surveys", "eyebrow": "Photography", "meta": "", "size": "lg", "status": "wip",
+          "children": [
+            { "id": "craters", "title": "Craters", "eyebrow": "Survey", "meta": "", "size": "lg", "status": "wip" },
+            { "id": "city", "title": "City", "eyebrow": "Survey", "meta": "", "size": "tall", "status": "wip" },
+            { "id": "wahiba", "title": "Wahiba", "eyebrow": "Survey", "meta": "", "size": "md", "status": "wip" },
+            { "id": "simpson-desert", "title": "Simpson Desert", "eyebrow": "Survey", "meta": "", "size": "wide", "status": "wip" },
+            { "id": "greenland", "title": "Greenland", "eyebrow": "Survey", "meta": "", "size": "md", "status": "wip" },
+            { "id": "white-sands", "title": "White Sands", "eyebrow": "Survey", "meta": "", "size": "md", "status": "wip" }
+          ]
+        },
         { "id": "winter-blue", "title": "Winter Blue", "eyebrow": "Photography", "meta": "", "size": "tall", "status": "wip" },
         { "id": "totems-sentinels", "title": "Totems & Sentinels", "eyebrow": "Photography", "meta": "", "size": "md", "status": "wip" },
         { "id": "flipped", "title": "Flipped", "eyebrow": "Photography", "meta": "", "size": "wide", "status": "wip" },
@@ -62,10 +70,10 @@
       "projects": [
         { "id": "luxuriate-book", "title": "Luxuriate in Discomfort", "eyebrow": "Book", "meta": "", "size": "lg", "status": "wip" },
         { "id": "lost-vibrations", "title": "Lost Vibrations", "eyebrow": "White paper", "meta": "", "size": "md", "status": "wip" },
-        { "id": "cold-heat-poems", "title": "Cold & Heat Poems", "eyebrow": "Poems", "meta": "", "size": "tall", "status": "wip" },
+        { "id": "cold-and-heat", "title": "Cold and Heat", "eyebrow": "Poetry", "meta": "", "size": "tall", "status": "wip" },
         { "id": "veiled-landscape", "title": "A Veiled Landscape", "eyebrow": "Essay", "meta": "", "size": "wide", "status": "wip" },
         { "id": "time-of-becoming", "title": "The Time of Becoming", "eyebrow": "Book series", "meta": "In progress", "size": "md", "status": "wip" },
-        { "id": "art-of-falling", "title": "The Art of Falling", "eyebrow": "Course", "meta": "", "size": "md", "status": "wip" }
+        { "id": "art-of-falling", "title": "The Art of Falling", "eyebrow": "Course", "meta": "In progress", "size": "md", "status": "wip" }
       ]
     },
     {
@@ -73,7 +81,7 @@
       "label": "Conceptual",
       "projects": [
         { "id": "micron-house", "title": "Micron House", "eyebrow": "Conceptual", "meta": "", "size": "wide", "status": "wip" },
-        { "id": "lux-practice", "title": "Lux Practice", "eyebrow": "Conceptual", "meta": "", "size": "wide", "status": "wip" }
+        { "id": "lux-practice", "title": "LUX Practice", "eyebrow": "Conceptual", "meta": "", "size": "wide", "status": "wip" }
       ]
     },
     {
@@ -81,7 +89,8 @@
       "label": "Installation",
       "projects": [
         { "id": "side-effects", "title": "Side Effects", "eyebrow": "Installation", "meta": "", "size": "md", "status": "wip" },
-        { "id": "ecs-attention", "title": "ECS Attention", "eyebrow": "Installation", "meta": "", "size": "tall", "status": "wip" },
+        { "id": "ecs", "title": "ECS", "eyebrow": "Installation", "meta": "", "size": "tall", "status": "wip" },
+        { "id": "attention", "title": "Attention", "eyebrow": "Installation", "meta": "", "size": "md", "status": "wip" },
         { "id": "black-white-21c", "title": "21st Century in Black & White", "eyebrow": "Installation", "meta": "", "size": "wide", "status": "wip" },
         { "id": "luxuriate-one-night", "title": "Luxuriate in Discomfort — One Night Only", "eyebrow": "Installation", "meta": "One night only show", "size": "lg", "status": "wip" }
       ]
@@ -92,10 +101,17 @@
       "projects": [
         { "id": "solokit", "title": "SoloKit", "eyebrow": "Application", "meta": "", "size": "lg", "status": "wip" }
       ]
+    },
+    {
+      "key": "commissions",
+      "label": "Commissions",
+      "projects": [
+        { "id": "viceroy-observatory", "title": "Viceroy - The Observatory", "eyebrow": "Commission", "meta": "", "size": "lg", "status": "ready", "href": "observatory.html" }
+      ]
     }
   ],
   "pages": [
-    { "path": "", "title": "Home", "description": "Studio home — the full index of work across Visual, Writing, Conceptual, Installation, and Applications." },
-    { "path": "observatory.html", "title": "The Observatory", "description": "The Observatory Sun Valley commission presentation — a page within the site." }
+    { "path": "", "title": "Home", "description": "Studio home — the full index of work across Visual, Writing, Conceptual, Installation, Applications, and Commissions." },
+    { "path": "observatory.html", "title": "Viceroy — The Observatory", "description": "Viceroy — The Observatory: a commissioned presentation, a page within the site." }
   ]
 }
