@@ -35,10 +35,9 @@ const jsonForScript = obj => JSON.stringify(obj).replace(/</g, "\\u003c");
 const absUrl = rel => site.site.url.replace(/\/$/, "/") + String(rel).replace(/^\//, "");
 
 function projectCount(cat) {
-  const total = cat.projects.length;
-  if (total === 0) return "In preparation";
-  const ready = cat.projects.filter(p => p.status === "ready").length;
-  return ready + " / " + total;
+  const n = cat.projects.length;
+  if (n === 0) return "In preparation";
+  return n + (n === 1 ? " work" : " works");
 }
 
 /* ---------- <head> meta ---------- */
