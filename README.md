@@ -2,8 +2,34 @@
 
 Static website for Lisa Wood Studio.
 
-- `index.html` — studio home page.
-- `observatory.html` — The Observatory Sun Valley commission presentation (a page within the site).
+## Content and build
+
+All editable content lives in **`content/site.json`** — the single source of
+truth. It holds the site metadata, navigation, intro copy, every category and
+project, the practice statement, and the footer.
+
+The home page is generated from that data. After editing `content/site.json`,
+run the build:
+
+```powershell
+npm run build
+```
+
+This regenerates four files from `content/site.json` + `tools/template.html`:
+
+- `index.html` — the studio home page (content, meta tags, and JSON-LD baked in).
+- `llms.txt` — a plain-text site summary for AI agents and crawlers.
+- `sitemap.xml` — crawler sitemap.
+- `robots.txt` — crawler directives.
+
+**Do not hand-edit `index.html`, `llms.txt`, `sitemap.xml`, or `robots.txt`** —
+they are generated and will be overwritten. Edit `content/site.json` (data) or
+`tools/template.html` (layout, styles, interaction script) instead.
+
+Other pages:
+
+- `observatory.html` — The Observatory Sun Valley commission presentation (a
+  standalone page, not generated from the build).
 
 ## Run locally
 
@@ -11,7 +37,7 @@ Static website for Lisa Wood Studio.
 npm run start
 ```
 
-Open `http://localhost:4173`.
+`npm run start` runs the build first, then serves on `http://localhost:4173`.
 
 For the local copy/style editor:
 

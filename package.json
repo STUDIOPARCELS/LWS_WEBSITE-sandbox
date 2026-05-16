@@ -4,6 +4,8 @@
   "private": true,
   "description": "Static website for Lisa Wood Studio, including The Observatory Sun Valley commission page.",
   "scripts": {
+    "build": "node tools/build.js",
+    "prestart": "node tools/build.js",
     "start": "python -m http.server 4173",
     "editor": "node tools/editor-server.js",
     "check": "node -e \"const fs=require('fs'); for (const f of ['index.html','observatory.html']) { if (!fs.existsSync(f)) throw new Error(f + ' missing'); } console.log('static check passed')\""
