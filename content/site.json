@@ -48,17 +48,17 @@
       "label": "Visual",
       "projects": [
         {
-          "id": "surface-surveys", "title": "Surface Surveys", "eyebrow": "Photography", "meta": "", "size": "lg", "status": "wip",
+          "id": "surface-surveys", "title": "Surface Surveys", "eyebrow": "Photography", "meta": "", "size": "lg", "status": "wip", "folder": "surveys",
           "children": [
-            { "id": "craters", "title": "Craters", "eyebrow": "Survey", "meta": "", "size": "lg", "status": "wip" },
-            { "id": "city", "title": "City", "eyebrow": "Survey", "meta": "", "size": "tall", "status": "wip" },
-            { "id": "wahiba", "title": "Wahiba", "eyebrow": "Survey", "meta": "", "size": "md", "status": "wip" },
-            { "id": "simpson-desert", "title": "Simpson Desert", "eyebrow": "Survey", "meta": "", "size": "wide", "status": "wip" },
-            { "id": "greenland", "title": "Greenland", "eyebrow": "Survey", "meta": "", "size": "md", "status": "wip" },
-            { "id": "white-sands", "title": "White Sands", "eyebrow": "Survey", "meta": "", "size": "md", "status": "wip" }
+            { "id": "craters", "title": "Craters", "eyebrow": "Survey", "meta": "", "size": "lg", "status": "wip", "folder": "survey-craters" },
+            { "id": "city", "title": "City", "eyebrow": "Survey", "meta": "", "size": "tall", "status": "wip", "folder": "survey-city" },
+            { "id": "wahiba", "title": "Wahiba", "eyebrow": "Survey", "meta": "", "size": "md", "status": "wip", "folder": "survey-wahiba" },
+            { "id": "simpson-desert", "title": "Simpson Desert", "eyebrow": "Survey", "meta": "", "size": "wide", "status": "wip", "folder": "survey-simpson" },
+            { "id": "greenland", "title": "Greenland", "eyebrow": "Survey", "meta": "", "size": "md", "status": "wip", "folder": "survey-greenland" },
+            { "id": "white-sands", "title": "White Sands", "eyebrow": "Survey", "meta": "", "size": "md", "status": "wip", "folder": "survey-white-sands" }
           ]
         },
-        { "id": "winterblue", "title": "Winterblue", "eyebrow": "Photography", "meta": "", "size": "tall", "status": "wip" },
+        { "id": "winterblue", "title": "Winterblue", "eyebrow": "Photography", "meta": "", "size": "tall", "status": "wip", "folder": "winterblue-site", "video": ["assets/winterblue-field-video.mp4"] },
         { "id": "totems-sentinels", "title": "Totems & Sentinels", "eyebrow": "Photography", "meta": "", "size": "md", "status": "wip" },
         { "id": "flipped", "title": "Flipped", "eyebrow": "Photography", "meta": "", "size": "wide", "status": "wip" },
         { "id": "omani-landscapes", "title": "Omani Landscapes", "eyebrow": "Photography", "meta": "", "size": "md", "status": "wip" }
@@ -68,7 +68,7 @@
       "key": "writing",
       "label": "Writing",
       "projects": [
-        { "id": "luxuriate-book", "title": "Luxuriate in Discomfort", "eyebrow": "Book", "meta": "", "size": "lg", "status": "wip" },
+        { "id": "luxuriate-book", "title": "Luxuriate in Discomfort", "eyebrow": "Book", "meta": "", "size": "lg", "status": "wip", "folder": "luxuriate" },
         { "id": "lost-vibrations", "title": "Lost Vibrations", "eyebrow": "White paper", "meta": "", "size": "md", "status": "wip" },
         { "id": "cold-and-heat", "title": "Cold and Heat", "eyebrow": "Poetry", "meta": "", "size": "tall", "status": "wip" },
         { "id": "veiled-landscape", "title": "A Veiled Landscape", "eyebrow": "Essay", "meta": "", "size": "wide", "status": "wip" },
@@ -92,7 +92,7 @@
         { "id": "ecs", "title": "ECS", "eyebrow": "Installation", "meta": "", "size": "tall", "status": "wip" },
         { "id": "attention", "title": "Attention", "eyebrow": "Installation", "meta": "", "size": "md", "status": "wip" },
         { "id": "black-white-21c", "title": "21st Century in Black & White", "eyebrow": "Installation", "meta": "", "size": "wide", "status": "wip" },
-        { "id": "luxuriate-one-night", "title": "Luxuriate in Discomfort — One Night Only", "eyebrow": "Installation", "meta": "One night only show", "size": "lg", "status": "wip" },
+        { "id": "luxuriate-one-night", "title": "Luxuriate in Discomfort — One Night Only", "eyebrow": "Installation", "meta": "One night only show", "size": "lg", "status": "wip", "folder": "installation" },
         { "id": "mind-the-gap", "title": "Mind the Gap", "eyebrow": "Installation", "meta": "", "size": "tall", "status": "wip" }
       ]
     },

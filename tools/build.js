@@ -40,6 +40,33 @@ function projectCount(cat) {
   return n + (n === 1 ? " work" : " works");
 }
 
+/* ---------- wire local media from assets/gallery/ folders ----------
+   A project with a "folder" gets its gallery scanned from
+   assets/gallery/1200/<folder>/. The first image becomes the cover.
+   An optional "video" array is appended to the gallery.
+-------------------------------------------------------------------- */
+const GALLERY_DIR = path.join(ROOT, "assets/gallery/1200");
+function wireMedia(p) {
+  if (p.folder) {
+    let files = [];
+    try {
+      files = fs.readdirSync(path.join(GALLERY_DIR, p.folder))
+        .filter(f => /\.(webp|jpe?g|png)$/i.test(f))
+        .sort();
+    } catch (e) { files = []; }
+    const rels = files.map(f => p.folder + "/" + f);
+    let gallery = rels.slice();
+    if (Array.isArray(p.video)) gallery = gallery.concat(p.video);
+    if (gallery.length) {
+      p.gallery = gallery;
+      if (rels.length) p.cover = rels[0];
+      if (p.status === "wip") p.status = "ready";
+    }
+  }
+  if (Array.isArray(p.children)) p.children.forEach(wireMedia);
+}
+site.categories.forEach(c => c.projects.forEach(wireMedia));
+
 /* ---------- <head> meta ---------- */
 function renderMeta() {
   const s = site.site, seo = site.seo;
