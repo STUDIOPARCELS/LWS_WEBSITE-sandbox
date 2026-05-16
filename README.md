@@ -1,6 +1,9 @@
-# The Observatory Sun Valley
+# Lisa Wood Studio
 
-Static presentation site for the Lisa Wood Studio commission at The Observatory Sun Valley.
+Static website for Lisa Wood Studio.
+
+- `index.html` — studio home page.
+- `observatory.html` — The Observatory Sun Valley commission presentation (a page within the site).
 
 ## Run locally
 
@@ -21,6 +24,6 @@ Open `http://127.0.0.1:4174/?edit=1`.
 ## Notes
 
 - No runtime dependencies are required.
-- Images are loaded from the local project folders.
-- Keyboard, wheel, touch, and dot navigation are supported.
+- Images are loaded from the local `assets/` folder.
+- The Observatory page supports keyboard, wheel, touch, and dot navigation.
 - Use the small `Preview Controls` panel to revise copy in the browser; edits autosave locally to `edits/latest-edits.json`.
