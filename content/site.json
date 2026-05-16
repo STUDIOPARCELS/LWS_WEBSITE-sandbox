@@ -92,7 +92,8 @@
         { "id": "ecs", "title": "ECS", "eyebrow": "Installation", "meta": "", "size": "tall", "status": "wip" },
         { "id": "attention", "title": "Attention", "eyebrow": "Installation", "meta": "", "size": "md", "status": "wip" },
         { "id": "black-white-21c", "title": "21st Century in Black & White", "eyebrow": "Installation", "meta": "", "size": "wide", "status": "wip" },
-        { "id": "luxuriate-one-night", "title": "Luxuriate in Discomfort — One Night Only", "eyebrow": "Installation", "meta": "One night only show", "size": "lg", "status": "wip" }
+        { "id": "luxuriate-one-night", "title": "Luxuriate in Discomfort — One Night Only", "eyebrow": "Installation", "meta": "One night only show", "size": "lg", "status": "wip" },
+        { "id": "mind-the-gap", "title": "Mind the Gap", "eyebrow": "Installation", "meta": "", "size": "tall", "status": "wip" }
       ]
     },
     {
