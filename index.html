@@ -290,6 +290,7 @@ const detail  = document.getElementById("detail");
 let stack = [];        // [{kind, key, label, items}]
 let floats = [];
 let busy = false;
+let lastFocus = null;
 
 const catByKey = k => CATS.find(c => c.key === k);
 const deckBox  = k => deck.querySelector('.cat-box[data-cat="' + k + '"]');
@@ -471,6 +472,7 @@ const dNote    = document.getElementById("dNote");
 const dGrid    = document.getElementById("dGrid");
 
 function openDetail(item){
+  lastFocus = document.activeElement;
   dEyebrow.textContent = item.eyebrow || "";
   dTitle.textContent = item.title;
   dMeta.textContent = item.meta || "";
@@ -486,6 +488,7 @@ function openDetail(item){
   detail.setAttribute("aria-hidden", "false");
   detail.scrollTop = 0;
   document.body.style.overflow = "hidden";
+  document.getElementById("detailClose").focus();
   if (HAS && !REDUCED){
     gsap.fromTo(detail, { opacity: 0 }, { opacity: 1, duration: .32, ease: "power2.out" });
     gsap.fromTo(".detail-inner > *",
@@ -501,6 +504,7 @@ function closeDetail(){
     detail.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
     if (HAS) gsap.set(detail, { opacity: 0 }); else detail.style.opacity = 0;
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
   };
   if (HAS && !REDUCED) gsap.to(detail, { opacity: 0, duration: .26, ease: "power2.in", onComplete: finish });
   else finish();

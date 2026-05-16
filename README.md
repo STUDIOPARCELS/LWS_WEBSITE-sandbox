@@ -2,11 +2,19 @@
 
 Static website for Lisa Wood Studio.
 
+## How the home page works
+
+The home page is a recursive bento system. The six categories float as boxes
+down the right edge; clicking one fans its project boxes out into a centred,
+evenly spaced grid. A project box is either a **collection** (it fans out into
+more boxes — e.g. Surface Surveys) or a **leaf** (it opens a project detail
+view, or links to a standalone page such as the Observatory commission).
+
 ## Content and build
 
 All editable content lives in **`content/site.json`** — the single source of
-truth. It holds the site metadata, navigation, intro copy, every category and
-project, the practice statement, and the footer.
+truth. It holds the site metadata, SEO, and the full navigation tree: every
+category, project, nested sub-project, and standalone-page link.
 
 The home page is generated from that data. After editing `content/site.json`,
 run the build:
