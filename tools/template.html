@@ -183,6 +183,10 @@ img{display:block;max-width:100%;}
   border-color:transparent transparent transparent var(--grey-1);
   transform:translate(-40%,-50%);
 }
+.d-tile.is-media{overflow:hidden;}
+.d-tile img,.d-tile video{
+  width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit;
+}
 
 /* ---------- responsive ---------- */
 @media (max-width:860px){
@@ -439,12 +443,28 @@ function openDetail(item){
   dTitle.textContent = item.title;
   dMeta.textContent = item.meta || "";
   dMeta.style.display = item.meta ? "block" : "none";
-  dNote.textContent = "In preparation — photographs and writing for this project are being prepared for the studio archive.";
+  dNote.textContent = item.description ||
+    "In preparation — photographs and writing for this project are being prepared for the studio archive.";
   dGrid.innerHTML = "";
-  for (let i = 0; i < 6; i++){
-    const tile = document.createElement("div");
-    tile.className = "d-tile" + (i === 1 ? " is-video" : "");
-    dGrid.appendChild(tile);
+  const media = item.gallery || [];
+  if (media.length){
+    media.forEach(src => {
+      const isVideo = /\.(mp4|webm|mov)$/i.test(src);
+      const tile = document.createElement("div");
+      tile.className = "d-tile is-media";
+      const el = document.createElement(isVideo ? "video" : "img");
+      el.src = src;
+      if (isVideo){ el.controls = true; el.preload = "metadata"; el.playsInline = true; }
+      else { el.alt = item.title; el.loading = "lazy"; el.decoding = "async"; }
+      tile.appendChild(el);
+      dGrid.appendChild(tile);
+    });
+  } else {
+    for (let i = 0; i < 6; i++){
+      const tile = document.createElement("div");
+      tile.className = "d-tile" + (i === 1 ? " is-video" : "");
+      dGrid.appendChild(tile);
+    }
   }
   detail.classList.add("is-open");
   detail.setAttribute("aria-hidden", "false");
