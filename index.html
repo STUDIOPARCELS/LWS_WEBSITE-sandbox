@@ -28,18 +28,17 @@
   --paper: #ffffff;
   --ink: #111111;
   --muted: #6e6e73;
-  --soft: #a6a6a6;
+  --soft: #bdbdbd;
   --line: #e4e4e4;
   --tint: #f4f3f1;
-  --nav-bg: rgba(255,255,255,.82);
   --max: 1280px;
-  --label-size: 10px;
   --ease: cubic-bezier(.22,.61,.36,1);
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
+  min-height: 100vh;
   background: var(--paper);
   color: var(--ink);
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", Inter, "Helvetica Neue", Arial, sans-serif;
@@ -49,149 +48,91 @@ body {
 img { display: block; width: 100%; height: auto; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
-figure, p, h1, h2, h3, h4 { margin: 0; }
-
-.eyebrow {
-  font-size: var(--label-size);
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: var(--muted);
-}
+figure, p, h2 { margin: 0; }
 .wrap { max-width: var(--max); margin: 0 auto; padding: 0 clamp(24px, 6vw, 96px); }
 
-/* ---------- nav ---------- */
-.nav {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  padding: 30px clamp(24px, 6vw, 96px);
-  background: var(--nav-bg);
-  backdrop-filter: saturate(180%) blur(22px);
-  -webkit-backdrop-filter: saturate(180%) blur(22px);
-  border-bottom: 1px solid rgba(0,0,0,.05);
-}
-.nav-inner {
-  max-width: var(--max);
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 28px;
-}
+/* ---------- brand + corner links ---------- */
 .brand {
-  font-size: clamp(13px, 1.1vw, 15px);
-  letter-spacing: .2em;
-  font-weight: 500;
-  text-transform: uppercase;
-}
-.nav-links { display: flex; gap: clamp(16px, 3vw, 40px); color: var(--muted); }
-.nav-links a, .nav-links button {
-  font-size: 11px;
+  position: fixed;
+  top: 34px;
+  left: clamp(20px, 5vw, 48px);
+  z-index: 40;
+  font-size: 12px;
   letter-spacing: .22em;
   text-transform: uppercase;
   font-weight: 600;
+}
+.corner-links {
+  position: fixed;
+  bottom: 32px;
+  left: clamp(20px, 5vw, 48px);
+  z-index: 40;
+  display: flex;
+  gap: 22px;
+}
+.corner-links a {
+  font-size: 10px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--muted);
   transition: color .2s ease;
 }
-.nav-links a:hover, .nav-links button:hover { color: var(--ink); }
+.corner-links a:hover { color: var(--ink); }
 
-/* ---------- intro ---------- */
-.intro { padding: clamp(56px, 10vh, 128px) 0 clamp(20px, 4vh, 48px); }
-.intro h1 {
-  font-size: clamp(36px, 6.4vw, 80px);
-  line-height: 1.0;
-  letter-spacing: -.015em;
-  font-weight: 600;
-  margin: 22px 0 0;
-  max-width: 16ch;
-}
-.intro h1 .soft { color: var(--soft); }
-.intro .lede {
-  max-width: 600px;
-  margin-top: 26px;
-  font-size: clamp(15px, 1.5vw, 18px);
-  line-height: 1.6;
-  color: var(--muted);
-}
-
-/* ---------- explore ---------- */
-.explore { padding: clamp(28px, 5vh, 64px) 0 clamp(60px, 9vh, 120px); }
-
-/* category list (index state) */
-.cat-list { display: flex; flex-direction: column; }
-.cat-row {
+/* ---------- right-side category nav ---------- */
+.cat-nav {
+  position: fixed;
+  top: 50%;
+  right: clamp(20px, 5vw, 56px);
+  transform: translateY(-50%);
+  z-index: 40;
   display: flex;
-  align-items: baseline;
-  gap: 20px;
-  width: 100%;
-  text-align: left;
-  padding: clamp(14px, 2.4vh, 26px) 0;
-  border-top: 1px solid var(--line);
-  transition: padding-left .4s var(--ease), color .25s ease;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: clamp(4px, 1.2vh, 14px);
 }
-.cat-list .cat-row:last-child { border-bottom: 1px solid var(--line); }
-.cat-row:hover { padding-left: 16px; }
+.cat-row {
+  display: block;
+  text-align: right;
+  padding: 6px 0;
+}
 .cat-row .cat-name {
-  font-size: clamp(34px, 7vw, 92px);
-  line-height: .98;
+  display: block;
+  font-size: clamp(24px, 3.2vw, 44px);
+  font-weight: 600;
   letter-spacing: -.02em;
-  font-weight: 600;
-}
-.cat-row .cat-index {
-  font-size: var(--label-size);
-  letter-spacing: .2em;
-  font-weight: 600;
+  line-height: 1.04;
   color: var(--soft);
+  transition: color .28s var(--ease);
 }
 .cat-row .cat-count {
-  margin-left: auto;
-  font-size: 11px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--muted);
-  white-space: nowrap;
-}
-.cat-row:hover .cat-name { color: var(--ink); }
-
-/* category bar (open state) */
-.cat-bar {
-  display: none;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: clamp(14px, 2.4vw, 32px);
-  padding-bottom: clamp(20px, 3vh, 36px);
-  border-bottom: 1px solid var(--line);
-  margin-bottom: clamp(24px, 4vh, 48px);
-}
-.cat-bar button {
-  font-size: clamp(15px, 1.7vw, 22px);
-  font-weight: 600;
-  letter-spacing: -.01em;
-  color: var(--soft);
-  transition: color .2s ease;
-}
-.cat-bar button:hover { color: var(--muted); }
-.cat-bar button.is-active { color: var(--ink); }
-.cat-bar .bar-back {
-  margin-left: auto;
-  font-size: 11px;
+  display: block;
+  margin-top: 3px;
+  font-size: 9px;
   letter-spacing: .2em;
   text-transform: uppercase;
   font-weight: 600;
-  color: var(--muted);
+  color: transparent;
+  transition: color .28s var(--ease);
 }
-.cat-bar .bar-back:hover { color: var(--ink); }
+.cat-row:hover .cat-name,
+.cat-row.is-active .cat-name { color: var(--ink); }
+.cat-row:hover .cat-count,
+.cat-row.is-active .cat-count { color: var(--muted); }
 
-.is-open .cat-list { display: none; }
-.is-open .cat-bar { display: flex; }
-
-/* ---------- bento ---------- */
+/* ---------- stage + bento ---------- */
+.stage { min-height: 100vh; }
+.bento-wrap {
+  padding: clamp(96px, 15vh, 168px) clamp(220px, 26vw, 440px) clamp(80px, 12vh, 120px) clamp(20px, 6vw, 96px);
+}
 .bento {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: clamp(12px, 1.4vw, 20px);
-  grid-auto-rows: clamp(150px, 21vh, 210px);
+  grid-auto-rows: clamp(132px, 19vh, 196px);
 }
+.bento[hidden] { display: none; }
 .card {
   position: relative;
   border-radius: 14px;
@@ -229,7 +170,7 @@ figure, p, h1, h2, h3, h4 { margin: 0; }
   z-index: 2;
 }
 .card-meta .c-eyebrow {
-  font-size: var(--label-size);
+  font-size: 10px;
   letter-spacing: .18em;
   text-transform: uppercase;
   font-weight: 600;
@@ -252,31 +193,23 @@ figure, p, h1, h2, h3, h4 { margin: 0; }
 }
 
 .bento-empty {
+  grid-column: 1 / -1;
   border: 1px dashed var(--line);
   border-radius: 14px;
   padding: clamp(48px, 9vh, 110px) 32px;
   text-align: center;
 }
 .bento-empty p { font-size: clamp(16px,2vw,22px); font-weight: 500; }
-.bento-empty .eyebrow { margin-bottom: 14px; }
-
-/* ---------- practice ---------- */
-.practice { padding: clamp(56px, 9vh, 120px) 0; border-top: 1px solid var(--line); }
-.statement { max-width: 760px; }
-.statement p {
-  font-size: clamp(18px, 2.2vw, 26px);
-  line-height: 1.5;
-  letter-spacing: -.005em;
+.bento-empty .eyebrow {
+  margin-bottom: 14px;
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--muted);
 }
-.statement p em { font-style: italic; }
-.statement .detail { margin-top: 24px; font-size: 16px; line-height: 1.65; color: var(--muted); }
 
-/* ---------- footer ---------- */
-.footer { border-top: 1px solid var(--line); padding: 52px 0 68px; }
-.footer-inner { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
-.footer p { font-size: var(--label-size); letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
-
-/* ---------- overlay ---------- */
+/* ---------- project overlay ---------- */
 .overlay {
   position: fixed;
   inset: 0;
@@ -312,7 +245,13 @@ figure, p, h1, h2, h3, h4 { margin: 0; }
 .overlay-hero .card-visual { position: absolute; inset: 0; }
 .overlay-hero .card-visual img { width: 100%; height: 100%; object-fit: cover; }
 .overlay-body { padding: clamp(36px, 6vh, 80px) 0 clamp(56px, 9vh, 120px); }
-.overlay-body .o-eyebrow { color: var(--muted); }
+.overlay-body .o-eyebrow {
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--muted);
+}
 .overlay-body h2 {
   font-size: clamp(32px, 5.4vw, 68px);
   line-height: 1.02;
@@ -355,14 +294,36 @@ figure, p, h1, h2, h3, h4 { margin: 0; }
   letter-spacing: .04em;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
+  .bento-wrap { padding-right: clamp(180px, 24vw, 300px); }
+}
+@media (max-width: 760px) {
+  .cat-nav {
+    top: auto; bottom: 0; left: 0; right: 0;
+    transform: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    background: rgba(255,255,255,.93);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid var(--line);
+  }
+  .cat-row { padding: 2px 0; }
+  .cat-row .cat-name { font-size: 17px; }
+  .cat-row .cat-count { display: none; }
+  .corner-links { bottom: auto; top: 34px; left: auto; right: clamp(20px, 5vw, 48px); }
+  .bento-wrap { padding: 96px 20px 150px; }
   .bento { grid-template-columns: repeat(2, 1fr); }
   .card.size-lg { grid-column: span 2; grid-row: span 2; }
   .card.size-wide { grid-column: span 2; }
   .card.size-tall { grid-column: span 1; grid-row: span 2; }
 }
-@media (max-width: 560px) {
-  .bento { grid-template-columns: 1fr; grid-auto-rows: clamp(180px, 40vw, 240px); }
+@media (max-width: 520px) {
+  .bento { grid-template-columns: 1fr; grid-auto-rows: clamp(170px, 42vw, 230px); }
   .card.size-lg, .card.size-wide, .card.size-tall, .card.size-md {
     grid-column: span 1; grid-row: span 1;
   }
@@ -376,85 +337,47 @@ figure, p, h1, h2, h3, h4 { margin: 0; }
 </head>
 <body>
 
-<header class="nav">
-  <div class="nav-inner">
-    <a class="brand" href="#top">Lisa Wood Studio</a>
-    <nav class="nav-links" aria-label="Primary">
-      <button type="button" id="navIndex">Index</button>
-      <a href="#practice">Practice</a>
-      <a href="observatory.html">Observatory</a>
-    </nav>
+<a class="brand" href="#" id="brandHome">Lisa Wood Studio</a>
+
+<nav class="corner-links" aria-label="Pages">
+  <a href="observatory.html">Observatory</a>
+</nav>
+
+<main class="stage" id="stage">
+  <div class="bento-wrap">
+    <div class="bento" id="bento" hidden></div>
   </div>
-</header>
-
-<main id="top">
-
-  <section class="intro">
-    <div class="wrap">
-      <p class="eyebrow">Lisa Wood Studio</p>
-      <h1>A practice across <span class="soft">land, language, and form.</span></h1>
-      <p class="lede">Select a category to open its work — photography from remote field sites, writing, conceptual projects, installation, and applications.</p>
-    </div>
-  </section>
-
-  <section class="explore" id="work">
-    <div class="wrap">
-      <div class="cat-list" id="catList">
-        <button type="button" class="cat-row" data-cat="visual">
-          <span class="cat-index">01</span>
-          <span class="cat-name">Visual</span>
-          <span class="cat-count">4 of 6 open</span>
-        </button>
-        <button type="button" class="cat-row" data-cat="writing">
-          <span class="cat-index">02</span>
-          <span class="cat-name">Writing</span>
-          <span class="cat-count">1 of 6 open</span>
-        </button>
-        <button type="button" class="cat-row" data-cat="conceptual">
-          <span class="cat-index">03</span>
-          <span class="cat-name">Conceptual</span>
-          <span class="cat-count">In preparation</span>
-        </button>
-        <button type="button" class="cat-row" data-cat="installation">
-          <span class="cat-index">04</span>
-          <span class="cat-name">Installation</span>
-          <span class="cat-count">1 of 4 open</span>
-        </button>
-        <button type="button" class="cat-row" data-cat="applications">
-          <span class="cat-index">05</span>
-          <span class="cat-name">Applications</span>
-          <span class="cat-count">In preparation</span>
-        </button>
-      </div>
-      <div class="cat-bar" id="catBar"></div>
-      <div class="bento" id="bento" hidden></div>
-    </div>
-  </section>
-
-  <section class="practice" id="practice">
-    <div class="wrap">
-      <div class="statement">
-        <p>To <em>luxuriate in discomfort</em> is to step into challenging conditions and stay there long enough for perception to change — driven by adventure, rewarded with discovery.</p>
-        <p class="detail">Lisa Wood works at remote field sites across volcanic, desert, winter, and ice terrain, returning with large-scale photographs — and with writing and installation — that ask for the same sustained attention they were made with.</p>
-      </div>
-    </div>
-  </section>
-
 </main>
 
-<footer class="footer">
-  <div class="wrap footer-inner">
-    <p>Lisa Wood Studio</p>
-    <p>© 2026 — All works by Lisa Wood</p>
-  </div>
-</footer>
+<nav class="cat-nav" id="catNav" aria-label="Work categories">
+  <button type="button" class="cat-row" data-cat="visual">
+    <span class="cat-name">Visual</span>
+    <span class="cat-count">4 / 6</span>
+  </button>
+  <button type="button" class="cat-row" data-cat="writing">
+    <span class="cat-name">Writing</span>
+    <span class="cat-count">1 / 6</span>
+  </button>
+  <button type="button" class="cat-row" data-cat="conceptual">
+    <span class="cat-name">Conceptual</span>
+    <span class="cat-count">In preparation</span>
+  </button>
+  <button type="button" class="cat-row" data-cat="installation">
+    <span class="cat-name">Installation</span>
+    <span class="cat-count">1 / 4</span>
+  </button>
+  <button type="button" class="cat-row" data-cat="applications">
+    <span class="cat-name">Applications</span>
+    <span class="cat-count">In preparation</span>
+  </button>
+</nav>
 
 <div class="overlay" id="overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Project detail">
   <button type="button" class="overlay-close" id="overlayClose">Close</button>
   <div class="overlay-hero" id="overlayHero"></div>
   <div class="overlay-body">
     <div class="wrap">
-      <p class="eyebrow o-eyebrow" id="overlayEyebrow"></p>
+      <p class="o-eyebrow" id="overlayEyebrow"></p>
       <h2 id="overlayTitle"></h2>
       <p class="o-meta" id="overlayMeta"></p>
       <p class="o-desc" id="overlayDesc"></p>
@@ -476,61 +399,47 @@ figure, p, h1, h2, h3, h4 { margin: 0; }
 const SITE = JSON.parse(document.getElementById("site-data").textContent);
 const CATEGORIES = SITE.categories;
 
-/* ------------------------------------------------------------------ */
 const REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const HAS_GSAP = !!window.gsap;
 const img = (path, size) => SITE.media.basePath + "/" + size + "/" + path;
 const findCategory = key => CATEGORIES.find(c => c.key === key);
 const findProject = (catKey, id) =>
   findCategory(catKey).projects.find(p => p.id === id);
 
-let state = "index";       // "index" or a category key
+let state = "index";       // "index" (blank) or a category key
 let floatTweens = [];
-let activeCard = null;     // card whose visual is currently lifted into the overlay
+let activeCard = null;     // card whose visual is lifted into the overlay
 
-const explore   = document.querySelector(".explore");
-const catList   = document.getElementById("catList");
-const catBar    = document.getElementById("catBar");
-const bento     = document.getElementById("bento");
-const overlay   = document.getElementById("overlay");
+const catNav  = document.getElementById("catNav");
+const bento   = document.getElementById("bento");
+const overlay = document.getElementById("overlay");
 
-/* ---------- index view: big category list ---------- */
-function renderCatList() {
-  catList.innerHTML = "";
-  CATEGORIES.forEach((cat, i) => {
-    const ready = cat.projects.filter(p => p.status === "ready").length;
-    const total = cat.projects.length;
-    const count = total === 0 ? "In preparation"
-      : ready + " of " + total + " open";
+function projectCount(cat) {
+  const total = cat.projects.length;
+  if (total === 0) return "In preparation";
+  const ready = cat.projects.filter(p => p.status === "ready").length;
+  return ready + " / " + total;
+}
+
+/* ---------- right-side category nav ---------- */
+function renderCatNav() {
+  catNav.innerHTML = "";
+  CATEGORIES.forEach(cat => {
     const row = document.createElement("button");
     row.type = "button";
     row.className = "cat-row";
     row.dataset.cat = cat.key;
     row.innerHTML =
-      '<span class="cat-index">' + String(i + 1).padStart(2, "0") + '</span>' +
       '<span class="cat-name">' + cat.label + '</span>' +
-      '<span class="cat-count">' + count + '</span>';
-    row.addEventListener("click", () => openCategory(cat.key));
-    catList.appendChild(row);
+      '<span class="cat-count">' + projectCount(cat) + '</span>';
+    row.addEventListener("click", () => toggleCategory(cat.key));
+    catNav.appendChild(row);
   });
 }
-
-/* ---------- open-state: compact category bar ---------- */
-function renderCatBar() {
-  catBar.innerHTML = "";
-  CATEGORIES.forEach(cat => {
-    const b = document.createElement("button");
-    b.type = "button";
-    b.textContent = cat.label;
-    b.classList.toggle("is-active", cat.key === state);
-    b.addEventListener("click", () => switchCategory(cat.key));
-    catBar.appendChild(b);
+function setActiveNav(key) {
+  catNav.querySelectorAll(".cat-row").forEach(r => {
+    r.classList.toggle("is-active", r.dataset.cat === key);
   });
-  const back = document.createElement("button");
-  back.type = "button";
-  back.className = "bar-back";
-  back.textContent = "All categories";
-  back.addEventListener("click", goIndex);
-  catBar.appendChild(back);
 }
 
 /* ---------- bento grid ---------- */
@@ -540,17 +449,14 @@ function renderBento(catKey) {
   bento.hidden = false;
 
   if (cat.projects.length === 0) {
-    bento.classList.add("is-empty-grid");
     const empty = document.createElement("div");
     empty.className = "bento-empty";
     empty.innerHTML =
       '<p class="eyebrow">' + cat.label + '</p>' +
       '<p>This collection is in preparation.</p>';
     bento.appendChild(empty);
-    bento.style.display = "block";
     return;
   }
-  bento.style.display = "grid";
 
   cat.projects.forEach(p => {
     const card = document.createElement("button");
@@ -565,7 +471,7 @@ function renderBento(catKey) {
         '<div class="card-visual">' +
           '<img src="' + img(p.cover, "1200") + '" ' +
             'srcset="' + img(p.cover, "1200") + ' 1200w, ' + img(p.cover, "2000") + ' 2000w" ' +
-            'sizes="(max-width: 900px) 100vw, 50vw" ' +
+            'sizes="(max-width: 760px) 100vw, 40vw" ' +
             'alt="' + p.title + '" loading="lazy" decoding="async">' +
         '</div><div class="card-shade"></div>';
     } else {
@@ -583,10 +489,10 @@ function renderBento(catKey) {
   });
 }
 
-/* ---------- floating motion on bento cards ---------- */
+/* ---------- idle float on bento cards ---------- */
 function startFloat() {
   stopFloat();
-  if (REDUCED) return;
+  if (REDUCED || !HAS_GSAP) return;
   document.querySelectorAll(".bento .card").forEach(card => {
     const amp = gsap.utils.random(5, 11);
     floatTweens.push(
@@ -604,59 +510,64 @@ function startFloat() {
 function stopFloat() {
   floatTweens.forEach(t => t.kill());
   floatTweens = [];
-  gsap.set(".bento .card", { y: 0 });
+  if (HAS_GSAP) gsap.set(".bento .card", { y: 0 });
 }
 
-/* ---------- category transitions ---------- */
-function openCategory(catKey) {
-  state = catKey;
-  explore.classList.add("is-open");
-  renderCatBar();
-  renderBento(catKey);
-  animateBentoIn();
-}
-
-function switchCategory(catKey) {
-  if (catKey === state) return;
-  const cards = bento.children;
-  if (REDUCED) {
-    state = catKey;
-    renderCatBar(); renderBento(catKey); startFloat();
-    return;
-  }
-  stopFloat();
-  gsap.to(cards, {
-    opacity: 0, y: 24, scale: .96, duration: .28, stagger: .03,
-    ease: "power2.in",
-    onComplete: () => {
-      state = catKey;
-      renderCatBar();
-      renderBento(catKey);
-      animateBentoIn();
-    }
-  });
-}
-
+/* ---------- pop the boxes out ---------- */
 function animateBentoIn() {
   const cards = bento.querySelectorAll(".card");
   const items = cards.length ? cards : bento.querySelectorAll(".bento-empty");
-  if (REDUCED) { gsap.set(items, { opacity: 1, y: 0, scale: 1 }); startFloat(); return; }
+  if (REDUCED || !HAS_GSAP) {
+    if (HAS_GSAP) gsap.set(items, { opacity: 1, scale: 1, y: 0 });
+    startFloat();
+    return;
+  }
   gsap.fromTo(items,
-    { opacity: 0, y: 46, scale: .94 },
+    { opacity: 0, scale: .55, y: 24 },
     {
-      opacity: 1, y: 0, scale: 1,
-      duration: .62, ease: "power3.out", stagger: 0.055,
+      opacity: 1, scale: 1, y: 0,
+      duration: .6, ease: "back.out(1.6)", stagger: 0.05,
       onComplete: startFloat
     }
   );
 }
 
-function goIndex() {
+/* ---------- open / switch / close categories ---------- */
+function toggleCategory(key) {
+  if (state === key) { goBlank(); return; }
+  const switching = state !== "index" && bento.children.length > 0;
+  if (switching && !REDUCED && HAS_GSAP) {
+    stopFloat();
+    gsap.to(bento.children, {
+      opacity: 0, scale: .7, duration: .2, stagger: .02, ease: "power2.in",
+      onComplete: () => {
+        state = key;
+        setActiveNav(key);
+        renderBento(key);
+        animateBentoIn();
+      }
+    });
+  } else {
+    state = key;
+    setActiveNav(key);
+    renderBento(key);
+    animateBentoIn();
+  }
+}
+
+function goBlank() {
   state = "index";
+  setActiveNav(null);
   stopFloat();
-  explore.classList.remove("is-open");
-  bento.hidden = true;
-  bento.innerHTML = "";
+  if (!REDUCED && HAS_GSAP && bento.children.length) {
+    gsap.to(bento.children, {
+      opacity: 0, scale: .7, y: 20, duration: .28, stagger: .02, ease: "power2.in",
+      onComplete: () => { bento.hidden = true; bento.innerHTML = ""; }
+    });
+  } else {
+    bento.hidden = true;
+    bento.innerHTML = "";
+  }
 }
 
 /* ---------- project overlay (GSAP Flip expand) ---------- */
@@ -706,7 +617,6 @@ function openProject(catKey, id, card) {
   const visual = card.querySelector(".card-visual");
   activeCard = card;
 
-  // keep the bento cell from collapsing while its visual is lifted out
   card.style.height = card.offsetHeight + "px";
 
   overlay.classList.add("is-open");
@@ -716,7 +626,8 @@ function openProject(catKey, id, card) {
 
   if (REDUCED || !window.Flip) {
     oHero.appendChild(visual);
-    gsap.set(overlay, { opacity: 1 });
+    if (HAS_GSAP) gsap.set(overlay, { opacity: 1 });
+    else overlay.style.opacity = 1;
     revealOverlayBody(true);
     return;
   }
@@ -735,7 +646,10 @@ function openProject(catKey, id, card) {
 
 function revealOverlayBody(instant) {
   const body = overlay.querySelectorAll(".overlay-body .wrap > *");
-  if (instant || REDUCED) { gsap.set(body, { opacity: 1, y: 0 }); return; }
+  if (instant || REDUCED || !HAS_GSAP) {
+    if (HAS_GSAP) gsap.set(body, { opacity: 1, y: 0 });
+    return;
+  }
   gsap.fromTo(body,
     { opacity: 0, y: 24 },
     { opacity: 1, y: 0, duration: .5, ease: "power2.out", stagger: .06, delay: .26 }
@@ -752,7 +666,8 @@ function closeProject() {
     overlay.classList.remove("is-open");
     overlay.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
-    gsap.set(overlay, { opacity: 0 });
+    if (HAS_GSAP) gsap.set(overlay, { opacity: 0 });
+    else overlay.style.opacity = 0;
     activeCard = null;
   };
 
@@ -778,20 +693,23 @@ function closeProject() {
 
 /* ---------- wiring ---------- */
 document.getElementById("overlayClose").addEventListener("click", closeProject);
-document.getElementById("navIndex").addEventListener("click", () => {
+document.getElementById("brandHome").addEventListener("click", e => {
+  e.preventDefault();
   if (overlay.classList.contains("is-open")) closeProject();
-  goIndex();
-  document.getElementById("work").scrollIntoView({ behavior: "smooth" });
+  goBlank();
 });
 document.addEventListener("keydown", e => {
-  if (e.key === "Escape" && overlay.classList.contains("is-open")) closeProject();
+  if (e.key !== "Escape") return;
+  if (overlay.classList.contains("is-open")) closeProject();
+  else if (state !== "index") goBlank();
 });
 
-renderCatList();
-if (!REDUCED) {
-  gsap.from(".cat-row", {
-    opacity: 0, y: 30, duration: .6, ease: "power3.out", stagger: .07, delay: .1
+renderCatNav();
+if (!REDUCED && HAS_GSAP) {
+  gsap.from(".cat-nav .cat-row", {
+    opacity: 0, x: 26, duration: .6, ease: "power3.out", stagger: .08, delay: .15
   });
+  gsap.from(".brand, .corner-links", { opacity: 0, duration: .8, delay: .1 });
 }
 </script>
 

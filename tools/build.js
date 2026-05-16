@@ -38,7 +38,7 @@ function projectCount(cat) {
   const total = cat.projects.length;
   if (total === 0) return "In preparation";
   const ready = cat.projects.filter(p => p.status === "ready").length;
-  return ready + " of " + total + " open";
+  return ready + " / " + total;
 }
 
 /* ---------- <head> meta ---------- */
@@ -110,28 +110,24 @@ function renderJsonLd() {
   return `<script type="application/ld+json">\n${jsonForScript(data)}\n</script>`;
 }
 
-/* ---------- nav ---------- */
-function renderNavLinks() {
-  return site.nav.links.map(link => {
-    if (link.type === "action") {
-      return `      <button type="button" id="${escAttr(link.id)}">${escHtml(link.label)}</button>`;
-    }
-    return `      <a href="${escAttr(link.href)}">${escHtml(link.label)}</a>`;
+/* ---------- right-side category nav (works without JavaScript) ---------- */
+function renderCatNav() {
+  return site.categories.map(cat => {
+    return [
+      `  <button type="button" class="cat-row" data-cat="${escAttr(cat.key)}">`,
+      `    <span class="cat-name">${escHtml(cat.label)}</span>`,
+      `    <span class="cat-count">${escHtml(projectCount(cat))}</span>`,
+      `  </button>`
+    ].join("\n");
   }).join("\n");
 }
 
-/* ---------- pre-rendered category list (works without JavaScript) ---------- */
-function renderCatList() {
-  return site.categories.map((cat, i) => {
-    const index = String(i + 1).padStart(2, "0");
-    return [
-      `        <button type="button" class="cat-row" data-cat="${escAttr(cat.key)}">`,
-      `          <span class="cat-index">${index}</span>`,
-      `          <span class="cat-name">${escHtml(cat.label)}</span>`,
-      `          <span class="cat-count">${escHtml(projectCount(cat))}</span>`,
-      `        </button>`
-    ].join("\n");
-  }).join("\n");
+/* ---------- corner links (standalone pages) ---------- */
+function renderCornerLinks() {
+  return site.nav.links
+    .filter(link => link.type === "page")
+    .map(link => `  <a href="${escAttr(link.href)}">${escHtml(link.label)}</a>`)
+    .join("\n");
 }
 
 /* ---------- llms.txt — plain-text summary for AI agents ---------- */
@@ -185,24 +181,14 @@ function renderRobots() {
 }
 
 /* ---------- assemble index.html ---------- */
-const introHeading =
-  `${escHtml(site.intro.headingLead)} <span class="soft">${escHtml(site.intro.headingSoft)}</span>`;
-
 const tokens = {
   "{{LANG}}": escAttr(site.site.locale),
   "{{TITLE}}": escHtml(site.seo.title),
   "{{META}}": renderMeta(),
   "{{JSONLD}}": renderJsonLd(),
   "{{BRAND}}": escHtml(site.nav.brand),
-  "{{NAV_LINKS}}": renderNavLinks(),
-  "{{INTRO_EYEBROW}}": escHtml(site.intro.eyebrow),
-  "{{INTRO_HEADING}}": introHeading,
-  "{{INTRO_LEDE}}": escHtml(site.intro.lede),
-  "{{CAT_LIST}}": renderCatList(),
-  "{{PRACTICE_LEAD}}": site.practice.lead,
-  "{{PRACTICE_DETAIL}}": site.practice.detail,
-  "{{FOOTER_LEFT}}": escHtml(site.footer.left),
-  "{{FOOTER_RIGHT}}": escHtml(site.footer.right),
+  "{{CORNER_LINKS}}": renderCornerLinks(),
+  "{{CAT_NAV}}": renderCatNav(),
   "{{SITE_DATA}}": jsonForScript(site)
 };
 
