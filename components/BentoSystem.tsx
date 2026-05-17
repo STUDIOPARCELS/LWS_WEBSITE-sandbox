@@ -17,11 +17,11 @@ import { OPEN_BENTO_EVENT, CLOSE_BENTO_EVENT } from "./SiteHeader";
 
 // Skyline widths: short · tall · TALLEST · tall · short. Aspect held at 100/124.
 const SLEEVE_W: Record<BentoCategory, string> = {
-  conceptual: "clamp(84px, 9.5vw, 114px)",
-  writing: "clamp(102px, 12vw, 140px)",
-  photographs: "clamp(124px, 15vw, 172px)",
-  installation: "clamp(102px, 12vw, 140px)",
-  apps: "clamp(84px, 9.5vw, 114px)",
+  conceptual: "clamp(70px, 8vw, 96px)",
+  writing: "clamp(86px, 10vw, 118px)",
+  photographs: "clamp(104px, 12.5vw, 146px)",
+  installation: "clamp(86px, 10vw, 118px)",
+  apps: "clamp(70px, 8vw, 96px)",
 };
 
 // ── The vellum sleeve: a notched pocket, shaded to read as a real object
@@ -155,7 +155,7 @@ function FanCard({
 
   // Semi-circular arc — cards splay along a wide dome across the desktop.
   const HALF_SPAN = 42; // degrees from centre to the outer card
-  const HALF_WIDTH = 38; // vw from centre to the outer card
+  const HALF_WIDTH = 32; // vw from centre to the outer card
   const rad = (d: number) => (d * Math.PI) / 180;
   const R = HALF_WIDTH / Math.sin(rad(HALF_SPAN)); // arc radius, in vw
   const theta = frac * HALF_SPAN;
@@ -284,7 +284,7 @@ export default function BentoSystem() {
   return (
     <div
       ref={rootRef}
-      className="relative flex min-h-[calc(100vh-var(--nav-h))] w-full flex-col items-center justify-end pb-20 pt-24"
+      className="relative flex min-h-[calc(100vh-var(--nav-h))] w-full flex-col items-center justify-end pb-10 pt-24"
     >
       {/* Fan — the project thumbnails held inside the open sleeve, splayed
           along a semi-circular arc across the open middle of the page. */}
@@ -294,7 +294,7 @@ export default function BentoSystem() {
           role="region"
           aria-label={`${openNode.label} works`}
           className="pointer-events-none absolute inset-x-0"
-          style={{ top: "var(--nav-h)", bottom: "280px" }}
+          style={{ top: "var(--nav-h)", bottom: "232px" }}
         >
           {openNode.children.map((child, i) => {
             const n = openNode.children.length;
