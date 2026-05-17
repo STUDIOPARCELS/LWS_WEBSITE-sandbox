@@ -138,13 +138,11 @@ function VellumSleeve({
 function FanCard({
   child,
   index,
-  total,
   fanned,
   onNavigate,
 }: {
   child: BentoChild;
   index: number;
-  total: number;
   fanned: boolean;
   onNavigate: () => void;
 }) {
@@ -153,29 +151,14 @@ function FanCard({
   const name = project?.title ?? child.label;
   const year = project?.years ?? "";
 
-  // Semi-circular arc — a fixed angular step per card, so the spread scales
-  // with the count: six cards span a wide dome, two sit close to centre.
-  const ANGLE_STEP = 17; // degrees between adjacent cards
-  const R = 47.4; // arc radius, in vw
-  const rad = (d: number) => (d * Math.PI) / 180;
-  const offset = total <= 1 ? 0 : index - (total - 1) / 2;
-  const maxOffset = total <= 1 ? 0 : (total - 1) / 2;
-  const theta = offset * ANGLE_STEP;
-  const x = R * Math.sin(rad(theta));
-  const dropMax = R * (1 - Math.cos(rad(maxOffset * ANGLE_STEP)));
-  const y = R * (1 - Math.cos(rad(theta))) - dropMax / 2; // centre the arc
-
-  const fannedT = `translate(calc(-50% + ${x.toFixed(2)}vw), calc(-50% + ${y.toFixed(2)}vw)) rotate(${theta.toFixed(2)}deg) scale(1)`;
-  const stackedT = "translate(-50%, calc(-50% + 240px)) rotate(0deg) scale(0.6)";
-
+  // No curvature — cards sit in a straight grid, rising in on open.
   const style: React.CSSProperties = {
-    transform: fanned ? fannedT : stackedT,
+    transform: fanned ? "translateY(0)" : "translateY(42px)",
     opacity: fanned ? 1 : 0,
     transitionDelay: `${index * 55}ms`,
-    zIndex: 10 + index,
   };
   const cls =
-    "fan-card pointer-events-auto absolute left-1/2 top-1/2 flex w-[clamp(96px,7.6vw,168px)] flex-col overflow-hidden rounded-[8px] shadow-[0_18px_34px_rgba(17,17,17,0.16)]";
+    "fan-card pointer-events-auto flex w-[clamp(94px,7vw,120px)] flex-col overflow-hidden rounded-[8px] shadow-[0_18px_34px_rgba(17,17,17,0.16)]";
 
   const inner = (
     <>
@@ -288,26 +271,34 @@ export default function BentoSystem() {
       ref={rootRef}
       className="relative flex min-h-[calc(100vh-var(--nav-h))] w-full flex-col items-center justify-end pb-10 pt-24"
     >
-      {/* Fan — the project thumbnails held inside the open sleeve, splayed
-          along a semi-circular arc across the open middle of the page. */}
+      {/* Fan — the project thumbnails held inside the open sleeve, set out
+          as a straight grid (a row for ≤3, three-up for more). */}
       {openNode && (
         <div
           id="bento-fan"
           role="region"
           aria-label={`${openNode.label} works`}
-          className="pointer-events-none absolute inset-x-0"
-          style={{ top: "var(--nav-h)", bottom: "324px" }}
+          className="pointer-events-none absolute inset-x-0 flex items-center justify-center px-8"
+          style={{ top: "0px", bottom: "300px" }}
         >
-          {openNode.children.map((child, i) => (
-            <FanCard
-              key={`${child.label}-${i}`}
-              child={child}
-              index={i}
-              total={openNode.children.length}
-              fanned={fanned}
-              onNavigate={close}
-            />
-          ))}
+          <div
+            className="grid justify-items-center gap-x-[clamp(22px,3vw,56px)] gap-y-[clamp(16px,2vw,30px)]"
+            style={{
+              gridTemplateColumns: `repeat(${
+                openNode.children.length <= 3 ? openNode.children.length : 3
+              }, minmax(0, 1fr))`,
+            }}
+          >
+            {openNode.children.map((child, i) => (
+              <FanCard
+                key={`${child.label}-${i}`}
+                child={child}
+                index={i}
+                fanned={fanned}
+                onNavigate={close}
+              />
+            ))}
+          </div>
         </div>
       )}
 
