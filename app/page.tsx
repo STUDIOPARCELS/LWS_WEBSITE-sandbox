@@ -4,7 +4,6 @@ import EditorialSection from "@/components/EditorialSection";
 import AboutContact from "@/components/AboutContact";
 import SiteFooter from "@/components/SiteFooter";
 import JsonLd from "@/components/JsonLd";
-import Reveal from "@/components/Reveal";
 import { practices } from "@/content/practices";
 import { practiceCollectionJsonLd } from "@/lib/jsonld";
 import { site } from "@/lib/site";
@@ -27,36 +26,22 @@ export default function HomePage() {
       <SiteHeader />
 
       <main id="top" className="pt-[var(--nav-h)]">
-        {/* HOME HERO */}
-        <section
-          aria-label="Introduction"
-          className="container-page pb-16 pt-20 sm:pt-28"
-        >
-          <Reveal>
-            <p className="kicker">Lisa Wood Studio</p>
-            <h1 className="headline-serif mt-6 text-[clamp(40px,8vw,86px)]">
-              Landscape at the
-              <br />
-              edge of <em>attention</em>
-            </h1>
-            <p className="mt-8 max-w-xl text-[16px] leading-relaxed text-muted">
-              A field-based practice across photography, writing, installation,
-              and conceptual work — made in remote terrain through exposure,
-              duration, and sustained attention. Two ways in: explore by feel,
-              or read by discipline.
-            </p>
-          </Reveal>
-        </section>
-
-        {/* BENTO SYSTEM — Path One */}
+        {/* HOME — the floating bento, centred in the viewport (Wireframe 01). */}
         <section
           aria-label="Browse the work"
-          className="container-page pb-24 sm:pb-32"
+          className="relative flex min-h-[calc(100vh-var(--nav-h))] items-center justify-center px-6 py-20"
         >
+          <h1 className="sr-only">
+            {site.name} — field-based photography, writing, installation, and
+            conceptual work by {site.artist}.
+          </h1>
           <BentoSystem />
+          <span className="pointer-events-none absolute bottom-8 right-7 font-mono text-[9px] uppercase tracking-wide text-muted sm:right-10 lg:right-16">
+            {site.location}
+          </span>
         </section>
 
-        {/* EDITORIAL SECTIONS — Path Two destinations */}
+        {/* EDITORIAL SECTIONS — the work, read by discipline. */}
         {practices.map((practice) => (
           <EditorialSection key={practice.anchor} practice={practice} />
         ))}
