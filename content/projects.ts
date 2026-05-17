@@ -66,6 +66,7 @@ function mediaProject(opts: {
   hero: GalleryImage;
   gallery: GalleryImage[];
   jsonLdType?: Project["jsonLdType"];
+  format?: string;
 }): Project {
   return {
     title: opts.title,
@@ -88,6 +89,7 @@ function mediaProject(opts: {
     seoDescription: opts.shortDescription,
     jsonLdType: opts.jsonLdType ?? "CreativeWork",
     status: "placeholder",
+    format: opts.format,
   };
 }
 
@@ -828,6 +830,7 @@ export const projects: Project[] = [
     jsonLdType: "Book",
     status: "complete",
     years: "2020",
+    format: "Book",
   },
   {
     title: "December, Sun Valley",
@@ -912,10 +915,12 @@ export const projects: Project[] = [
   placeholder("a-veiled-sanctuary", "A Veiled Sanctuary", "Writing", {
     bentoCategory: "writing",
     editorialCategory: "writing",
+    format: "Essay",
   }),
   placeholder("lost-vibrations-white-paper", "Lost Vibrations White Paper", "Writing", {
     bentoCategory: "writing",
     editorialCategory: "writing",
+    format: "White Paper",
   }),
   // Time of Becoming — children's book series; imagery live from the bucket.
   mediaProject({
@@ -926,6 +931,7 @@ export const projects: Project[] = [
     editorialCategory: "writing",
     shortDescription: "A children's book series by Lisa Wood Studio.",
     jsonLdType: "Book",
+    format: "Book Series",
     hero: {
       src: img("TIME OF BECOMINF Book Series/Pip.png"),
       alt: "Illustration of Pip from the Time of Becoming children's book series by Lisa Wood Studio.",
@@ -954,6 +960,7 @@ export const projects: Project[] = [
   placeholder("how-to-fall", "How to Fall", "Writing", {
     bentoCategory: "writing",
     editorialCategory: "writing",
+    format: "Essay",
   }),
   // Architect's call: the "ATTENTION" bucket folder (text + audio work).
   mediaProject({
@@ -963,6 +970,7 @@ export const projects: Project[] = [
     bentoCategory: "writing",
     editorialCategory: "writing",
     shortDescription: "A text and audio work by Lisa Wood Studio.",
+    format: "Text & Audio",
     hero: {
       src: img("ATTENTION/ATTENTION.jpg"),
       alt: "Cover image of Attention, a text and audio work by Lisa Wood Studio.",

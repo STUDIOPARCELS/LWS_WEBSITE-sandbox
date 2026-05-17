@@ -28,10 +28,7 @@ export default function HomePage() {
       <main id="top" className="pt-[var(--nav-h)]">
         {/* HOME — vellum sleeves rest low on the page; the centre stays open
             white until a sleeve is clicked and its thumbnails fan up. */}
-        <section
-          aria-label="Browse the work"
-          className="relative bg-[#f4f3f1]"
-        >
+        <section aria-label="Browse the work" className="relative bg-paper">
           <h1 className="sr-only">
             {site.name} — field-based photography, writing, installation, and
             conceptual work by {site.artist}.

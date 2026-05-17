@@ -72,6 +72,8 @@ export interface Project {
   /** Field-site block header support (§7). */
   years?: string;
   region?: string;
+  /** Display format for non-photograph projects, e.g. "Book", "White Paper". */
+  format?: string;
 }
 
 export interface BentoChild {

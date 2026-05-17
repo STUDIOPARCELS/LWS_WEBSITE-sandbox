@@ -84,6 +84,29 @@ html {
   }
 }
 
+/* Fanned project card — transform/opacity transition into the fan. */
+.fan-card {
+  transition:
+    transform 0.62s cubic-bezier(0.34, 1.05, 0.3, 1),
+    opacity 0.42s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .fan-card {
+    transition: none;
+  }
+}
+
+/* Liquid-glass label panel attached to the right of a fan card thumbnail. */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.42);
+  -webkit-backdrop-filter: blur(13px) saturate(1.5);
+  backdrop-filter: blur(13px) saturate(1.5);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 1px 0 0 rgba(255, 255, 255, 0.6),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+}
+
 /* Pop-out children resolving in (Reference Wireframe 02). */
 @keyframes bento-children-in {
   from {

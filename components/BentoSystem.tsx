@@ -9,24 +9,42 @@ import { OPEN_BENTO_EVENT, CLOSE_BENTO_EVENT } from "./SiteHeader";
 
 // Path One — vellum sleeve navigation.
 //
-// Five translucent vellum sleeves rest at the bottom of the homepage; most of
-// the page is open white above them. Clicking a sleeve fans its contents — the
-// project thumbnails held inside — out across the middle of the screen.
+// Five translucent vellum sleeves rest low on the homepage as quiet physical
+// objects; the centre stays open white. Sleeve sizes form a skyline with
+// Photographs largest at the centre. Clicking a sleeve fans its project
+// thumbnails up across the middle of the screen — each a thumbnail with a
+// liquid-glass label (name / year / location-or-format) attached to its right.
 
-// ── The vellum sleeve: a frosted pocket with a notched front panel. ──────────
+// Skyline widths: short · tall · TALLEST · tall · short. Aspect held at 100/124.
+const SLEEVE_W: Record<BentoCategory, string> = {
+  conceptual: "clamp(84px, 9.5vw, 114px)",
+  writing: "clamp(102px, 12vw, 140px)",
+  photographs: "clamp(124px, 15vw, 172px)",
+  installation: "clamp(102px, 12vw, 140px)",
+  apps: "clamp(84px, 9.5vw, 114px)",
+};
+
+// ── The vellum sleeve: a notched pocket, shaded to read as a real object
+//    sitting on a white page — layered contact + ambient shadow, soft form
+//    gradients, the front pocket lifting off the back panel. ────────────────
 function VellumSleeve({
+  id,
   label,
   count,
+  width,
   active,
   dimmed,
   onClick,
 }: {
+  id: string;
   label: string;
   count: number;
+  width: string;
   active: boolean;
   dimmed: boolean;
   onClick: () => void;
 }) {
+  const g = `vs-${id}`;
   return (
     <button
       type="button"
@@ -34,38 +52,78 @@ function VellumSleeve({
       aria-expanded={active}
       aria-controls="bento-fan"
       className={[
-        "bento-box group relative block w-[clamp(104px,13vw,150px)]",
-        "transition-[transform,opacity] duration-500 ease-out",
-        "hover:-translate-y-2",
+        "group relative block",
+        "transition-[transform,opacity] duration-500 ease-out hover:-translate-y-2",
         active ? "-translate-y-2" : "",
-        dimmed ? "opacity-25" : "opacity-100",
+        dimmed ? "opacity-30" : "opacity-100",
       ].join(" ")}
-      style={{ aspectRatio: "100 / 124" }}
+      style={{ width, aspectRatio: "100 / 124" }}
     >
       <svg
         viewBox="0 0 100 124"
         className="h-full w-full"
-        style={{ filter: "drop-shadow(0 14px 22px rgba(17,17,17,0.10))" }}
+        style={{
+          overflow: "visible",
+          // Layered contact + ambient shadow — a grounded physical object.
+          filter:
+            "drop-shadow(0 1px 1.5px rgba(17,17,17,0.13)) drop-shadow(0 5px 8px rgba(17,17,17,0.10)) drop-shadow(0 15px 22px rgba(17,17,17,0.10)) drop-shadow(0 30px 44px rgba(17,17,17,0.07))",
+        }}
       >
-        {/* Back panel — translucent vellum. */}
+        <defs>
+          <linearGradient id={`${g}-back`} x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor="#ffffff" />
+            <stop offset="1" stopColor="#ededeb" />
+          </linearGradient>
+          <linearGradient id={`${g}-pocket`} x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor="#e7e7e4" />
+            <stop offset="0.17" stopColor="#f6f6f4" />
+            <stop offset="1" stopColor="#e6e6e3" />
+          </linearGradient>
+          <filter
+            id={`${g}-pocketShadow`}
+            x="-50%"
+            y="-50%"
+            width="200%"
+            height="200%"
+          >
+            <feDropShadow
+              dx="0"
+              dy="1.8"
+              stdDeviation="2.4"
+              floodColor="#111111"
+              floodOpacity="0.16"
+            />
+          </filter>
+        </defs>
+        {/* Back panel — soft top-lit form. */}
         <rect
           x="3"
           y="3"
           width="94"
           height="118"
           rx="13"
-          fill="rgba(255,255,255,0.72)"
-          stroke="rgba(17,17,17,0.07)"
+          fill={`url(#${g}-back)`}
+          stroke="rgba(17,17,17,0.05)"
+          strokeWidth="0.8"
         />
-        {/* Front pocket panel — notched top edge. */}
+        {/* Front pocket — lifts off the back panel, dark at the notched mouth. */}
         <path
           d="M5 64 L39 64 Q50 85 61 64 L95 64 L95 107 Q95 121 81 121 L19 121 Q5 121 5 107 Z"
-          fill="rgba(255,255,255,0.95)"
-          stroke="rgba(17,17,17,0.08)"
+          fill={`url(#${g}-pocket)`}
+          stroke="rgba(17,17,17,0.06)"
+          strokeWidth="0.8"
+          filter={`url(#${g}-pocketShadow)`}
+        />
+        {/* Lip highlight — the pocket rim catching light. */}
+        <path
+          d="M5 64 L39 64 Q50 85 61 64 L95 64"
+          fill="none"
+          stroke="rgba(255,255,255,0.95)"
+          strokeWidth="1"
+          strokeLinecap="round"
         />
       </svg>
-      {/* Category label, set into the open upper part of the sleeve. */}
-      <span className="pointer-events-none absolute inset-x-0 top-[24%] flex flex-col items-center">
+      <span className="pointer-events-none absolute inset-x-0 top-[23%] flex flex-col items-center">
         <span className="text-center font-mono text-[9px] uppercase tracking-[0.12em] text-ink">
           {label}
         </span>
@@ -75,64 +133,78 @@ function VellumSleeve({
   );
 }
 
-// ── A single fanned-out project thumbnail. ──────────────────────────────────
+// ── A fanned project card: thumbnail + liquid-glass label panel. ─────────────
 function FanCard({
   child,
+  frac,
   index,
-  total,
   fanned,
   onNavigate,
 }: {
   child: BentoChild;
+  frac: number;
   index: number;
-  total: number;
   fanned: boolean;
   onNavigate: () => void;
 }) {
   const project = child.slug ? getProject(child.slug) : undefined;
   const hero = project?.heroImage;
+  const name = project?.title ?? child.label;
+  const year = project?.years ?? "";
+  const isPhoto = project?.practice === "Photographs";
+  const third = child.external
+    ? "App"
+    : isPhoto
+      ? (project?.region ?? "Photographs")
+      : (project?.format ?? project?.practice ?? "");
 
-  const off = index - (total - 1) / 2;
-  const stepX = "clamp(78px, 11vw, 158px)";
-  const ty = Math.abs(off) * 20 - 8;
-  const rot = off * 7;
+  // Evenly spread across a fixed span so the fan reads centred with air.
+  const span = "clamp(360px, 60vw, 900px)";
+  const ty = Math.abs(frac) * 42 - 14;
+  const rot = frac * 9;
+  const fannedT = `translate(calc(-50% + (${frac}) * (${span} / 2)), calc(-50% + ${ty}px)) rotate(${rot}deg) scale(1)`;
+  const stackedT = "translate(-50%, calc(-50% + 230px)) rotate(0deg) scale(0.55)";
 
-  const fannedT = `translate(calc(-50% + (${off}) * ${stepX}), calc(-50% + ${ty}px)) rotate(${rot}deg) scale(1)`;
-  const stackedT = "translate(-50%, calc(-50% + 240px)) rotate(0deg) scale(0.5)";
-
-  const inner = (
-    <>
-      <span className="block aspect-square w-full overflow-hidden rounded-[6px] bg-line/35">
-        {hero ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={hero.src}
-            alt={hero.alt}
-            loading="lazy"
-            decoding="async"
-            className="h-full w-full object-cover"
-          />
-        ) : null}
-      </span>
-      <span className="mt-2 block text-center font-mono text-[9px] uppercase tracking-[0.1em] text-ink">
-        {child.label}
-      </span>
-      {child.external && (
-        <span className="mt-0.5 block text-center font-mono text-[8px] uppercase tracking-wide text-soft">
-          New tab ↗
-        </span>
-      )}
-    </>
-  );
-
-  const cls =
-    "fan-card absolute left-1/2 top-1/2 block w-[clamp(118px,14vw,168px)] rounded-[9px] border border-line/70 bg-paper p-2.5 shadow-[0_18px_34px_rgba(17,17,17,0.13)]";
   const style: React.CSSProperties = {
     transform: fanned ? fannedT : stackedT,
     opacity: fanned ? 1 : 0,
     transitionDelay: `${index * 55}ms`,
     zIndex: 10 + index,
   };
+  const cls =
+    "fan-card pointer-events-auto absolute left-1/2 top-1/2 flex h-[clamp(116px,14.5vw,140px)] w-[clamp(196px,24vw,238px)] overflow-hidden rounded-[10px] shadow-[0_22px_40px_rgba(17,17,17,0.17)]";
+
+  const inner = (
+    <>
+      <span className="relative block w-[44%] shrink-0 bg-line/35">
+        {hero && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={hero.src}
+            alt={hero.alt}
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        )}
+      </span>
+      <span className="liquid-glass flex w-[56%] flex-col justify-center gap-1 px-3">
+        <span className="line-clamp-2 font-serif text-[13px] font-light leading-tight text-ink">
+          {name}
+        </span>
+        {year && (
+          <span className="font-mono text-[8.5px] uppercase tracking-[0.1em] text-muted">
+            {year}
+          </span>
+        )}
+        {third && (
+          <span className="font-mono text-[8.5px] uppercase tracking-[0.1em] text-muted">
+            {third}
+          </span>
+        )}
+      </span>
+    </>
+  );
 
   return child.external ? (
     <a
@@ -169,7 +241,6 @@ export default function BentoSystem() {
     );
   }, []);
 
-  // Open from the top-right nav.
   useEffect(() => {
     function onOpen(e: Event) {
       const id = (e as CustomEvent<string>).detail as BentoCategory;
@@ -189,7 +260,6 @@ export default function BentoSystem() {
     };
   }, [open, close]);
 
-  // Close on Escape or a click outside.
   useEffect(() => {
     if (!openId) return;
     function onKey(e: KeyboardEvent) {
@@ -215,8 +285,7 @@ export default function BentoSystem() {
       ref={rootRef}
       className="relative flex min-h-[calc(100vh-var(--nav-h))] w-full flex-col items-center justify-end pb-20 pt-24"
     >
-      {/* Fan — the project thumbnails held inside the open sleeve, spread
-          across the middle of the screen. */}
+      {/* Fan — the project thumbnails held inside the open sleeve. */}
       {openNode && (
         <div
           id="bento-fan"
@@ -224,21 +293,24 @@ export default function BentoSystem() {
           aria-label={`${openNode.label} works`}
           className="pointer-events-none absolute inset-0"
         >
-          {openNode.children.map((child, i) => (
-            <span key={`${child.label}-${i}`} className="pointer-events-auto">
+          {openNode.children.map((child, i) => {
+            const n = openNode.children.length;
+            const frac = n <= 1 ? 0 : (i - (n - 1) / 2) / ((n - 1) / 2);
+            return (
               <FanCard
+                key={`${child.label}-${i}`}
                 child={child}
+                frac={frac}
                 index={i}
-                total={openNode.children.length}
                 fanned={fanned}
                 onNavigate={close}
               />
-            </span>
-          ))}
+            );
+          })}
         </div>
       )}
 
-      {/* The vellum sleeves, resting along the bottom. */}
+      {/* The vellum sleeves, resting along the bottom as a skyline. */}
       <div className="flex items-end justify-center gap-3 sm:gap-5">
         {bentoNav.map((node, i) => (
           <div
@@ -248,8 +320,10 @@ export default function BentoSystem() {
             style={{ animationDelay: `${i * 90}ms`, scrollMarginTop: "var(--nav-h)" }}
           >
             <VellumSleeve
+              id={node.id}
               label={node.label}
               count={node.count}
+              width={SLEEVE_W[node.id]}
               active={openId === node.id}
               dimmed={openId !== null && openId !== node.id}
               onClick={() => (openId === node.id ? close() : open(node.id))}

@@ -29,7 +29,7 @@ export default function SiteHeader() {
       <div className="container-page flex h-[var(--nav-h)] items-center justify-between gap-6">
         <Link
           href="/"
-          className="font-serif text-[22px] font-light tracking-[0.02em] text-ink"
+          className="font-serif text-[17px] font-light uppercase tracking-[0.18em] text-ink"
         >
           {site.name}
         </Link>
