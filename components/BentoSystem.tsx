@@ -162,7 +162,7 @@ function FanCard({
   const cls = [
     "fan-card pointer-events-auto flex flex-col overflow-hidden rounded-[8px]",
     "shadow-[0_18px_34px_rgba(17,17,17,0.16)]",
-    large ? "w-[clamp(118px,8.75vw,150px)]" : "w-[clamp(94px,7vw,120px)]",
+    large ? "w-[clamp(118px,8.75vw,150px)]" : "w-[clamp(98px,7.4vw,134px)]",
   ].join(" ");
 
   const inner = (
@@ -286,8 +286,8 @@ export default function BentoSystem() {
           style={{ top: "0px", bottom: "300px" }}
         >
           <div
-            className="grid justify-items-center gap-x-[clamp(22px,3vw,56px)] gap-y-[clamp(16px,2vw,30px)]"
-            style={{ gridTemplateColumns: "repeat(3, minmax(0, 1fr))" }}
+            className="grid justify-items-center gap-x-[clamp(28px,4vw,80px)] gap-y-[clamp(16px,2vw,30px)]"
+            style={{ gridTemplateColumns: "repeat(6, minmax(0, 1fr))" }}
           >
             {openNode.children.map((child, i) => (
               <FanCard
@@ -317,7 +317,7 @@ export default function BentoSystem() {
               <div
                 role="region"
                 aria-label={`${node.label} works`}
-                className="absolute bottom-[calc(100%+20px)] left-0 z-20 flex items-end gap-[clamp(14px,1.4vw,24px)]"
+                className="absolute bottom-[calc(100%+20px)] left-0 z-20 flex items-end gap-[clamp(42px,4.2vw,72px)]"
               >
                 {node.children.map((child, ci) => (
                   <FanCard
