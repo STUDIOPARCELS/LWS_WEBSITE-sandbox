@@ -141,14 +141,12 @@ function FanCard({
   fanned,
   onNavigate,
   onDrill,
-  large = false,
 }: {
   child: BentoChild;
   index: number;
   fanned: boolean;
   onNavigate: () => void;
   onDrill: (slug: string) => void;
-  large?: boolean;
 }) {
   const project = child.slug ? getProject(child.slug) : undefined;
   const hero = project?.heroImage;
@@ -163,19 +161,14 @@ function FanCard({
     opacity: fanned ? 1 : 0,
     transitionDelay: `${index * 55}ms`,
   };
-  const cls = [
-    "fan-card pointer-events-auto flex flex-col overflow-hidden rounded-[8px]",
-    "shadow-[0_18px_34px_rgba(17,17,17,0.16)]",
-    large ? "w-[clamp(118px,8.75vw,150px)]" : "w-[clamp(98px,7.4vw,134px)]",
-  ].join(" ");
+  // Large, uniform, perfectly square tiles.
+  const cls =
+    "fan-card pointer-events-auto relative block aspect-square w-[clamp(158px,13.5vw,242px)] overflow-hidden rounded-[10px] shadow-[0_20px_38px_rgba(17,17,17,0.17)]";
 
   const inner = (
     <>
-      {/* Portrait thumbnail — the dominant element. */}
-      <span
-        className="block w-full shrink-0 bg-line/30"
-        style={{ aspectRatio: "3 / 4" }}
-      >
+      {/* Square image fills the whole tile. */}
+      <span className="absolute inset-0 bg-line/30">
         {hero && (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -183,13 +176,13 @@ function FanCard({
             alt={hero.alt}
             loading="lazy"
             decoding="async"
-            className="h-full w-full object-cover"
+            className="absolute inset-0 h-full w-full object-cover"
           />
         )}
       </span>
-      {/* Liquid-glass label — set below the tile. */}
-      <span className="liquid-glass flex flex-col gap-1 px-2.5 py-2.5">
-        <span className="line-clamp-2 break-words font-sans text-[9px] font-medium uppercase leading-[1.3] tracking-[0.04em] text-ink">
+      {/* Liquid-glass label — overlaid along the bottom of the square tile. */}
+      <span className="liquid-glass absolute inset-x-0 bottom-0 flex flex-col gap-0.5 px-3 py-2.5">
+        <span className="line-clamp-2 break-words font-sans text-[10px] font-medium uppercase leading-[1.3] tracking-[0.04em] text-ink">
           {name}
         </span>
         {hasChildren ? (
@@ -337,9 +330,9 @@ export default function BentoSystem() {
           className="pointer-events-none absolute inset-x-0 flex items-center justify-center px-8"
           style={{ top: "0px", bottom: "300px" }}
         >
-          <div className="flex flex-col items-center gap-[clamp(30px,3.4vw,56px)]">
+          <div className="flex flex-col items-center gap-[clamp(18px,2.2vw,38px)]">
             <div
-              className="grid justify-items-center gap-x-[clamp(28px,4vw,80px)] gap-y-[clamp(16px,2vw,30px)]"
+              className="grid justify-items-center gap-x-[clamp(14px,1.8vw,34px)] gap-y-[clamp(16px,2vw,30px)]"
               style={{ gridTemplateColumns: "repeat(6, minmax(0, 1fr))" }}
             >
               {fanItems.map((child, i) => (
@@ -361,7 +354,7 @@ export default function BentoSystem() {
                   id={`drill-${drillProject.slug}`}
                   label={drillProject.title}
                   count={drillProject.children?.length ?? 0}
-                  width="clamp(120px,10vw,160px)"
+                  width="clamp(108px,8.5vw,140px)"
                   active
                   dimmed={false}
                   onClick={() => openId && open(openId)}
@@ -397,7 +390,6 @@ export default function BentoSystem() {
                     fanned={fanned}
                     onNavigate={close}
                     onDrill={drill}
-                    large
                   />
                 ))}
               </div>
