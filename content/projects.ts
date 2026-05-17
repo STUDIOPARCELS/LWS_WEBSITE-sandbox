@@ -1,4 +1,10 @@
-import type { Project, ContentStatus } from "./types";
+import type {
+  Project,
+  ContentStatus,
+  BentoCategory,
+  EditorialCategory,
+  GalleryImage,
+} from "./types";
 import { bucketUrl } from "@/lib/supabase";
 
 // content/projects.ts — Master Build Prompt §9, build step 1.
@@ -44,6 +50,44 @@ function placeholder(
     jsonLdType: "CreativeWork",
     status: "placeholder" as ContentStatus,
     ...opts,
+  };
+}
+
+// A project whose imagery is live from the bucket but whose final copy is
+// still TODO(Lisa). Category placement marked here is an architect's call
+// pending Lisa's confirmation.
+function mediaProject(opts: {
+  slug: string;
+  title: string;
+  practice: string;
+  bentoCategory: BentoCategory;
+  editorialCategory?: EditorialCategory;
+  shortDescription: string;
+  hero: GalleryImage;
+  gallery: GalleryImage[];
+  jsonLdType?: Project["jsonLdType"];
+}): Project {
+  return {
+    title: opts.title,
+    slug: opts.slug,
+    practice: opts.practice,
+    bentoCategory: opts.bentoCategory,
+    editorialCategory: opts.editorialCategory ?? null,
+    parent: null,
+    children: null,
+    dualHomed: false,
+    shortDescription: opts.shortDescription,
+    longDescription: `TODO(Lisa): full description for ${opts.title}. Imagery is wired from the studio media library.`,
+    fieldNotes: null,
+    heroImage: opts.hero,
+    galleryImages: opts.gallery,
+    details: [],
+    relatedProjects: [],
+    external: null,
+    seoTitle: `${opts.title} — Lisa Wood Studio`,
+    seoDescription: opts.shortDescription,
+    jsonLdType: opts.jsonLdType ?? "CreativeWork",
+    status: "placeholder",
   };
 }
 
@@ -667,10 +711,35 @@ export const projects: Project[] = [
     jsonLdType: "VisualArtwork",
     status: "placeholder",
   },
-  // TODO(Lisa) §9.1 — 6th Photographs series title is not yet supplied.
-  placeholder("photographs-series-six", "Photographs Series (Untitled)", "Photographs", {
+  // 6th Photographs series. Architect's call: the "OBSERVATORY COMMISSION
+  // Photographs" bucket folder (Craters + Winterblue architectural prints).
+  mediaProject({
+    slug: "observatory-commission",
+    title: "Observatory Commission",
+    practice: "Photographs",
     bentoCategory: "photographs",
     editorialCategory: "photographs",
+    shortDescription:
+      "A site-specific photographic commission drawn from the Craters and Winterblue bodies of work.",
+    jsonLdType: "Collection",
+    hero: {
+      src: img("OBSERVATORY COMMISSION Photographs/Winterblue I_PREFUNCTION WALL.jpg"),
+      alt: "Winterblue I installed as an architectural print for the Observatory Commission by Lisa Wood Studio.",
+    },
+    gallery: [
+      {
+        src: img("OBSERVATORY COMMISSION Photographs/CRATERS_L1001569_EAST BAR.jpg"),
+        alt: "Craters photograph installed for the Observatory Commission by Lisa Wood Studio.",
+      },
+      {
+        src: img("OBSERVATORY COMMISSION Photographs/CRATERS_L1001955_EAST HALL.jpg"),
+        alt: "Craters photograph installed for the Observatory Commission by Lisa Wood Studio.",
+      },
+      {
+        src: img("OBSERVATORY COMMISSION Photographs/CRATERS_L1002418 _GM WALL.jpg"),
+        alt: "Craters photograph installed for the Observatory Commission by Lisa Wood Studio.",
+      },
+    ],
   }),
 
   // ──────────────────────────────────────────────────────────────────────
@@ -848,33 +917,134 @@ export const projects: Project[] = [
     bentoCategory: "writing",
     editorialCategory: "writing",
   }),
-  placeholder("time-of-becoming", "Time of Becoming", "Writing", {
+  // Time of Becoming — children's book series; imagery live from the bucket.
+  mediaProject({
+    slug: "time-of-becoming",
+    title: "Time of Becoming",
+    practice: "Writing",
     bentoCategory: "writing",
     editorialCategory: "writing",
+    shortDescription: "A children's book series by Lisa Wood Studio.",
+    jsonLdType: "Book",
+    hero: {
+      src: img("TIME OF BECOMINF Book Series/Pip.png"),
+      alt: "Illustration of Pip from the Time of Becoming children's book series by Lisa Wood Studio.",
+    },
+    gallery: [
+      {
+        src: img(
+          "TIME OF BECOMINF Book Series/lisawoodstudio_A_whimsical_childrens_storybook_illustration_i_4251d35e-0277-41be-b222-952a96ab9464_1.png",
+        ),
+        alt: "Storybook illustration from the Time of Becoming book series by Lisa Wood Studio.",
+      },
+      {
+        src: img(
+          "TIME OF BECOMINF Book Series/lisawoodstudio_Childrens_storybook_illustration_in_Crayola_cr_31996439-74a1-4652-95fb-7a231ebddcb9_3.png",
+        ),
+        alt: "Crayon-style storybook illustration from the Time of Becoming book series by Lisa Wood Studio.",
+      },
+      {
+        src: img(
+          "TIME OF BECOMINF Book Series/lisawoodstudio_Childrens_storybook_illustration_in_Crayola_cr_745abbc8-6eeb-4063-a0c8-36920cac15c6_1.png",
+        ),
+        alt: "Crayon-style storybook illustration from the Time of Becoming book series by Lisa Wood Studio.",
+      },
+    ],
   }),
   placeholder("how-to-fall", "How to Fall", "Writing", {
     bentoCategory: "writing",
     editorialCategory: "writing",
   }),
-  placeholder("writing-six", "Writing (Untitled)", "Writing", {
+  // Architect's call: the "ATTENTION" bucket folder (text + audio work).
+  mediaProject({
+    slug: "attention",
+    title: "Attention",
+    practice: "Writing",
     bentoCategory: "writing",
     editorialCategory: "writing",
+    shortDescription: "A text and audio work by Lisa Wood Studio.",
+    hero: {
+      src: img("ATTENTION/ATTENTION.jpg"),
+      alt: "Cover image of Attention, a text and audio work by Lisa Wood Studio.",
+    },
+    gallery: [
+      {
+        src: img("ATTENTION/ATT BACK  copy.jpg"),
+        alt: "Back cover of Attention by Lisa Wood Studio.",
+      },
+      {
+        src: img("ATTENTION/front again copy (1).jpg"),
+        alt: "Work from Attention by Lisa Wood Studio.",
+      },
+      {
+        src: img("ATTENTION/angle blurry copy.jpg"),
+        alt: "Work from Attention by Lisa Wood Studio.",
+      },
+    ],
   }),
 
   // ──────────────────────────────────────────────────────────────────────
   // Installation — TODO(Lisa) §9.2.
   // ──────────────────────────────────────────────────────────────────────
-  placeholder("installation-two", "Installation (Untitled)", "Installation", {
+  // Architect's call: the "MIND THE GAP" bucket folder (animated work).
+  mediaProject({
+    slug: "mind-the-gap",
+    title: "Mind the Gap",
+    practice: "Installation",
     bentoCategory: "installation",
     editorialCategory: "installation",
+    shortDescription: "An animated installation work by Lisa Wood Studio.",
+    hero: {
+      src: img("MIND THE GAP/mind.jpg"),
+      alt: "Still from Mind the Gap, an installation work by Lisa Wood Studio.",
+    },
+    gallery: [
+      {
+        src: img("MIND THE GAP/MTG FRONT copy.jpg"),
+        alt: "Still from Mind the Gap by Lisa Wood Studio.",
+      },
+      {
+        src: img("MIND THE GAP/f copy.jpg"),
+        alt: "Still from Mind the Gap by Lisa Wood Studio.",
+      },
+      {
+        src: img("MIND THE GAP/ani 1.jpg"),
+        alt: "Animation still from Mind the Gap by Lisa Wood Studio.",
+      },
+    ],
   }),
-  placeholder("installation-three", "Installation (Untitled)", "Installation", {
+  // Architect's call: the "SIDE EFFECTS" bucket folder.
+  mediaProject({
+    slug: "side-effects",
+    title: "Side Effects",
+    practice: "Installation",
     bentoCategory: "installation",
     editorialCategory: "installation",
+    shortDescription: "A layered visual work by Lisa Wood Studio.",
+    hero: {
+      src: img("SIDE EFFECTS/SIDE EFFECTS 1 2 BLENDER FINAL ARTWORK.png"),
+      alt: "Side Effects, a layered visual work by Lisa Wood Studio.",
+    },
+    gallery: [
+      { src: img("SIDE EFFECTS/1.jpg"), alt: "Work from Side Effects by Lisa Wood Studio." },
+      { src: img("SIDE EFFECTS/2.jpg"), alt: "Work from Side Effects by Lisa Wood Studio." },
+      { src: img("SIDE EFFECTS/3.jpg"), alt: "Work from Side Effects by Lisa Wood Studio." },
+      { src: img("SIDE EFFECTS/4.jpg"), alt: "Work from Side Effects by Lisa Wood Studio." },
+    ],
   }),
-  placeholder("installation-four", "Installation (Untitled)", "Installation", {
+  // Architect's call: the "ECS" bucket folder (animated work).
+  mediaProject({
+    slug: "ecs",
+    title: "ECS",
+    practice: "Installation",
     bentoCategory: "installation",
     editorialCategory: "installation",
+    shortDescription: "An animated work by Lisa Wood Studio.",
+    hero: {
+      src: img("ECS/ecs 3 copy 2.jpg"),
+      alt: "Still from ECS, an animated work by Lisa Wood Studio.",
+    },
+    gallery: [],
   }),
   placeholder("installation-five", "Installation (Untitled)", "Installation", {
     bentoCategory: "installation",
@@ -886,10 +1056,34 @@ export const projects: Project[] = [
   }),
 
   // ──────────────────────────────────────────────────────────────────────
-  // Conceptual — TODO(Lisa) §9.2 (LUX is the other Conceptual bento child).
+  // Conceptual — LUX (above) + 21st Century.
   // ──────────────────────────────────────────────────────────────────────
-  placeholder("conceptual-two", "Conceptual (Untitled)", "Conceptual", {
+  // Architect's call: the "21st Century" bucket folder (black-square /
+  // white conceptual work).
+  mediaProject({
+    slug: "21st-century",
+    title: "21st Century",
+    practice: "Conceptual",
     bentoCategory: "conceptual",
+    shortDescription: "A conceptual work by Lisa Wood Studio.",
+    hero: {
+      src: img("21st Century/21st Black Square copy.jpg"),
+      alt: "21st Century, a conceptual work by Lisa Wood Studio.",
+    },
+    gallery: [
+      {
+        src: img("21st Century/21st White.jpg"),
+        alt: "Work from 21st Century by Lisa Wood Studio.",
+      },
+      {
+        src: img("21st Century/21 N .jpg"),
+        alt: "Work from 21st Century by Lisa Wood Studio.",
+      },
+      {
+        src: img("21st Century/21-bl copy 2.jpg"),
+        alt: "Work from 21st Century by Lisa Wood Studio.",
+      },
+    ],
   }),
 
   // ──────────────────────────────────────────────────────────────────────

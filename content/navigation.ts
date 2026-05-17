@@ -20,7 +20,7 @@ export const bentoNav: BentoNode[] = [
     caption: "Ideas staged as public propositions.",
     children: [
       { label: "LUX", slug: "lux" },
-      { label: "Conceptual (Untitled)", slug: "conceptual-two" },
+      { label: "21st Century", slug: "21st-century" },
     ],
   },
   {
@@ -35,7 +35,7 @@ export const bentoNav: BentoNode[] = [
       { label: "Lost Vibrations White Paper", slug: "lost-vibrations-white-paper" },
       { label: "Time of Becoming", slug: "time-of-becoming" },
       { label: "How to Fall", slug: "how-to-fall" },
-      { label: "Writing (Untitled)", slug: "writing-six" },
+      { label: "Attention", slug: "attention" },
     ],
   },
   {
@@ -50,7 +50,7 @@ export const bentoNav: BentoNode[] = [
       { label: "Totems & Sentinels", slug: "totems-and-sentinels" },
       { label: "Flipped", slug: "flipped" },
       { label: "Omani Landscapes", slug: "omani-landscapes" },
-      { label: "Photographs Series (Untitled)", slug: "photographs-series-six" },
+      { label: "Observatory Commission", slug: "observatory-commission" },
     ],
   },
   {
@@ -61,9 +61,9 @@ export const bentoNav: BentoNode[] = [
     caption: "Works staged in space and time.",
     children: [
       { label: "December, Sun Valley", slug: "luxuriate-installation" },
-      { label: "Installation (Untitled)", slug: "installation-two" },
-      { label: "Installation (Untitled)", slug: "installation-three" },
-      { label: "Installation (Untitled)", slug: "installation-four" },
+      { label: "Mind the Gap", slug: "mind-the-gap" },
+      { label: "Side Effects", slug: "side-effects" },
+      { label: "ECS", slug: "ecs" },
       { label: "Installation (Untitled)", slug: "installation-five" },
       { label: "Installation (Untitled)", slug: "installation-six" },
     ],
