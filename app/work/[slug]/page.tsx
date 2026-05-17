@@ -32,13 +32,22 @@ function editorialLabel(project: Project): { name: string; path: string } | null
 
 function buildTrail(project: Project): Crumb[] {
   const trail: Crumb[] = [{ name: "Studio", path: "/" }];
+  const parent = project.parent ? getProject(project.parent) : null;
   const editorial = editorialLabel(project);
-  if (editorial && editorial.path !== `/#${project.slug}`) {
+  // Skip the editorial-section crumb when it names the same body of work as
+  // the parent project (a field site whose editorial category *is* its
+  // parent) — the parent crumb routes to the real page, so keep only that.
+  const editorialDupesParent =
+    parent != null && project.editorialCategory === parent.slug;
+  if (
+    editorial &&
+    editorial.path !== `/#${project.slug}` &&
+    !editorialDupesParent
+  ) {
     trail.push(editorial);
   }
-  if (project.parent) {
-    const parent = getProject(project.parent);
-    if (parent) trail.push({ name: parent.title, path: `/work/${parent.slug}` });
+  if (parent) {
+    trail.push({ name: parent.title, path: `/work/${parent.slug}` });
   }
   trail.push({ name: project.title, path: `/work/${project.slug}` });
   return trail;
