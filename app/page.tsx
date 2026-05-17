@@ -26,10 +26,11 @@ export default function HomePage() {
       <SiteHeader />
 
       <main id="top" className="pt-[var(--nav-h)]">
-        {/* HOME — the floating bento, centred in the viewport (Wireframe 01). */}
+        {/* HOME — the floating bento, anchored low so the pop-out children
+            have room to resolve above it (Wireframe 01 + 02). */}
         <section
           aria-label="Browse the work"
-          className="relative flex min-h-[calc(100vh-var(--nav-h))] items-center justify-center px-6 py-20"
+          className="relative flex min-h-[calc(100vh-var(--nav-h))] items-end justify-center px-6 pb-16 pt-20"
         >
           <h1 className="sr-only">
             {site.name} — field-based photography, writing, installation, and

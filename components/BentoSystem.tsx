@@ -71,8 +71,9 @@ export default function BentoSystem() {
   const openNode = bentoNav.find((b) => b.id === openId) ?? null;
 
   return (
-    <div ref={rootRef} className="flex w-full flex-col items-center">
-      {/* Skyline — five hairline boxes floating in white, bottom-aligned. */}
+    <div ref={rootRef} className="flex w-full flex-col-reverse items-center">
+      {/* flex-col-reverse: the skyline stays anchored at the bottom while the
+          pop-out children resolve in the open space above it (Wireframe 02). */}
       <div className="flex items-end justify-center gap-4 sm:gap-7">
         {bentoNav.map((node, i) => {
           const dimmed = openId !== null && openId !== node.id;
@@ -117,7 +118,7 @@ export default function BentoSystem() {
           id="bento-children"
           role="region"
           aria-label={`${openNode.label} works`}
-          className="bento-children mt-12 flex w-full max-w-3xl flex-wrap items-start justify-center gap-5"
+          className="bento-children mb-12 flex w-full max-w-3xl flex-wrap items-end justify-center gap-5"
         >
           {openNode.children.map((child, i) => {
             const project = child.slug ? getProject(child.slug) : undefined;
