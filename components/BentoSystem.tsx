@@ -133,15 +133,17 @@ function VellumSleeve({
   );
 }
 
-// ── A fanned project card: a portrait thumbnail with a liquid-glass label
-//    panel attached to its right (name / year / location-or-format). ─────────
+// ── A fanned project card: a portrait thumbnail with a compact liquid-glass
+//    label, placed along a semi-circular arc. ──────────────────────────────
 function FanCard({
   child,
+  frac,
   index,
   fanned,
   onNavigate,
 }: {
   child: BentoChild;
+  frac: number;
   index: number;
   fanned: boolean;
   onNavigate: () => void;
@@ -150,26 +152,34 @@ function FanCard({
   const hero = project?.heroImage;
   const name = project?.title ?? child.label;
   const year = project?.years ?? "";
-  const isPhoto = project?.practice === "Photographs";
-  const third = child.external
-    ? "App"
-    : isPhoto
-      ? (project?.region ?? "Photographs")
-      : (project?.format ?? project?.practice ?? "");
+
+  // Semi-circular arc — cards splay along a wide dome across the desktop.
+  const HALF_SPAN = 42; // degrees from centre to the outer card
+  const HALF_WIDTH = 38; // vw from centre to the outer card
+  const rad = (d: number) => (d * Math.PI) / 180;
+  const R = HALF_WIDTH / Math.sin(rad(HALF_SPAN)); // arc radius, in vw
+  const theta = frac * HALF_SPAN;
+  const x = R * Math.sin(rad(theta));
+  const dropMax = R * (1 - Math.cos(rad(HALF_SPAN)));
+  const y = R * (1 - Math.cos(rad(theta))) - dropMax / 2; // centre the arc
+
+  const fannedT = `translate(calc(-50% + ${x.toFixed(2)}vw), calc(-50% + ${y.toFixed(2)}vw)) rotate(${theta.toFixed(2)}deg) scale(1)`;
+  const stackedT = "translate(-50%, calc(-50% + 240px)) rotate(0deg) scale(0.6)";
 
   const style: React.CSSProperties = {
-    transform: fanned ? "translateY(0)" : "translateY(46px)",
+    transform: fanned ? fannedT : stackedT,
     opacity: fanned ? 1 : 0,
     transitionDelay: `${index * 55}ms`,
+    zIndex: 10 + index,
   };
   const cls =
-    "fan-card pointer-events-auto flex items-stretch overflow-hidden rounded-[8px] shadow-[0_18px_34px_rgba(17,17,17,0.15)]";
+    "fan-card pointer-events-auto absolute left-1/2 top-1/2 flex w-[clamp(96px,7.6vw,168px)] flex-col overflow-hidden rounded-[8px] shadow-[0_18px_34px_rgba(17,17,17,0.16)]";
 
   const inner = (
     <>
       {/* Portrait thumbnail — the dominant element. */}
       <span
-        className="block w-[clamp(92px,7.2vw,168px)] shrink-0 bg-line/30"
+        className="block w-full shrink-0 bg-line/30"
         style={{ aspectRatio: "3 / 4" }}
       >
         {hero && (
@@ -183,20 +193,14 @@ function FanCard({
           />
         )}
       </span>
-      {/* Liquid-glass label — text confined within, never wider than the
-          thumbnail. Observatory-style block sans-serif. */}
-      <span className="liquid-glass flex w-[clamp(80px,5.6vw,122px)] shrink-0 flex-col justify-center gap-1.5 overflow-hidden px-2.5">
-        <span className="line-clamp-3 break-words font-sans text-[9px] font-medium uppercase leading-[1.3] tracking-[0.04em] text-ink">
+      {/* Liquid-glass label — set below the tile, name and year only. */}
+      <span className="liquid-glass flex flex-col gap-1 px-2.5 py-2.5">
+        <span className="line-clamp-2 break-words font-sans text-[9px] font-medium uppercase leading-[1.3] tracking-[0.04em] text-ink">
           {name}
         </span>
         {year && (
           <span className="font-sans text-[8px] uppercase tracking-[0.08em] text-muted">
             {year}
-          </span>
-        )}
-        {third && (
-          <span className="line-clamp-2 break-words font-sans text-[8px] uppercase leading-[1.3] tracking-[0.08em] text-muted">
-            {third}
           </span>
         )}
       </span>
@@ -282,27 +286,30 @@ export default function BentoSystem() {
       ref={rootRef}
       className="relative flex min-h-[calc(100vh-var(--nav-h))] w-full flex-col items-center justify-end pb-20 pt-24"
     >
-      {/* Fan — the project thumbnails held inside the open sleeve, set out
-          as one even, centred row across the open middle of the page. */}
+      {/* Fan — the project thumbnails held inside the open sleeve, splayed
+          along a semi-circular arc across the open middle of the page. */}
       {openNode && (
         <div
           id="bento-fan"
           role="region"
           aria-label={`${openNode.label} works`}
-          className="pointer-events-none absolute inset-x-0 flex items-center justify-center"
-          style={{ top: "var(--nav-h)", bottom: "300px" }}
+          className="pointer-events-none absolute inset-x-0"
+          style={{ top: "var(--nav-h)", bottom: "280px" }}
         >
-          <div className="flex flex-nowrap items-stretch justify-center gap-[clamp(18px,3.6vw,78px)] px-8">
-            {openNode.children.map((child, i) => (
+          {openNode.children.map((child, i) => {
+            const n = openNode.children.length;
+            const frac = n <= 1 ? 0 : (i - (n - 1) / 2) / ((n - 1) / 2);
+            return (
               <FanCard
                 key={`${child.label}-${i}`}
                 child={child}
+                frac={frac}
                 index={i}
                 fanned={fanned}
                 onNavigate={close}
               />
-            ))}
-          </div>
+            );
+          })}
         </div>
       )}
 
