@@ -140,11 +140,13 @@ function FanCard({
   index,
   fanned,
   onNavigate,
+  large = false,
 }: {
   child: BentoChild;
   index: number;
   fanned: boolean;
   onNavigate: () => void;
+  large?: boolean;
 }) {
   const project = child.slug ? getProject(child.slug) : undefined;
   const hero = project?.heroImage;
@@ -157,8 +159,11 @@ function FanCard({
     opacity: fanned ? 1 : 0,
     transitionDelay: `${index * 55}ms`,
   };
-  const cls =
-    "fan-card pointer-events-auto flex w-[clamp(94px,7vw,120px)] flex-col overflow-hidden rounded-[8px] shadow-[0_18px_34px_rgba(17,17,17,0.16)]";
+  const cls = [
+    "fan-card pointer-events-auto flex flex-col overflow-hidden rounded-[8px]",
+    "shadow-[0_18px_34px_rgba(17,17,17,0.16)]",
+    large ? "w-[clamp(118px,8.75vw,150px)]" : "w-[clamp(94px,7vw,120px)]",
+  ].join(" ");
 
   const inner = (
     <>
@@ -271,9 +276,8 @@ export default function BentoSystem() {
       ref={rootRef}
       className="relative flex min-h-[calc(100vh-var(--nav-h))] w-full flex-col items-center justify-end pb-10 pt-24"
     >
-      {/* Fan — the project thumbnails held inside the open sleeve, set out
-          as a straight grid (a row for ≤3, three-up for more). */}
-      {openNode && (
+      {/* Centred grid fan — categories with more than three works. */}
+      {openNode && openNode.children.length > 3 && (
         <div
           id="bento-fan"
           role="region"
@@ -283,11 +287,7 @@ export default function BentoSystem() {
         >
           <div
             className="grid justify-items-center gap-x-[clamp(22px,3vw,56px)] gap-y-[clamp(16px,2vw,30px)]"
-            style={{
-              gridTemplateColumns: `repeat(${
-                openNode.children.length <= 3 ? openNode.children.length : 3
-              }, minmax(0, 1fr))`,
-            }}
+            style={{ gridTemplateColumns: "repeat(3, minmax(0, 1fr))" }}
           >
             {openNode.children.map((child, i) => (
               <FanCard
@@ -302,15 +302,35 @@ export default function BentoSystem() {
         </div>
       )}
 
-      {/* The vellum sleeves, resting along the bottom as a skyline. */}
+      {/* The vellum sleeves, resting along the bottom as a skyline. Small
+          categories (≤3 works) resolve their cards directly above their own
+          sleeve, left-justified. */}
       <div className="flex items-end justify-center gap-4 sm:gap-7">
         {bentoNav.map((node, i) => (
           <div
             key={node.id}
             id={node.id}
-            className="bento-box"
+            className="bento-box relative"
             style={{ animationDelay: `${i * 90}ms`, scrollMarginTop: "var(--nav-h)" }}
           >
+            {openId === node.id && node.children.length <= 3 && (
+              <div
+                role="region"
+                aria-label={`${node.label} works`}
+                className="absolute bottom-[calc(100%+20px)] left-0 z-20 flex items-end gap-[clamp(14px,1.4vw,24px)]"
+              >
+                {node.children.map((child, ci) => (
+                  <FanCard
+                    key={`${child.label}-${ci}`}
+                    child={child}
+                    index={ci}
+                    fanned={fanned}
+                    onNavigate={close}
+                    large
+                  />
+                ))}
+              </div>
+            )}
             <VellumSleeve
               id={node.id}
               label={node.label}
