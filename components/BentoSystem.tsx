@@ -133,25 +133,29 @@ function VellumSleeve({
   );
 }
 
-// ── A fanned project card: a portrait thumbnail with a compact liquid-glass
-//    label, placed along a semi-circular arc. ──────────────────────────────
+// ── A fanned project card. A card whose project has its own children
+//    drills into a nested fan instead of navigating. ───────────────────────
 function FanCard({
   child,
   index,
   fanned,
   onNavigate,
+  onDrill,
   large = false,
 }: {
   child: BentoChild;
   index: number;
   fanned: boolean;
   onNavigate: () => void;
+  onDrill: (slug: string) => void;
   large?: boolean;
 }) {
   const project = child.slug ? getProject(child.slug) : undefined;
   const hero = project?.heroImage;
   const name = project?.title ?? child.label;
   const year = project?.years ?? "";
+  const childCount = project?.children?.length ?? 0;
+  const hasChildren = childCount > 0;
 
   // No curvature — cards sit in a straight grid, rising in on open.
   const style: React.CSSProperties = {
@@ -183,19 +187,33 @@ function FanCard({
           />
         )}
       </span>
-      {/* Liquid-glass label — set below the tile, name and year only. */}
+      {/* Liquid-glass label — set below the tile. */}
       <span className="liquid-glass flex flex-col gap-1 px-2.5 py-2.5">
         <span className="line-clamp-2 break-words font-sans text-[9px] font-medium uppercase leading-[1.3] tracking-[0.04em] text-ink">
           {name}
         </span>
-        {year && (
+        {hasChildren ? (
+          <span className="font-sans text-[8px] uppercase tracking-[0.08em] text-muted">
+            {childCount} field sites →
+          </span>
+        ) : year ? (
           <span className="font-sans text-[8px] uppercase tracking-[0.08em] text-muted">
             {year}
           </span>
-        )}
+        ) : null}
       </span>
     </>
   );
+
+  // Parent project — drill into a nested fan of its children.
+  if (hasChildren && child.slug) {
+    const slug = child.slug;
+    return (
+      <button type="button" className={cls} style={style} onClick={() => onDrill(slug)}>
+        {inner}
+      </button>
+    );
+  }
 
   return child.external ? (
     <a
@@ -216,21 +234,41 @@ function FanCard({
 
 export default function BentoSystem() {
   const [openId, setOpenId] = useState<BentoCategory | null>(null);
+  // Slug of a parent project drilled into (its children fan in its place).
+  const [drillSlug, setDrillSlug] = useState<string | null>(null);
   const [fanned, setFanned] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
 
-  const close = useCallback(() => {
-    setFanned(false);
-    setOpenId(null);
-  }, []);
-
-  const open = useCallback((id: BentoCategory) => {
-    setOpenId(id);
+  const reanimate = useCallback(() => {
     setFanned(false);
     requestAnimationFrame(() =>
       requestAnimationFrame(() => setFanned(true)),
     );
   }, []);
+
+  const close = useCallback(() => {
+    setFanned(false);
+    setOpenId(null);
+    setDrillSlug(null);
+  }, []);
+
+  const open = useCallback(
+    (id: BentoCategory) => {
+      setOpenId(id);
+      setDrillSlug(null);
+      reanimate();
+    },
+    [reanimate],
+  );
+
+  // Clicking a parent card swaps the fan for that project's children.
+  const drill = useCallback(
+    (slug: string) => {
+      setDrillSlug(slug);
+      reanimate();
+    },
+    [reanimate],
+  );
 
   useEffect(() => {
     function onOpen(e: Event) {
@@ -270,18 +308,30 @@ export default function BentoSystem() {
   }, [openId, close]);
 
   const openNode = bentoNav.find((b) => b.id === openId) ?? null;
+  const drillProject = drillSlug ? getProject(drillSlug) : null;
+  // What the centred fan shows: a drilled project's children, else the
+  // open category's children.
+  const fanItems: BentoChild[] = drillProject
+    ? (drillProject.children ?? []).map((s) => ({
+        label: getProject(s)?.title ?? s,
+        slug: s,
+      }))
+    : (openNode?.children ?? []);
+  const fanLabel = drillProject?.title ?? openNode?.label ?? "";
+  const showCenteredFan =
+    openNode !== null && (drillSlug !== null || openNode.children.length > 3);
 
   return (
     <div
       ref={rootRef}
       className="relative flex min-h-[calc(100vh-var(--nav-h))] w-full flex-col items-center justify-end pb-10 pt-24"
     >
-      {/* Centred grid fan — categories with more than three works. */}
-      {openNode && openNode.children.length > 3 && (
+      {/* Centred row fan — large categories, and any drilled-into parent. */}
+      {showCenteredFan && (
         <div
           id="bento-fan"
           role="region"
-          aria-label={`${openNode.label} works`}
+          aria-label={`${fanLabel} works`}
           className="pointer-events-none absolute inset-x-0 flex items-center justify-center px-8"
           style={{ top: "0px", bottom: "300px" }}
         >
@@ -289,13 +339,14 @@ export default function BentoSystem() {
             className="grid justify-items-center gap-x-[clamp(28px,4vw,80px)] gap-y-[clamp(16px,2vw,30px)]"
             style={{ gridTemplateColumns: "repeat(6, minmax(0, 1fr))" }}
           >
-            {openNode.children.map((child, i) => (
+            {fanItems.map((child, i) => (
               <FanCard
                 key={`${child.label}-${i}`}
                 child={child}
                 index={i}
                 fanned={fanned}
                 onNavigate={close}
+                onDrill={drill}
               />
             ))}
           </div>
@@ -313,7 +364,7 @@ export default function BentoSystem() {
             className="bento-box relative"
             style={{ animationDelay: `${i * 90}ms`, scrollMarginTop: "var(--nav-h)" }}
           >
-            {openId === node.id && node.children.length <= 3 && (
+            {openId === node.id && node.children.length <= 3 && !drillSlug && (
               <div
                 role="region"
                 aria-label={`${node.label} works`}
@@ -326,6 +377,7 @@ export default function BentoSystem() {
                     index={ci}
                     fanned={fanned}
                     onNavigate={close}
+                    onDrill={drill}
                     large
                   />
                 ))}
@@ -338,7 +390,10 @@ export default function BentoSystem() {
               width={SLEEVE_W[node.id]}
               active={openId === node.id}
               dimmed={openId !== null && openId !== node.id}
-              onClick={() => (openId === node.id ? close() : open(node.id))}
+              onClick={() => {
+                if (openId === node.id && !drillSlug) close();
+                else open(node.id);
+              }}
             />
           </div>
         ))}
