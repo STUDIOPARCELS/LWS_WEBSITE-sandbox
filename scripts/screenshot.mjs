@@ -22,8 +22,8 @@ async function shot(name, path, opts = {}) {
     { name: "prefers-reduced-motion", value: "reduce" },
   ]);
   await page.setViewport({
-    width: opts.w || 1440,
-    height: opts.h || 900,
+    width: opts.w || 1680,
+    height: opts.h || 940,
     deviceScaleFactor: 2,
   });
   // Hide images that fail to load (Supabase host is blocked in this sandbox)

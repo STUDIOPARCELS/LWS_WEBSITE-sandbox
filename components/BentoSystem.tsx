@@ -133,16 +133,15 @@ function VellumSleeve({
   );
 }
 
-// ── A fanned project card: thumbnail + liquid-glass label panel. ─────────────
+// ── A fanned project card: a portrait thumbnail with a liquid-glass label
+//    panel attached to its right (name / year / location-or-format). ─────────
 function FanCard({
   child,
-  frac,
   index,
   fanned,
   onNavigate,
 }: {
   child: BentoChild;
-  frac: number;
   index: number;
   fanned: boolean;
   onNavigate: () => void;
@@ -158,25 +157,21 @@ function FanCard({
       ? (project?.region ?? "Photographs")
       : (project?.format ?? project?.practice ?? "");
 
-  // Evenly spread across a fixed span so the fan reads centred with air.
-  const span = "clamp(360px, 60vw, 900px)";
-  const ty = Math.abs(frac) * 42 - 14;
-  const rot = frac * 9;
-  const fannedT = `translate(calc(-50% + (${frac}) * (${span} / 2)), calc(-50% + ${ty}px)) rotate(${rot}deg) scale(1)`;
-  const stackedT = "translate(-50%, calc(-50% + 230px)) rotate(0deg) scale(0.55)";
-
   const style: React.CSSProperties = {
-    transform: fanned ? fannedT : stackedT,
+    transform: fanned ? "translateY(0)" : "translateY(46px)",
     opacity: fanned ? 1 : 0,
     transitionDelay: `${index * 55}ms`,
-    zIndex: 10 + index,
   };
   const cls =
-    "fan-card pointer-events-auto absolute left-1/2 top-1/2 flex h-[clamp(116px,14.5vw,140px)] w-[clamp(196px,24vw,238px)] overflow-hidden rounded-[10px] shadow-[0_22px_40px_rgba(17,17,17,0.17)]";
+    "fan-card pointer-events-auto flex items-stretch overflow-hidden rounded-[8px] shadow-[0_18px_34px_rgba(17,17,17,0.15)]";
 
   const inner = (
     <>
-      <span className="relative block w-[44%] shrink-0 bg-line/35">
+      {/* Portrait thumbnail — the dominant element. */}
+      <span
+        className="block w-[clamp(92px,7.2vw,168px)] shrink-0 bg-line/30"
+        style={{ aspectRatio: "3 / 4" }}
+      >
         {hero && (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -184,21 +179,23 @@ function FanCard({
             alt={hero.alt}
             loading="lazy"
             decoding="async"
-            className="absolute inset-0 h-full w-full object-cover"
+            className="h-full w-full object-cover"
           />
         )}
       </span>
-      <span className="liquid-glass flex w-[56%] flex-col justify-center gap-1 px-3">
-        <span className="line-clamp-2 font-serif text-[13px] font-light leading-tight text-ink">
+      {/* Liquid-glass label — text confined within, never wider than the
+          thumbnail. Observatory-style block sans-serif. */}
+      <span className="liquid-glass flex w-[clamp(80px,5.6vw,122px)] shrink-0 flex-col justify-center gap-1.5 overflow-hidden px-2.5">
+        <span className="line-clamp-3 break-words font-sans text-[9px] font-medium uppercase leading-[1.3] tracking-[0.04em] text-ink">
           {name}
         </span>
         {year && (
-          <span className="font-mono text-[8.5px] uppercase tracking-[0.1em] text-muted">
+          <span className="font-sans text-[8px] uppercase tracking-[0.08em] text-muted">
             {year}
           </span>
         )}
         {third && (
-          <span className="font-mono text-[8.5px] uppercase tracking-[0.1em] text-muted">
+          <span className="line-clamp-2 break-words font-sans text-[8px] uppercase leading-[1.3] tracking-[0.08em] text-muted">
             {third}
           </span>
         )}
@@ -285,28 +282,27 @@ export default function BentoSystem() {
       ref={rootRef}
       className="relative flex min-h-[calc(100vh-var(--nav-h))] w-full flex-col items-center justify-end pb-20 pt-24"
     >
-      {/* Fan — the project thumbnails held inside the open sleeve. */}
+      {/* Fan — the project thumbnails held inside the open sleeve, set out
+          as one even, centred row across the open middle of the page. */}
       {openNode && (
         <div
           id="bento-fan"
           role="region"
           aria-label={`${openNode.label} works`}
-          className="pointer-events-none absolute inset-0"
+          className="pointer-events-none absolute inset-x-0 flex items-center justify-center"
+          style={{ top: "var(--nav-h)", bottom: "300px" }}
         >
-          {openNode.children.map((child, i) => {
-            const n = openNode.children.length;
-            const frac = n <= 1 ? 0 : (i - (n - 1) / 2) / ((n - 1) / 2);
-            return (
+          <div className="flex flex-nowrap items-stretch justify-center gap-[clamp(18px,3.6vw,78px)] px-8">
+            {openNode.children.map((child, i) => (
               <FanCard
                 key={`${child.label}-${i}`}
                 child={child}
-                frac={frac}
                 index={i}
                 fanned={fanned}
                 onNavigate={close}
               />
-            );
-          })}
+            ))}
+          </div>
         </div>
       )}
 
