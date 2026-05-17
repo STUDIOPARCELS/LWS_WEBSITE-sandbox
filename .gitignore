@@ -1,10 +1,13 @@
 node_modules/
 dist/
+.next/
+out/
+next-env.d.ts
 .DS_Store
 Thumbs.db
 *.log
 ~$*
-assets/craters-lounge-wall.jpg
+public/assets/craters-lounge-wall.jpg
 *.docx
 CRATERS/
 LUXURIATE IN DISCOMFORT/
