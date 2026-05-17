@@ -26,7 +26,7 @@ export default function SiteHeader() {
       className="fixed inset-x-0 top-0 z-[100] border-b border-line/50 bg-paper/85 backdrop-blur-xl"
       style={{ minHeight: "var(--nav-h)" }}
     >
-      <div className="container-page flex h-[var(--nav-h)] items-center justify-between gap-6">
+      <div className="flex h-[var(--nav-h)] w-full items-center justify-between gap-6 px-8 sm:px-10">
         <Link
           href="/"
           className="font-serif text-[17px] font-light uppercase tracking-[0.18em] text-ink"
@@ -66,7 +66,7 @@ export default function SiteHeader() {
       {menuOpen && (
         <nav
           aria-label="Categories"
-          className="container-page flex flex-col gap-4 border-t border-line/50 py-6 md:hidden"
+          className="flex w-full flex-col gap-4 border-t border-line/50 px-8 py-6 sm:px-10 md:hidden"
         >
           {bentoNav.map((node) => (
             <a

@@ -17,11 +17,11 @@ import { OPEN_BENTO_EVENT, CLOSE_BENTO_EVENT } from "./SiteHeader";
 
 // Skyline widths: short · tall · TALLEST · tall · short. Aspect held at 100/124.
 const SLEEVE_W: Record<BentoCategory, string> = {
-  conceptual: "clamp(70px, 8vw, 96px)",
-  writing: "clamp(86px, 10vw, 118px)",
-  photographs: "clamp(104px, 12.5vw, 146px)",
-  installation: "clamp(86px, 10vw, 118px)",
-  apps: "clamp(70px, 8vw, 96px)",
+  conceptual: "clamp(80px, 7.4vw, 120px)",
+  writing: "clamp(100px, 9.2vw, 150px)",
+  photographs: "clamp(122px, 11.4vw, 184px)",
+  installation: "clamp(100px, 9.2vw, 150px)",
+  apps: "clamp(80px, 7.4vw, 120px)",
 };
 
 // ── The vellum sleeve: a notched pocket, shaded to read as a real object
@@ -294,7 +294,7 @@ export default function BentoSystem() {
           role="region"
           aria-label={`${openNode.label} works`}
           className="pointer-events-none absolute inset-x-0"
-          style={{ top: "var(--nav-h)", bottom: "232px" }}
+          style={{ top: "var(--nav-h)", bottom: "300px" }}
         >
           {openNode.children.map((child, i) => {
             const n = openNode.children.length;
@@ -314,7 +314,7 @@ export default function BentoSystem() {
       )}
 
       {/* The vellum sleeves, resting along the bottom as a skyline. */}
-      <div className="flex items-end justify-center gap-3 sm:gap-5">
+      <div className="flex items-end justify-center gap-4 sm:gap-7">
         {bentoNav.map((node, i) => (
           <div
             key={node.id}
