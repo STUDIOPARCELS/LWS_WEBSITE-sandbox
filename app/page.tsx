@@ -26,11 +26,11 @@ export default function HomePage() {
       <SiteHeader />
 
       <main id="top" className="pt-[var(--nav-h)]">
-        {/* HOME — the floating bento, anchored low so the pop-out children
-            have room to resolve above it (Wireframe 01 + 02). */}
+        {/* HOME — vellum sleeves rest low on the page; the centre stays open
+            white until a sleeve is clicked and its thumbnails fan up. */}
         <section
           aria-label="Browse the work"
-          className="relative flex min-h-[calc(100vh-var(--nav-h))] items-end justify-center px-6 pb-16 pt-20"
+          className="relative bg-[#f4f3f1]"
         >
           <h1 className="sr-only">
             {site.name} — field-based photography, writing, installation, and
