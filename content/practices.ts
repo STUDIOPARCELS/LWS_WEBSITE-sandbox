@@ -1,4 +1,5 @@
 import type { Practice } from "./types";
+import { bucketUrl } from "@/lib/supabase";
 
 // content/practices.ts — Master Build Prompt §4 & §9.
 //
@@ -16,7 +17,7 @@ export const practices: Practice[] = [
     summary:
       "Bodies of photographic work built through immersion — repetition, duration, and close observation in remote terrain, often alone and under physically demanding conditions.",
     heroImage: {
-      src: "/assets/gallery/1200/survey-craters/13-untitled-panorama-1-9d4b1f5e.webp",
+      src: bucketUrl("CRATERS/craters-env-web-2000px/Untitled_Panorama-1.webp"),
       alt: "Aerial panorama of the Craters of the Moon lava field by Lisa Wood Studio.",
     },
     projects: [
@@ -55,7 +56,7 @@ export const practices: Practice[] = [
     summary:
       "A field-based body of work documenting six remote and geologically significant landscapes across three continents. Created between 2015 and 2019 with a medium-format Leica S007, Surface Surveys moves across sand, ice, lava, gypsum, and granite.",
     heroImage: {
-      src: "/assets/gallery/1200/surveys/04-simpson-desert-l1006196-pano-ec4aff03.webp",
+      src: bucketUrl("SURFACE SURVEYS/SIMPSON DESERT/web-2000px/L1006196.jpg"),
       alt: "Aerial panorama of the parallel dunes of the Simpson Desert from Surface Surveys by Lisa Wood Studio.",
     },
     projects: [
@@ -76,7 +77,7 @@ export const practices: Practice[] = [
     summary:
       "A studio philosophy carried across three projects — a book, a one-night installation, and a public art project concept to improve teenage mental health.",
     heroImage: {
-      src: "/assets/gallery/1200/luxuriate/01-l1009938-book-in-mirrorre-copy-3f217939.webp",
+      src: bucketUrl("LUXURIATE IN DISCOMFORT/L1009938 book in mirrorRE copy.jpg"),
       alt: "The Luxuriate In Discomfort book reflected in a mirror by Lisa Wood Studio.",
     },
     projects: ["luxuriate-book", "luxuriate-installation", "lux"],
@@ -90,7 +91,7 @@ export const practices: Practice[] = [
     summary:
       "TODO(Lisa): editorial summary for the Installation section — works staged in space and time, beginning with the one-night installation December, Sun Valley.",
     heroImage: {
-      src: "/assets/gallery/1200/installation/01-l1009866-owning-6b3836fc.webp",
+      src: bucketUrl("LUXURIATE IN DISCOMFORT/L1009866 owning.jpg"),
       alt: "The one-night installation December, Sun Valley, by Lisa Wood Studio.",
     },
     projects: [

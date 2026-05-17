@@ -1,16 +1,19 @@
 import type { Project, ContentStatus } from "./types";
+import { bucketUrl } from "@/lib/supabase";
 
 // content/projects.ts — Master Build Prompt §9, build step 1.
 //
-// Content marked `status: "placeholder"` is a TODO(Lisa) scaffold: the
-// architecture, routing, and schema around it are real; only the copy and
-// imagery are pending. Swapping in final content must be a data change only.
+// All imagery is sourced from the public Supabase Storage bucket
+// "LISA WOOD STUDIO WEBSITE" (project SURFACE SURVEYS). `img()` takes an
+// in-bucket path and returns its public URL. Where a folder provides a
+// `web-2000px` set, those web-optimized exports are used for display.
 //
-// Verbatim copy (Surface Surveys, the six field sites, Luxuriate in Discomfort
-// and its three sub-projects, Winterblue) is taken from the live Observatory
-// presentation per §8 — do not paraphrase.
+// Content marked `status: "placeholder"` is a TODO(Lisa) scaffold: routing
+// and schema are real; final copy is pending. Verbatim copy (Surface Surveys,
+// the six field sites, Luxuriate in Discomfort, Winterblue) is taken from the
+// live Observatory presentation per §8 — do not paraphrase.
 
-const IMG = "/assets/gallery/1200";
+const img = bucketUrl;
 
 // TODO(Lisa) scaffold: a routable, schema-valid project with no final content.
 function placeholder(
@@ -71,21 +74,21 @@ export const projects: Project[] = [
     fieldNotes:
       "Three of the six surveys are the first aerial photographic studies of their kind.",
     heroImage: {
-      src: `${IMG}/surveys/04-simpson-desert-l1006196-pano-ec4aff03.webp`,
+      src: img("SURFACE SURVEYS/SIMPSON DESERT/web-2000px/L1006196.jpg"),
       alt: "Aerial panorama of the parallel dunes of the Simpson Desert, from Lisa Wood Studio's Surface Surveys.",
     },
     galleryImages: [
       {
-        src: `${IMG}/surveys/01-l1001363-1-ce5e5b1e.webp`,
-        alt: "Aerial study of remote terrain from Surface Surveys by Lisa Wood Studio.",
+        src: img("CRATERS/web-2000px/L1008508.webp"),
+        alt: "Aerial study of volcanic terrain at Craters of the Moon from Surface Surveys by Lisa Wood Studio.",
       },
       {
-        src: `${IMG}/surveys/03-l1008450-match-option-1-ew-1-50284ac7.webp`,
-        alt: "Aerial study of volcanic surface from Surface Surveys by Lisa Wood Studio.",
+        src: img("SURFACE SURVEYS/WHITE SANDS/phots/web-2000px/L1009887-LWS.webp"),
+        alt: "Aerial study of the White Sands gypsum dunefield from Surface Surveys by Lisa Wood Studio.",
       },
       {
-        src: `${IMG}/surveys/05-l1006654-01596aea.webp`,
-        alt: "Aerial study of desert sand from Surface Surveys by Lisa Wood Studio.",
+        src: img("SURFACE SURVEYS/CITY/web-2000px/L1009421.webp"),
+        alt: "Aerial study of the granite formations of City of Rocks from Surface Surveys by Lisa Wood Studio.",
       },
     ],
     details: [
@@ -126,25 +129,29 @@ export const projects: Project[] = [
       "The largest ice sheet outside Antarctica, covering 1.7 million square kilometers and reaching more than three kilometers thick. The ice holds a layered archive of past atmospheres, snowfall, volcanic events, and climate shifts. At its western edge, the Ilulissat Icefjord — a UNESCO World Heritage Site since 2004 — is fed by Sermeq Kujalleq, one of the world's fastest-moving glaciers.",
     fieldNotes: null,
     heroImage: {
-      src: `${IMG}/survey-greenland/07-ilulissat-greenland-1-443d7581.webp`,
-      alt: "Aerial photograph of the Ilulissat Icefjord, Greenland, by Lisa Wood Studio.",
+      src: img("SURFACE SURVEYS/GREENLAND/PHOTOGRAPHS/web-2000px/L1001406.webp"),
+      alt: "Aerial photograph of the Greenland Ice Sheet by Lisa Wood Studio.",
     },
     galleryImages: [
       {
-        src: `${IMG}/survey-greenland/01-l1000364-b215d3a9.webp`,
+        src: img("SURFACE SURVEYS/GREENLAND/PHOTOGRAPHS/web-2000px/L1000364.webp"),
         alt: "Aerial study of the Greenland Ice Sheet by Lisa Wood Studio.",
       },
       {
-        src: `${IMG}/survey-greenland/03-l1001406-12be130b.webp`,
+        src: img("SURFACE SURVEYS/GREENLAND/PHOTOGRAPHS/web-2000px/L1001017.webp"),
         alt: "Layered glacial ice of Greenland photographed from the air by Lisa Wood Studio.",
       },
       {
-        src: `${IMG}/survey-greenland/06-l1001867-6cb5b899.webp`,
-        alt: "Western edge of the Greenland Ice Sheet near the Ilulissat Icefjord, by Lisa Wood Studio.",
+        src: img("SURFACE SURVEYS/GREENLAND/PHOTOGRAPHS/web-2000px/L1000264 copy.webp"),
+        alt: "Western edge of the Greenland Ice Sheet near the Ilulissat Icefjord by Lisa Wood Studio.",
       },
       {
-        src: `${IMG}/survey-greenland/08-ilulissat-greenland-2-copy-1-af0ab55d.webp`,
-        alt: "Sermeq Kujalleq glacier at Ilulissat, Greenland, photographed by Lisa Wood Studio.",
+        src: img("SURFACE SURVEYS/GREENLAND/PHOTOGRAPHS/web-2000px/L1001442.webp"),
+        alt: "Glacial terrain of Greenland photographed from the air by Lisa Wood Studio.",
+      },
+      {
+        src: img("SURFACE SURVEYS/GREENLAND/PHOTOGRAPHS/web-2000px/L1001867.webp"),
+        alt: "Sermeq Kujalleq glacier region, Greenland, photographed by Lisa Wood Studio.",
       },
     ],
     details: [
@@ -179,25 +186,29 @@ export const projects: Project[] = [
       "The world's largest gypsum dunefield, a 275-square-mile expanse of white mineral sand in the Tularosa Basin. Airspace above the park is restricted from ground to space — surrounded by White Sands Missile Range to the north and Holloman Air Force Base to the east. On July 16, 1945, the world's first atomic bomb was detonated at Trinity Site, sixty miles north of the park.",
     fieldNotes: null,
     heroImage: {
-      src: `${IMG}/survey-white-sands/06-l1009887-lws-1e7d75b2.webp`,
+      src: img("SURFACE SURVEYS/WHITE SANDS/phots/web-2000px/L1009887-LWS.webp"),
       alt: "Aerial photograph of the White Sands gypsum dunefield, New Mexico, by Lisa Wood Studio.",
     },
     galleryImages: [
       {
-        src: `${IMG}/survey-white-sands/01-l1000059-lws-ba3017a3.webp`,
+        src: img("SURFACE SURVEYS/WHITE SANDS/phots/web-2000px/L1000059-LWS.webp"),
         alt: "Gypsum dunes of White Sands National Park photographed from the air by Lisa Wood Studio.",
       },
       {
-        src: `${IMG}/survey-white-sands/02-l1001382-lws-95b5a24e.webp`,
+        src: img("SURFACE SURVEYS/WHITE SANDS/phots/web-2000px/L1001382-LWS.webp"),
         alt: "White mineral sand of the Tularosa Basin, White Sands, by Lisa Wood Studio.",
       },
       {
-        src: `${IMG}/survey-white-sands/04-l1000950-86841d33.webp`,
+        src: img("SURFACE SURVEYS/WHITE SANDS/phots/web-2000px/L1000412.2.webp"),
         alt: "Aerial study of the White Sands gypsum dunefield by Lisa Wood Studio.",
       },
       {
-        src: `${IMG}/survey-white-sands/07-l1009922-lws-33b9be57.webp`,
+        src: img("SURFACE SURVEYS/WHITE SANDS/phots/web-2000px/L1000950.webp"),
         alt: "Wind-shaped gypsum dunes at White Sands National Park by Lisa Wood Studio.",
+      },
+      {
+        src: img("SURFACE SURVEYS/WHITE SANDS/phots/web-2000px/L1009922-LWS.webp"),
+        alt: "Aerial study of white gypsum sand at White Sands by Lisa Wood Studio.",
       },
     ],
     details: [
@@ -238,25 +249,29 @@ export const projects: Project[] = [
       "A vast volcanic landscape on Idaho's Snake River Plain. Lava flows, cinder cones, spatter cones, fissures, and sagebrush plains form one of the best-preserved recent volcanic terrains in the continental United States — 620 square miles, the largest predominantly Holocene lava field in the contiguous U.S. The present surface formed through eight major eruptive periods over the last 15,000 years. In 1969, Apollo 14 astronauts trained here before traveling to the Moon.",
     fieldNotes: null,
     heroImage: {
-      src: `${IMG}/survey-craters/13-untitled-panorama-1-9d4b1f5e.webp`,
+      src: img("CRATERS/craters-env-web-2000px/Untitled_Panorama-1.webp"),
       alt: "Aerial panorama of the Craters of the Moon lava field, Idaho, by Lisa Wood Studio.",
     },
     galleryImages: [
       {
-        src: `${IMG}/survey-craters/01-l1008508-19981dd3.webp`,
+        src: img("CRATERS/web-2000px/L1008508.webp"),
         alt: "Volcanic surface of Craters of the Moon photographed from the air by Lisa Wood Studio.",
       },
       {
-        src: `${IMG}/survey-craters/05-l1002394-copy-e5d2e8bf.webp`,
+        src: img("CRATERS/web-2000px/L1002394 copy.webp"),
         alt: "Lava flows and cinder cones at Craters of the Moon by Lisa Wood Studio.",
       },
       {
-        src: `${IMG}/survey-craters/09-gm-wall-279762f3.webp`,
+        src: img("CRATERS/web-2000px/L1002351.jpg.002.webp"),
         alt: "Aerial study of the Craters of the Moon Holocene lava field by Lisa Wood Studio.",
       },
       {
-        src: `${IMG}/survey-craters/02-l1002351-jpg-002-91fcf095.webp`,
+        src: img("CRATERS/web-2000px/craters_L1001948.webp"),
         alt: "Sagebrush plains and volcanic terrain at Craters of the Moon by Lisa Wood Studio.",
+      },
+      {
+        src: img("CRATERS/web-2000px/L1008263-e_1.webp"),
+        alt: "Aerial study of recent volcanic terrain at Craters of the Moon by Lisa Wood Studio.",
       },
     ],
     details: [
@@ -296,25 +311,29 @@ export const projects: Project[] = [
       "176,500 square kilometers of parallel-dune landscape across South Australia, Queensland, and the Northern Territory — the world's longest parallel sand dunes, with individual ridges extending more than 150 kilometers, some reaching 200. Munga-Thirri means Big Sandhill Country. The desert is the traditional Country of the Wangkangurru Yarluyandi people, whose songlines and navigation systems are inseparable from the landforms themselves.",
     fieldNotes: null,
     heroImage: {
-      src: `${IMG}/survey-simpson/01-l1006196-4c3ae92a.webp`,
+      src: img("SURFACE SURVEYS/SIMPSON DESERT/web-2000px/L1006196.jpg"),
       alt: "Aerial photograph of the parallel dunes of the Simpson Desert, Australia, by Lisa Wood Studio.",
     },
     galleryImages: [
       {
-        src: `${IMG}/survey-simpson/03-l1006208-04b2a516.webp`,
+        src: img("SURFACE SURVEYS/SIMPSON DESERT/web-2000px/L1006208.jpg"),
         alt: "Parallel sand dunes of the Simpson Desert photographed from the air by Lisa Wood Studio.",
       },
       {
-        src: `${IMG}/survey-simpson/09-img-6066-c486e4a9.webp`,
+        src: img("SURFACE SURVEYS/SIMPSON DESERT/web-2000px/L1006198.jpg"),
         alt: "Big Sandhill Country, Munga-Thirri, photographed by Lisa Wood Studio.",
       },
       {
-        src: `${IMG}/survey-simpson/12-img-5910-7960ef92.webp`,
+        src: img("SURFACE SURVEYS/SIMPSON DESERT/web-2000px/L1006213.jpg"),
         alt: "Aerial study of the Simpson Desert parallel dune field by Lisa Wood Studio.",
       },
       {
-        src: `${IMG}/survey-simpson/16-img-6006-0aff51d3.webp`,
+        src: img("SURFACE SURVEYS/SIMPSON DESERT/web-2000px/L1006217.jpg"),
         alt: "Dune ridges of the Simpson Desert, Australia, by Lisa Wood Studio.",
+      },
+      {
+        src: img("SURFACE SURVEYS/SIMPSON DESERT/photographs/web-2000px/L1006201.webp"),
+        alt: "Parallel dunes of the Simpson Desert photographed from the air by Lisa Wood Studio.",
       },
     ],
     details: [
@@ -355,25 +374,23 @@ export const projects: Project[] = [
       "A vast sand sea in eastern Oman, named for the Bani Wahiba tribe. The dunes run roughly 180 kilometers north to south and 80 kilometers east to west, covering about 12,500 square kilometers — a record of wind, monsoon cycles, and late Quaternary shifts in sea level held in motion across hundreds of thousands of years. Bedouin villages, camel routes, temporary camps, and open night skies give the Wahiba Sands their human scale.",
     fieldNotes: null,
     heroImage: {
-      src: `${IMG}/survey-wahiba/01-l1007047-jpg-001-0257046c.webp`,
+      src: img("SURFACE SURVEYS/WAHIBA OMAN/photos/web-2000px/L1007047.jpg.001.webp"),
       alt: "Aerial photograph of the Wahiba Sands, Oman, by Lisa Wood Studio.",
     },
     galleryImages: [
       {
-        src: `${IMG}/survey-wahiba/03-l1006654-01596aea.webp`,
+        src: img("SURFACE SURVEYS/WAHIBA OMAN/photos/web-2000px/L1007191.jpg.001.webp"),
         alt: "Dunes of the Wahiba sand sea photographed from the air by Lisa Wood Studio.",
       },
       {
-        src: `${IMG}/survey-wahiba/06-img-0286-37b5e6c7.webp`,
+        src: img(
+          "SURFACE SURVEYS/WAHIBA OMAN/photos/web-2000px/L1007219 north wall wahiba.jpg.001.webp",
+        ),
         alt: "Wind-shaped sand of the Wahiba Sands, eastern Oman, by Lisa Wood Studio.",
       },
       {
-        src: `${IMG}/survey-wahiba/09-img-0103-95b7942d.webp`,
+        src: img("SURFACE SURVEYS/WAHIBA OMAN/L1006654.jpg"),
         alt: "Aerial study of the Wahiba sand sea by Lisa Wood Studio.",
-      },
-      {
-        src: `${IMG}/survey-wahiba/11-img-0187-78501821.webp`,
-        alt: "Bedouin terrain of the Wahiba Sands, Oman, photographed by Lisa Wood Studio.",
       },
     ],
     details: [{ label: "Latitude", value: "22°N" }],
@@ -402,25 +419,29 @@ export const projects: Project[] = [
       "14,407 acres at the southern end of Idaho's Albion Mountains. Granite spires, fins, domes, and monoliths rise from the sagebrush, with some formations reaching the height of a 60-story building. The Almo Pluton granite is roughly 28 million years old; nearby Green Creek Complex rocks are more than 2.5 billion years old — among the oldest exposed rocks in the United States. Emigrants of the California Trail described the formations as \"a city of tall spires,\" \"steeple rocks,\" and \"the silent city.\"",
     fieldNotes: null,
     heroImage: {
-      src: `${IMG}/survey-city/11-2pano-308a052c.webp`,
-      alt: "Aerial panorama of the granite formations of City of Rocks, Idaho, by Lisa Wood Studio.",
+      src: img("SURFACE SURVEYS/CITY/web-2000px/L1009421.webp"),
+      alt: "Aerial photograph of the granite formations of City of Rocks, Idaho, by Lisa Wood Studio.",
     },
     galleryImages: [
       {
-        src: `${IMG}/survey-city/01-l1008069-copy-c1a22640.webp`,
+        src: img("SURFACE SURVEYS/CITY/web-2000px/L1007813.webp"),
         alt: "Granite spires of City of Rocks National Reserve photographed from the air by Lisa Wood Studio.",
       },
       {
-        src: `${IMG}/survey-city/04-l1007969-copy-b50d8e62.webp`,
+        src: img("SURFACE SURVEYS/CITY/web-2000px/L1007870.webp"),
         alt: "Granite domes and monoliths at City of Rocks, Idaho, by Lisa Wood Studio.",
       },
       {
-        src: `${IMG}/survey-city/09-l1009421-2d7ae7e2.webp`,
-        alt: "Aerial study of the granite formations of City of Rocks by Lisa Wood Studio.",
+        src: img("SURFACE SURVEYS/CITY/web-2000pxNEW/2pano.webp"),
+        alt: "Aerial panorama of the granite formations of City of Rocks by Lisa Wood Studio.",
       },
       {
-        src: `${IMG}/survey-city/15-l1007739-ccac3936.webp`,
+        src: img("SURFACE SURVEYS/CITY/web-2000px/L1009470.webp"),
         alt: "Sagebrush and granite fins of City of Rocks, Idaho, by Lisa Wood Studio.",
+      },
+      {
+        src: img("SURFACE SURVEYS/CITY/web-2000px/L1008102 copy.webp"),
+        alt: "Aerial study of the granite formations of City of Rocks by Lisa Wood Studio.",
       },
     ],
     details: [
@@ -457,32 +478,35 @@ export const projects: Project[] = [
     fieldNotes:
       "Winterblue was born from a winter search for Lisa's missing family dog. For 11 days she and her community searched. Sleeping in her car, searching in whiteouts, she met the full force of winter in the form of fear, isolation, temperature, and overwhelming discomfort. The dog was found unharmed.",
     heroImage: {
-      src: `${IMG}/winterblue-site/05-v-72c5a3f3.webp`,
+      src: img("WINTERBLUE/photos/web-2000px/v.webp"),
       alt: "Pre-dawn winter expanse of the Camas Prairie, Idaho, from Lisa Wood Studio's Winterblue.",
     },
     galleryImages: [
       {
-        src: `${IMG}/winterblue-site/03-1-proxy-2-61017c6c.webp`,
+        src: img("WINTERBLUE/photos/web-2000px/IMG_0822.webp"),
         alt: "Sub-zero winter field on the Camas Prairie from Winterblue by Lisa Wood Studio.",
       },
       {
-        src: `${IMG}/winterblue-site/07-img-0822-459afc3d.webp`,
+        src: img("WINTERBLUE/photos/web-2000px/IMG_5951.webp"),
         alt: "Winter darkness over the Camas Prairie from Winterblue by Lisa Wood Studio.",
       },
       {
-        src: `${IMG}/winterblue-site/11-img-4051-e8261334.webp`,
+        src: img("WINTERBLUE/photos/web-2000px/IMG_5974.webp"),
         alt: "Snow field of the Camas Prairie from Winterblue by Lisa Wood Studio.",
       },
       {
-        src: `${IMG}/winterblue-site/tile-img-0584-copy-ef8c83da.webp`,
-        alt: "Individual tile within the Winterblue I contact sheet by Lisa Wood Studio.",
+        src: img("WINTERBLUE/photos/web-2000px/IMG_6363.webp"),
+        alt: "Cold winter atmosphere on the Camas Prairie from Winterblue by Lisa Wood Studio.",
+      },
+      {
+        src: img("WINTERBLUE/photos/web-2000px/IMG_8313.webp"),
+        alt: "Frozen terrain of the Camas Prairie from Winterblue by Lisa Wood Studio.",
       },
     ],
     details: [
       {
         label: "Format",
-        value:
-          "Large-scale contact sheet, 125 photographs — 138\" x 85\"",
+        value: "Large-scale contact sheet, 125 photographs — 138\" x 85\"",
       },
       { label: "Field Site", value: "Camas Prairie, Idaho, USA" },
       {
@@ -501,18 +525,148 @@ export const projects: Project[] = [
     years: "2023",
     region: "Idaho, USA",
   },
-  placeholder("totems-and-sentinels", "Totems & Sentinels", "Photographs", {
+  {
+    title: "Totems & Sentinels",
+    slug: "totems-and-sentinels",
+    practice: "Photographs",
     bentoCategory: "photographs",
     editorialCategory: "photographs",
-  }),
-  placeholder("flipped", "Flipped", "Photographs", {
+    parent: null,
+    children: null,
+    dualHomed: false,
+    shortDescription: "A photographic series of upright forms in the landscape.",
+    // TODO(Lisa) §9 — final Totems & Sentinels copy pending. Imagery is live.
+    longDescription:
+      "TODO(Lisa): full description for Totems & Sentinels. Imagery is wired from the studio media library.",
+    fieldNotes: null,
+    heroImage: {
+      src: img("TOTEMS & SENTINELS/2T.jpg.002.jpg"),
+      alt: "Work from the Totems & Sentinels photographic series by Lisa Wood Studio.",
+    },
+    galleryImages: [
+      {
+        src: img("TOTEMS & SENTINELS/3T.jpg.002.jpg"),
+        alt: "Work from the Totems & Sentinels photographic series by Lisa Wood Studio.",
+      },
+      {
+        src: img("TOTEMS & SENTINELS/4T.jpg.001.jpg"),
+        alt: "Work from the Totems & Sentinels photographic series by Lisa Wood Studio.",
+      },
+      {
+        src: img("TOTEMS & SENTINELS/5T.jpg.001.jpg"),
+        alt: "Work from the Totems & Sentinels photographic series by Lisa Wood Studio.",
+      },
+      {
+        src: img("TOTEMS & SENTINELS/6T.jpg.001.jpg"),
+        alt: "Work from the Totems & Sentinels photographic series by Lisa Wood Studio.",
+      },
+      {
+        src: img("TOTEMS & SENTINELS/7T.jpg.001.jpg"),
+        alt: "Work from the Totems & Sentinels photographic series by Lisa Wood Studio.",
+      },
+      {
+        src: img("TOTEMS & SENTINELS/8T.jpg.001.jpg"),
+        alt: "Work from the Totems & Sentinels photographic series by Lisa Wood Studio.",
+      },
+    ],
+    details: [],
+    relatedProjects: ["flipped", "omani-landscapes"],
+    external: null,
+    seoTitle: "Totems & Sentinels — Lisa Wood Studio",
+    seoDescription:
+      "Totems & Sentinels, a photographic series by Lisa Wood Studio.",
+    jsonLdType: "VisualArtwork",
+    status: "placeholder",
+  },
+  {
+    title: "Flipped",
+    slug: "flipped",
+    practice: "Photographs",
     bentoCategory: "photographs",
     editorialCategory: "photographs",
-  }),
-  placeholder("omani-landscapes", "Omani Landscapes", "Photographs", {
+    parent: null,
+    children: null,
+    dualHomed: false,
+    shortDescription: "A photographic series of solitary icebergs.",
+    // TODO(Lisa) §9 — final Flipped copy pending. Imagery is live.
+    longDescription:
+      "TODO(Lisa): full description for Flipped. Imagery is wired from the studio media library.",
+    fieldNotes: null,
+    heroImage: {
+      src: img("FLIPPED/iceberg9.jpg"),
+      alt: "A solitary iceberg from the Flipped photographic series by Lisa Wood Studio.",
+    },
+    galleryImages: [
+      {
+        src: img("FLIPPED/iceberg10.jpg"),
+        alt: "A luminous iceberg from the Flipped photographic series by Lisa Wood Studio.",
+      },
+      {
+        src: img("FLIPPED/DSC7251 64X43.jpg"),
+        alt: "Work from the Flipped photographic series by Lisa Wood Studio.",
+      },
+      {
+        src: img("FLIPPED/DSC7694 OG DARKER.jpg"),
+        alt: "A dark study from the Flipped photographic series by Lisa Wood Studio.",
+      },
+    ],
+    details: [],
+    relatedProjects: ["omani-landscapes", "totems-and-sentinels"],
+    external: null,
+    seoTitle: "Flipped — Lisa Wood Studio",
+    seoDescription: "Flipped, a photographic series by Lisa Wood Studio.",
+    jsonLdType: "VisualArtwork",
+    status: "placeholder",
+  },
+  {
+    title: "Omani Landscapes",
+    slug: "omani-landscapes",
+    practice: "Photographs",
     bentoCategory: "photographs",
     editorialCategory: "photographs",
-  }),
+    parent: null,
+    children: null,
+    dualHomed: false,
+    shortDescription: "A photographic series of the desert landscapes of Oman.",
+    // TODO(Lisa) §9 — final Omani Landscapes copy pending. Imagery is live.
+    longDescription:
+      "TODO(Lisa): full description for Omani Landscapes. Imagery is wired from the studio media library.",
+    fieldNotes: null,
+    heroImage: {
+      src: img("OMANI LANDSCAPES/Desert Pano 1 copy 2_1.jpg"),
+      alt: "Desert panorama from the Omani Landscapes series by Lisa Wood Studio.",
+    },
+    galleryImages: [
+      {
+        src: img("OMANI LANDSCAPES/7532 FINAL_1.jpg"),
+        alt: "Work from the Omani Landscapes photographic series by Lisa Wood Studio.",
+      },
+      {
+        src: img("OMANI LANDSCAPES/BLUE_1.jpg"),
+        alt: "A blue-toned study from the Omani Landscapes series by Lisa Wood Studio.",
+      },
+      {
+        src: img("OMANI LANDSCAPES/L1006922 DUNES copy.jpg"),
+        alt: "Desert dunes from the Omani Landscapes series by Lisa Wood Studio.",
+      },
+      {
+        src: img("OMANI LANDSCAPES/L1007471 PANO black pink.jpg"),
+        alt: "A panoramic study from the Omani Landscapes series by Lisa Wood Studio.",
+      },
+      {
+        src: img("OMANI LANDSCAPES/L1007481 FINAL.jpg"),
+        alt: "Work from the Omani Landscapes photographic series by Lisa Wood Studio.",
+      },
+    ],
+    details: [],
+    relatedProjects: ["flipped", "totems-and-sentinels"],
+    external: null,
+    seoTitle: "Omani Landscapes — Lisa Wood Studio",
+    seoDescription:
+      "Omani Landscapes, a photographic series of the desert landscapes of Oman by Lisa Wood Studio.",
+    jsonLdType: "VisualArtwork",
+    status: "placeholder",
+  },
   // TODO(Lisa) §9.1 — 6th Photographs series title is not yet supplied.
   placeholder("photographs-series-six", "Photographs Series (Untitled)", "Photographs", {
     bentoCategory: "photographs",
@@ -537,16 +691,16 @@ export const projects: Project[] = [
       "A studio philosophy carried across three projects — a book, a one-night installation, and a public art project concept to improve teenage mental health. Three modalities — sauna, cold plunge, and whole-body vibration — sequenced together and scientifically proven to improve mental health and long-term well-being.",
     fieldNotes: null,
     heroImage: {
-      src: `${IMG}/luxuriate/01-l1009938-book-in-mirrorre-copy-3f217939.webp`,
+      src: img("LUXURIATE IN DISCOMFORT/L1009938 book in mirrorRE copy.jpg"),
       alt: "The Luxuriate In Discomfort book reflected in a mirror, by Lisa Wood Studio.",
     },
     galleryImages: [
       {
-        src: `${IMG}/luxuriate/02-l1009933-resize-957f3711.webp`,
+        src: img("LUXURIATE IN DISCOMFORT/jp.jpg"),
         alt: "Work from the Luxuriate in Discomfort practice by Lisa Wood Studio.",
       },
       {
-        src: `${IMG}/luxuriate/03-jp-ece31b85.webp`,
+        src: img("LUXURIATE IN DISCOMFORT/L1009933 RESIZE.jpg"),
         alt: "Luxuriate in Discomfort studio philosophy work by Lisa Wood Studio.",
       },
     ],
@@ -587,12 +741,12 @@ export const projects: Project[] = [
       "A 30-page digest that explores how regular engagement with discomfort can lead to long-term contentment, written by the artist in 2020 for her son graduating from college into a pandemic-induced lockdown.",
     fieldNotes: null,
     heroImage: {
-      src: `${IMG}/luxuriate/01-l1009938-book-in-mirrorre-copy-3f217939.webp`,
+      src: img("LUXURIATE IN DISCOMFORT/L1009938 book in mirrorRE copy.jpg"),
       alt: "The Luxuriate In Discomfort book by Lisa Wood Studio.",
     },
     galleryImages: [
       {
-        src: `${IMG}/installation/03-l1009938-book-in-mirrorre-copy-22884a1e.webp`,
+        src: img("LUXURIATE IN DISCOMFORT/L1009893.jpg"),
         alt: "Pages of the Luxuriate In Discomfort book by Lisa Wood Studio.",
       },
     ],
@@ -621,21 +775,21 @@ export const projects: Project[] = [
       "A one-night-only exhibition staged inside the artist's bedroom at the height of the pandemic, opened to a small masked, distanced audience. The works on view — a book, poetry, a large-scale painting, and a video clip — presented as a culmination of grief and transformation.",
     fieldNotes: null,
     heroImage: {
-      src: `${IMG}/installation/01-l1009866-owning-6b3836fc.webp`,
+      src: img("LUXURIATE IN DISCOMFORT/L1009866 owning.jpg"),
       alt: "The one-night installation December, Sun Valley, by Lisa Wood Studio.",
     },
     galleryImages: [
       {
-        src: `${IMG}/installation/02-l1009933-resize-d3a26792.webp`,
-        alt: "Works on view at the one-night installation December, Sun Valley, by Lisa Wood Studio.",
-      },
-      {
-        src: `${IMG}/installation/05-cold-poem-d7792bd1.webp`,
+        src: img("LUXURIATE IN DISCOMFORT/COLD POEM.jpg"),
         alt: "Cold poem from the one-night installation December, Sun Valley, by Lisa Wood Studio.",
       },
       {
-        src: `${IMG}/installation/06-heat-poem-5b2cb3ed.webp`,
+        src: img("LUXURIATE IN DISCOMFORT/HEAT POEM.jpg"),
         alt: "Heat poem from the one-night installation December, Sun Valley, by Lisa Wood Studio.",
+      },
+      {
+        src: img("LUXURIATE IN DISCOMFORT/L1009933 RESIZE.jpg"),
+        alt: "Works on view at the one-night installation December, Sun Valley, by Lisa Wood Studio.",
       },
     ],
     details: [{ label: "Year", value: "2020" }],
@@ -663,10 +817,15 @@ export const projects: Project[] = [
       "LUX addresses the teenage mental health crisis through an intentional discomfort practice: cold plunge, sauna, and whole-body vibration. Built on the artist's own eight-year practice, LUX offers young adults a constructive, approachable framework for building a working relationship with adversity — pairing physical rejuvenation with the psychological reward that follows.",
     fieldNotes: null,
     heroImage: {
-      src: `${IMG}/luxuriate/03-jp-ece31b85.webp`,
+      src: img("LUXURIATE IN DISCOMFORT/jp.jpg"),
       alt: "Concept imagery for LUX, a public art installation by Lisa Wood Studio.",
     },
-    galleryImages: [],
+    galleryImages: [
+      {
+        src: img("LUXURIATE IN DISCOMFORT/lisa quoote.png"),
+        alt: "Quotation from the LUX public art concept by Lisa Wood Studio.",
+      },
+    ],
     details: [{ label: "Year", value: "2024" }],
     relatedProjects: ["luxuriate-book", "luxuriate-installation"],
     external: null,
