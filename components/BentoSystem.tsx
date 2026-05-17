@@ -317,7 +317,7 @@ export default function BentoSystem() {
               <div
                 role="region"
                 aria-label={`${node.label} works`}
-                className="absolute bottom-[calc(100%+60px)] left-1/2 z-20 flex -translate-x-1/2 items-end gap-[clamp(30px,3.2vw,56px)]"
+                className="absolute bottom-[calc(100%+120px)] left-1/2 z-20 flex -translate-x-1/2 items-end gap-[clamp(30px,3.2vw,56px)]"
               >
                 {node.children.map((child, ci) => (
                   <FanCard
