@@ -6,7 +6,7 @@
    dark: color-scheme is locked to light and html/body are forced opaque white. */
 :root {
   color-scheme: light only;
-  --nav-h: 84px;
+  --nav-h: 146px;
 }
 
 html,

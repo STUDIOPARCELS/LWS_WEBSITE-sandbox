@@ -17,11 +17,11 @@ import { OPEN_BENTO_EVENT, CLOSE_BENTO_EVENT } from "./SiteHeader";
 
 // Skyline widths: short · tall · TALLEST · tall · short. Aspect held at 100/124.
 const SLEEVE_W: Record<BentoCategory, string> = {
-  conceptual: "clamp(80px, 7.4vw, 120px)",
-  writing: "clamp(100px, 9.2vw, 150px)",
-  photographs: "clamp(122px, 11.4vw, 184px)",
-  installation: "clamp(100px, 9.2vw, 150px)",
-  apps: "clamp(80px, 7.4vw, 120px)",
+  conceptual: "clamp(88px, 8.1vw, 132px)",
+  writing: "clamp(110px, 10.1vw, 165px)",
+  photographs: "clamp(134px, 12.5vw, 202px)",
+  installation: "clamp(110px, 10.1vw, 165px)",
+  apps: "clamp(88px, 8.1vw, 132px)",
 };
 
 // ── The vellum sleeve: a notched pocket, shaded to read as a real object
@@ -294,7 +294,7 @@ export default function BentoSystem() {
           role="region"
           aria-label={`${openNode.label} works`}
           className="pointer-events-none absolute inset-x-0"
-          style={{ top: "var(--nav-h)", bottom: "300px" }}
+          style={{ top: "var(--nav-h)", bottom: "324px" }}
         >
           {openNode.children.map((child, i) => {
             const n = openNode.children.length;
