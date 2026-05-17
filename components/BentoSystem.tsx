@@ -326,7 +326,9 @@ export default function BentoSystem() {
       ref={rootRef}
       className="relative flex min-h-[calc(100vh-var(--nav-h))] w-full flex-col items-center justify-end pb-10 pt-24"
     >
-      {/* Centred row fan — large categories, and any drilled-into parent. */}
+      {/* Centred row fan — large categories, and any drilled-into parent.
+          When drilled, the parent itself becomes a larger bento sleeve and
+          its children fan out from above it. */}
       {showCenteredFan && (
         <div
           id="bento-fan"
@@ -335,20 +337,37 @@ export default function BentoSystem() {
           className="pointer-events-none absolute inset-x-0 flex items-center justify-center px-8"
           style={{ top: "0px", bottom: "300px" }}
         >
-          <div
-            className="grid justify-items-center gap-x-[clamp(28px,4vw,80px)] gap-y-[clamp(16px,2vw,30px)]"
-            style={{ gridTemplateColumns: "repeat(6, minmax(0, 1fr))" }}
-          >
-            {fanItems.map((child, i) => (
-              <FanCard
-                key={`${child.label}-${i}`}
-                child={child}
-                index={i}
-                fanned={fanned}
-                onNavigate={close}
-                onDrill={drill}
-              />
-            ))}
+          <div className="flex flex-col items-center gap-[clamp(30px,3.4vw,56px)]">
+            <div
+              className="grid justify-items-center gap-x-[clamp(28px,4vw,80px)] gap-y-[clamp(16px,2vw,30px)]"
+              style={{ gridTemplateColumns: "repeat(6, minmax(0, 1fr))" }}
+            >
+              {fanItems.map((child, i) => (
+                <FanCard
+                  key={`${child.label}-${i}`}
+                  child={child}
+                  index={i}
+                  fanned={fanned}
+                  onNavigate={close}
+                  onDrill={drill}
+                />
+              ))}
+            </div>
+            {/* The drilled-into parent, shown as a larger bento sleeve that
+                its field sites have fanned out of. */}
+            {drillProject && (
+              <div className="pointer-events-auto">
+                <VellumSleeve
+                  id={`drill-${drillProject.slug}`}
+                  label={drillProject.title}
+                  count={drillProject.children?.length ?? 0}
+                  width="clamp(120px,10vw,160px)"
+                  active
+                  dimmed={false}
+                  onClick={() => openId && open(openId)}
+                />
+              </div>
+            )}
           </div>
         </div>
       )}
