@@ -137,14 +137,14 @@ function VellumSleeve({
 //    label, placed along a semi-circular arc. ──────────────────────────────
 function FanCard({
   child,
-  frac,
   index,
+  total,
   fanned,
   onNavigate,
 }: {
   child: BentoChild;
-  frac: number;
   index: number;
+  total: number;
   fanned: boolean;
   onNavigate: () => void;
 }) {
@@ -153,14 +153,16 @@ function FanCard({
   const name = project?.title ?? child.label;
   const year = project?.years ?? "";
 
-  // Semi-circular arc — cards splay along a wide dome across the desktop.
-  const HALF_SPAN = 42; // degrees from centre to the outer card
-  const HALF_WIDTH = 32; // vw from centre to the outer card
+  // Semi-circular arc — a fixed angular step per card, so the spread scales
+  // with the count: six cards span a wide dome, two sit close to centre.
+  const ANGLE_STEP = 17; // degrees between adjacent cards
+  const R = 47.4; // arc radius, in vw
   const rad = (d: number) => (d * Math.PI) / 180;
-  const R = HALF_WIDTH / Math.sin(rad(HALF_SPAN)); // arc radius, in vw
-  const theta = frac * HALF_SPAN;
+  const offset = total <= 1 ? 0 : index - (total - 1) / 2;
+  const maxOffset = total <= 1 ? 0 : (total - 1) / 2;
+  const theta = offset * ANGLE_STEP;
   const x = R * Math.sin(rad(theta));
-  const dropMax = R * (1 - Math.cos(rad(HALF_SPAN)));
+  const dropMax = R * (1 - Math.cos(rad(maxOffset * ANGLE_STEP)));
   const y = R * (1 - Math.cos(rad(theta))) - dropMax / 2; // centre the arc
 
   const fannedT = `translate(calc(-50% + ${x.toFixed(2)}vw), calc(-50% + ${y.toFixed(2)}vw)) rotate(${theta.toFixed(2)}deg) scale(1)`;
@@ -296,20 +298,16 @@ export default function BentoSystem() {
           className="pointer-events-none absolute inset-x-0"
           style={{ top: "var(--nav-h)", bottom: "324px" }}
         >
-          {openNode.children.map((child, i) => {
-            const n = openNode.children.length;
-            const frac = n <= 1 ? 0 : (i - (n - 1) / 2) / ((n - 1) / 2);
-            return (
-              <FanCard
-                key={`${child.label}-${i}`}
-                child={child}
-                frac={frac}
-                index={i}
-                fanned={fanned}
-                onNavigate={close}
-              />
-            );
-          })}
+          {openNode.children.map((child, i) => (
+            <FanCard
+              key={`${child.label}-${i}`}
+              child={child}
+              index={i}
+              total={openNode.children.length}
+              fanned={fanned}
+              onNavigate={close}
+            />
+          ))}
         </div>
       )}
 
