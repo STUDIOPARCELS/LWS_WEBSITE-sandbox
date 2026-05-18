@@ -6,11 +6,8 @@ import { editorialNav } from "@/content/navigation";
 import { site } from "@/lib/site";
 
 // Homepage header — wordmark top-left (serif), the six editorial categories
-// top-right (Reference Wireframe screen 01). Anchor labels scroll to their
-// editorial section on the homepage; About routes to its own page.
-
-export const OPEN_BENTO_EVENT = "lws:openbento";
-export const CLOSE_BENTO_EVENT = "lws:closebento";
+// top-right (Reference Wireframe). Anchor labels scroll to their editorial
+// section on the homepage; About routes to its own page.
 
 export default function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);

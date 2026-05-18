@@ -1,5 +1,5 @@
 import SiteHeader from "@/components/SiteHeader";
-import BentoSystem from "@/components/BentoSystem";
+import HomeHero from "@/components/HomeHero";
 import EditorialSection from "@/components/EditorialSection";
 import AboutContact from "@/components/AboutContact";
 import SiteFooter from "@/components/SiteFooter";
@@ -26,14 +26,14 @@ export default function HomePage() {
       <SiteHeader />
 
       <main id="top" className="pt-[var(--nav-h)]">
-        {/* HOME — vellum sleeves rest low on the page; the centre stays open
-            white until a sleeve is clicked and its thumbnails fan up. */}
+        {/* HOME — five category cards in a staggered grid with a textual
+            category index alongside (Reference Wireframe). */}
         <section aria-label="Browse the work" className="relative bg-paper">
           <h1 className="sr-only">
             {site.name} — field-based photography, writing, installation, and
             conceptual work by {site.artist}.
           </h1>
-          <BentoSystem />
+          <HomeHero />
           <span className="pointer-events-none absolute bottom-8 right-7 font-mono text-[9px] uppercase tracking-wide text-muted sm:right-10 lg:right-16">
             {site.location}
           </span>
