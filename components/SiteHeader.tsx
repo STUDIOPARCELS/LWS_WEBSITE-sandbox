@@ -5,9 +5,9 @@ import Link from "next/link";
 import { editorialNav } from "@/content/navigation";
 import { site } from "@/lib/site";
 
-// Homepage header — wordmark top-left (serif), the five editorial categories
-// top-right (Reference Wireframe screen 01). Each label scrolls to its
-// editorial section further down the page.
+// Homepage header — wordmark top-left (serif), the six editorial categories
+// top-right (Reference Wireframe screen 01). Anchor labels scroll to their
+// editorial section on the homepage; About routes to its own page.
 
 export const OPEN_BENTO_EVENT = "lws:openbento";
 export const CLOSE_BENTO_EVENT = "lws:closebento";
@@ -32,15 +32,19 @@ export default function SiteHeader() {
           aria-label="Sections"
           className="hidden items-center gap-7 md:flex"
         >
-          {editorialNav.map((item) => (
-            <a
-              key={item.anchor}
-              href={`#${item.anchor}`}
-              className="whitespace-nowrap font-mono text-[11px] uppercase tracking-wide text-muted transition-colors hover:text-ink"
-            >
-              {item.label}
-            </a>
-          ))}
+          {editorialNav.map((item) => {
+            const className =
+              "whitespace-nowrap font-mono text-[11px] uppercase tracking-wide text-muted transition-colors hover:text-ink";
+            return item.href ? (
+              <Link key={item.label} href={item.href} className={className}>
+                {item.label}
+              </Link>
+            ) : (
+              <a key={item.label} href={`/#${item.anchor}`} className={className}>
+                {item.label}
+              </a>
+            );
+          })}
         </nav>
 
         <button
@@ -61,16 +65,29 @@ export default function SiteHeader() {
           aria-label="Sections"
           className="flex w-full flex-col gap-4 border-t border-line/50 px-8 py-6 sm:px-10 md:hidden"
         >
-          {editorialNav.map((item) => (
-            <a
-              key={item.anchor}
-              href={`#${item.anchor}`}
-              onClick={() => setMenuOpen(false)}
-              className="font-mono text-[12px] uppercase tracking-wide text-muted"
-            >
-              {item.label}
-            </a>
-          ))}
+          {editorialNav.map((item) => {
+            const className =
+              "font-mono text-[12px] uppercase tracking-wide text-muted";
+            return item.href ? (
+              <Link
+                key={item.label}
+                href={item.href}
+                onClick={() => setMenuOpen(false)}
+                className={className}
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <a
+                key={item.label}
+                href={`/#${item.anchor}`}
+                onClick={() => setMenuOpen(false)}
+                className={className}
+              >
+                {item.label}
+              </a>
+            );
+          })}
         </nav>
       )}
     </header>

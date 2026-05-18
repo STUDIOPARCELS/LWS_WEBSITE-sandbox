@@ -97,7 +97,9 @@ export interface BentoNode {
 export interface EditorialNavItem {
   label: string;
   /** Homepage anchor id (Path Two smooth-scroll target). */
-  anchor: string;
+  anchor?: string;
+  /** Standalone route target — used instead of anchor for routed pages. */
+  href?: string;
 }
 
 export interface Practice {

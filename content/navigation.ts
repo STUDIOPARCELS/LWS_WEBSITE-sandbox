@@ -88,4 +88,5 @@ export const editorialNav: EditorialNavItem[] = [
   { label: "Luxuriate in Discomfort", anchor: "luxuriate" },
   { label: "Surface Surveys", anchor: "surface-surveys" },
   { label: "Installation", anchor: "installation" },
+  { label: "About", href: "/about" },
 ];
