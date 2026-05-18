@@ -9,6 +9,9 @@ import { site } from "@/lib/site";
 // top-right (Reference Wireframe). Anchor labels scroll to their editorial
 // section on the homepage; About routes to its own page.
 
+export const OPEN_BENTO_EVENT = "lws:openbento";
+export const CLOSE_BENTO_EVENT = "lws:closebento";
+
 export default function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
 
