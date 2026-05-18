@@ -52,10 +52,10 @@ function entryFor(id: BentoCategory): Entry {
   };
 }
 
-// A quiet empty portrait tile with a hairline border (Reference Wireframe).
+// A quiet empty square-cornered tile with a hairline border.
 function Card({ entry }: { entry: Entry }) {
   const className =
-    "block rounded-[26px] border border-line/70 bg-paper shadow-[0_14px_38px_rgba(17,17,17,0.055)] transition-[transform,box-shadow] duration-500 ease-out hover:-translate-y-1.5 hover:shadow-[0_26px_52px_rgba(17,17,17,0.10)]";
+    "block border border-line/70 bg-paper shadow-[0_14px_38px_rgba(17,17,17,0.055)] transition-[transform,box-shadow] duration-500 ease-out hover:-translate-y-1.5 hover:shadow-[0_26px_52px_rgba(17,17,17,0.10)]";
   const style = { height: CARD_HEIGHT, aspectRatio: "4 / 5" };
   return entry.external ? (
     <a
@@ -111,8 +111,9 @@ export default function HomeHero() {
     >
       {/* Staggered cluster — a left column of three, then a right group that
           carries the right column of two plus the serif index, dropped down
-          together so the index sits beside the lower right card. */}
-      <div className="flex items-start gap-[clamp(24px,6vw,110px)]">
+          together so the index sits beside the lower right card. The gap
+          between columns matches the gap between stacked cards. */}
+      <div className="flex items-start" style={{ gap: CARD_GAP }}>
         <div className="flex flex-col" style={{ gap: CARD_GAP }}>
           {left.map((entry) => (
             <Card key={entry.id} entry={entry} />
@@ -120,8 +121,8 @@ export default function HomeHero() {
         </div>
 
         <div
-          className="flex items-end gap-[clamp(24px,6vw,110px)]"
-          style={{ marginTop: stagger }}
+          className="flex items-end"
+          style={{ marginTop: stagger, gap: "clamp(34px, 4.5vw, 80px)" }}
         >
           <div className="flex flex-col" style={{ gap: CARD_GAP }}>
             {right.map((entry) => (
