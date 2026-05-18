@@ -34,7 +34,7 @@ export default function HomePage() {
             conceptual work by {site.artist}.
           </h1>
           <HomeHero />
-          <span className="pointer-events-none absolute bottom-8 right-7 font-mono text-[9px] uppercase tracking-wide text-muted sm:right-10 lg:right-16">
+          <span className="pointer-events-none absolute bottom-10 right-7 font-mono text-[10px] uppercase tracking-[0.2em] text-soft sm:right-10 lg:right-16">
             {site.location}
           </span>
         </section>

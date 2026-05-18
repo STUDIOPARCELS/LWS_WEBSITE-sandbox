@@ -5,7 +5,7 @@ import Link from "next/link";
 import { editorialNav } from "@/content/navigation";
 import { site } from "@/lib/site";
 
-// Homepage header — wordmark top-left (serif), the six editorial categories
+// Homepage header — mono wordmark top-left, the six editorial categories
 // top-right (Reference Wireframe). Anchor labels scroll to their editorial
 // section on the homepage; About routes to its own page.
 
@@ -17,13 +17,13 @@ export default function SiteHeader() {
 
   return (
     <header
-      className="fixed inset-x-0 top-0 z-[100] border-b border-line/50 bg-paper/85 backdrop-blur-xl"
+      className="fixed inset-x-0 top-0 z-[100] bg-paper/85 backdrop-blur-xl"
       style={{ minHeight: "var(--nav-h)" }}
     >
       <div className="flex h-[var(--nav-h)] w-full items-center justify-between gap-6 px-8 sm:px-10">
         <Link
           href="/"
-          className="font-serif text-[17px] font-light uppercase tracking-[0.18em] text-ink"
+          className="font-mono text-[15px] font-light uppercase tracking-[0.3em] text-muted transition-colors hover:text-ink"
         >
           {site.name}
         </Link>
@@ -34,7 +34,7 @@ export default function SiteHeader() {
         >
           {editorialNav.map((item) => {
             const className =
-              "whitespace-nowrap font-mono text-[11px] uppercase tracking-wide text-muted transition-colors hover:text-ink";
+              "whitespace-nowrap font-mono text-[11px] uppercase tracking-[0.2em] text-muted transition-colors hover:text-ink";
             return item.href ? (
               <Link key={item.label} href={item.href} className={className}>
                 {item.label}
@@ -67,7 +67,7 @@ export default function SiteHeader() {
         >
           {editorialNav.map((item) => {
             const className =
-              "font-mono text-[12px] uppercase tracking-wide text-muted";
+              "font-mono text-[12px] uppercase tracking-[0.2em] text-muted";
             return item.href ? (
               <Link
                 key={item.label}
