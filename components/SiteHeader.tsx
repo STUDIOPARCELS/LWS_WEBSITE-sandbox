@@ -20,7 +20,7 @@ export default function SiteHeader() {
       className="fixed inset-x-0 top-0 z-[100] bg-paper/85 backdrop-blur-xl"
       style={{ minHeight: "var(--nav-h)" }}
     >
-      <div className="flex h-[var(--nav-h)] w-full items-center justify-between gap-6 px-8 sm:px-10">
+      <div className="flex h-[var(--nav-h)] w-full items-center justify-between gap-6 px-16 sm:px-20">
         <Link
           href="/"
           className="font-mono text-[15px] font-light uppercase tracking-[0.3em] text-muted transition-colors hover:text-ink"
@@ -63,7 +63,7 @@ export default function SiteHeader() {
       {menuOpen && (
         <nav
           aria-label="Sections"
-          className="flex w-full flex-col gap-4 border-t border-line/50 px-8 py-6 sm:px-10 md:hidden"
+          className="flex w-full flex-col gap-4 border-t border-line/50 px-16 py-6 sm:px-20 md:hidden"
         >
           {editorialNav.map((item) => {
             const className =

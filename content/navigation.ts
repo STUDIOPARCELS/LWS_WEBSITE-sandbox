@@ -82,11 +82,10 @@ export const bentoNav: BentoNode[] = [
 ];
 
 // Path Two — editorial top-right navigation. EXACT order, left to right.
+// Disciplines live in the homepage index; the header carries only the two
+// major bodies of work and About.
 export const editorialNav: EditorialNavItem[] = [
-  { label: "Photographs", anchor: "photographs" },
-  { label: "Writing", anchor: "writing" },
   { label: "Luxuriate in Discomfort", anchor: "luxuriate" },
   { label: "Surface Surveys", anchor: "surface-surveys" },
-  { label: "Installation", anchor: "installation" },
   { label: "About", href: "/about" },
 ];

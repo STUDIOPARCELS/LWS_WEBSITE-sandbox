@@ -16,11 +16,18 @@ const ORDER: BentoCategory[] = [
   "apps",
 ];
 
-// Index entries the wireframe sets in italic.
-const ITALIC = new Set<BentoCategory>(["writing", "conceptual"]);
+// Per-entry typographic tone — the index reads as a quiet hierarchy rather
+// than one flat block of grey (weight + shade + italic all vary).
+const TONE: Record<BentoCategory, string> = {
+  photographs: "font-normal text-ink",
+  writing: "font-light italic text-muted",
+  installation: "font-light text-muted",
+  conceptual: "font-light italic text-soft",
+  apps: "font-light text-soft",
+};
 
 // Shared card geometry — portrait tiles that scale with viewport height.
-const CARD_HEIGHT = "clamp(150px, 21vh, 248px)";
+const CARD_HEIGHT = "clamp(140px, 21vh, 248px)";
 const CARD_GAP = "clamp(18px, 2vh, 30px)";
 
 type Entry = {
@@ -71,8 +78,8 @@ function Card({ entry }: { entry: Entry }) {
 
 function IndexLink({ entry }: { entry: Entry }) {
   const className = [
-    "font-serif text-[18px] font-light leading-snug text-muted transition-colors hover:text-ink",
-    ITALIC.has(entry.id) ? "italic" : "",
+    "font-serif text-[18px] leading-snug transition-colors hover:text-ink",
+    TONE[entry.id],
   ].join(" ");
   return entry.external ? (
     <a
@@ -94,42 +101,46 @@ export default function HomeHero() {
   const entries = ORDER.map(entryFor);
   const left = entries.slice(0, 3);
   const right = entries.slice(3);
+  // The right column drops half a card to stagger the skyline.
+  const stagger = `calc((${CARD_HEIGHT} + ${CARD_GAP}) / 2)`;
 
   return (
     <div
-      className="flex w-full flex-col items-center justify-center gap-12 px-8 lg:flex-row lg:gap-[clamp(40px,7vw,120px)]"
+      className="flex w-full items-center justify-center px-8"
       style={{ minHeight: "calc(100vh - var(--nav-h))" }}
     >
-      {/* Staggered two-column card cluster. */}
-      <div className="flex" style={{ gap: CARD_GAP }}>
+      {/* Staggered cluster — a left column of three, then a right group that
+          carries the right column of two plus the serif index, dropped down
+          together so the index sits beside the lower right card. */}
+      <div className="flex items-start gap-[clamp(24px,6vw,110px)]">
         <div className="flex flex-col" style={{ gap: CARD_GAP }}>
           {left.map((entry) => (
             <Card key={entry.id} entry={entry} />
           ))}
         </div>
+
         <div
-          className="flex flex-col"
-          style={{
-            gap: CARD_GAP,
-            marginTop: `calc((${CARD_HEIGHT} + ${CARD_GAP}) / 2)`,
-          }}
+          className="flex items-end gap-[clamp(24px,6vw,110px)]"
+          style={{ marginTop: stagger }}
         >
-          {right.map((entry) => (
-            <Card key={entry.id} entry={entry} />
-          ))}
+          <div className="flex flex-col" style={{ gap: CARD_GAP }}>
+            {right.map((entry) => (
+              <Card key={entry.id} entry={entry} />
+            ))}
+          </div>
+
+          {/* Serif index — bottom-aligned just above the lower right card. */}
+          <nav aria-label="Browse by category" className="mb-11">
+            <ul className="flex flex-col gap-2.5">
+              {entries.map((entry) => (
+                <li key={entry.id}>
+                  <IndexLink entry={entry} />
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
       </div>
-
-      {/* Serif category index. */}
-      <nav aria-label="Browse by category">
-        <ul className="flex flex-col gap-2.5">
-          {entries.map((entry) => (
-            <li key={entry.id}>
-              <IndexLink entry={entry} />
-            </li>
-          ))}
-        </ul>
-      </nav>
     </div>
   );
 }
