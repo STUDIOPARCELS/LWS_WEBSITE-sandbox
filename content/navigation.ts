@@ -85,7 +85,7 @@ export const bentoNav: BentoNode[] = [
 export const editorialNav: EditorialNavItem[] = [
   { label: "Photographs", anchor: "photographs" },
   { label: "Writing", anchor: "writing" },
-  { label: "Surface Surveys", anchor: "surface-surveys" },
   { label: "Luxuriate in Discomfort", anchor: "luxuriate" },
+  { label: "Surface Surveys", anchor: "surface-surveys" },
   { label: "Installation", anchor: "installation" },
 ];

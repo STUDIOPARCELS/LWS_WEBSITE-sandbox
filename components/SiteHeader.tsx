@@ -2,24 +2,18 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { bentoNav } from "@/content/navigation";
+import { editorialNav } from "@/content/navigation";
 import { site } from "@/lib/site";
 
-// Homepage header — wordmark top-left (serif), the five category labels
-// top-right (Reference Wireframe screen 01). A nav label opens that
-// category's bento pop-out; it does not scroll to a separate section.
+// Homepage header — wordmark top-left (serif), the five editorial categories
+// top-right (Reference Wireframe screen 01). Each label scrolls to its
+// editorial section further down the page.
 
 export const OPEN_BENTO_EVENT = "lws:openbento";
 export const CLOSE_BENTO_EVENT = "lws:closebento";
 
 export default function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
-
-  function openCategory(e: React.MouseEvent, id: string) {
-    e.preventDefault();
-    window.dispatchEvent(new CustomEvent(OPEN_BENTO_EVENT, { detail: id }));
-    setMenuOpen(false);
-  }
 
   return (
     <header
@@ -35,17 +29,16 @@ export default function SiteHeader() {
         </Link>
 
         <nav
-          aria-label="Categories"
+          aria-label="Sections"
           className="hidden items-center gap-7 md:flex"
         >
-          {bentoNav.map((node) => (
+          {editorialNav.map((item) => (
             <a
-              key={node.id}
-              href={`#${node.id}`}
-              onClick={(e) => openCategory(e, node.id)}
-              className="font-mono text-[11px] uppercase tracking-wide text-muted transition-colors hover:text-ink"
+              key={item.anchor}
+              href={`#${item.anchor}`}
+              className="whitespace-nowrap font-mono text-[11px] uppercase tracking-wide text-muted transition-colors hover:text-ink"
             >
-              {node.label}
+              {item.label}
             </a>
           ))}
         </nav>
@@ -65,17 +58,17 @@ export default function SiteHeader() {
 
       {menuOpen && (
         <nav
-          aria-label="Categories"
+          aria-label="Sections"
           className="flex w-full flex-col gap-4 border-t border-line/50 px-8 py-6 sm:px-10 md:hidden"
         >
-          {bentoNav.map((node) => (
+          {editorialNav.map((item) => (
             <a
-              key={node.id}
-              href={`#${node.id}`}
-              onClick={(e) => openCategory(e, node.id)}
+              key={item.anchor}
+              href={`#${item.anchor}`}
+              onClick={() => setMenuOpen(false)}
               className="font-mono text-[12px] uppercase tracking-wide text-muted"
             >
-              {node.label}
+              {item.label}
             </a>
           ))}
         </nav>
